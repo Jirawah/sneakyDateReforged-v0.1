@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  configserver:
+    image: jirawah/ms-configserver:latest
+    container_name: ms-configserver
+    ports:
+      - "8071:8071"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - sneakydate-network
+
+  eurekaserver:
+    image: jirawah/ms-eurekaserver:latest
+    container_name: ms-eurekaserver
+    ports:
+      - "8070:8070"
+    depends_on:
+      configserver:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8070/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    environment:
+      SPRING_APPLICATION_NAME: eurekaserver
+      SPRING_PROFILES_ACTIVE: eurekaserver
+    networks:
+      - sneakydate-network
+
+networks:
+  sneakydate-network:
+    driver: bridge

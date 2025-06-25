@@ -1,0 +1,40 @@
+2025-06-25 14:56:21.682 | 
+2025-06-25 14:56:21.682 |   .   ____          _            __ _ _
+2025-06-25 14:56:21.682 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-06-25 14:56:21.682 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-06-25 14:56:21.682 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-06-25 14:56:21.682 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-06-25 14:56:21.682 |  =========|_|==============|___/=/_/_/_/
+2025-06-25 14:56:21.684 |  :: Spring Boot ::                (v3.1.3)
+2025-06-25 14:56:21.684 | 
+2025-06-25 14:56:21.809 | 2025-06-25T12:56:21.804Z  INFO 1 --- [           main] c.s.m.MsConfigServerApplication          : Starting MsConfigServerApplication v0.0.1-SNAPSHOT using Java 17.0.15 with PID 1 (/app/app.jar started by root in /app)
+2025-06-25 14:56:21.809 | 2025-06-25T12:56:21.807Z  INFO 1 --- [           main] c.s.m.MsConfigServerApplication          : The following 1 profile is active: "git"
+2025-06-25 14:56:23.676 | 2025-06-25T12:56:23.676Z  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=40b1fa73-3e50-3708-b8b8-ef0bfd5f5778
+2025-06-25 14:56:24.076 | 2025-06-25T12:56:24.076Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8071 (http)
+2025-06-25 14:56:24.091 | 2025-06-25T12:56:24.091Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:56:24.091 | 2025-06-25T12:56:24.091Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2025-06-25 14:56:24.224 | 2025-06-25T12:56:24.224Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:56:24.226 | 2025-06-25T12:56:24.226Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2322 ms
+2025-06-25 14:56:30.655 | 2025-06-25T12:56:30.655Z  WARN 1 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration': Unsatisfied dependency expressed through field 'optionalArgs': No qualifying bean of type 'com.netflix.discovery.AbstractDiscoveryClientOptionalArgs<?>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-06-25 14:56:30.663 | 2025-06-25T12:56:30.663Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:56:30.711 | 2025-06-25T12:56:30.711Z  INFO 1 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2025-06-25 14:56:30.711 | 
+2025-06-25 14:56:30.711 | Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-25 14:56:30.739 | 2025-06-25T12:56:30.739Z ERROR 1 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2025-06-25 14:56:30.739 | 
+2025-06-25 14:56:30.739 | ***************************
+2025-06-25 14:56:30.739 | APPLICATION FAILED TO START
+2025-06-25 14:56:30.739 | ***************************
+2025-06-25 14:56:30.739 | 
+2025-06-25 14:56:30.739 | Description:
+2025-06-25 14:56:30.739 | 
+2025-06-25 14:56:30.739 | Field optionalArgs in org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration$RefreshableEurekaClientConfiguration required a bean of type 'com.netflix.discovery.AbstractDiscoveryClientOptionalArgs' that could not be found.
+2025-06-25 14:56:30.739 | 
+2025-06-25 14:56:30.739 | The injection point has the following annotations:
+2025-06-25 14:56:30.739 | 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+2025-06-25 14:56:30.739 | 
+2025-06-25 14:56:30.739 | 
+2025-06-25 14:56:30.739 | Action:
+2025-06-25 14:56:30.739 | 
+2025-06-25 14:56:30.739 | Consider defining a bean of type 'com.netflix.discovery.AbstractDiscoveryClientOptionalArgs' in your configuration.
+2025-06-25 14:56:30.739 | 

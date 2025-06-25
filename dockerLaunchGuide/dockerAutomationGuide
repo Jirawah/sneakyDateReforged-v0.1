@@ -1,0 +1,41 @@
+    This script aims to generate all microservices images (frontend & backend) and launch docker-compose.
+        => No need to manually change paths – script is dynamic
+
+
+Start Script:
+    Go to :
+        cd C:\Users\StagiaireDEV\Desktop\sneakyDateReforged-v0.1\dockerLaunchGuide
+    And run :
+        .\sdrBuildAndUp.ps1
+
+    OR double-click on:
+            sdrBuildAndUpExecution.bat
+    (Go to the dockerLaunchGuide folder through file explorer and click on the sdrBuildAndUpExecution.bat file)
+
+
+
+
+
+Manual build helper :
+
+    Docker Compose location:
+        C:\Users\StagiaireDEV\Desktop\sneakyDateReforged-v0.1\docker-compose\prod
+
+    real-time verification of microservices :
+        while ($true) { Clear-Host; docker ps; Start-Sleep -Seconds 1 }
+
+
+    # Build docker-compose
+    cd C:\Users\StagiaireDEV\Desktop\sneakyDateReforged-v0.1\sdr-backend\docker-compose\prod
+    docker-compose down
+    docker-compose up -d
+
+    # Build image pour ms-configServer
+    cd C:\Users\StagiaireDEV\Desktop\sneakyDateReforged-v0.1\sdr-backend\ms-configServer
+    mvn clean package -DskipTests
+    docker build -t jirawah/ms-configserver:latest .
+
+    # Build image pour ms-eurekaServer
+    cd C:\Users\StagiaireDEV\Desktop\sneakyDateReforged-v0.1\sdr-backend\ms-eurekaServer
+    mvn clean package -DskipTests
+    docker build -t jirawah/ms-eurekaserver:latest .
