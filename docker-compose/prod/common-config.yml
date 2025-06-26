@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  microservice-base-config:
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - SPRING_CONFIG_IMPORT=optional:configserver:http://configserver:8071/
+    networks:
+      - sneakydate-network
+    restart: always
+
+  microservice-configserver-config:
+    environment:
+      - SPRING_PROFILES_ACTIVE=eurekaserver
+      - SPRING_CONFIG_IMPORT=optional:configserver:http://configserver:8071/
+    networks:
+      - sneakydate-network
+    restart: always
+
+networks:
+  sneakydate-network:
+    driver: bridge

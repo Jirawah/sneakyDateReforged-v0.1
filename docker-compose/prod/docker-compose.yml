@@ -12,8 +12,9 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
-    networks:
-      - sneakydate-network
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
 
   eurekaserver:
     image: jirawah/ms-eurekaserver:latest
@@ -31,9 +32,9 @@ services:
       start_period: 10s
     environment:
       SPRING_APPLICATION_NAME: eurekaserver
-      SPRING_PROFILES_ACTIVE: eurekaserver
-    networks:
-      - sneakydate-network
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
 
 networks:
   sneakydate-network:

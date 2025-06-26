@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/sdr-backend/ms-configServer/pom.xml" />
         <option value="$PROJECT_DIR$/sdr-backend/ms-eurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/sdr-backend/ms-auth/pom.xml" />
       </list>
     </option>
   </component>
