@@ -1,0 +1,136 @@
+2025-06-27 11:41:23.019 | 
+2025-06-27 11:41:23.019 |   .   ____          _            __ _ _
+2025-06-27 11:41:23.019 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-06-27 11:41:23.019 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-06-27 11:41:23.019 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-06-27 11:41:23.019 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-06-27 11:41:23.019 |  =========|_|==============|___/=/_/_/_/
+2025-06-27 11:41:23.019 |  :: Spring Boot ::                (v3.1.3)
+2025-06-27 11:41:23.019 | 
+2025-06-27 11:41:23.230 | 2025-06-27T09:41:23.228Z  INFO 1 --- [           main] c.s.ms_auth.MsAuthApplication            : Starting MsAuthApplication v0.0.1-SNAPSHOT using Java 17.0.15 with PID 1 (/app/app.jar started by root in /app)
+2025-06-27 11:41:23.232 | 2025-06-27T09:41:23.232Z  INFO 1 --- [           main] c.s.ms_auth.MsAuthApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://configserver-ms:8071
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://configserver-ms:8071:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://configserver-ms:8071/ms-auth/default": configserver-ms. Will be trying the next url if available
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  WARN 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@3c407114 uris = array<String>['http://configserver-ms:8071'], optional = true, profiles = 'default']): I/O error on GET request for "http://configserver-ms:8071/ms-auth/default": configserver-ms
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://configserver-ms:8071
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://configserver-ms:8071:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://configserver-ms:8071/ms-auth/default": configserver-ms. Will be trying the next url if available
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  WARN 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@2f7298b uris = array<String>['http://configserver-ms:8071'], optional = true, profiles = 'default']): I/O error on GET request for "http://configserver-ms:8071/ms-auth/default": configserver-ms
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://configserver-ms:8071
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  INFO 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://configserver-ms:8071:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://configserver-ms:8071/ms-auth/default": configserver-ms. Will be trying the next url if available
+2025-06-27 11:41:23.394 | 2025-06-27T09:41:23.394Z  WARN 1 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@188715b5 uris = array<String>['http://configserver-ms:8071'], optional = true, profiles = 'default']): I/O error on GET request for "http://configserver-ms:8071/ms-auth/default": configserver-ms
+2025-06-27 11:41:25.675 | 2025-06-27T09:41:25.671Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-27 11:41:25.934 | 2025-06-27T09:41:25.934Z  INFO 1 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 248 ms. Found 1 JPA repository interfaces.
+2025-06-27 11:41:26.934 | 2025-06-27T09:41:26.934Z  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=50bbf430-45a2-3fee-ba85-5cdf44392e70
+2025-06-27 11:41:28.018 | 2025-06-27T09:41:28.018Z  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-27 11:41:28.031 | 2025-06-27T09:41:28.031Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-27 11:41:28.031 | 2025-06-27T09:41:28.031Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2025-06-27 11:41:28.121 | 2025-06-27T09:41:28.121Z  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-27 11:41:28.123 | 2025-06-27T09:41:28.123Z  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4720 ms
+2025-06-27 11:41:28.394 | 2025-06-27T09:41:28.394Z ERROR 1 --- [           main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtAuthFilter' defined in URL [jar:file:/app/app.jar!/BOOT-INF/classes!/com/sneakyDateReforged/ms_auth/security/JwtAuthFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtUtils': Injection of autowired dependencies failed
+2025-06-27 11:41:28.430 | 2025-06-27T09:41:28.430Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-27 11:41:28.445 | 2025-06-27T09:41:28.445Z  WARN 1 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2025-06-27 11:41:28.471 | 2025-06-27T09:41:28.470Z  INFO 1 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2025-06-27 11:41:28.471 | 
+2025-06-27 11:41:28.471 | Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-27 11:41:28.514 | 2025-06-27T09:41:28.507Z ERROR 1 --- [           main] o.s.boot.SpringApplication               : Application run failed
+2025-06-27 11:41:28.514 | 
+2025-06-27 11:41:28.514 | org.springframework.context.ApplicationContextException: Unable to start web server
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:164) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:602) ~[spring-context-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at com.sneakyDateReforged.ms_auth.MsAuthApplication.main(MsAuthApplication.java:10) ~[classes!/:0.0.1-SNAPSHOT]
+2025-06-27 11:41:28.514 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-06-27 11:41:28.514 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-06-27 11:41:28.514 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-06-27 11:41:28.514 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) ~[app.jar:0.0.1-SNAPSHOT]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95) ~[app.jar:0.0.1-SNAPSHOT]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) ~[app.jar:0.0.1-SNAPSHOT]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) ~[app.jar:0.0.1-SNAPSHOT]
+2025-06-27 11:41:28.514 | Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:142) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:489) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:183) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	... 16 common frames omitted
+2025-06-27 11:41:28.514 | Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'jwtAuthFilter' defined in URL [jar:file:/app/app.jar!/BOOT-INF/classes!/com/sneakyDateReforged/ms_auth/security/JwtAuthFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'jwtUtils': Injection of autowired dependencies failed
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:173) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:168) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:153) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:261) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:235) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4886) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1328) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1318) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+2025-06-27 11:41:28.514 | 	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:846) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1328) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1318) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+2025-06-27 11:41:28.514 | 	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:241) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:918) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:485) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-06-27 11:41:28.514 | 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-3.1.3.jar!/:3.1.3]
+2025-06-27 11:41:28.514 | 	... 21 common frames omitted
+2025-06-27 11:41:28.514 | Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jwtUtils': Injection of autowired dependencies failed
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:489) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1416) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:597) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1417) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:888) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	... 62 common frames omitted
+2025-06-27 11:41:28.514 | Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'jwt.expirationMs' in value "${jwt.expirationMs}"
+2025-06-27 11:41:28.514 | 	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:191) ~[spring-context-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:920) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1358) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1337) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:713) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:696) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:483) ~[spring-beans-6.0.11.jar!/:6.0.11]
+2025-06-27 11:41:28.514 | 	... 74 common frames omitted
+2025-06-27 11:41:28.514 | 

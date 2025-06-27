@@ -1,22 +1,35 @@
-version: '3.9'
-
 services:
-  microservice-base-config:
-    environment:
-      - SPRING_PROFILES_ACTIVE=default
-      - SPRING_CONFIG_IMPORT=optional:configserver:http://configserver:8071/
+
+  network-deploy-service:
     networks:
       - sneakydate-network
-    restart: always
+
+  microservice-base-config:
+    extends:
+      service: network-deploy-service
+    networks:
+      - sneakydate-network
+
+  microservice-db-config:
+    extends:
+      service: network-deploy-service
+    image: mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 10s
+      retries: 10
+      interval: 10s
+      start_period: 10s
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - sneakydate-network
 
   microservice-configserver-config:
-    environment:
-      - SPRING_PROFILES_ACTIVE=eurekaserver
-      - SPRING_CONFIG_IMPORT=optional:configserver:http://configserver:8071/
+    extends:
+      service: network-deploy-service
     networks:
       - sneakydate-network
-    restart: always
 
 networks:
   sneakydate-network:
-    driver: bridge

@@ -5,6 +5,7 @@ import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -41,13 +42,18 @@ public class JwtUtils {
         return parseClaims(token).getBody().getSubject();
     }
 
-    public boolean isTokenValid(String token) {
+    public boolean isTokenValid(String token, UserDetails userDetails) {
         try {
-            parseClaims(token);
-            return true;
-        } catch (JwtException | IllegalArgumentException e) {
+            String email = extractUsername(token);
+            return email.equals(userDetails.getUsername()) && !isExpired(token);
+        } catch (Exception e) {
             return false;
         }
+    }
+
+    private boolean isExpired(String token) {
+        Date expiration = parseClaims(token).getBody().getExpiration();
+        return expiration.before(new Date());
     }
 
     private Jws<Claims> parseClaims(String token) {

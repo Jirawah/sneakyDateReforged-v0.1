@@ -39,3 +39,8 @@ Manual build helper :
     cd C:\Users\StagiaireDEV\Desktop\sneakyDateReforged-v0.1\sdr-backend\ms-eurekaServer
     mvn clean package -DskipTests
     docker build -t jirawah/ms-eurekaserver:latest .
+
+    # Build image pour ms-auth
+    cd C:\Users\StagiaireDEV\Desktop\sneakyDateReforged-v0.1\sdr-backend\ms-auth
+    mvn clean package -DskipTests
+    docker build -t jirawah/ms-auth:latest .

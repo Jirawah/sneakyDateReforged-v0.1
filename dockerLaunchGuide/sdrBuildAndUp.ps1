@@ -4,7 +4,8 @@
 
 $projects = @(
     @{ Name = "ms-configServer"; Path = "..\sdr-backend\ms-configServer"; Image = "jirawah/ms-configserver:latest" },
-    @{ Name = "ms-eurekaServer"; Path = "..\sdr-backend\ms-eurekaServer"; Image = "jirawah/ms-eurekaserver:latest" }
+    @{ Name = "ms-eurekaServer"; Path = "..\sdr-backend\ms-eurekaServer"; Image = "jirawah/ms-eurekaserver:latest" },
+    @{ Name = "ms-auth"; Path = "..\sdr-backend\ms-auth"; Image = "jirawah/ms-auth:latest" }
 )
 
 $basePath = Split-Path -Parent $MyInvocation.MyCommand.Path

@@ -63,6 +63,7 @@ public class AuthService {
 
     // 🔐 Connexion
     public AuthResponse login(LoginRequest request) {
+        System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),

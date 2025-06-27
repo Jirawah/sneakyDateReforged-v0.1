@@ -1,0 +1,4 @@
+CREATE USER 'msauthuser'@'%' IDENTIFIED BY 'msauthpwd';
+GRANT ALL PRIVILEGES ON authdb.* TO 'msauthuser'@'%';
+FLUSH PRIVILEGES;
+CREATE DATABASE IF NOT EXISTS authdb;
