@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -20,6 +21,15 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final JwtUtils jwtUtils;
     private final UserAuthDetailsService userDetailsService;
+
+    // Liste des routes exclues du filtre JWT
+    private static final List<String> EXCLUDED_PATHS = List.of(
+            "/auth/register",
+            "/auth/login",
+            "/auth/discord-sync",
+            "/auth/reset-request",
+            "/auth/reset-password"
+    );
 
     @Override
     protected void doFilterInternal(
@@ -30,19 +40,26 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         final String authHeader = request.getHeader("Authorization");
 
-        // Vérifie s’il y a un token de type Bearer
+        // 🔐 Cas : aucune Authorization ou mauvais format
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            System.out.println("[JWT] Aucune entête Authorization présente ou mal formée → requête ignorée");
             filterChain.doFilter(request, response);
             return;
         }
 
         final String jwt = authHeader.substring(7);
 
-        // On laisse jwtUtils gérer toute la logique (y compris extraire email et vérifier validité)
         try {
             String email = jwtUtils.extractUsername(jwt);
+            System.out.println("[JWT] Email extrait du token : " + email);
 
-            if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            if (email == null || email.isBlank()) {
+                System.out.println("[JWT] Email null ou vide → requête ignorée");
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            if (SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(email);
 
                 if (jwtUtils.isTokenValid(jwt, userDetails)) {
@@ -54,11 +71,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                             );
 
                     SecurityContextHolder.getContext().setAuthentication(authToken);
+                    System.out.println("[JWT] Utilisateur authentifié : " + email);
+                } else {
+                    System.out.println("[JWT] Token invalide pour l'utilisateur : " + email);
                 }
             }
         } catch (Exception e) {
-            // Optionnel : journaliser ou ignorer les erreurs de token
-            // logger.warn("Invalid JWT: " + e.getMessage());
+            System.out.println("[JWT] Erreur lors du traitement du token : " + e.getMessage());
         }
 
         filterChain.doFilter(request, response);
@@ -66,9 +85,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String path = request.getServletPath();
+        String path = request.getServletPath().toLowerCase(); // ignore la casse
+        boolean excluded = EXCLUDED_PATHS.stream().anyMatch(path::equalsIgnoreCase);
         System.out.println("[FILTER] Requête reçue sur : " + path);
-        boolean excluded = path.equals("/auth/register") || path.equals("/auth/login") || path.equals("/auth/discord-sync");
         System.out.println("[FILTER] Est exclue du filtre ? " + excluded);
         return excluded;
     }

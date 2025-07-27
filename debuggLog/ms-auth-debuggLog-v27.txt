@@ -1,0 +1,480 @@
+2025-07-27 23:49:08.337 | 
+2025-07-27 23:49:08.337 |   .   ____          _            __ _ _
+2025-07-27 23:49:08.337 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-07-27 23:49:08.337 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-07-27 23:49:08.337 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-07-27 23:49:08.337 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-07-27 23:49:08.337 |  =========|_|==============|___/=/_/_/_/
+2025-07-27 23:49:08.337 |  :: Spring Boot ::                (v3.1.3)
+2025-07-27 23:49:08.337 | 
+2025-07-27 23:49:08.447 | 2025-07-27T21:49:08.445Z  INFO 26 --- [           main] c.s.ms_auth.MsAuthApplication            : Starting MsAuthApplication v0.0.1-SNAPSHOT using Java 17.0.15 with PID 26 (/app/app.jar started by root in /app)
+2025-07-27 23:49:08.447 | 2025-07-27T21:49:08.447Z  INFO 26 --- [           main] c.s.ms_auth.MsAuthApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-07-27 23:49:08.524 | 2025-07-27T21:49:08.522Z  INFO 26 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://ms-configserver:8071
+2025-07-27 23:49:08.524 | 2025-07-27T21:49:08.522Z  INFO 26 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ms-auth, profiles=[default], label=null, version=f8b6d66d4aaba4937d5b76463b377b98cbf87d68, state=null
+2025-07-27 23:49:10.029 | 2025-07-27T21:49:10.026Z  INFO 26 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-27 23:49:10.226 | 2025-07-27T21:49:10.225Z  INFO 26 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 189 ms. Found 2 JPA repository interfaces.
+2025-07-27 23:49:10.804 | 2025-07-27T21:49:10.801Z  INFO 26 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ed646cc7-f9c2-3bde-befc-8048b1b75b95
+2025-07-27 23:49:11.707 | 2025-07-27T21:49:11.707Z  INFO 26 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2025-07-27 23:49:11.723 | 2025-07-27T21:49:11.723Z  INFO 26 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-27 23:49:11.726 | 2025-07-27T21:49:11.724Z  INFO 26 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2025-07-27 23:49:11.914 | 2025-07-27T21:49:11.908Z  INFO 26 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-27 23:49:11.914 | 2025-07-27T21:49:11.910Z  INFO 26 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3382 ms
+2025-07-27 23:49:12.349 | 2025-07-27T21:49:12.341Z  INFO 26 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-27 23:49:12.474 | 2025-07-27T21:49:12.473Z  INFO 26 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
+2025-07-27 23:49:12.478 | 2025-07-27T21:49:12.477Z  INFO 26 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-07-27 23:49:12.732 | 2025-07-27T21:49:12.732Z  INFO 26 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-07-27 23:49:12.950 | 2025-07-27T21:49:12.950Z  INFO 26 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-27 23:49:12.974 | 2025-07-27T21:49:12.973Z  INFO 26 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-27 23:49:13.389 | 2025-07-27T21:49:13.386Z  INFO 26 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10afe71a
+2025-07-27 23:49:13.389 | 2025-07-27T21:49:13.389Z  INFO 26 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-27 23:49:13.439 | 2025-07-27T21:49:13.438Z  WARN 26 --- [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-27 23:49:13.804 | 2025-07-27T21:49:13.798Z  INFO 26 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-07-27 23:49:14.966 | 2025-07-27T21:49:14.966Z  INFO 26 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-27 23:49:15.060 | Hibernate: create table password_reset_token (id bigint not null auto_increment, email varchar(255), expiration_date datetime(6), token varchar(255) not null, used bit not null, primary key (id)) engine=InnoDB
+2025-07-27 23:49:15.156 | Hibernate: create table user_auth_model (id bigint not null auto_increment, created_at datetime(6), discord_avatar_url varchar(255), discord_discriminator varchar(255), discord_id varchar(255), discord_nickname varchar(255), discord_username varchar(255), discord_validated bit not null, email varchar(255) not null, password varchar(255) not null, pseudo varchar(255) not null, role varchar(255), steam_id varchar(255) not null, steam_validated bit not null, updated_at datetime(6), primary key (id)) engine=InnoDB
+2025-07-27 23:49:15.272 | Hibernate: alter table password_reset_token drop index UK_g0guo4k8krgpwuagos61oc06j
+2025-07-27 23:49:15.307 | Hibernate: alter table password_reset_token add constraint UK_g0guo4k8krgpwuagos61oc06j unique (token)
+2025-07-27 23:49:15.350 | Hibernate: alter table user_auth_model drop index UK_n0fd2d4v8c7vs7kciq1vb130e
+2025-07-27 23:49:15.359 | Hibernate: alter table user_auth_model add constraint UK_n0fd2d4v8c7vs7kciq1vb130e unique (discord_id)
+2025-07-27 23:49:15.407 | Hibernate: alter table user_auth_model drop index UK_409qw01u2i44ix2ok6t9hwckn
+2025-07-27 23:49:15.408 | Hibernate: alter table user_auth_model add constraint UK_409qw01u2i44ix2ok6t9hwckn unique (email)
+2025-07-27 23:49:15.432 | Hibernate: alter table user_auth_model drop index UK_rbuqets597ax56ki2jwasieq8
+2025-07-27 23:49:15.434 | Hibernate: alter table user_auth_model add constraint UK_rbuqets597ax56ki2jwasieq8 unique (pseudo)
+2025-07-27 23:49:15.463 | Hibernate: alter table user_auth_model drop index UK_1eyhq2eshg2kxbrmr0ns830eq
+2025-07-27 23:49:15.466 | Hibernate: alter table user_auth_model add constraint UK_1eyhq2eshg2kxbrmr0ns830eq unique (steam_id)
+2025-07-27 23:49:15.492 | 2025-07-27T21:49:15.491Z  INFO 26 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-27 23:49:16.789 | 2025-07-27T21:49:16.788Z  WARN 26 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-27 23:49:17.611 | 2025-07-27T21:49:17.611Z  INFO 26 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2025-07-27 23:49:17.702 | 2025-07-27T21:49:17.698Z  INFO 26 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52abed9d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@281b2dfd, org.springframework.security.web.context.SecurityContextHolderFilter@67328bcb, org.springframework.security.web.header.HeaderWriterFilter@48bc2fce, org.springframework.security.web.authentication.logout.LogoutFilter@563ccd31, com.sneakyDateReforged.ms_auth.security.JwtAuthFilter@6048e26a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2416c658, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d5f4900, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@492be039, org.springframework.security.web.session.SessionManagementFilter@6c9b44bf, org.springframework.security.web.access.ExceptionTranslationFilter@5b1c32e4, org.springframework.security.web.access.intercept.AuthorizationFilter@30f28b5]
+2025-07-27 23:49:18.428 | 2025-07-27T21:49:18.422Z  INFO 26 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-07-27 23:49:18.537 | 2025-07-27T21:49:18.535Z  WARN 26 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-27 23:49:19.011 | 2025-07-27T21:49:18.995Z  INFO 26 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-07-27 23:49:19.262 | 2025-07-27T21:49:19.260Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-07-27 23:49:19.269 | 2025-07-27T21:49:19.269Z  INFO 26 --- [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-27 23:49:19.314 | 2025-07-27T21:49:19.313Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-07-27 23:49:19.314 | 2025-07-27T21:49:19.314Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-07-27 23:49:19.314 | 2025-07-27T21:49:19.314Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-07-27 23:49:19.315 | 2025-07-27T21:49:19.314Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-07-27 23:49:19.315 | 2025-07-27T21:49:19.314Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-07-27 23:49:19.315 | 2025-07-27T21:49:19.315Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-07-27 23:49:19.316 | 2025-07-27T21:49:19.315Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-07-27 23:49:19.775 | 2025-07-27T21:49:19.775Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-07-27 23:49:19.778 | 2025-07-27T21:49:19.777Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-07-27 23:49:19.804 | 2025-07-27T21:49:19.804Z  INFO 26 --- [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-27 23:49:19.810 | 2025-07-27T21:49:19.810Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1753652959809 with initial instances count: 0
+2025-07-27 23:49:19.816 | 2025-07-27T21:49:19.816Z  INFO 26 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MS-AUTH with eureka with status UP
+2025-07-27 23:49:19.817 | 2025-07-27T21:49:19.817Z  INFO 26 --- [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1753652959817, current=UP, previous=STARTING]
+2025-07-27 23:49:19.824 | 2025-07-27T21:49:19.822Z  INFO 26 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-AUTH/5fe7f2f5c242:ms-auth:8082: registering service...
+2025-07-27 23:49:19.904 | 2025-07-27T21:49:19.899Z  INFO 26 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2025-07-27 23:49:19.904 | 2025-07-27T21:49:19.900Z  INFO 26 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2025-07-27 23:49:19.986 | 2025-07-27T21:49:19.985Z  INFO 26 --- [           main] c.s.ms_auth.MsAuthApplication            : Started MsAuthApplication in 13.873 seconds (process running for 14.589)
+2025-07-27 23:49:20.035 | 2025-07-27T21:49:20.034Z  INFO 26 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-AUTH/5fe7f2f5c242:ms-auth:8082 - registration status: 204
+2025-07-27 23:49:26.238 | 2025-07-27T21:49:26.238Z  INFO 26 --- [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-27 23:49:26.238 | 2025-07-27T21:49:26.238Z  INFO 26 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-27 23:49:26.240 | 2025-07-27T21:49:26.239Z  INFO 26 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-27 23:49:26.255 | 2025-07-27T21:49:26.254Z DEBUG 26 --- [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:49:26.264 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:26.264 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:26.264 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:49:26.267 | 2025-07-27T21:49:26.267Z DEBUG 26 --- [nio-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:49:26.281 | 2025-07-27T21:49:26.280Z DEBUG 26 --- [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:49:26.281 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:26.281 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:26.345 | 2025-07-27T21:49:26.345Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:49:26.345 | 2025-07-27T21:49:26.345Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:49:26.552 | 2025-07-27T21:49:26.551Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:49:26.614 | 2025-07-27T21:49:26.614Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:26.614 | 2025-07-27T21:49:26.614Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:26.614 | 2025-07-27T21:49:26.614Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:49:26.614 | 2025-07-27T21:49:26.614Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:26.614 | 2025-07-27T21:49:26.614Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:26.615 | 2025-07-27T21:49:26.614Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:26.893 | 2025-07-27T21:49:26.892Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:26.893 | 2025-07-27T21:49:26.893Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:26.893 | 2025-07-27T21:49:26.893Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:49:26.893 | 2025-07-27T21:49:26.893Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:26.894 | 2025-07-27T21:49:26.893Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:26.894 | 2025-07-27T21:49:26.894Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:26.894 | 2025-07-27T21:49:26.894Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:49:26.894 | 2025-07-27T21:49:26.894Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:49:26.894 | 2025-07-27T21:49:26.894Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:49:36.348 | 2025-07-27T21:49:36.348Z DEBUG 26 --- [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:49:36.349 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:36.349 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:36.350 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:49:36.350 | 2025-07-27T21:49:36.349Z DEBUG 26 --- [nio-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:49:36.352 | 2025-07-27T21:49:36.352Z DEBUG 26 --- [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:49:36.352 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:36.352 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:36.356 | 2025-07-27T21:49:36.355Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:49:36.356 | 2025-07-27T21:49:36.355Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:49:36.488 | 2025-07-27T21:49:36.487Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:49:36.550 | 2025-07-27T21:49:36.549Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:36.550 | 2025-07-27T21:49:36.550Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:36.550 | 2025-07-27T21:49:36.550Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:49:36.550 | 2025-07-27T21:49:36.550Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:36.550 | 2025-07-27T21:49:36.550Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:36.550 | 2025-07-27T21:49:36.550Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.796Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.796Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.796Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.796Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.796Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.796Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.797Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.797Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:49:36.797 | 2025-07-27T21:49:36.797Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:49:47.305 | 2025-07-27T21:49:47.304Z DEBUG 26 --- [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:49:47.305 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:47.305 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:47.305 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:49:47.305 | 2025-07-27T21:49:47.305Z DEBUG 26 --- [nio-8082-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:49:47.307 | 2025-07-27T21:49:47.307Z DEBUG 26 --- [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:49:47.307 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:47.307 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:47.309 | 2025-07-27T21:49:47.309Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:49:47.310 | 2025-07-27T21:49:47.309Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:49:47.432 | 2025-07-27T21:49:47.432Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:49:47.504 | 2025-07-27T21:49:47.504Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:47.504 | 2025-07-27T21:49:47.504Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:47.504 | 2025-07-27T21:49:47.504Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:49:47.505 | 2025-07-27T21:49:47.504Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:47.505 | 2025-07-27T21:49:47.505Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:47.505 | 2025-07-27T21:49:47.505Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:47.775 | 2025-07-27T21:49:47.775Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:47.776 | 2025-07-27T21:49:47.775Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:47.776 | 2025-07-27T21:49:47.776Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:49:47.776 | 2025-07-27T21:49:47.776Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:47.776 | 2025-07-27T21:49:47.776Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:47.776 | 2025-07-27T21:49:47.776Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:47.776 | 2025-07-27T21:49:47.776Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:49:47.776 | 2025-07-27T21:49:47.776Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:49:47.777 | 2025-07-27T21:49:47.777Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:49:48.696 | 2025-07-27T21:49:48.696Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-07-27 23:49:48.696 | 2025-07-27T21:49:48.696Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-07-27 23:49:48.696 | 2025-07-27T21:49:48.696Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-07-27 23:49:48.696 | 2025-07-27T21:49:48.696Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-07-27 23:49:48.697 | 2025-07-27T21:49:48.696Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-07-27 23:49:48.697 | 2025-07-27T21:49:48.696Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-07-27 23:49:48.697 | 2025-07-27T21:49:48.696Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-07-27 23:49:48.716 | 2025-07-27T21:49:48.711Z  INFO 26 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-07-27 23:49:57.699 | 2025-07-27T21:49:57.697Z DEBUG 26 --- [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:49:57.699 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:57.699 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:57.699 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:49:57.699 | 2025-07-27T21:49:57.698Z DEBUG 26 --- [nio-8082-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:49:57.701 | 2025-07-27T21:49:57.701Z DEBUG 26 --- [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:49:57.701 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:49:57.708 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:49:57.714 | 2025-07-27T21:49:57.710Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:49:57.714 | 2025-07-27T21:49:57.710Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:49:57.927 | 2025-07-27T21:49:57.927Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:49:57.983 | 2025-07-27T21:49:57.982Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:57.983 | 2025-07-27T21:49:57.983Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:57.983 | 2025-07-27T21:49:57.983Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:49:57.983 | 2025-07-27T21:49:57.983Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:57.983 | 2025-07-27T21:49:57.983Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:57.983 | 2025-07-27T21:49:57.983Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:58.222 | 2025-07-27T21:49:58.221Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:49:58.222 | 2025-07-27T21:49:58.222Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:49:58.222 | 2025-07-27T21:49:58.222Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:49:58.222 | 2025-07-27T21:49:58.222Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:49:58.222 | 2025-07-27T21:49:58.222Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:49:58.222 | 2025-07-27T21:49:58.222Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:49:58.223 | 2025-07-27T21:49:58.223Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:49:58.223 | 2025-07-27T21:49:58.223Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:49:58.223 | 2025-07-27T21:49:58.223Z DEBUG 26 --- [nio-8082-exec-5] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:50:08.734 | 2025-07-27T21:50:08.734Z DEBUG 26 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:50:08.735 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:08.735 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:08.735 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:50:08.735 | 2025-07-27T21:50:08.735Z DEBUG 26 --- [nio-8082-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:50:08.737 | 2025-07-27T21:50:08.737Z DEBUG 26 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:50:08.737 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:08.737 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:08.740 | 2025-07-27T21:50:08.740Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:50:08.740 | 2025-07-27T21:50:08.740Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:50:08.864 | 2025-07-27T21:50:08.863Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:50:08.928 | 2025-07-27T21:50:08.928Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:08.928 | 2025-07-27T21:50:08.928Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:08.929 | 2025-07-27T21:50:08.928Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:50:08.929 | 2025-07-27T21:50:08.929Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:08.929 | 2025-07-27T21:50:08.929Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:08.929 | 2025-07-27T21:50:08.929Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:09.220 | 2025-07-27T21:50:09.220Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:09.220 | 2025-07-27T21:50:09.220Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:09.221 | 2025-07-27T21:50:09.220Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:50:09.221 | 2025-07-27T21:50:09.221Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:09.221 | 2025-07-27T21:50:09.221Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:09.221 | 2025-07-27T21:50:09.221Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:09.221 | 2025-07-27T21:50:09.221Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:50:09.221 | 2025-07-27T21:50:09.221Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:50:09.221 | 2025-07-27T21:50:09.221Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:50:19.848 | 2025-07-27T21:50:19.848Z DEBUG 26 --- [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:50:19.848 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:19.849 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:19.849 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:50:19.849 | 2025-07-27T21:50:19.849Z DEBUG 26 --- [nio-8082-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:50:19.851 | 2025-07-27T21:50:19.851Z DEBUG 26 --- [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:50:19.851 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:19.851 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:19.853 | 2025-07-27T21:50:19.853Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:50:19.853 | 2025-07-27T21:50:19.853Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:50:19.995 | 2025-07-27T21:50:19.995Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:50:20.061 | 2025-07-27T21:50:20.061Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:20.062 | 2025-07-27T21:50:20.061Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:20.062 | 2025-07-27T21:50:20.061Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:50:20.062 | 2025-07-27T21:50:20.062Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:20.062 | 2025-07-27T21:50:20.062Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:20.062 | 2025-07-27T21:50:20.062Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:20.313 | 2025-07-27T21:50:20.313Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:20.314 | 2025-07-27T21:50:20.313Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:20.314 | 2025-07-27T21:50:20.314Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:50:20.314 | 2025-07-27T21:50:20.314Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:20.314 | 2025-07-27T21:50:20.314Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:20.314 | 2025-07-27T21:50:20.314Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:20.314 | 2025-07-27T21:50:20.314Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:50:20.314 | 2025-07-27T21:50:20.314Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:50:20.315 | 2025-07-27T21:50:20.315Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:50:29.723 | 2025-07-27T21:50:29.723Z DEBUG 26 --- [nio-8082-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:50:29.723 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:29.723 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:29.723 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:50:29.723 | 2025-07-27T21:50:29.723Z DEBUG 26 --- [nio-8082-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:50:29.725 | 2025-07-27T21:50:29.725Z DEBUG 26 --- [nio-8082-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:50:29.725 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:29.725 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:29.727 | 2025-07-27T21:50:29.727Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:50:29.727 | 2025-07-27T21:50:29.727Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:50:29.868 | 2025-07-27T21:50:29.868Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:50:29.928 | 2025-07-27T21:50:29.928Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:29.928 | 2025-07-27T21:50:29.928Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:29.929 | 2025-07-27T21:50:29.929Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:50:29.929 | 2025-07-27T21:50:29.929Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:29.929 | 2025-07-27T21:50:29.929Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:29.929 | 2025-07-27T21:50:29.929Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:30.179 | 2025-07-27T21:50:30.178Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:30.179 | 2025-07-27T21:50:30.178Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:30.179 | 2025-07-27T21:50:30.179Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:50:30.179 | 2025-07-27T21:50:30.179Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:30.179 | 2025-07-27T21:50:30.179Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:30.179 | 2025-07-27T21:50:30.179Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:30.179 | 2025-07-27T21:50:30.179Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:50:30.180 | 2025-07-27T21:50:30.179Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:50:30.180 | 2025-07-27T21:50:30.179Z DEBUG 26 --- [nio-8082-exec-9] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:50:40.717 | 2025-07-27T21:50:40.717Z DEBUG 26 --- [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:50:40.717 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:40.717 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:40.720 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:50:40.720 | 2025-07-27T21:50:40.717Z DEBUG 26 --- [nio-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:50:40.720 | 2025-07-27T21:50:40.719Z DEBUG 26 --- [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:50:40.720 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:40.720 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:40.721 | 2025-07-27T21:50:40.721Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:50:40.722 | 2025-07-27T21:50:40.721Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:50:40.855 | 2025-07-27T21:50:40.855Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:50:40.922 | 2025-07-27T21:50:40.922Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:40.922 | 2025-07-27T21:50:40.922Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:40.923 | 2025-07-27T21:50:40.922Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:50:40.923 | 2025-07-27T21:50:40.922Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:40.923 | 2025-07-27T21:50:40.923Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:40.923 | 2025-07-27T21:50:40.923Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:41.167 | 2025-07-27T21:50:41.167Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:41.167 | 2025-07-27T21:50:41.167Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:41.167 | 2025-07-27T21:50:41.167Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:50:41.168 | 2025-07-27T21:50:41.167Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:41.168 | 2025-07-27T21:50:41.168Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:41.168 | 2025-07-27T21:50:41.168Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:41.168 | 2025-07-27T21:50:41.168Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:50:41.168 | 2025-07-27T21:50:41.168Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:50:41.168 | 2025-07-27T21:50:41.168Z DEBUG 26 --- [nio-8082-exec-1] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:50:51.676 | 2025-07-27T21:50:51.676Z DEBUG 26 --- [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:50:51.676 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:51.676 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:51.676 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:50:51.677 | 2025-07-27T21:50:51.676Z DEBUG 26 --- [nio-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:50:51.678 | 2025-07-27T21:50:51.678Z DEBUG 26 --- [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:50:51.678 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:50:51.678 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:50:51.680 | 2025-07-27T21:50:51.680Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:50:51.680 | 2025-07-27T21:50:51.680Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:50:51.808 | 2025-07-27T21:50:51.808Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:50:51.880 | 2025-07-27T21:50:51.880Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:51.880 | 2025-07-27T21:50:51.880Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:51.881 | 2025-07-27T21:50:51.881Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:50:51.881 | 2025-07-27T21:50:51.881Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:51.881 | 2025-07-27T21:50:51.881Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:51.881 | 2025-07-27T21:50:51.881Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:52.144 | 2025-07-27T21:50:52.143Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:50:52.144 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:50:52.145 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:50:52.145 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:50:52.145 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:50:52.145 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:50:52.145 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:50:52.145 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:50:52.145 | 2025-07-27T21:50:52.144Z DEBUG 26 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:50:54.312 | 2025-07-27T21:50:54.312Z DEBUG 26 --- [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2025-07-27 23:50:54.312 | [FILTER] Requête reçue sur : /auth/register
+2025-07-27 23:50:54.312 | [FILTER] Est exclue du filtre ? true
+2025-07-27 23:50:54.313 | 2025-07-27T21:50:54.312Z DEBUG 26 --- [nio-8082-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:50:54.316 | 2025-07-27T21:50:54.315Z DEBUG 26 --- [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2025-07-27 23:50:54.316 | [FILTER] Requête reçue sur : /auth/register
+2025-07-27 23:50:54.316 | [FILTER] Est exclue du filtre ? true
+2025-07-27 23:50:54.576 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.email=? limit ?
+2025-07-27 23:50:54.588 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.pseudo=? limit ?
+2025-07-27 23:50:54.592 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.steam_id=? limit ?
+2025-07-27 23:50:54.693 | Hibernate: insert into user_auth_model (created_at,discord_avatar_url,discord_discriminator,discord_id,discord_nickname,discord_username,discord_validated,email,password,pseudo,role,steam_id,steam_validated,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2025-07-27 23:50:57.541 | 2025-07-27T21:50:57.541Z DEBUG 26 --- [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-07-27 23:50:57.541 | [FILTER] Requête reçue sur : /auth/login
+2025-07-27 23:50:57.541 | [FILTER] Est exclue du filtre ? true
+2025-07-27 23:50:57.541 | 2025-07-27T21:50:57.541Z DEBUG 26 --- [nio-8082-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:50:57.543 | 2025-07-27T21:50:57.542Z DEBUG 26 --- [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2025-07-27 23:50:57.543 | [FILTER] Requête reçue sur : /auth/login
+2025-07-27 23:50:57.543 | [FILTER] Est exclue du filtre ? true
+2025-07-27 23:50:57.548 | [LOGIN] Tentative de connexion avec : antoine.pouzeratte@hotmail.fr
+2025-07-27 23:50:57.637 | Hibernate: select u1_0.id,u1_0.created_at,u1_0.discord_avatar_url,u1_0.discord_discriminator,u1_0.discord_id,u1_0.discord_nickname,u1_0.discord_username,u1_0.discord_validated,u1_0.email,u1_0.password,u1_0.pseudo,u1_0.role,u1_0.steam_id,u1_0.steam_validated,u1_0.updated_at from user_auth_model u1_0 where u1_0.email=?
+2025-07-27 23:50:57.646 | [AUTH] Utilisateur trouvé pour : antoine.pouzeratte@hotmail.fr
+2025-07-27 23:50:57.723 | 2025-07-27T21:50:57.723Z DEBUG 26 --- [nio-8082-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-07-27 23:50:57.725 | Hibernate: select u1_0.id,u1_0.created_at,u1_0.discord_avatar_url,u1_0.discord_discriminator,u1_0.discord_id,u1_0.discord_nickname,u1_0.discord_username,u1_0.discord_validated,u1_0.email,u1_0.password,u1_0.pseudo,u1_0.role,u1_0.steam_id,u1_0.steam_validated,u1_0.updated_at from user_auth_model u1_0 where u1_0.email=?
+2025-07-27 23:51:01.470 | 2025-07-27T21:51:01.469Z DEBUG 26 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /auth/reset-request
+2025-07-27 23:51:01.470 | [FILTER] Requête reçue sur : /auth/reset-request
+2025-07-27 23:51:01.470 | [FILTER] Est exclue du filtre ? true
+2025-07-27 23:51:01.470 | 2025-07-27T21:51:01.470Z DEBUG 26 --- [nio-8082-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:51:01.473 | 2025-07-27T21:51:01.472Z DEBUG 26 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /auth/reset-request
+2025-07-27 23:51:01.473 | [FILTER] Requête reçue sur : /auth/reset-request
+2025-07-27 23:51:01.475 | [FILTER] Est exclue du filtre ? true
+2025-07-27 23:51:01.475 | [RESET] Demande reçue pour : antoine.pouzeratte@hotmail.fr
+2025-07-27 23:51:01.475 | [DEBUG] resetBaseUrl utilisé : http://localhost:4200/reset-password?token=
+2025-07-27 23:51:01.477 | Hibernate: select u1_0.id,u1_0.created_at,u1_0.discord_avatar_url,u1_0.discord_discriminator,u1_0.discord_id,u1_0.discord_nickname,u1_0.discord_username,u1_0.discord_validated,u1_0.email,u1_0.password,u1_0.pseudo,u1_0.role,u1_0.steam_id,u1_0.steam_validated,u1_0.updated_at from user_auth_model u1_0 where u1_0.email=?
+2025-07-27 23:51:01.480 | [RESET] Utilisateur trouvé, génération du token...
+2025-07-27 23:51:01.482 | Hibernate: insert into password_reset_token (email,expiration_date,token,used) values (?,?,?,?)
+2025-07-27 23:51:01.602 | 2025-07-27T21:51:01.597Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:51:01.602 | 2025-07-27T21:51:01.598Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:51:01.652 | 2025-07-27T21:51:01.652Z DEBUG 26 --- [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:51:01.653 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:01.653 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:01.653 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:51:01.653 | 2025-07-27T21:51:01.653Z DEBUG 26 --- [nio-8082-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:51:01.657 | 2025-07-27T21:51:01.656Z DEBUG 26 --- [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:51:01.657 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:01.657 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:01.658 | 2025-07-27T21:51:01.658Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:51:01.659 | 2025-07-27T21:51:01.658Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:51:01.716 | 2025-07-27T21:51:01.715Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:51:01.788 | 2025-07-27T21:51:01.788Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:51:01.789 | 2025-07-27T21:51:01.789Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:01.789 | 2025-07-27T21:51:01.789Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:01.789 | 2025-07-27T21:51:01.789Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:51:01.789 | 2025-07-27T21:51:01.789Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:01.790 | 2025-07-27T21:51:01.789Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:01.790 | 2025-07-27T21:51:01.790Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:01.856 | 2025-07-27T21:51:01.856Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:01.856 | 2025-07-27T21:51:01.856Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:01.856 | 2025-07-27T21:51:01.856Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:51:01.857 | 2025-07-27T21:51:01.857Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:01.857 | 2025-07-27T21:51:01.857Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:01.857 | 2025-07-27T21:51:01.857Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:02.032 | 2025-07-27T21:51:02.032Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:02.032 | 2025-07-27T21:51:02.032Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:02.033 | 2025-07-27T21:51:02.032Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:51:02.033 | 2025-07-27T21:51:02.033Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:02.033 | 2025-07-27T21:51:02.033Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:02.033 | 2025-07-27T21:51:02.033Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:02.033 | 2025-07-27T21:51:02.033Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:51:02.034 | 2025-07-27T21:51:02.033Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:51:02.034 | 2025-07-27T21:51:02.034Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:51:02.089 | 2025-07-27T21:51:02.089Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:02.089 | 2025-07-27T21:51:02.089Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:02.090 | 2025-07-27T21:51:02.089Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:51:02.090 | 2025-07-27T21:51:02.090Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:02.090 | 2025-07-27T21:51:02.090Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:02.090 | 2025-07-27T21:51:02.090Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:02.090 | 2025-07-27T21:51:02.090Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:51:02.090 | 2025-07-27T21:51:02.090Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:51:02.090 | 2025-07-27T21:51:02.090Z DEBUG 26 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:51:02.518 | 2025-07-27T21:51:02.518Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : use8bit false
+2025-07-27 23:51:02.654 | 2025-07-27T21:51:02.653Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Verified Addresses
+2025-07-27 23:51:02.654 | 2025-07-27T21:51:02.654Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        :   antoine.pouzeratte@hotmail.fr
+2025-07-27 23:51:03.584 | 2025-07-27T21:51:03.584Z DEBUG 26 --- [nio-8082-exec-7] com.sun.mail.smtp                        : message successfully delivered to mail server
+2025-07-27 23:51:03.647 | [RESET] Mail de réinitialisation envoyé à : antoine.pouzeratte@hotmail.fr
+2025-07-27 23:51:03.647 | [DEBUG] Email envoyé à : antoine.pouzeratte@hotmail.fr
+2025-07-27 23:51:03.647 | [RESET] Fin de traitement silencieux (email envoyé si adresse existe)
+2025-07-27 23:51:12.737 | 2025-07-27T21:51:12.737Z DEBUG 26 --- [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:51:12.738 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:12.738 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:12.738 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:51:12.738 | 2025-07-27T21:51:12.737Z DEBUG 26 --- [io-8082-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:51:12.739 | 2025-07-27T21:51:12.739Z DEBUG 26 --- [io-8082-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:51:12.739 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:12.739 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:12.741 | 2025-07-27T21:51:12.741Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:51:12.741 | 2025-07-27T21:51:12.741Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:51:12.889 | 2025-07-27T21:51:12.888Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:51:12.944 | 2025-07-27T21:51:12.944Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:12.944 | 2025-07-27T21:51:12.944Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:12.945 | 2025-07-27T21:51:12.944Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:51:12.945 | 2025-07-27T21:51:12.945Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:12.945 | 2025-07-27T21:51:12.945Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:12.945 | 2025-07-27T21:51:12.945Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:13.245 | 2025-07-27T21:51:13.245Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:13.245 | 2025-07-27T21:51:13.245Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:13.245 | 2025-07-27T21:51:13.245Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:51:13.245 | 2025-07-27T21:51:13.245Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:13.245 | 2025-07-27T21:51:13.245Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:13.246 | 2025-07-27T21:51:13.246Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:13.246 | 2025-07-27T21:51:13.246Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:51:13.246 | 2025-07-27T21:51:13.246Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:51:13.246 | 2025-07-27T21:51:13.246Z DEBUG 26 --- [io-8082-exec-10] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:51:22.719 | 2025-07-27T21:51:22.719Z DEBUG 26 --- [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:51:22.719 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:22.719 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:22.719 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:51:22.719 | 2025-07-27T21:51:22.719Z DEBUG 26 --- [nio-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:51:22.722 | 2025-07-27T21:51:22.721Z DEBUG 26 --- [nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:51:22.722 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:22.722 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:22.727 | 2025-07-27T21:51:22.727Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:51:22.728 | 2025-07-27T21:51:22.728Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:51:22.862 | 2025-07-27T21:51:22.862Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:51:22.927 | 2025-07-27T21:51:22.926Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:22.927 | 2025-07-27T21:51:22.926Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:22.927 | 2025-07-27T21:51:22.927Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:51:22.927 | 2025-07-27T21:51:22.927Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:22.927 | 2025-07-27T21:51:22.927Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:22.927 | 2025-07-27T21:51:22.927Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:23.217 | 2025-07-27T21:51:23.217Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:23.218 | 2025-07-27T21:51:23.217Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:23.219 | 2025-07-27T21:51:23.218Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:51:23.219 | 2025-07-27T21:51:23.218Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:23.219 | 2025-07-27T21:51:23.218Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:23.219 | 2025-07-27T21:51:23.218Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:23.219 | 2025-07-27T21:51:23.218Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:51:23.219 | 2025-07-27T21:51:23.218Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:51:23.219 | 2025-07-27T21:51:23.218Z DEBUG 26 --- [nio-8082-exec-2] com.sun.mail.smtp                        : Using mechanism LOGIN
+2025-07-27 23:51:33.732 | 2025-07-27T21:51:33.731Z DEBUG 26 --- [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 23:51:33.732 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:33.732 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:33.732 | [JWT] Aucune entête Authorization présente ou mal formée → requête ignorée
+2025-07-27 23:51:33.732 | 2025-07-27T21:51:33.732Z DEBUG 26 --- [nio-8082-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 23:51:33.734 | 2025-07-27T21:51:33.734Z DEBUG 26 --- [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 23:51:33.734 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 23:51:33.734 | [FILTER] Est exclue du filtre ? false
+2025-07-27 23:51:33.737 | 2025-07-27T21:51:33.737Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 23:51:33.738 | 2025-07-27T21:51:33.737Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 23:51:33.875 | 2025-07-27T21:51:33.875Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 23:51:33.933 | 2025-07-27T21:51:33.933Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:33.934 | 2025-07-27T21:51:33.933Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:33.934 | 2025-07-27T21:51:33.933Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 23:51:33.934 | 2025-07-27T21:51:33.933Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:33.934 | 2025-07-27T21:51:33.934Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:33.934 | 2025-07-27T21:51:33.934Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:34.283 | 2025-07-27T21:51:34.283Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 23:51:34.284 | 2025-07-27T21:51:34.283Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 23:51:34.284 | 2025-07-27T21:51:34.283Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+2025-07-27 23:51:34.284 | 2025-07-27T21:51:34.283Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 23:51:34.285 | 2025-07-27T21:51:34.283Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 23:51:34.285 | 2025-07-27T21:51:34.284Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 23:51:34.285 | 2025-07-27T21:51:34.284Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : protocolConnect login, host=smtp.gmail.com, user=sneaky.date.reforged@gmail.com, password=<non-null>
+2025-07-27 23:51:34.285 | 2025-07-27T21:51:34.284Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+2025-07-27 23:51:34.285 | 2025-07-27T21:51:34.284Z DEBUG 26 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Using mechanism LOGIN 

@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class DiscordSyncRequest {
+public class DiscordSyncRequestDTO {
 
     @NotBlank
     private String discordId;

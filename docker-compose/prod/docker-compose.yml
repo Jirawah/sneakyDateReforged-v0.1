@@ -1,23 +1,123 @@
+#services:
+#  authdb:
+#    container_name: authdb
+#    image: mysql:8
+#    ports:
+#      - "3308:3306"
+#    environment:
+#      MYSQL_DATABASE: ${DB_NAME}
+#      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#      MYSQL_USER: ${DB_USERNAME}
+#      MYSQL_PASSWORD: ${DB_PASSWORD}
+#    volumes:
+#      - auth_data:/var/lib/mysql
+#      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+#    extends:
+#      file: common-config.yml
+#      service: microservice-db-config
+#    healthcheck:
+#      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+#      timeout: 10s
+#      retries: 10
+#      interval: 10s
+#      start_period: 10s
+#    networks:
+#      - sneakydate-network
+#
+#  configserver:
+#    image: jirawah/ms-configserver:latest
+#    container_name: ms-configserver
+#    ports:
+#      - "8071:8071"
+#    environment:
+#      SPRING_PROFILES_ACTIVE: git
+#    healthcheck:
+#      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#      start_period: 10s
+#    extends:
+#      file: common-config.yml
+#      service: microservice-base-config
+#
+#  eurekaserver:
+#    image: jirawah/ms-eurekaserver:latest
+#    container_name: ms-eurekaserver
+#    ports:
+#      - "8070:8070"
+#    depends_on:
+#      configserver:
+#        condition: service_healthy
+#    healthcheck:
+#      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8070/actuator/health"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#      start_period: 10s
+#    environment:
+#      SPRING_APPLICATION_NAME: eurekaserver
+#    extends:
+#      file: common-config.yml
+#      service: microservice-configserver-config
+#
+#  ms-auth:
+#    image: jirawah/ms-auth:latest
+#    container_name: ms-auth
+#    ports:
+#      - "8082:8082"
+#    depends_on:
+#      configserver:
+#        condition: service_healthy
+#      authdb:
+#        condition: service_healthy
+#    environment:
+#      SPRING_APPLICATION_NAME: ms-auth
+##      SPRING_PROFILES_ACTIVE: default
+#      JWT_SECRET: ${JWT_SECRET}
+#      JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS}
+#      SPRING_MAIL_USERNAME: ${GMAIL_USERNAME}
+#      SPRING_MAIL_PASSWORD: ${GMAIL_PASSWORD}
+#      DB_HOST: ${DB_HOST}
+#      DB_PORT: ${DB_PORT}
+#      DB_NAME: ${DB_NAME}
+#      DB_USERNAME: ${DB_USERNAME}
+#      DB_PASSWORD: ${DB_PASSWORD}
+#    extends:
+#      file: common-config.yml
+#      service: microservice-base-config
+#    healthcheck:
+#      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8082/actuator/health" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#      start_period: 10s
+#
+#networks:
+#  sneakydate-network:
+#    driver: bridge
+#
+#volumes:
+#  auth_data:
 services:
+
   authdb:
     container_name: authdb
     image: mysql:8
+    platform: linux/amd64
     ports:
       - "3308:3306"
     environment:
-      MYSQL_DATABASE: authdb
-      MYSQL_ROOT_PASSWORD: Emma@Kiko3615!
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - auth_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      timeout: 10s
-      retries: 10
-      interval: 10s
-      start_period: 10s
-    networks:
-      - sneakydate-network
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
 
   configserver:
     image: jirawah/ms-configserver:latest
@@ -56,6 +156,37 @@ services:
       file: common-config.yml
       service: microservice-configserver-config
 
+#  ms-auth:
+#    image: jirawah/ms-auth:latest
+#    container_name: ms-auth
+#    ports:
+#      - "8082:8082"
+#    depends_on:
+#      configserver:
+#        condition: service_healthy
+#      authdb:
+#        condition: service_healthy
+#    environment:
+#      SPRING_APPLICATION_NAME: ms-auth
+#      #      SPRING_PROFILES_ACTIVE: default
+#      JWT_SECRET: ${JWT_SECRET}
+#      JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS}
+#      SPRING_MAIL_USERNAME: ${GMAIL_USERNAME}
+#      SPRING_MAIL_PASSWORD: ${GMAIL_PASSWORD}
+#      DB_HOST: ${DB_HOST}
+#      DB_PORT: ${DB_PORT}
+#      DB_NAME: ${DB_NAME}
+#      DB_USERNAME: ${DB_USERNAME}
+#      DB_PASSWORD: ${DB_PASSWORD}
+#    extends:
+#      file: common-config.yml
+#      service: microservice-base-config
+#    healthcheck:
+#      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8082/actuator/health" ]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#      start_period: 10s
   ms-auth:
     image: jirawah/ms-auth:latest
     container_name: ms-auth
@@ -66,20 +197,32 @@ services:
         condition: service_healthy
       authdb:
         condition: service_healthy
+    env_file:
+      - .env
     environment:
       SPRING_APPLICATION_NAME: ms-auth
-#      SPRING_PROFILES_ACTIVE: default
+      #    SPRING_PROFILES_ACTIVE: default
       JWT_SECRET: ${JWT_SECRET}
       JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS}
+      SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+
     extends:
       file: common-config.yml
       service: microservice-base-config
+
     healthcheck:
       test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8082/actuator/health" ]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 10s
+
 
 networks:
   sneakydate-network:

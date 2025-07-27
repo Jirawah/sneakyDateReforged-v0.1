@@ -1,0 +1,1130 @@
+2025-07-26 14:38:38.863 | 
+2025-07-26 14:38:38.867 |   .   ____          _            __ _ _
+2025-07-26 14:38:38.867 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-07-26 14:38:38.867 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-07-26 14:38:38.867 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-07-26 14:38:38.868 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-07-26 14:38:38.868 |  =========|_|==============|___/=/_/_/_/
+2025-07-26 14:38:38.868 |  :: Spring Boot ::                (v3.1.3)
+2025-07-26 14:38:38.868 | 
+2025-07-26 14:38:39.046 | 2025-07-26T12:38:39.045Z  INFO 27 --- [           main] c.s.ms_auth.MsAuthApplication            : Starting MsAuthApplication v0.0.1-SNAPSHOT using Java 17.0.15 with PID 27 (/app/app.jar started by root in /app)
+2025-07-26 14:38:39.047 | 2025-07-26T12:38:39.047Z  INFO 27 --- [           main] c.s.ms_auth.MsAuthApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-07-26 14:38:39.166 | 2025-07-26T12:38:39.165Z  INFO 27 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://ms-configserver:8071
+2025-07-26 14:38:39.167 | 2025-07-26T12:38:39.167Z  INFO 27 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ms-auth, profiles=[default], label=null, version=d169dd1f82c27695ae47b1df7cb54f5b2a020256, state=null
+2025-07-26 14:38:40.914 | 2025-07-26T12:38:40.913Z  INFO 27 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-26 14:38:41.105 | 2025-07-26T12:38:41.105Z  INFO 27 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 180 ms. Found 1 JPA repository interfaces.
+2025-07-26 14:38:41.662 | 2025-07-26T12:38:41.659Z  INFO 27 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=01590ad1-45d9-3551-bb7f-0efb714fbbdc
+2025-07-26 14:38:45.393 | 2025-07-26T12:38:45.393Z  INFO 27 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2025-07-26 14:38:45.403 | 2025-07-26T12:38:45.403Z  INFO 27 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-26 14:38:45.403 | 2025-07-26T12:38:45.403Z  INFO 27 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2025-07-26 14:38:45.537 | 2025-07-26T12:38:45.537Z  INFO 27 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-26 14:38:45.539 | 2025-07-26T12:38:45.538Z  INFO 27 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6359 ms
+2025-07-26 14:38:46.912 | 2025-07-26T12:38:46.910Z  INFO 27 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-26 14:38:50.899 | 2025-07-26T12:38:50.899Z  INFO 27 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
+2025-07-26 14:38:50.902 | 2025-07-26T12:38:50.902Z  INFO 27 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-07-26 14:38:53.439 | 2025-07-26T12:38:53.439Z  INFO 27 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-07-26 14:38:53.806 | 2025-07-26T12:38:53.805Z  INFO 27 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-26 14:38:53.850 | 2025-07-26T12:38:53.850Z  INFO 27 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-26 14:38:54.629 | 2025-07-26T12:38:54.628Z  INFO 27 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2016f509
+2025-07-26 14:38:54.642 | 2025-07-26T12:38:54.641Z  INFO 27 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-26 14:38:54.825 | 2025-07-26T12:38:54.812Z  WARN 27 --- [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-26 14:38:55.340 | 2025-07-26T12:38:55.339Z  INFO 27 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-07-26 14:38:56.712 | 2025-07-26T12:38:56.712Z  INFO 27 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-26 14:38:56.795 | Hibernate: alter table user_auth_model modify column created_at  datetime(6)
+2025-07-26 14:38:56.843 | Hibernate: alter table user_auth_model modify column updated_at  datetime(6)
+2025-07-26 14:38:56.938 | 2025-07-26T12:38:56.937Z  INFO 27 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-26 14:38:58.182 | 2025-07-26T12:38:58.179Z  WARN 27 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-26 14:38:58.796 | 2025-07-26T12:38:58.795Z  INFO 27 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2025-07-26 14:38:58.873 | 2025-07-26T12:38:58.873Z  INFO 27 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2bebd114, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b379bc6, org.springframework.security.web.context.SecurityContextHolderFilter@13250132, org.springframework.security.web.header.HeaderWriterFilter@3b4086c1, org.springframework.security.web.authentication.logout.LogoutFilter@b30a50d, com.sneakyDateReforged.ms_auth.security.JwtAuthFilter@704067c6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a864d4d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d3691e1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@374c40ba, org.springframework.security.web.session.SessionManagementFilter@5600a5da, org.springframework.security.web.access.ExceptionTranslationFilter@4a642e4b, org.springframework.security.web.access.intercept.AuthorizationFilter@26e0d39c]
+2025-07-26 14:38:59.232 | 2025-07-26T12:38:59.232Z  INFO 27 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-07-26 14:38:59.312 | 2025-07-26T12:38:59.312Z  WARN 27 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-26 14:38:59.495 | 2025-07-26T12:38:59.494Z  INFO 27 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-07-26 14:38:59.593 | 2025-07-26T12:38:59.593Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-07-26 14:38:59.600 | 2025-07-26T12:38:59.599Z  INFO 27 --- [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 14:38:59.635 | 2025-07-26T12:38:59.634Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-07-26 14:38:59.635 | 2025-07-26T12:38:59.635Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-07-26 14:38:59.635 | 2025-07-26T12:38:59.635Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-07-26 14:38:59.635 | 2025-07-26T12:38:59.635Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-07-26 14:38:59.635 | 2025-07-26T12:38:59.635Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-07-26 14:38:59.635 | 2025-07-26T12:38:59.635Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-07-26 14:38:59.635 | 2025-07-26T12:38:59.635Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-07-26 14:39:00.106 | 2025-07-26T12:39:00.106Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-07-26 14:39:00.110 | 2025-07-26T12:39:00.109Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-07-26 14:39:00.114 | 2025-07-26T12:39:00.113Z  INFO 27 --- [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-26 14:39:00.127 | 2025-07-26T12:39:00.126Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1753533540125 with initial instances count: 0
+2025-07-26 14:39:00.131 | 2025-07-26T12:39:00.130Z  INFO 27 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MS-AUTH with eureka with status UP
+2025-07-26 14:39:00.138 | 2025-07-26T12:39:00.135Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1753533540135, current=UP, previous=STARTING]
+2025-07-26 14:39:00.148 | 2025-07-26T12:39:00.147Z  INFO 27 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-AUTH/8be3032300e3:ms-auth:8082: registering service...
+2025-07-26 14:39:00.193 | 2025-07-26T12:39:00.193Z  INFO 27 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2025-07-26 14:39:00.194 | 2025-07-26T12:39:00.194Z  INFO 27 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2025-07-26 14:39:00.222 | 2025-07-26T12:39:00.221Z  INFO 27 --- [           main] c.s.ms_auth.MsAuthApplication            : Started MsAuthApplication in 25.619 seconds (process running for 26.96)
+2025-07-26 14:39:00.390 | 2025-07-26T12:39:00.389Z  INFO 27 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-AUTH/8be3032300e3:ms-auth:8082 - registration status: 204
+2025-07-26 14:39:04.395 | 2025-07-26T12:39:04.394Z  INFO 27 --- [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-26 14:39:04.395 | 2025-07-26T12:39:04.394Z  INFO 27 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-26 14:39:04.396 | 2025-07-26T12:39:04.396Z  INFO 27 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-26 14:39:04.422 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:39:04.422 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:39:14.526 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:39:14.526 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:39:23.470 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:39:23.470 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:39:28.978 | 2025-07-26T12:39:28.977Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-07-26 14:39:28.978 | 2025-07-26T12:39:28.977Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-07-26 14:39:28.978 | 2025-07-26T12:39:28.978Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-07-26 14:39:28.978 | 2025-07-26T12:39:28.978Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-07-26 14:39:28.978 | 2025-07-26T12:39:28.978Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-07-26 14:39:28.978 | 2025-07-26T12:39:28.978Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-07-26 14:39:28.978 | 2025-07-26T12:39:28.978Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-07-26 14:39:28.985 | 2025-07-26T12:39:28.984Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-07-26 14:39:33.554 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:39:33.554 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:39:43.631 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:39:43.631 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:39:52.567 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:39:52.567 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:39:57.816 | 2025-07-26T12:39:57.816Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-07-26 14:39:57.816 | 2025-07-26T12:39:57.816Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-07-26 14:39:57.816 | 2025-07-26T12:39:57.816Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-07-26 14:39:57.816 | 2025-07-26T12:39:57.816Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-07-26 14:39:57.817 | 2025-07-26T12:39:57.816Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-07-26 14:39:57.817 | 2025-07-26T12:39:57.816Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-07-26 14:39:57.817 | 2025-07-26T12:39:57.816Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-07-26 14:39:57.827 | 2025-07-26T12:39:57.826Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-07-26 14:40:02.652 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:40:02.652 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:40:11.551 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:40:11.552 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:40:21.623 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:40:21.623 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:40:31.696 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:40:31.696 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:40:40.604 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:40:40.604 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:40:50.683 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:40:50.683 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:41:00.792 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:41:00.792 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:41:09.687 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:41:09.687 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:41:19.755 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:41:19.755 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:41:29.825 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:41:29.825 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:41:38.725 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:41:38.725 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:41:48.809 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:41:48.809 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:41:58.881 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:41:58.881 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:42:07.733 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:42:07.733 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:42:17.802 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:42:17.802 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:42:27.881 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:42:27.881 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:42:36.842 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:42:36.842 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:42:46.996 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:42:46.996 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:42:57.077 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:42:57.077 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:43:05.960 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:43:05.960 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:43:16.039 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:43:16.039 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:43:26.116 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:43:26.116 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:43:34.963 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:43:34.963 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:43:45.042 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:43:45.042 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:43:47.747 | 2025-07-26T12:43:47.747Z  INFO 27 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 14:43:55.126 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:43:55.126 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:44:04.080 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:44:04.080 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:44:14.166 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:44:14.166 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:44:24.251 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:44:24.251 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:44:33.134 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:44:33.134 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:44:43.206 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:44:43.206 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:44:53.287 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:44:53.287 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:45:02.142 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:45:02.142 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:45:12.212 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:45:12.212 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:45:22.286 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:45:22.286 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:45:31.161 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:45:31.161 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:45:41.229 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:45:41.229 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:45:51.315 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:45:51.315 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:46:00.195 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:46:00.195 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:46:10.256 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:46:10.256 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:46:20.328 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:46:20.328 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:46:29.195 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:46:29.195 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:46:39.272 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:46:39.272 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:46:49.348 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:46:49.348 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:46:58.102 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:46:58.102 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:47:08.181 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:47:08.181 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:47:18.265 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:47:18.265 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:47:27.164 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:47:27.164 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:47:37.347 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:47:37.347 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:47:47.496 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:47:47.496 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:47:56.399 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:47:56.399 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:48:06.480 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:48:06.484 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:48:16.597 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:48:16.597 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:48:25.465 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:48:25.465 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:48:35.537 | 2025-07-26T12:48:35.536Z  INFO 27 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 14:48:35.563 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:48:35.563 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:48:45.635 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:48:45.635 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:48:54.498 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:48:54.498 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:49:04.634 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:49:04.634 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:49:14.717 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:49:14.717 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:49:23.491 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:49:23.491 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:49:33.573 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:49:33.574 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:49:43.693 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:49:43.694 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:49:52.555 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:49:52.555 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:50:02.622 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:50:02.622 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:50:12.699 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:50:12.699 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:50:21.551 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:50:21.551 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:50:31.658 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:50:31.658 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:50:41.732 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:50:41.732 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:50:50.552 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:50:50.552 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:51:00.625 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:51:00.625 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:51:10.699 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:51:10.699 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:51:19.529 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:51:19.529 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:51:29.612 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:51:29.612 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:51:39.688 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:51:39.688 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:51:48.483 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:51:48.483 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:51:58.551 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:51:58.551 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:52:08.632 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:52:08.632 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:52:17.443 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:52:17.443 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:52:27.520 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:52:27.520 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:52:37.602 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:52:37.602 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:52:46.440 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:52:46.440 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:52:56.547 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:52:56.547 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:53:06.624 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:53:06.624 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:53:15.436 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:53:15.436 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:53:23.035 | 2025-07-26T12:53:23.035Z  INFO 27 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 14:53:25.510 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:53:25.510 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:53:35.582 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:53:35.582 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:53:44.415 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:53:44.415 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:53:54.523 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:53:54.523 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:54:04.607 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:54:04.607 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:54:13.417 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:54:13.417 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:54:23.494 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:54:23.494 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:54:33.569 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:54:33.569 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:54:42.396 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:54:42.396 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:54:52.468 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:54:52.468 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:55:02.538 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:55:02.538 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:55:11.270 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:55:11.270 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:55:21.337 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:55:21.337 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:55:31.405 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:55:31.405 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:55:40.240 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:55:40.240 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:55:50.314 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:55:50.314 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:56:00.389 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:56:00.389 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:56:09.221 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:56:09.221 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:56:19.297 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:56:19.298 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:56:29.370 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:56:29.370 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:56:38.189 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:56:38.189 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:56:48.261 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:56:48.261 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:56:58.347 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:56:58.347 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:57:07.155 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:57:07.155 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:57:17.221 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:57:17.221 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:57:27.304 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:57:27.304 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:57:36.048 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:57:36.048 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:57:46.127 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:57:46.127 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:57:56.203 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:57:56.204 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:58:05.013 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:58:05.013 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:58:10.313 | 2025-07-26T12:58:10.313Z  INFO 27 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 14:58:15.103 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:58:15.106 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:58:25.243 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:58:25.244 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:58:34.059 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:58:34.059 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:58:44.137 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:58:44.137 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:58:54.208 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:58:54.208 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:59:02.982 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:59:02.982 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:59:13.054 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:59:13.054 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:59:22.693 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:59:22.693 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:59:31.989 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:59:31.990 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:59:42.057 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:59:42.057 | [FILTER] Est exclue du filtre ? false
+2025-07-26 14:59:50.831 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 14:59:50.831 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:00:00.909 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:00:00.909 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:00:10.982 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:00:10.982 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:00:19.759 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:00:19.759 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:00:29.836 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:00:29.836 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:00:39.910 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:00:39.910 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:00:48.754 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:00:48.754 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:00:58.822 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:00:58.822 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:01:08.900 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:01:08.900 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:01:17.590 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:01:17.590 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:01:27.661 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:01:27.661 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:01:37.729 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:01:37.729 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:01:46.530 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:01:46.530 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:01:56.605 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:01:56.605 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:02:06.676 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:02:06.676 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:02:15.468 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:02:15.468 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:02:25.540 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:02:25.540 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:02:35.615 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:02:35.615 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:02:44.413 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:02:44.413 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:02:54.481 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:02:54.481 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:02:57.442 | 2025-07-26T13:02:57.442Z  INFO 27 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 15:03:04.554 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:03:04.554 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:03:13.316 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:03:13.316 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:03:23.397 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:03:23.397 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:03:33.489 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:03:33.489 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:03:42.294 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:03:42.294 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:03:52.361 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:03:52.361 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:04:02.430 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:04:02.430 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:04:11.226 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:04:11.226 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:04:21.301 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:04:21.301 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:04:31.380 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:04:31.380 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:04:40.150 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:04:40.150 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:04:50.225 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:04:50.225 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:05:00.296 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:05:00.296 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:05:09.133 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:05:09.133 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:05:19.233 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:05:19.233 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:05:29.300 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:05:29.300 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:05:38.051 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:05:38.051 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:05:48.124 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:05:48.124 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:05:58.259 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:05:58.259 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:06:07.021 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:06:07.021 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:06:17.088 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:06:17.088 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:06:27.163 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:06:27.163 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:06:35.899 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:06:35.899 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:06:45.963 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:06:45.963 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:06:56.033 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:06:56.033 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:07:04.812 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:07:04.812 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:07:14.896 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:07:14.896 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:07:24.973 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:07:24.973 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:07:33.781 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:07:33.781 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:07:43.552 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:07:43.552 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:07:43.557 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:07:43.557 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:07:43.565 | 2025-07-26T13:07:43.565Z  WARN 27 --- [nio-8082-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-07-26 15:07:43.932 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:07:43.932 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:07:44.340 | 2025-07-26T13:07:44.340Z  INFO 27 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 15:07:54.002 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:07:54.002 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:08:02.773 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:08:02.773 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:08:12.854 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:08:12.854 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:08:22.935 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:08:22.935 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:08:28.402 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:08:28.402 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:08:28.402 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:08:28.402 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:08:28.905 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.email=? limit ?
+2025-07-26 15:08:28.959 | 2025-07-26T13:08:28.952Z ERROR 27 --- [nio-8082-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Email déjà utilisé.] with root cause
+2025-07-26 15:08:28.959 | 
+2025-07-26 15:08:28.959 | java.lang.IllegalArgumentException: Email déjà utilisé.
+2025-07-26 15:08:28.959 | 	at com.sneakyDateReforged.ms_auth.service.AuthService.register(AuthService.java:34) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:08:28.959 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:08:28.959 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:08:28.959 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:08:28.959 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:08:28.959 | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.959 | 	at com.sneakyDateReforged.ms_auth.service.AuthService$$SpringCGLIB$$0.register(<generated>) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:08:28.960 | 	at com.sneakyDateReforged.ms_auth.controller.AuthController.register(AuthController.java:22) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:08:28.960 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:08:28.960 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:08:28.960 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:08:28.960 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:08:28.960 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-26 15:08:28.960 | 
+2025-07-26 15:08:31.697 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:08:31.697 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:08:41.770 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:08:41.770 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:08:51.858 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:08:51.858 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:09:00.603 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:09:00.603 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:09:10.679 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:09:10.679 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:09:20.757 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:09:20.757 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:09:29.489 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:09:29.489 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:09:39.574 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:09:39.574 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:09:49.662 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:09:49.662 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:09:49.928 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:09:49.928 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:09:49.929 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:09:49.929 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:09:49.934 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.email=? limit ?
+2025-07-26 15:09:49.943 | 2025-07-26T13:09:49.939Z ERROR 27 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Email déjà utilisé.] with root cause
+2025-07-26 15:09:49.943 | 
+2025-07-26 15:09:49.943 | java.lang.IllegalArgumentException: Email déjà utilisé.
+2025-07-26 15:09:49.943 | 	at com.sneakyDateReforged.ms_auth.service.AuthService.register(AuthService.java:34) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:09:49.943 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:09:49.943 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:09:49.943 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:09:49.943 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at com.sneakyDateReforged.ms_auth.service.AuthService$$SpringCGLIB$$0.register(<generated>) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:09:49.943 | 	at com.sneakyDateReforged.ms_auth.controller.AuthController.register(AuthController.java:22) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:09:49.943 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:09:49.943 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:09:49.943 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:09:49.943 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.943 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:09:49.944 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-26 15:09:49.944 | 
+2025-07-26 15:09:58.393 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:09:58.393 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:10:08.467 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:10:08.467 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:10:18.549 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:10:18.549 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:10:27.321 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:10:27.321 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:10:37.390 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:10:37.390 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:10:47.457 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:10:47.457 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:10:56.225 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:10:56.225 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:11:06.302 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:11:06.302 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:11:16.402 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:11:16.402 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:11:25.149 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:11:25.149 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:11:35.221 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:11:35.221 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:11:45.305 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:11:45.305 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:11:54.046 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:11:54.046 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:12:04.108 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:12:04.108 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:12:14.180 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:12:14.180 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:12:22.898 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:12:22.898 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:12:31.042 | 2025-07-26T13:12:31.042Z  INFO 27 --- [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-26 15:12:32.975 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:12:32.975 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:12:43.045 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:12:43.045 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:12:46.282 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:12:46.282 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:12:46.284 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:12:46.284 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:12:46.288 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.email=? limit ?
+2025-07-26 15:12:46.294 | 2025-07-26T13:12:46.292Z ERROR 27 --- [nio-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Email déjà utilisé.] with root cause
+2025-07-26 15:12:46.294 | 
+2025-07-26 15:12:46.294 | java.lang.IllegalArgumentException: Email déjà utilisé.
+2025-07-26 15:12:46.294 | 	at com.sneakyDateReforged.ms_auth.service.AuthService.register(AuthService.java:34) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:12:46.294 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:12:46.294 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:12:46.294 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:12:46.294 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:12:46.294 | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at com.sneakyDateReforged.ms_auth.service.AuthService$$SpringCGLIB$$0.register(<generated>) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:12:46.294 | 	at com.sneakyDateReforged.ms_auth.controller.AuthController.register(AuthController.java:22) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:12:46.294 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:12:46.294 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:12:46.294 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:12:46.294 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:12:46.294 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.294 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:12:46.294 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.294 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.294 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-26 15:12:46.294 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:12:46.295 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-26 15:12:46.295 | 
+2025-07-26 15:12:51.790 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:12:51.790 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:13:01.863 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:13:01.863 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:13:11.939 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:13:11.939 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:13:15.913 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:13:15.913 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:13:15.913 | [FILTER] Requête reçue sur : /auth/register
+2025-07-26 15:13:15.913 | [FILTER] Est exclue du filtre ? true
+2025-07-26 15:13:15.917 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.email=? limit ?
+2025-07-26 15:13:15.922 | 2025-07-26T13:13:15.921Z ERROR 27 --- [nio-8082-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Email déjà utilisé.] with root cause
+2025-07-26 15:13:15.922 | 
+2025-07-26 15:13:15.922 | java.lang.IllegalArgumentException: Email déjà utilisé.
+2025-07-26 15:13:15.922 | 	at com.sneakyDateReforged.ms_auth.service.AuthService.register(AuthService.java:34) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:13:15.922 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:13:15.922 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:13:15.922 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:13:15.922 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:756) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at com.sneakyDateReforged.ms_auth.service.AuthService$$SpringCGLIB$$0.register(<generated>) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:13:15.922 | 	at com.sneakyDateReforged.ms_auth.controller.AuthController.register(AuthController.java:22) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-26 15:13:15.922 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-26 15:13:15.922 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-26 15:13:15.922 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-26 15:13:15.922 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-26 15:13:15.922 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-26 15:13:15.922 | 
+2025-07-26 15:13:20.669 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:13:20.669 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:13:30.747 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:13:30.747 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:13:40.825 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:13:40.825 | [FILTER] Est exclue du filtre ? false
+2025-07-26 15:13:49.572 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-26 15:13:49.572 | [FILTER] Est exclue du filtre ? false

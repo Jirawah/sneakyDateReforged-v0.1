@@ -1,0 +1,1148 @@
+2025-07-27 21:59:59.235 | 
+2025-07-27 21:59:59.235 |   .   ____          _            __ _ _
+2025-07-27 21:59:59.235 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-07-27 21:59:59.235 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-07-27 21:59:59.235 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-07-27 21:59:59.235 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-07-27 21:59:59.235 |  =========|_|==============|___/=/_/_/_/
+2025-07-27 21:59:59.237 |  :: Spring Boot ::                (v3.1.3)
+2025-07-27 21:59:59.237 | 
+2025-07-27 21:59:59.319 | 2025-07-27T19:59:59.317Z  INFO 27 --- [           main] c.s.ms_auth.MsAuthApplication            : Starting MsAuthApplication v0.0.1-SNAPSHOT using Java 17.0.15 with PID 27 (/app/app.jar started by root in /app)
+2025-07-27 21:59:59.320 | 2025-07-27T19:59:59.319Z  INFO 27 --- [           main] c.s.ms_auth.MsAuthApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-07-27 21:59:59.367 | 2025-07-27T19:59:59.365Z  INFO 27 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://ms-configserver:8071
+2025-07-27 21:59:59.367 | 2025-07-27T19:59:59.365Z  INFO 27 --- [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ms-auth, profiles=[default], label=null, version=57f89c1e0df2bd7b22390b9089024c78d9ee3308, state=null
+2025-07-27 22:00:00.665 | 2025-07-27T20:00:00.664Z  INFO 27 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-27 22:00:00.923 | 2025-07-27T20:00:00.920Z  INFO 27 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 242 ms. Found 2 JPA repository interfaces.
+2025-07-27 22:00:01.429 | 2025-07-27T20:00:01.426Z  INFO 27 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ed646cc7-f9c2-3bde-befc-8048b1b75b95
+2025-07-27 22:00:02.072 | 2025-07-27T20:00:02.071Z  INFO 27 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2025-07-27 22:00:02.089 | 2025-07-27T20:00:02.088Z  INFO 27 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-27 22:00:02.089 | 2025-07-27T20:00:02.089Z  INFO 27 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2025-07-27 22:00:02.325 | 2025-07-27T20:00:02.324Z  INFO 27 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-27 22:00:02.326 | 2025-07-27T20:00:02.326Z  INFO 27 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2955 ms
+2025-07-27 22:00:02.764 | 2025-07-27T20:00:02.762Z  INFO 27 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-27 22:00:02.854 | 2025-07-27T20:00:02.853Z  INFO 27 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
+2025-07-27 22:00:02.857 | 2025-07-27T20:00:02.857Z  INFO 27 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-07-27 22:00:03.035 | 2025-07-27T20:00:03.035Z  INFO 27 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-07-27 22:00:03.208 | 2025-07-27T20:00:03.207Z  INFO 27 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-27 22:00:03.231 | 2025-07-27T20:00:03.229Z  INFO 27 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-27 22:00:03.642 | 2025-07-27T20:00:03.641Z  INFO 27 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@212dfd39
+2025-07-27 22:00:03.647 | 2025-07-27T20:00:03.647Z  INFO 27 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-27 22:00:03.715 | 2025-07-27T20:00:03.714Z  WARN 27 --- [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-07-27 22:00:04.099 | 2025-07-27T20:00:04.096Z  INFO 27 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-07-27 22:00:05.015 | 2025-07-27T20:00:05.015Z  INFO 27 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-27 22:00:05.123 | Hibernate: create table password_reset_token (id bigint not null auto_increment, email varchar(255), expiration_date datetime(6), token varchar(255) not null, used bit not null, primary key (id)) engine=InnoDB
+2025-07-27 22:00:05.166 | Hibernate: create table user_auth_model (id bigint not null auto_increment, created_at datetime(6), discord_avatar_url varchar(255), discord_discriminator varchar(255), discord_id varchar(255), discord_nickname varchar(255), discord_username varchar(255), discord_validated bit not null, email varchar(255) not null, password varchar(255) not null, pseudo varchar(255) not null, role varchar(255), steam_id varchar(255) not null, steam_validated bit not null, updated_at datetime(6), primary key (id)) engine=InnoDB
+2025-07-27 22:00:05.200 | Hibernate: alter table password_reset_token drop index UK_g0guo4k8krgpwuagos61oc06j
+2025-07-27 22:00:05.229 | Hibernate: alter table password_reset_token add constraint UK_g0guo4k8krgpwuagos61oc06j unique (token)
+2025-07-27 22:00:05.250 | Hibernate: alter table user_auth_model drop index UK_n0fd2d4v8c7vs7kciq1vb130e
+2025-07-27 22:00:05.252 | Hibernate: alter table user_auth_model add constraint UK_n0fd2d4v8c7vs7kciq1vb130e unique (discord_id)
+2025-07-27 22:00:05.388 | Hibernate: alter table user_auth_model drop index UK_409qw01u2i44ix2ok6t9hwckn
+2025-07-27 22:00:05.389 | Hibernate: alter table user_auth_model add constraint UK_409qw01u2i44ix2ok6t9hwckn unique (email)
+2025-07-27 22:00:05.408 | Hibernate: alter table user_auth_model drop index UK_rbuqets597ax56ki2jwasieq8
+2025-07-27 22:00:05.409 | Hibernate: alter table user_auth_model add constraint UK_rbuqets597ax56ki2jwasieq8 unique (pseudo)
+2025-07-27 22:00:05.427 | Hibernate: alter table user_auth_model drop index UK_1eyhq2eshg2kxbrmr0ns830eq
+2025-07-27 22:00:05.430 | Hibernate: alter table user_auth_model add constraint UK_1eyhq2eshg2kxbrmr0ns830eq unique (steam_id)
+2025-07-27 22:00:05.450 | 2025-07-27T20:00:05.450Z  INFO 27 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-27 22:00:06.292 | 2025-07-27T20:00:06.292Z  WARN 27 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-27 22:00:06.412 | 2025-07-27T20:00:06.412Z  INFO 27 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5aa62ee7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f7cec93, org.springframework.security.web.context.SecurityContextHolderFilter@644d1b61, org.springframework.security.web.header.HeaderWriterFilter@19dc0d32, org.springframework.security.web.authentication.logout.LogoutFilter@5729b410, com.sneakyDateReforged.ms_auth.security.JwtAuthFilter@c8f97a7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@184823ed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30bbcf91, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c9ef6e9, org.springframework.security.web.session.SessionManagementFilter@5927f904, org.springframework.security.web.access.ExceptionTranslationFilter@166c2c17, org.springframework.security.web.access.intercept.AuthorizationFilter@2a8f6e6]
+2025-07-27 22:00:07.244 | 2025-07-27T20:00:07.244Z  INFO 27 --- [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-07-27 22:00:07.309 | 2025-07-27T20:00:07.308Z  WARN 27 --- [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-27 22:00:07.339 | 2025-07-27T20:00:07.338Z  INFO 27 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2025-07-27 22:00:07.426 | 2025-07-27T20:00:07.426Z  INFO 27 --- [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-07-27 22:00:07.511 | 2025-07-27T20:00:07.511Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-07-27 22:00:07.518 | 2025-07-27T20:00:07.517Z  INFO 27 --- [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-07-27 22:00:07.562 | 2025-07-27T20:00:07.562Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-07-27 22:00:07.562 | 2025-07-27T20:00:07.562Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-07-27 22:00:07.562 | 2025-07-27T20:00:07.562Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-07-27 22:00:07.562 | 2025-07-27T20:00:07.562Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-07-27 22:00:07.562 | 2025-07-27T20:00:07.562Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-07-27 22:00:07.562 | 2025-07-27T20:00:07.562Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-07-27 22:00:07.562 | 2025-07-27T20:00:07.562Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-07-27 22:00:08.018 | 2025-07-27T20:00:08.017Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-07-27 22:00:08.020 | 2025-07-27T20:00:08.020Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-07-27 22:00:08.025 | 2025-07-27T20:00:08.024Z  INFO 27 --- [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-27 22:00:08.032 | 2025-07-27T20:00:08.031Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1753646408030 with initial instances count: 0
+2025-07-27 22:00:08.034 | 2025-07-27T20:00:08.034Z  INFO 27 --- [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MS-AUTH with eureka with status UP
+2025-07-27 22:00:08.036 | 2025-07-27T20:00:08.035Z  INFO 27 --- [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1753646408035, current=UP, previous=STARTING]
+2025-07-27 22:00:08.039 | 2025-07-27T20:00:08.037Z  INFO 27 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-AUTH/5d4c7d60e916:ms-auth:8082: registering service...
+2025-07-27 22:00:08.611 | 2025-07-27T20:00:08.609Z  INFO 27 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2025-07-27 22:00:08.612 | 2025-07-27T20:00:08.610Z  INFO 27 --- [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2025-07-27 22:00:08.669 | 2025-07-27T20:00:08.666Z  INFO 27 --- [           main] c.s.ms_auth.MsAuthApplication            : Started MsAuthApplication in 11.332 seconds (process running for 12.061)
+2025-07-27 22:00:08.714 | 2025-07-27T20:00:08.706Z  INFO 27 --- [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-AUTH/5d4c7d60e916:ms-auth:8082 - registration status: 204
+2025-07-27 22:00:17.364 | 2025-07-27T20:00:17.364Z  INFO 27 --- [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-27 22:00:17.364 | 2025-07-27T20:00:17.364Z  INFO 27 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-27 22:00:17.366 | 2025-07-27T20:00:17.366Z  INFO 27 --- [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-07-27 22:00:17.387 | 2025-07-27T20:00:17.387Z DEBUG 27 --- [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 22:00:17.389 | 2025-07-27T20:00:17.387Z DEBUG 27 --- [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2025-07-27 22:00:17.403 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:17.403 | [FILTER] Requête reçue sur : /auth/register
+2025-07-27 22:00:17.403 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:17.403 | [FILTER] Est exclue du filtre ? true
+2025-07-27 22:00:17.403 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:17.403 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:17.406 | 2025-07-27T20:00:17.405Z DEBUG 27 --- [nio-8082-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:17.406 | 2025-07-27T20:00:17.406Z DEBUG 27 --- [nio-8082-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:17.412 | 2025-07-27T20:00:17.412Z DEBUG 27 --- [nio-8082-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2025-07-27 22:00:17.412 | [FILTER] Requête reçue sur : /auth/register
+2025-07-27 22:00:17.412 | [FILTER] Est exclue du filtre ? true
+2025-07-27 22:00:17.412 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:17.414 | 2025-07-27T20:00:17.413Z DEBUG 27 --- [nio-8082-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 22:00:17.414 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:17.415 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:17.415 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:17.634 | 2025-07-27T20:00:17.634Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 22:00:17.635 | 2025-07-27T20:00:17.634Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 22:00:17.767 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.email=? limit ?
+2025-07-27 22:00:17.784 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.pseudo=? limit ?
+2025-07-27 22:00:17.786 | Hibernate: select u1_0.id from user_auth_model u1_0 where u1_0.steam_id=? limit ?
+2025-07-27 22:00:17.980 | 2025-07-27T20:00:17.980Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 22:00:18.027 | Hibernate: insert into user_auth_model (created_at,discord_avatar_url,discord_discriminator,discord_id,discord_nickname,discord_username,discord_validated,email,password,pseudo,role,steam_id,steam_validated,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+2025-07-27 22:00:18.040 | 2025-07-27T20:00:18.040Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 22:00:18.040 | 2025-07-27T20:00:18.040Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 22:00:18.040 | 2025-07-27T20:00:18.040Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 22:00:18.040 | 2025-07-27T20:00:18.040Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 22:00:18.040 | 2025-07-27T20:00:18.040Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 22:00:18.041 | 2025-07-27T20:00:18.041Z DEBUG 27 --- [nio-8082-exec-3] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 22:00:18.638 | 2025-07-27T20:00:18.626Z  WARN 27 --- [nio-8082-exec-3] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+2025-07-27 22:00:18.638 | 
+2025-07-27 22:00:18.638 | jakarta.mail.MessagingException: Could not convert socket to TLS
+2025-07-27 22:00:18.638 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2140) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:18.638 | 	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:734) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:18.638 | 	at jakarta.mail.Service.connect(Service.java:342) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:18.638 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:398) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:44) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:94) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:47) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:80) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:69) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:18.638 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:18.638 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:18.638 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:18.638 | 	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$ServletWebOperationAdapter.handle(AbstractWebMvcEndpointHandlerMapping.java:321) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(AbstractWebMvcEndpointHandlerMapping.java:428) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:18.638 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:18.638 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:18.638 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:18.638 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:18.638 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.638 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.638 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-27 22:00:18.638 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.638 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.638 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at com.sneakyDateReforged.ms_auth.security.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:45) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:18.638 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.638 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:18.639 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-27 22:00:18.639 | Caused by: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1351) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1226) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1169) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426) ~[na:na]
+2025-07-27 22:00:18.639 | 	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:602) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:18.639 | 	at com.sun.mail.util.SocketFetcher.startTLS(SocketFetcher.java:529) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:18.639 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2135) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:18.639 | 	... 152 common frames omitted
+2025-07-27 22:00:18.639 | Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.validator.Validator.validate(Validator.java:264) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1335) ~[na:na]
+2025-07-27 22:00:18.639 | 	... 166 common frames omitted
+2025-07-27 22:00:18.639 | Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297) ~[na:na]
+2025-07-27 22:00:18.639 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434) ~[na:na]
+2025-07-27 22:00:18.639 | 	... 171 common frames omitted
+2025-07-27 22:00:18.639 | 
+2025-07-27 22:00:28.511 | 2025-07-27T20:00:28.511Z DEBUG 27 --- [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2025-07-27 22:00:28.511 | [FILTER] Requête reçue sur : /auth/login
+2025-07-27 22:00:28.512 | [FILTER] Est exclue du filtre ? true
+2025-07-27 22:00:28.512 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:28.512 | 2025-07-27T20:00:28.512Z DEBUG 27 --- [nio-8082-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:28.512 | 2025-07-27T20:00:28.512Z DEBUG 27 --- [nio-8082-exec-5] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2025-07-27 22:00:28.513 | [FILTER] Requête reçue sur : /auth/login
+2025-07-27 22:00:28.513 | [FILTER] Est exclue du filtre ? true
+2025-07-27 22:00:28.513 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:28.518 | [LOGIN] Tentative de connexion avec : antoine.pouzeratte@hotmail.fr
+2025-07-27 22:00:28.625 | Hibernate: select u1_0.id,u1_0.created_at,u1_0.discord_avatar_url,u1_0.discord_discriminator,u1_0.discord_id,u1_0.discord_nickname,u1_0.discord_username,u1_0.discord_validated,u1_0.email,u1_0.password,u1_0.pseudo,u1_0.role,u1_0.steam_id,u1_0.steam_validated,u1_0.updated_at from user_auth_model u1_0 where u1_0.email=?
+2025-07-27 22:00:28.729 | 2025-07-27T20:00:28.728Z DEBUG 27 --- [nio-8082-exec-5] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-07-27 22:00:28.731 | Hibernate: select u1_0.id,u1_0.created_at,u1_0.discord_avatar_url,u1_0.discord_discriminator,u1_0.discord_id,u1_0.discord_nickname,u1_0.discord_username,u1_0.discord_validated,u1_0.email,u1_0.password,u1_0.pseudo,u1_0.role,u1_0.steam_id,u1_0.steam_validated,u1_0.updated_at from user_auth_model u1_0 where u1_0.email=?
+2025-07-27 22:00:28.785 | 2025-07-27T20:00:28.784Z DEBUG 27 --- [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 22:00:28.785 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:28.785 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:28.785 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:28.785 | 2025-07-27T20:00:28.784Z DEBUG 27 --- [nio-8082-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:28.786 | 2025-07-27T20:00:28.785Z DEBUG 27 --- [nio-8082-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 22:00:28.786 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:28.786 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:28.786 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:28.788 | 2025-07-27T20:00:28.788Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 22:00:28.788 | 2025-07-27T20:00:28.788Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 22:00:28.909 | 2025-07-27T20:00:28.908Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 22:00:28.990 | 2025-07-27T20:00:28.990Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 22:00:28.990 | 2025-07-27T20:00:28.990Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 22:00:28.990 | 2025-07-27T20:00:28.990Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 22:00:28.991 | 2025-07-27T20:00:28.990Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 22:00:28.991 | 2025-07-27T20:00:28.991Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 22:00:28.991 | 2025-07-27T20:00:28.991Z DEBUG 27 --- [nio-8082-exec-4] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 22:00:29.166 | 2025-07-27T20:00:29.161Z  WARN 27 --- [nio-8082-exec-4] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+2025-07-27 22:00:29.166 | 
+2025-07-27 22:00:29.166 | jakarta.mail.MessagingException: Could not convert socket to TLS
+2025-07-27 22:00:29.166 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2140) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:29.166 | 	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:734) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:29.166 | 	at jakarta.mail.Service.connect(Service.java:342) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:29.166 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:398) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:44) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:94) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:47) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:80) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:69) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$ServletWebOperationAdapter.handle(AbstractWebMvcEndpointHandlerMapping.java:321) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(AbstractWebMvcEndpointHandlerMapping.java:428) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:29.166 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at com.sneakyDateReforged.ms_auth.security.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:45) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:29.166 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-27 22:00:29.166 | Caused by: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1351) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1226) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1169) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426) ~[na:na]
+2025-07-27 22:00:29.166 | 	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:602) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:29.166 | 	at com.sun.mail.util.SocketFetcher.startTLS(SocketFetcher.java:529) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:29.166 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2135) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:29.166 | 	... 152 common frames omitted
+2025-07-27 22:00:29.166 | Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.validator.Validator.validate(Validator.java:264) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1335) ~[na:na]
+2025-07-27 22:00:29.166 | 	... 166 common frames omitted
+2025-07-27 22:00:29.166 | Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148) ~[na:na]
+2025-07-27 22:00:29.166 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129) ~[na:na]
+2025-07-27 22:00:29.167 | 	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297) ~[na:na]
+2025-07-27 22:00:29.167 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434) ~[na:na]
+2025-07-27 22:00:29.167 | 	... 171 common frames omitted
+2025-07-27 22:00:29.167 | 
+2025-07-27 22:00:34.772 | 2025-07-27T20:00:34.772Z DEBUG 27 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /auth/reset-request
+2025-07-27 22:00:34.773 | [FILTER] Requête reçue sur : /auth/reset-request
+2025-07-27 22:00:34.773 | [FILTER] Est exclue du filtre ? true
+2025-07-27 22:00:34.773 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:34.773 | 2025-07-27T20:00:34.773Z DEBUG 27 --- [nio-8082-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:34.774 | 2025-07-27T20:00:34.774Z DEBUG 27 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /auth/reset-request
+2025-07-27 22:00:34.774 | [FILTER] Requête reçue sur : /auth/reset-request
+2025-07-27 22:00:34.774 | [FILTER] Est exclue du filtre ? true
+2025-07-27 22:00:34.774 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:34.776 | [RESET] Demande reçue pour : antoine.pouzeratte@hotmail.fr
+2025-07-27 22:00:34.776 | [DEBUG] resetBaseUrl utilisé : http://localhost:4200/reset-password?token=
+2025-07-27 22:00:34.778 | Hibernate: select u1_0.id,u1_0.created_at,u1_0.discord_avatar_url,u1_0.discord_discriminator,u1_0.discord_id,u1_0.discord_nickname,u1_0.discord_username,u1_0.discord_validated,u1_0.email,u1_0.password,u1_0.pseudo,u1_0.role,u1_0.steam_id,u1_0.steam_validated,u1_0.updated_at from user_auth_model u1_0 where u1_0.email=?
+2025-07-27 22:00:34.781 | [RESET] Utilisateur trouvé, génération du token...
+2025-07-27 22:00:34.783 | Hibernate: insert into password_reset_token (email,expiration_date,token,used) values (?,?,?,?)
+2025-07-27 22:00:34.831 | 2025-07-27T20:00:34.830Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 22:00:34.831 | 2025-07-27T20:00:34.831Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 22:00:34.975 | 2025-07-27T20:00:34.975Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 22:00:35.045 | 2025-07-27T20:00:35.045Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 22:00:35.045 | 2025-07-27T20:00:35.045Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 22:00:35.046 | 2025-07-27T20:00:35.045Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 22:00:35.046 | 2025-07-27T20:00:35.046Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 22:00:35.046 | 2025-07-27T20:00:35.046Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 22:00:35.046 | 2025-07-27T20:00:35.046Z DEBUG 27 --- [nio-8082-exec-7] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 22:00:35.179 | 2025-07-27T20:00:35.178Z ERROR 27 --- [nio-8082-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.mail.MailSendException: Mail server connection failed. Failed messages: jakarta.mail.MessagingException: Could not convert socket to TLS;
+2025-07-27 22:00:35.179 |   nested exception is:
+2025-07-27 22:00:35.179 | 	javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target; message exceptions (1) are:
+2025-07-27 22:00:35.179 | Failed message 1: jakarta.mail.MessagingException: Could not convert socket to TLS;
+2025-07-27 22:00:35.179 |   nested exception is:
+2025-07-27 22:00:35.179 | 	javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target] with root cause
+2025-07-27 22:00:35.179 | 
+2025-07-27 22:00:35.179 | sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.validator.Validator.validate(Validator.java:264) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1335) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1226) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1169) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426) ~[na:na]
+2025-07-27 22:00:35.179 | 	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:602) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:35.179 | 	at com.sun.mail.util.SocketFetcher.startTLS(SocketFetcher.java:529) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:35.179 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2135) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:35.179 | 	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:734) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:35.179 | 	at jakarta.mail.Service.connect(Service.java:342) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:35.179 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.doSend(JavaMailSenderImpl.java:437) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:323) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.send(JavaMailSenderImpl.java:312) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at com.sneakyDateReforged.ms_auth.service.PasswordResetService.lambda$requestReset$0(PasswordResetService.java:81) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:35.179 | 	at java.base/java.util.Optional.ifPresent(Optional.java:178) ~[na:na]
+2025-07-27 22:00:35.179 | 	at com.sneakyDateReforged.ms_auth.service.PasswordResetService.requestReset(PasswordResetService.java:60) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:35.179 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:35.179 | 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:704) ~[spring-aop-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at com.sneakyDateReforged.ms_auth.service.PasswordResetService$$SpringCGLIB$$0.requestReset(<generated>) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:35.179 | 	at com.sneakyDateReforged.ms_auth.controller.PasswordResetController.requestReset(PasswordResetController.java:19) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:35.179 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:35.179 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.179 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:35.180 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-27 22:00:35.180 | 
+2025-07-27 22:00:35.182 | 2025-07-27T20:00:35.182Z DEBUG 27 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Securing POST /error
+2025-07-27 22:00:35.183 | 2025-07-27T20:00:35.183Z DEBUG 27 --- [nio-8082-exec-7] o.s.security.web.FilterChainProxy        : Secured POST /error
+2025-07-27 22:00:35.191 | 2025-07-27T20:00:35.190Z DEBUG 27 --- [nio-8082-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:37.147 | 2025-07-27T20:00:37.147Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-07-27 22:00:37.147 | 2025-07-27T20:00:37.147Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-07-27 22:00:37.147 | 2025-07-27T20:00:37.147Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-07-27 22:00:37.147 | 2025-07-27T20:00:37.147Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-07-27 22:00:37.147 | 2025-07-27T20:00:37.147Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-07-27 22:00:37.147 | 2025-07-27T20:00:37.147Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-07-27 22:00:37.147 | 2025-07-27T20:00:37.147Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-07-27 22:00:37.158 | 2025-07-27T20:00:37.156Z  INFO 27 --- [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-07-27 22:00:38.401 | 2025-07-27T20:00:38.400Z DEBUG 27 --- [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 22:00:38.401 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:38.401 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:38.401 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:38.402 | 2025-07-27T20:00:38.401Z DEBUG 27 --- [nio-8082-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:38.403 | 2025-07-27T20:00:38.402Z DEBUG 27 --- [nio-8082-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 22:00:38.403 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:38.403 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:38.403 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:38.405 | 2025-07-27T20:00:38.405Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 22:00:38.406 | 2025-07-27T20:00:38.406Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 22:00:38.529 | 2025-07-27T20:00:38.529Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 22:00:38.596 | 2025-07-27T20:00:38.596Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 22:00:38.597 | 2025-07-27T20:00:38.596Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 22:00:38.597 | 2025-07-27T20:00:38.596Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 22:00:38.597 | 2025-07-27T20:00:38.596Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 22:00:38.597 | 2025-07-27T20:00:38.596Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 22:00:38.597 | 2025-07-27T20:00:38.596Z DEBUG 27 --- [nio-8082-exec-6] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 22:00:38.743 | 2025-07-27T20:00:38.736Z  WARN 27 --- [nio-8082-exec-6] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+2025-07-27 22:00:38.743 | 
+2025-07-27 22:00:38.743 | jakarta.mail.MessagingException: Could not convert socket to TLS
+2025-07-27 22:00:38.743 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2140) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:38.743 | 	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:734) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:38.743 | 	at jakarta.mail.Service.connect(Service.java:342) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:38.743 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:398) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:44) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:94) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:47) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:80) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:69) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$ServletWebOperationAdapter.handle(AbstractWebMvcEndpointHandlerMapping.java:321) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(AbstractWebMvcEndpointHandlerMapping.java:428) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:38.743 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at com.sneakyDateReforged.ms_auth.security.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:45) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:38.743 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-27 22:00:38.743 | Caused by: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1351) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1226) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1169) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426) ~[na:na]
+2025-07-27 22:00:38.743 | 	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:602) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:38.743 | 	at com.sun.mail.util.SocketFetcher.startTLS(SocketFetcher.java:529) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:38.743 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2135) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:38.743 | 	... 152 common frames omitted
+2025-07-27 22:00:38.743 | Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.validator.Validator.validate(Validator.java:264) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1335) ~[na:na]
+2025-07-27 22:00:38.743 | 	... 166 common frames omitted
+2025-07-27 22:00:38.743 | Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297) ~[na:na]
+2025-07-27 22:00:38.743 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434) ~[na:na]
+2025-07-27 22:00:38.743 | 	... 171 common frames omitted
+2025-07-27 22:00:38.744 | 
+2025-07-27 22:00:48.813 | 2025-07-27T20:00:48.813Z DEBUG 27 --- [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /actuator/health
+2025-07-27 22:00:48.814 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:48.814 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:48.814 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:48.814 | 2025-07-27T20:00:48.814Z DEBUG 27 --- [nio-8082-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-07-27 22:00:48.815 | 2025-07-27T20:00:48.814Z DEBUG 27 --- [nio-8082-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /actuator/health
+2025-07-27 22:00:48.815 | [FILTER] Requête reçue sur : /actuator/health
+2025-07-27 22:00:48.815 | [FILTER] Est exclue du filtre ? false
+2025-07-27 22:00:48.815 | [FILTER] Chemins exclus : [/auth/register, /auth/login, /auth/discord-sync, /auth/reset-request, /auth/reset-password]
+2025-07-27 22:00:48.818 | 2025-07-27T20:00:48.817Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : useEhlo true, useAuth true
+2025-07-27 22:00:48.818 | 2025-07-27T20:00:48.818Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : trying to connect to host "smtp.gmail.com", port 587, isSSL false
+2025-07-27 22:00:48.952 | 2025-07-27T20:00:48.952Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : connected to host "smtp.gmail.com", port: 587
+2025-07-27 22:00:49.037 | 2025-07-27T20:00:49.037Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SIZE", arg "35882577"
+2025-07-27 22:00:49.038 | 2025-07-27T20:00:49.037Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "8BITMIME", arg ""
+2025-07-27 22:00:49.038 | 2025-07-27T20:00:49.038Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "STARTTLS", arg ""
+2025-07-27 22:00:49.038 | 2025-07-27T20:00:49.038Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "ENHANCEDSTATUSCODES", arg ""
+2025-07-27 22:00:49.038 | 2025-07-27T20:00:49.038Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "PIPELINING", arg ""
+2025-07-27 22:00:49.038 | 2025-07-27T20:00:49.038Z DEBUG 27 --- [nio-8082-exec-8] com.sun.mail.smtp                        : Found extension "SMTPUTF8", arg ""
+2025-07-27 22:00:49.173 | 2025-07-27T20:00:49.172Z  WARN 27 --- [nio-8082-exec-8] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+2025-07-27 22:00:49.173 | 
+2025-07-27 22:00:49.173 | jakarta.mail.MessagingException: Could not convert socket to TLS
+2025-07-27 22:00:49.174 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2140) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:49.174 | 	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:734) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:49.174 | 	at jakarta.mail.Service.connect(Service.java:342) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:49.174 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:398) ~[spring-context-support-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:44) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:94) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:47) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:80) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:69) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:49.174 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:49.174 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:49.174 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:49.174 | 	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281) ~[spring-core-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$ServletWebOperationAdapter.handle(AbstractWebMvcEndpointHandlerMapping.java:321) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(AbstractWebMvcEndpointHandlerMapping.java:428) ~[spring-boot-actuator-3.1.3.jar!/:3.1.3]
+2025-07-27 22:00:49.174 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2025-07-27 22:00:49.174 | 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+2025-07-27 22:00:49.174 | 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+2025-07-27 22:00:49.174 | 	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.12.jar!/:6.0.0]
+2025-07-27 22:00:49.174 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.174 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.174 | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.12.jar!/:na]
+2025-07-27 22:00:49.174 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.174 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.174 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at com.sneakyDateReforged.ms_auth.security.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:45) ~[classes!/:0.0.1-SNAPSHOT]
+2025-07-27 22:00:49.174 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.174 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar!/:6.1.3]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar!/:6.0.11]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar!/:na]
+2025-07-27 22:00:49.175 | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+2025-07-27 22:00:49.175 | Caused by: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1351) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.onConsumeCertificate(CertificateMessage.java:1226) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.consume(CertificateMessage.java:1169) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426) ~[na:na]
+2025-07-27 22:00:49.175 | 	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:602) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:49.175 | 	at com.sun.mail.util.SocketFetcher.startTLS(SocketFetcher.java:529) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:49.175 | 	at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:2135) ~[jakarta.mail-2.0.1.jar!/:2.0.1]
+2025-07-27 22:00:49.175 | 	... 152 common frames omitted
+2025-07-27 22:00:49.175 | Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.validator.Validator.validate(Validator.java:264) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:132) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.ssl.CertificateMessage$T13CertificateConsumer.checkServerCerts(CertificateMessage.java:1335) ~[na:na]
+2025-07-27 22:00:49.175 | 	... 166 common frames omitted
+2025-07-27 22:00:49.175 | Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297) ~[na:na]
+2025-07-27 22:00:49.175 | 	at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434) ~[na:na]
+2025-07-27 22:00:49.175 | 	... 171 common frames omitted
+2025-07-27 22:00:49.175 | 

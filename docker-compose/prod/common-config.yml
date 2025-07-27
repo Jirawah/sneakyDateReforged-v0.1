@@ -7,8 +7,6 @@ services:
   microservice-base-config:
     extends:
       service: network-deploy-service
-    networks:
-      - sneakydate-network
 
   microservice-db-config:
     extends:
@@ -21,15 +19,11 @@ services:
       interval: 10s
       start_period: 10s
     environment:
-      MYSQL_ROOT_PASSWORD: root
-    networks:
-      - sneakydate-network
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
 
   microservice-configserver-config:
     extends:
       service: network-deploy-service
-    networks:
-      - sneakydate-network
 
 networks:
   sneakydate-network:

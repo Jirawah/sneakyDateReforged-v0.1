@@ -24,7 +24,7 @@ public class AuthService {
 
     // 🔐 Enregistrement
     @Transactional
-    public AuthResponse register(RegisterRequest request) {
+    public AuthResponseDTO register(RegisterRequestDTO request) {
 
         if (!request.getPassword().equals(request.getConfirmPassword())) {
             throw new IllegalArgumentException("Les mots de passe ne correspondent pas.");
@@ -58,11 +58,11 @@ public class AuthService {
 
         String jwt = jwtUtils.generateToken(user);
 
-        return new AuthResponse(jwt);
+        return new AuthResponseDTO(jwt);
     }
 
     // 🔐 Connexion
-    public AuthResponse login(LoginRequest request) {
+    public AuthResponseDTO login(LoginRequestDTO request) {
         System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -75,12 +75,12 @@ public class AuthService {
                 .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé."));
 
         String jwt = jwtUtils.generateToken(user);
-        return new AuthResponse(jwt);
+        return new AuthResponseDTO(jwt);
     }
 
     // 🤖 Synchronisation Discord
     @Transactional
-    public void syncDiscord(DiscordSyncRequest request) {
+    public void syncDiscord(DiscordSyncRequestDTO request) {
         Optional<UserAuthModel> optionalUser = userAuthRepository.findByDiscordId(request.getDiscordId());
 
         UserAuthModel user;

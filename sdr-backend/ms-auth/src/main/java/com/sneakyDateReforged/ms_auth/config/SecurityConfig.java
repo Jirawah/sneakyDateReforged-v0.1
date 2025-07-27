@@ -1,11 +1,10 @@
 package com.sneakyDateReforged.ms_auth.config;
 
 import com.sneakyDateReforged.ms_auth.security.JwtAuthFilter;
+import com.sneakyDateReforged.ms_auth.service.UserAuthDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import com.sneakyDateReforged.ms_auth.service.UserAuthDetailsService;
 
 @Configuration
 @EnableMethodSecurity
@@ -33,13 +31,32 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/register", "/auth/login", "/auth/discord-sync").permitAll()
+                        .requestMatchers(
+                                "/auth/register",
+                                "/auth/login",
+                                "/auth/discord-sync",
+                                "/auth/reset-request",
+                                "/auth/reset-password",
+                                "/actuator/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+//@Bean
+//public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//    return http
+//            .csrf(csrf -> csrf.disable())
+//            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//            .authorizeHttpRequests(auth -> auth
+//                    .anyRequest().permitAll() // 👈 Tout autorisé pour test
+//            )
+//            .authenticationProvider(authenticationProvider())
+//            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+//            .build();
+//}
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -59,3 +76,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+

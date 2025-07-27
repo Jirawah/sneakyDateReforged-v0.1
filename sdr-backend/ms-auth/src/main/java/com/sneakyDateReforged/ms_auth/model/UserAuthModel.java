@@ -16,7 +16,7 @@ public class UserAuthModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // -------- Champs saisis manuellement --------
+    // Champs saisis manuellement
     @Column(nullable = false, unique = true)
     private String pseudo;
 
@@ -29,7 +29,7 @@ public class UserAuthModel {
     @Column(nullable = false)
     private String password;
 
-    // -------- Champs récupérés via Discord --------
+    // Champs récupérés via Discord
     @Column(unique = true)
     private String discordId;
 
@@ -38,17 +38,17 @@ public class UserAuthModel {
     private String discordNickname;
     private String discordAvatarUrl;
 
-    // -------- État de validation --------
+    // État de validation
     @Column(nullable = false)
     private boolean discordValidated = false;
 
     @Column(nullable = false)
     private boolean steamValidated = false;
 
-    // -------- Pour rôle ou statut futur --------
+    // Pour rôle ou statut futur
     private String role = "USER";
 
-    // -------- Timestamps (facultatif mais recommandé) --------
+    // Timestamps (facultatif mais recommandé)
     @Column(updatable = false)
     private java.time.LocalDateTime createdAt;
 
