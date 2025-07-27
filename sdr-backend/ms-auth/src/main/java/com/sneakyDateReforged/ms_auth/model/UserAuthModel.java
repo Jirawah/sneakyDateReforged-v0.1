@@ -48,7 +48,7 @@ public class UserAuthModel {
     // Pour rôle ou statut futur
     private String role = "USER";
 
-    // Timestamps (facultatif mais recommandé)
+    // Timestamps
     @Column(updatable = false)
     private java.time.LocalDateTime createdAt;
 

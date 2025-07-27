@@ -30,7 +30,7 @@ public class UserAuthDetailsService implements UserDetailsService {
         return User.builder()
                 .username(user.getEmail())
                 .password(user.getPassword())
-                .roles("USER") // étendre plus tard avec une enum de rôles
+                .roles("USER") // à étendre plus tard avec une enum de rôles
                 .build();
     }
 }

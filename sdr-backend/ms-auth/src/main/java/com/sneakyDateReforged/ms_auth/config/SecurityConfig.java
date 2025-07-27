@@ -45,18 +45,18 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-//@Bean
-//public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//    return http
-//            .csrf(csrf -> csrf.disable())
-//            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//            .authorizeHttpRequests(auth -> auth
-//                    .anyRequest().permitAll() // 👈 Tout autorisé pour test
-//            )
-//            .authenticationProvider(authenticationProvider())
+//  @Bean
+//  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//       return http
+//                .csrf(csrf -> csrf.disable())
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .authorizeHttpRequests(auth -> auth
+//                        .anyRequest().permitAll()
+//                )
+//                .authenticationProvider(authenticationProvider())
 //            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-//            .build();
-//}
+//                .build();
+//  }
 
     @Bean
     public AuthenticationProvider authenticationProvider() {

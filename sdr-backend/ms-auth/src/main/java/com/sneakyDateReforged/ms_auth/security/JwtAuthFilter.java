@@ -40,7 +40,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         final String authHeader = request.getHeader("Authorization");
 
-        // 🔐 Cas : aucune Authorization ou mauvais format
+        // Cas : aucune Authorization ou mauvais format
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             System.out.println("[JWT] Aucune entête Authorization présente ou mal formée → requête ignorée");
             filterChain.doFilter(request, response);
@@ -85,7 +85,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String path = request.getServletPath().toLowerCase(); // ignore la casse
+        String path = request.getServletPath().toLowerCase();
         boolean excluded = EXCLUDED_PATHS.stream().anyMatch(path::equalsIgnoreCase);
         System.out.println("[FILTER] Requête reçue sur : " + path);
         System.out.println("[FILTER] Est exclue du filtre ? " + excluded);

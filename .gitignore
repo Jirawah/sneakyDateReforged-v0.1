@@ -1,0 +1,14 @@
+# Fichier d'environnement
+.env
+
+# Répertoire de debug
+debuggLog/
+
+# Fichiers temporaires et IDE
+*.log
+*.tmp
+.vscode/
+.idea/
+
+# Répertoire de build Java
+target/

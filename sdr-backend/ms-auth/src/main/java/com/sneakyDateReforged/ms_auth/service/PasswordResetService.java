@@ -57,7 +57,7 @@ public class PasswordResetService {
            mailSender.send(message);
 
            System.out.println("[RESET] Mail de réinitialisation envoyé à : " + user.getEmail());
-           System.out.println("[DEBUG] Email envoyé à : " + user.getEmail()); // 👈 Log ajouté ici
+           System.out.println("[DEBUG] Email envoyé à : " + user.getEmail()); // Log ajouté
        });
 
        // Toujours ce message, que l'email soit valide ou pas

@@ -22,7 +22,7 @@ public class AuthService {
     private final JwtUtils jwtUtils;
     private final AuthenticationManager authenticationManager;
 
-    // 🔐 Enregistrement
+    // Enregistrement
     @Transactional
     public AuthResponseDTO register(RegisterRequestDTO request) {
 
@@ -42,7 +42,7 @@ public class AuthService {
             throw new IllegalArgumentException("Steam ID déjà utilisé.");
         }
 
-        // À ce stade, on pourrait aussi appeler SteamCheckerService ici
+        // À ce stade, on pourrait appeler SteamCheckerService ici
 
         UserAuthModel user = UserAuthModel.builder()
                 .pseudo(request.getPseudo())
@@ -61,7 +61,7 @@ public class AuthService {
         return new AuthResponseDTO(jwt);
     }
 
-    // 🔐 Connexion
+    // Connexion
     public AuthResponseDTO login(LoginRequestDTO request) {
         System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
         authenticationManager.authenticate(
@@ -78,7 +78,7 @@ public class AuthService {
         return new AuthResponseDTO(jwt);
     }
 
-    // 🤖 Synchronisation Discord
+    // Synchronisation Discord
     @Transactional
     public void syncDiscord(DiscordSyncRequestDTO request) {
         Optional<UserAuthModel> optionalUser = userAuthRepository.findByDiscordId(request.getDiscordId());
