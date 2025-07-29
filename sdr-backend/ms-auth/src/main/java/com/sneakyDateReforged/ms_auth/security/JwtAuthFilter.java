@@ -49,35 +49,32 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         final String jwt = authHeader.substring(7);
 
-        try {
-            String email = jwtUtils.extractUsername(jwt);
-            System.out.println("[JWT] Email extrait du token : " + email);
+        // Extraction du username (email) — exceptions propagées vers GlobalExceptionHandler
+        String email = jwtUtils.extractUsername(jwt);
+        System.out.println("[JWT] Email extrait du token : " + email);
 
-            if (email == null || email.isBlank()) {
-                System.out.println("[JWT] Email null ou vide → requête ignorée");
-                filterChain.doFilter(request, response);
-                return;
+        if (email == null || email.isBlank()) {
+            System.out.println("[JWT] Email null ou vide → requête ignorée");
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        if (SecurityContextHolder.getContext().getAuthentication() == null) {
+            UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+
+            if (jwtUtils.isTokenValid(jwt, userDetails)) {
+                UsernamePasswordAuthenticationToken authToken =
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails,
+                                null,
+                                userDetails.getAuthorities()
+                        );
+
+                SecurityContextHolder.getContext().setAuthentication(authToken);
+                System.out.println("[JWT] Utilisateur authentifié : " + email);
+            } else {
+                System.out.println("[JWT] Token invalide pour l'utilisateur : " + email);
             }
-
-            if (SecurityContextHolder.getContext().getAuthentication() == null) {
-                UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-
-                if (jwtUtils.isTokenValid(jwt, userDetails)) {
-                    UsernamePasswordAuthenticationToken authToken =
-                            new UsernamePasswordAuthenticationToken(
-                                    userDetails,
-                                    null,
-                                    userDetails.getAuthorities()
-                            );
-
-                    SecurityContextHolder.getContext().setAuthentication(authToken);
-                    System.out.println("[JWT] Utilisateur authentifié : " + email);
-                } else {
-                    System.out.println("[JWT] Token invalide pour l'utilisateur : " + email);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("[JWT] Erreur lors du traitement du token : " + e.getMessage());
         }
 
         filterChain.doFilter(request, response);

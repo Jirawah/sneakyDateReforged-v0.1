@@ -29,6 +29,22 @@ public class UserAuthModel {
     @Column(nullable = false)
     private String password;
 
+    @Column
+    private String steamPseudo;
+
+    @Column
+    private String steamAvatar;
+
+    // Heures de jeu sur les jeux ciblés
+    @Column
+    private Integer pubgHours;
+
+    @Column
+    private Integer rustHours;
+
+    @Column
+    private Integer amongUsHours;
+
     // Champs récupérés via Discord
     @Column(unique = true)
     private String discordId;

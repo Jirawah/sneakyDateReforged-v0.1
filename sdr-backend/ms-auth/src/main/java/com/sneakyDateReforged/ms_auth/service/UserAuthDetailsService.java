@@ -18,19 +18,16 @@ public class UserAuthDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         if (email == null || email.isBlank()) {
-            System.out.println("[AUTH] Email null ou vide reçu dans loadUserByUsername → rejeté");
             throw new UsernameNotFoundException("Email invalide : null ou vide");
         }
 
         UserAuthModel user = userAuthRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Aucun utilisateur avec l'email : " + email));
 
-        System.out.println("[AUTH] Utilisateur trouvé pour : " + email);
-
         return User.builder()
                 .username(user.getEmail())
                 .password(user.getPassword())
-                .roles("USER") // à étendre plus tard avec une enum de rôles
+                .roles("USER")
                 .build();
     }
 }

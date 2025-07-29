@@ -211,6 +211,7 @@ services:
       DB_NAME: ${DB_NAME}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
+      STEAM_API_KEY: ${STEAM_API_KEY}
 
     extends:
       file: common-config.yml

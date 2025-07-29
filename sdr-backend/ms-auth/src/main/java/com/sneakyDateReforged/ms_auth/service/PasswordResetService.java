@@ -14,6 +14,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.sneakyDateReforged.ms_auth.exception.InvalidResetTokenException;
+import com.sneakyDateReforged.ms_auth.exception.ExpiredResetTokenException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.time.LocalDateTime;
 
@@ -67,14 +70,14 @@ public class PasswordResetService {
     @Transactional
     public void resetPassword(ResetPasswordRequestDTO dto) {
         PasswordResetToken token = tokenRepo.findByToken(dto.getToken())
-                .orElseThrow(() -> new RuntimeException("Token invalide."));
+                .orElseThrow(() -> new InvalidResetTokenException("Token invalide."));
 
         if (token.isUsed() || token.getExpirationDate().isBefore(LocalDateTime.now())) {
-            throw new RuntimeException("Token expiré ou déjà utilisé.");
+            throw new ExpiredResetTokenException("Token expiré ou déjà utilisé.");
         }
 
         UserAuthModel user = userRepo.findByEmail(token.getEmail())
-                .orElseThrow(() -> new RuntimeException("Utilisateur introuvable."));
+                .orElseThrow(() -> new UsernameNotFoundException("Utilisateur introuvable."));
 
         user.setPassword(passwordEncoder.encode(dto.getNewPassword()));
         userRepo.save(user);
