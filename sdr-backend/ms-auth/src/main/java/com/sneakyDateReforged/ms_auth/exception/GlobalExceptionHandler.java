@@ -123,5 +123,17 @@ public class GlobalExceptionHandler {
         );
     }
 
+    @ExceptionHandler(DuplicateUserException.class)
+    public ResponseEntity<Map<String, Object>> handleDuplicateUser(DuplicateUserException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(
+                Map.of(
+                        "timestamp", LocalDateTime.now(),
+                        "status", 409,
+                        "error", "Duplicate User",
+                        "message", ex.getMessage()
+                )
+        );
+    }
+
     // autres exceptions spécifiques ici...
 }

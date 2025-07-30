@@ -17,9 +17,4 @@ public interface UserAuthRepository extends JpaRepository<UserAuthModel, Long> {
 
     Optional<UserAuthModel> findBySteamId(String steamId);
 
-    boolean existsByEmail(String email);
-
-    boolean existsByPseudo(String pseudo);
-
-    boolean existsBySteamId(String steamId);
 }

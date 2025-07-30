@@ -24,4 +24,10 @@ public class RegisterRequestDTO {
 
     @NotBlank
     private String confirmPassword;
+
+    public String getDiscordId;
+
+    public String getDiscordId() {
+        return "";
+    }
 }
