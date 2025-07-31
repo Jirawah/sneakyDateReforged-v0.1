@@ -144,6 +144,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.sneakyDateReforged.ms_auth.exception.SteamUnavailableException;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.sql.Types;
 import java.util.HashMap;
@@ -160,7 +163,9 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final SteamVerificationService steamVerificationService;
     private final JdbcTemplate jdbcTemplate;
+    private final UserAuthService userAuthService;
 
+    // 🔐 Méthode d'inscription
     // 🔐 Méthode d'inscription
     @Transactional
     public AuthResponseDTO register(RegisterRequestDTO request) {
@@ -169,8 +174,17 @@ public class AuthService {
             throw new IllegalArgumentException("Les mots de passe ne correspondent pas.");
         }
 
-        // 🕵️‍♂️ Vérification du compte Steam
-        SteamProfileDTO steamProfile = steamVerificationService.verifySteamUser(request.getSteamId());
+        // 🕵️‍♂️ Vérification du compte Steam avec fallback
+        SteamProfileDTO steamProfile;
+        try {
+            steamProfile = steamVerificationService.verifySteamUser(request.getSteamId());
+        } catch (SteamUnavailableException e) {
+            throw new ResponseStatusException(
+                    HttpStatus.SERVICE_UNAVAILABLE,
+                    e.getMessage()
+            );
+        }
+
         if (steamProfile.isBanned()) {
             throw new SteamAccountBannedException("Votre compte Steam a déjà été banni.");
         }
@@ -193,9 +207,7 @@ public class AuthService {
         UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé après enregistrement."));
 
-        user.setSteamPseudo(steamProfile.getPersonaName());
-        user.setSteamAvatar(steamProfile.getAvatarFull());
-        userAuthRepository.save(user);
+        userAuthService.updateSteamProfile(user, steamProfile);
 
         String jwt = jwtUtils.generateToken(user);
 
@@ -206,6 +218,7 @@ public class AuthService {
                 .gamesHours(steamProfile.getGamesHours())
                 .build();
     }
+
 
     // Appel à la procédure stockée qui vérifie si le mail et l'id Steam n'existe pas déjà en BDD
     private int registerUserWithProcedure(String email, String pseudo, String passwordHash, String steamId, String discordId) {
@@ -264,21 +277,14 @@ public class AuthService {
     // Lien Discord
     @Transactional
     public void syncDiscord(DiscordSyncRequestDTO request) {
-        Optional<UserAuthModel> optionalUser = userAuthRepository.findByDiscordId(request.getDiscordId());
+        // Mise à jour des champs Discord (username, avatar, etc.)
+        userAuthService.syncDiscordProfile(request);
 
-        UserAuthModel user = optionalUser.orElseGet(() ->
-                userAuthRepository.findByPseudo(request.getDiscordUsername())
-                        .orElseThrow(() -> new IllegalArgumentException("Aucun utilisateur correspondant pour ce Discord."))
-        );
-
-        user.setDiscordId(request.getDiscordId());
-        user.setDiscordUsername(request.getDiscordUsername());
-        user.setDiscordDiscriminator(request.getDiscordDiscriminator());
-        user.setDiscordNickname(request.getDiscordNickname());
-        user.setDiscordAvatarUrl(request.getDiscordAvatarUrl());
-        user.setDiscordValidated(true);
-
-        userAuthRepository.save(user);
+        // Marquage comme validé
+        userAuthRepository.findByDiscordId(request.getDiscordId()).ifPresent(user -> {
+            user.setDiscordValidated(true);
+            userAuthRepository.save(user);
+        });
     }
 }
 

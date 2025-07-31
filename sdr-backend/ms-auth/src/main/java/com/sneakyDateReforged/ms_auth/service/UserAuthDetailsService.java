@@ -30,4 +30,5 @@ public class UserAuthDetailsService implements UserDetailsService {
                 .roles("USER")
                 .build();
     }
+
 }
