@@ -34,13 +34,14 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/auth/register",
                                 "/auth/login",
-                                "/auth/discord-sync",
+                                "/api/auth/discord/sync",
                                 "/auth/reset-request",
                                 "/auth/reset-password",
                                 "/actuator/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
+
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

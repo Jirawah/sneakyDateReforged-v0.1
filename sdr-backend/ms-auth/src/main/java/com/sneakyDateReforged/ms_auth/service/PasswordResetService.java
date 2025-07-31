@@ -59,16 +59,30 @@ public class PasswordResetService {
                 helper.setTo(user.getEmail());
                 helper.setSubject("🔐 Réinitialisation de ton mot de passe");
 
-                String htmlContent = "<div style='font-family:sans-serif; max-width:600px; margin:auto;'>" +
-                        "<img src='https://raw.githubusercontent.com/Jirawah/sneakyDateReforged-Logo/refs/heads/main/sneakyDateReforged-Logo.svg' alt='SneakyDate Logo' style='width:150px; display:block; margin:0 auto 20px;' />" +
-                        "<h2 style='color:#ff3366;'>Réinitialisation de ton mot de passe</h2>" +
-                        "<p>Salut <strong>" + user.getPseudo() + "</strong>,</p>" +
-                        "<p>Tu as demandé à réinitialiser ton mot de passe. Clique sur le bouton ci-dessous 👇</p>" +
-                        "<div style='margin:30px 0; text-align:center;'>" +
-                        "<a href='" + resetUrl + "' style='background-color:#ff3366; color:white; padding:12px 24px; text-decoration:none; border-radius:5px;'>Réinitialiser mon mot de passe</a>" +
+//                String htmlContent = "<div style='font-family:sans-serif; max-width:600px; margin:auto;'>" +
+//                        "<img src='https://raw.githubusercontent.com/Jirawah/sneakyDateReforged-Logo/main/sneakyDateReforged-logoPNG.png' alt='SneakyDate Logo' style='width:150px; display:block; margin:0 auto 20px;' />" +
+//                        "<h2 style='color:#ff3366;'>Réinitialisation de ton mot de passe</h2>" +
+//                        "<p>Salut <strong>" + user.getPseudo() + "</strong>,</p>" +
+//                        "<p>Tu as demandé à réinitialiser ton mot de passe. Clique sur le bouton ci-dessous 👇</p>" +
+//                        "<div style='margin:30px 0; text-align:center;'>" +
+//                        "<a href='" + resetUrl + "' style='background-color:#ff3366; color:white; padding:12px 24px; text-decoration:none; border-radius:5px;'>Réinitialiser mon mot de passe</a>" +
+//                        "</div>" +
+//                        "<p style='font-size:0.9em; color:#888;'>Si tu n'es pas à l'origine de cette demande, ignore simplement ce message.</p>" +
+//                        "<hr style='margin-top:40px;'><p style='font-size:0.8em; color:#aaa;'>© SneakyDateReforged</p></div>";
+                String htmlContent = "<div style='font-family:Arial, sans-serif; max-width:600px; margin:auto; background:#ffffff; padding:30px 20px; border:2px solid #2CEAC6; border-radius:8px;'>" +
+                        "<div style='text-align:center; margin-bottom:30px; margin-top:10px;'>" +
+                        "<img src='https://raw.githubusercontent.com/Jirawah/sneakyDateReforged-Logo/main/sneakyDateReforged-logoPNG.png' alt='SneakyDate Logo' style='width:300px; max-width:100%;' />" +
                         "</div>" +
-                        "<p style='font-size:0.9em; color:#888;'>Si tu n'es pas à l'origine de cette demande, ignore simplement ce message.</p>" +
-                        "<hr style='margin-top:40px;'><p style='font-size:0.8em; color:#aaa;'>© SneakyDateReforged</p></div>";
+                        "<h2 style='color:#111; text-align:center; font-weight:700; margin-bottom:24px;'>🔐 Réinitialisation de ton mot de passe</h2>" +
+                        "<p style='font-size:16px; color:#111;'>Salut <strong style='color:#2CEAC6;'>" + user.getPseudo() + "</strong>,</p>" +
+                        "<p style='font-size:15px; color:#333;'>Tu as demandé à réinitialiser ton mot de passe. Clique sur le bouton ci-dessous 👇</p>" +
+                        "<div style='text-align:center; margin:32px 0;'>" +
+                        "<a href='" + resetUrl + "' style='background-color:#2CEAC6; color:#000; font-weight:bold; padding:14px 28px; text-decoration:none; border-radius:5px; font-size:15px;'>Réinitialiser mon mot de passe</a>" +
+                        "</div>" +
+                        "<p style='font-size:13px; color:#999;'>Si tu n'es pas à l'origine de cette demande, ignore simplement ce message.</p>" +
+                        "<hr style='margin:40px 0; border:none; border-top:1px solid #eee;' />" +
+                        "<p style='font-size:12px; color:#aaa; text-align:center;'>© SneakyDateReforged</p>" +
+                        "</div>";
 
                 helper.setText(htmlContent, true); // true = HTML
 
