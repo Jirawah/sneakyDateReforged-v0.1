@@ -1,12 +1,16 @@
 package com.sneakyDateReforged.ms_auth.dto;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class SteamProfileDTO {
+
     private String steamId;
     private String personaName;
     private String avatar;
@@ -17,6 +21,6 @@ public class SteamProfileDTO {
     private String countryCode;
     private boolean banned;
 
-    // Clé = nom du jeu, valeur = nombre d’heures
+    @Builder.Default
     private Map<String, Integer> gamesHours = new HashMap<>();
 }

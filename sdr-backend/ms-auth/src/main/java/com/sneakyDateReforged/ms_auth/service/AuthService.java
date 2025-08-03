@@ -131,9 +131,10 @@ import com.sneakyDateReforged.ms_auth.dto.*;
 import com.sneakyDateReforged.ms_auth.exception.DuplicateUserException;
 import com.sneakyDateReforged.ms_auth.exception.SteamAccountBannedException;
 import com.sneakyDateReforged.ms_auth.model.UserAuthModel;
+import com.sneakyDateReforged.ms_auth.procedure.RegisterProcedureExecutor;
 import com.sneakyDateReforged.ms_auth.repository.UserAuthRepository;
 import com.sneakyDateReforged.ms_auth.security.JwtUtils;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -164,9 +165,9 @@ public class AuthService {
     private final SteamVerificationService steamVerificationService;
     private final JdbcTemplate jdbcTemplate;
     private final UserAuthService userAuthService;
+    private final RegisterProcedureExecutor registerProcedureExecutor;
 
-    // 🔐 Méthode d'inscription
-    // 🔐 Méthode d'inscription
+    // Méthode d'inscription
     @Transactional
     public AuthResponseDTO register(RegisterRequestDTO request) {
 
@@ -174,7 +175,7 @@ public class AuthService {
             throw new IllegalArgumentException("Les mots de passe ne correspondent pas.");
         }
 
-        // 🕵️‍♂️ Vérification du compte Steam avec fallback
+        // Vérification du compte Steam avec fallback
         SteamProfileDTO steamProfile;
         try {
             steamProfile = steamVerificationService.verifySteamUser(request.getSteamId());
@@ -189,9 +190,9 @@ public class AuthService {
             throw new SteamAccountBannedException("Votre compte Steam a déjà été banni.");
         }
 
-        // 🔁 Insertion via procédure stockée
+        // Insertion via procédure stockée
         String hashedPassword = passwordEncoder.encode(request.getPassword());
-        int resultCode = registerUserWithProcedure(
+        int resultCode = registerProcedureExecutor.execute(
                 request.getEmail(),
                 request.getPseudo(),
                 hashedPassword,
@@ -203,7 +204,7 @@ public class AuthService {
             throw new DuplicateUserException("Email, pseudo ou Steam ID déjà utilisé.");
         }
 
-        // 🎯 Mise à jour Steam (avatar + pseudo)
+        // Mise à jour Steam (avatar + pseudo)
         UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé après enregistrement."));
 
@@ -218,7 +219,6 @@ public class AuthService {
                 .gamesHours(steamProfile.getGamesHours())
                 .build();
     }
-
 
     // Appel à la procédure stockée qui vérifie si le mail et l'id Steam n'existe pas déjà en BDD
     private int registerUserWithProcedure(String email, String pseudo, String passwordHash, String steamId, String discordId) {
@@ -249,6 +249,7 @@ public class AuthService {
     }
 
     // Connexion
+    @Transactional(readOnly = true)
     public AuthResponseDTO login(LoginRequestDTO request) {
         System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
         authenticationManager.authenticate(

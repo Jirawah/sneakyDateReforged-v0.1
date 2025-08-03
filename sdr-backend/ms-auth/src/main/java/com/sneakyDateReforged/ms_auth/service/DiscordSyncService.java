@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor // 🔹 Permet l'injection via le constructeur
+@RequiredArgsConstructor
 public class DiscordSyncService {
 
     private final UserAuthService userAuthService;
@@ -16,7 +16,7 @@ public class DiscordSyncService {
         log.info("📦 Traitement de la synchro Discord : {}", dto.getDiscordUsername());
         System.out.println("🎯 DiscordSyncService.handleSync exécuté pour : " + dto.getDiscordUsername());
 
-        // 🔁 Mise à jour de l'utilisateur en base avec les infos Discord
+        // Mise à jour de l'utilisateur en base avec les infos Discord
         userAuthService.syncDiscordProfile(dto);
     }
 }

@@ -32,6 +32,6 @@ public class AuthController {
     @PostMapping("/discord-sync")
     public ResponseEntity<String> syncDiscord(@Valid @RequestBody DiscordSyncRequestDTO request) {
         authService.syncDiscord(request);
-        return ResponseEntity.ok("Connexion Discord synchronisée avec succès.");
+        return ResponseEntity.ok("✅ Connexion Discord synchronisée avec succès.");
     }
 }
