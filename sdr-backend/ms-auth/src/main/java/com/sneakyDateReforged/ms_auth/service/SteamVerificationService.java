@@ -19,13 +19,18 @@ public class SteamVerificationService {
     @Value("${steam.api.key}")
     private String steamApiKey;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
 
     private final Map<Integer, String> targetGames = Map.of(
             578080, "PUBG",
             252490, "Rust",
             945360, "Among Us"
     );
+
+    // Constructeur pour injection de RestTemplate
+    public SteamVerificationService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     public SteamProfileDTO verifySteamUser(String steamId) {
         try {
@@ -105,3 +110,4 @@ public class SteamVerificationService {
         }
     }
 }
+

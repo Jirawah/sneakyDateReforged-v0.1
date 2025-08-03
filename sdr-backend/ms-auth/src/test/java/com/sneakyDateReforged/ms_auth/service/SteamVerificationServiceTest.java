@@ -8,8 +8,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -17,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class SteamVerificationServiceTest {
 
     @Mock
@@ -27,16 +29,12 @@ class SteamVerificationServiceTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
-
-        // Utilisation centralisée du TestEnvLoader
         TestEnvLoader.loadEnv();
         steamId = TestEnvLoader.get("TEST_STEAM_ID", "123456789");
         String apiKey = TestEnvLoader.get("STEAM_API_KEY", "dummy-api-key");
 
-        steamVerificationService = new SteamVerificationService();
+        steamVerificationService = new SteamVerificationService(restTemplate);
         ReflectionTestUtils.setField(steamVerificationService, "steamApiKey", apiKey);
-        ReflectionTestUtils.setField(steamVerificationService, "restTemplate", restTemplate);
     }
 
     @Test
@@ -52,10 +50,27 @@ class SteamVerificationServiceTest {
                 .put("loccountrycode", "FR");
 
         JSONArray playersArray = new JSONArray().put(fakePlayer);
-        JSONObject response = new JSONObject().put("response", new JSONObject().put("players", playersArray));
+        JSONObject summaryResponse = new JSONObject().put("response", new JSONObject().put("players", playersArray));
 
-        when(restTemplate.getForObject(anyString(), eq(String.class)))
-                .thenReturn(response.toString());
+        JSONObject bansResponse = new JSONObject()
+                .put("players", new JSONArray().put(new JSONObject()
+                        .put("VACBanned", false)
+                        .put("NumberOfGameBans", 0)
+                ));
+
+        // 🔧 Ajout du mock manquant
+        JSONObject ownedGamesResponse = new JSONObject()
+                .put("response", new JSONObject()
+                        .put("games", new JSONArray()));
+
+        when(restTemplate.getForObject(contains("GetPlayerSummaries"), eq(String.class)))
+                .thenReturn(summaryResponse.toString());
+
+        when(restTemplate.getForObject(contains("GetPlayerBans"), eq(String.class)))
+                .thenReturn(bansResponse.toString());
+
+        when(restTemplate.getForObject(contains("GetOwnedGames"), eq(String.class)))
+                .thenReturn(ownedGamesResponse.toString());
 
         SteamProfileDTO result = steamVerificationService.verifySteamUser(steamId);
 
@@ -77,7 +92,7 @@ class SteamVerificationServiceTest {
     void shouldThrowInvalidSteamIdExceptionIfNoPlayersFound() {
         JSONObject emptyResponse = new JSONObject().put("response", new JSONObject().put("players", new JSONArray()));
 
-        when(restTemplate.getForObject(anyString(), eq(String.class)))
+        when(restTemplate.getForObject(contains("GetPlayerSummaries"), eq(String.class)))
                 .thenReturn(emptyResponse.toString());
 
         assertThrows(InvalidSteamIdException.class, () -> steamVerificationService.verifySteamUser(steamId));
@@ -85,21 +100,31 @@ class SteamVerificationServiceTest {
 
     @Test
     void shouldReturnBannedTrueIfGameBansPresent() {
-        JSONObject player = new JSONObject()
+        JSONObject fakePlayer = new JSONObject()
                 .put("personaname", "SteamUser")
                 .put("avatarfull", "http://avatar.url");
 
-        JSONArray playersArray = new JSONArray().put(player);
-        JSONObject steamResponse = new JSONObject().put("response", new JSONObject().put("players", playersArray));
+        JSONArray playersArray = new JSONArray().put(fakePlayer);
+        JSONObject summaryResponse = new JSONObject().put("response", new JSONObject().put("players", playersArray));
 
         JSONObject banResponse = new JSONObject()
-                .put("players", new JSONArray().put(new JSONObject().put("NumberOfGameBans", 1)));
+                .put("players", new JSONArray().put(new JSONObject()
+                        .put("NumberOfGameBans", 1)
+                        .put("VACBanned", true)
+                ));
+
+        JSONObject ownedGamesResponse = new JSONObject()
+                .put("response", new JSONObject()
+                        .put("games", new JSONArray()));
 
         when(restTemplate.getForObject(contains("GetPlayerSummaries"), eq(String.class)))
-                .thenReturn(steamResponse.toString());
+                .thenReturn(summaryResponse.toString());
 
         when(restTemplate.getForObject(contains("GetPlayerBans"), eq(String.class)))
                 .thenReturn(banResponse.toString());
+
+        when(restTemplate.getForObject(contains("GetOwnedGames"), eq(String.class)))
+                .thenReturn(ownedGamesResponse.toString());
 
         SteamProfileDTO result = steamVerificationService.verifySteamUser(steamId);
 

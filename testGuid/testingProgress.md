@@ -7,7 +7,7 @@
 | Fichier                                  | Méthodes / Logiques à tester                                     | Testé ? |
 |------------------------------------------|------------------------------------------------------------------|---------|
 | `service/AuthService.java`               | `register()`, `login()`, valid / invalid / duplicata            | ✅      |
-| `service/SteamVerificationService.java`  | `verifySteamUser()`, gestion d'erreurs API                      | ❌      |
+| `service/SteamVerificationService.java`  | `verifySteamUser()`, gestion d'erreurs API                      | ✅      |
 | `service/PasswordResetService.java`      | `requestReset()`, `confirmReset()` avec tokens expirés / valides| ❌      |
 | `service/UserAuthService.java`           | `updateSteamProfile()`, `updatePassword()`, `getUserByEmail()` | ❌      |
 | `service/UserAuthDetailsService.java`    | `loadUserByUsername()` (Spring Security)                        | ❌      |
@@ -34,6 +34,6 @@
 
 ## Résumé
 
-- **Tests unitaires implémentés** : `AuthServiceTest`
+- **Tests unitaires implémentés** : `AuthServiceTest`, `SteamVerificationServiceTest`
 - **Tests d’intégration en attente** : tous, à préparer avec `@SpringBootTest` ou `Testcontainers`
-- **Tests unitaires restants** : 7 fichiers prioritaires à couvrir
+- **Tests unitaires restants** : 6 fichiers prioritaires à couvrir
