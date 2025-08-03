@@ -1,4 +1,4 @@
-# 🧪 Plan de Tests du microservice `ms-auth`
+# Plan de Tests du microservice `ms-auth`
 
 ---
 
