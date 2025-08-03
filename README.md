@@ -41,7 +41,7 @@ The application is built on a **modular microservices architecture**, allowing f
 - **Spring Security + JWT**
 - **JPA / Hibernate (MySQL)** and **Spring Data MongoDB**
 - **Docker & Docker Compose**
-- **JUnit / Mockito** for unit and integration testing
+- **JUnit / JaCoCo / Mockito** for unit and integration testing
 - **Stored Procedures** in MySQL for encapsulating repetitive business logic
 
 ### Frontend
@@ -144,7 +144,7 @@ L'application est conçue selon une **architecture microservices** modulaire et 
 - **Spring Security + JWT**
 - **JPA / Hibernate (MySQL)** et **Spring Data MongoDB**
 - **Docker & Docker Compose**
-- **JUnit / Mockito** pour les tests unitaires et d'intégration
+- **JUnit / JaCoCo / Mockito** pour les tests unitaires et d'intégration
 - **Procédures stockées** en base de données pour centraliser certaines logiques répétitives
 
 ### Frontend
