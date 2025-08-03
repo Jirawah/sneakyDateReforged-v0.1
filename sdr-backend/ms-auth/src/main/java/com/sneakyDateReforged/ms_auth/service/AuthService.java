@@ -249,9 +249,52 @@ public class AuthService {
     }
 
     // Connexion
+//    @Transactional(readOnly = true)
+//    @Transactional
+//    public AuthResponseDTO login(LoginRequestDTO request) {
+//        System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
+//        authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        request.getEmail(),
+//                        request.getPassword()
+//                )
+//        );
+//
+//        UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
+//                .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé."));
+//
+//        String jwt = jwtUtils.generateToken(user);
+//        return AuthResponseDTO.builder()
+//                .token(jwt)
+//                .steamPseudo(user.getSteamPseudo())
+//                .steamAvatar(user.getSteamAvatar())
+//                .gamesHours(Map.of(
+//                        "PUBG", user.getPubgHours(),
+//                        "Rust", user.getRustHours(),
+//                        "Among Us", user.getAmongUsHours()
+//                ))
+//                .build();
+//    }
     @Transactional(readOnly = true)
     public AuthResponseDTO login(LoginRequestDTO request) {
         System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
+
+        UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé."));
+
+        // Debug : log du mot de passe encodé existant
+        System.out.println("[DEBUG] Password hash en base : " + user.getPassword());
+        System.out.println("[DEBUG] Password brut reçu     : " + request.getPassword());
+
+        boolean match = passwordEncoder.matches(request.getPassword(), user.getPassword());
+        System.out.println("[DEBUG] Résultat passwordEncoder.matches(...) : " + match);
+
+        // Continuer quand le mot de passe est correct uniquement
+        if (!match) {
+            throw new IllegalArgumentException("Mot de passe incorrect.");
+        }
+
+        // Authentification Spring Security
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -259,21 +302,20 @@ public class AuthService {
                 )
         );
 
-        UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé."));
-
         String jwt = jwtUtils.generateToken(user);
+        Map<String, Integer> gamesHours = new HashMap<>();
+        if (user.getPubgHours() != null) gamesHours.put("PUBG", user.getPubgHours());
+        if (user.getRustHours() != null) gamesHours.put("Rust", user.getRustHours());
+        if (user.getAmongUsHours() != null) gamesHours.put("Among Us", user.getAmongUsHours());
+
         return AuthResponseDTO.builder()
                 .token(jwt)
                 .steamPseudo(user.getSteamPseudo())
                 .steamAvatar(user.getSteamAvatar())
-                .gamesHours(Map.of(
-                        "PUBG", user.getPubgHours(),
-                        "Rust", user.getRustHours(),
-                        "Among Us", user.getAmongUsHours()
-                ))
+                .gamesHours(gamesHours)
                 .build();
     }
+
 
     // Lien Discord
     @Transactional

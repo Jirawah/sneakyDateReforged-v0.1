@@ -29,7 +29,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             "/auth/login",
             "/auth/discord-sync",
             "/auth/reset-request",
-            "/auth/reset-password"
+            "/auth/reset-password",
+            "/actuator/health"
     );
 
     @Override
@@ -83,7 +84,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String path = request.getServletPath().toLowerCase();
+        String path = request.getRequestURI().toLowerCase();
         boolean excluded = EXCLUDED_PATHS.stream().anyMatch(path::equalsIgnoreCase);
         System.out.println("[FILTER] Requête reçue sur : " + path);
         System.out.println("[FILTER] Est exclue du filtre ? " + excluded);
