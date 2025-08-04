@@ -1,16 +1,21 @@
 package com.sneakyDateReforged.ms_auth.service;
 
-import com.sneakyDateReforged.ms_auth.dto.ResetConfirmDTO;
+import com.sneakyDateReforged.ms_auth.dto.ResetPasswordRequestDTO;
 import com.sneakyDateReforged.ms_auth.dto.ResetRequestDTO;
+import com.sneakyDateReforged.ms_auth.exception.ExpiredResetTokenException;
 import com.sneakyDateReforged.ms_auth.exception.InvalidResetTokenException;
 import com.sneakyDateReforged.ms_auth.model.PasswordResetToken;
-import com.sneakyDateReforged.ms_auth.model.User;
+import com.sneakyDateReforged.ms_auth.model.UserAuthModel;
 import com.sneakyDateReforged.ms_auth.repository.PasswordResetTokenRepository;
-import com.sneakyDateReforged.ms_auth.repository.UserRepository;
+import com.sneakyDateReforged.ms_auth.repository.UserAuthRepository;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -20,122 +25,131 @@ import static org.mockito.Mockito.*;
 
 class PasswordResetServiceTest {
 
+    @Mock
+    private UserAuthRepository userRepo;
+
+    @Mock
+    private PasswordResetTokenRepository tokenRepo;
+
+    @Mock
+    private JavaMailSender mailSender;
+
+    @Mock
+    private PasswordEncoder passwordEncoder;
+
     @InjectMocks
     private PasswordResetService passwordResetService;
 
-    @Mock
-    private UserRepository userRepository;
-
-    @Mock
-    private PasswordResetTokenRepository tokenRepository;
-
-    @Mock
-    private MailService mailService;
-
-    @Mock
-    private BCryptPasswordEncoder passwordEncoder;
+    @Captor
+    private ArgumentCaptor<MimeMessage> mimeMessageCaptor;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
         passwordResetService = new PasswordResetService(
-                userRepository,
-                tokenRepository,
-                mailService,
-                passwordEncoder,
-                "http://localhost:4200/reset-password?token="
+                userRepo,
+                tokenRepo,
+                mailSender,
+                passwordEncoder
+        );
+
+        // Injection manuelle du champ annoté @Value
+        org.springframework.test.util.ReflectionTestUtils.setField(
+                passwordResetService, "resetBaseUrl", "http://localhost:4200/reset-password?token="
         );
     }
 
     @Test
-    void requestReset_shouldGenerateTokenAndSendEmail() {
-        // GIVEN
-        ResetRequestDTO dto = new ResetRequestDTO("test@example.com");
-        User user = User.builder().email("test@example.com").pseudo("TestUser").build();
+    void requestReset_shouldGenerateTokenAndSendMail() throws MessagingException {
+        // Arrange
+        ResetRequestDTO dto = new ResetRequestDTO("test@email.com");
+        UserAuthModel user = UserAuthModel.builder()
+                .email("test@email.com")
+                .pseudo("TestUser")
+                .build();
 
-        when(userRepository.findByEmail("test@example.com")).thenReturn(Optional.of(user));
-        when(tokenRepository.save(any(PasswordResetToken.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        MimeMessage mimeMessage = mock(MimeMessage.class);
+        when(userRepo.findByEmail(dto.getEmail())).thenReturn(Optional.of(user));
+        when(mailSender.createMimeMessage()).thenReturn(mimeMessage);
 
-        // WHEN
+        // Act
         passwordResetService.requestReset(dto);
 
-        // THEN
-        verify(tokenRepository, times(1)).save(any(PasswordResetToken.class));
-        verify(mailService, times(1)).sendPasswordResetEmail(eq(user), contains("http://localhost:4200/reset-password?token="));
+        // Assert
+        verify(tokenRepo, times(1)).save(any(PasswordResetToken.class));
+        verify(mailSender, times(1)).send(any(MimeMessage.class));
     }
 
     @Test
-    void confirmReset_shouldUpdatePasswordAndMarkTokenUsed() {
-        // GIVEN
-        String token = "test-token";
-        ResetConfirmDTO dto = new ResetConfirmDTO("newPassword");
+    void resetPassword_shouldUpdatePasswordAndMarkTokenAsUsed() {
+        // Arrange
+        String token = "valid-token";
+        ResetPasswordRequestDTO dto = new ResetPasswordRequestDTO(token, "newPassword");
 
         PasswordResetToken resetToken = PasswordResetToken.builder()
                 .token(token)
-                .email("test@example.com")
+                .email("test@email.com")
+                .expirationDate(LocalDateTime.now().plusHours(1))
                 .used(false)
-                .expirationDate(LocalDateTime.now().plusMinutes(30))
                 .build();
 
-        User user = User.builder().email("test@example.com").password("oldPassword").build();
+        UserAuthModel user = UserAuthModel.builder()
+                .email("test@email.com")
+                .password("oldPassword")
+                .build();
 
-        when(tokenRepository.findByToken(token)).thenReturn(Optional.of(resetToken));
-        when(userRepository.findByEmail("test@example.com")).thenReturn(Optional.of(user));
-        when(passwordEncoder.encode("newPassword")).thenReturn("encodedPassword");
+        when(tokenRepo.findByToken(token)).thenReturn(Optional.of(resetToken));
+        when(userRepo.findByEmail("test@email.com")).thenReturn(Optional.of(user));
+        when(passwordEncoder.encode("newPassword")).thenReturn("hashedPassword");
 
-        // WHEN
-        passwordResetService.confirmReset(token, dto);
+        // Act
+        passwordResetService.resetPassword(dto);
 
-        // THEN
+        // Assert
         assertTrue(resetToken.isUsed());
-        assertEquals("encodedPassword", user.getPassword());
-
-        verify(userRepository, times(1)).save(user);
-        verify(tokenRepository, times(1)).save(resetToken);
+        assertEquals("hashedPassword", user.getPassword());
+        verify(userRepo, times(1)).save(user);
+        verify(tokenRepo, times(1)).save(resetToken);
     }
 
     @Test
-    void confirmReset_shouldThrowExceptionIfTokenInvalid() {
-        when(tokenRepository.findByToken("invalid-token")).thenReturn(Optional.empty());
+    void resetPassword_shouldThrowIfTokenNotFound() {
+        when(tokenRepo.findByToken("invalid")).thenReturn(Optional.empty());
 
-        assertThrows(InvalidResetTokenException.class, () -> {
-            passwordResetService.confirmReset("invalid-token", new ResetConfirmDTO("irrelevant"));
-        });
+        ResetPasswordRequestDTO dto = new ResetPasswordRequestDTO("invalid", "newPass");
+
+        assertThrows(InvalidResetTokenException.class, () -> passwordResetService.resetPassword(dto));
     }
 
     @Test
-    void confirmReset_shouldThrowExceptionIfTokenExpired() {
-        String token = "expired-token";
-
-        PasswordResetToken expiredToken = PasswordResetToken.builder()
-                .token(token)
-                .email("test@example.com")
+    void resetPassword_shouldThrowIfTokenExpired() {
+        PasswordResetToken token = PasswordResetToken.builder()
+                .token("expired")
+                .email("test@email.com")
+                .expirationDate(LocalDateTime.now().minusHours(1))
                 .used(false)
-                .expirationDate(LocalDateTime.now().minusMinutes(10))
                 .build();
 
-        when(tokenRepository.findByToken(token)).thenReturn(Optional.of(expiredToken));
+        when(tokenRepo.findByToken("expired")).thenReturn(Optional.of(token));
 
-        assertThrows(InvalidResetTokenException.class, () -> {
-            passwordResetService.confirmReset(token, new ResetConfirmDTO("irrelevant"));
-        });
+        ResetPasswordRequestDTO dto = new ResetPasswordRequestDTO("expired", "newPass");
+
+        assertThrows(ExpiredResetTokenException.class, () -> passwordResetService.resetPassword(dto));
     }
 
     @Test
-    void confirmReset_shouldThrowExceptionIfTokenAlreadyUsed() {
-        String token = "used-token";
-
-        PasswordResetToken usedToken = PasswordResetToken.builder()
-                .token(token)
-                .email("test@example.com")
+    void resetPassword_shouldThrowIfTokenAlreadyUsed() {
+        PasswordResetToken token = PasswordResetToken.builder()
+                .token("used")
+                .email("test@email.com")
+                .expirationDate(LocalDateTime.now().plusHours(1))
                 .used(true)
-                .expirationDate(LocalDateTime.now().plusMinutes(10))
                 .build();
 
-        when(tokenRepository.findByToken(token)).thenReturn(Optional.of(usedToken));
+        when(tokenRepo.findByToken("used")).thenReturn(Optional.of(token));
 
-        assertThrows(InvalidResetTokenException.class, () -> {
-            passwordResetService.confirmReset(token, new ResetConfirmDTO("irrelevant"));
-        });
+        ResetPasswordRequestDTO dto = new ResetPasswordRequestDTO("used", "newPass");
+
+        assertThrows(ExpiredResetTokenException.class, () -> passwordResetService.resetPassword(dto));
     }
 }
