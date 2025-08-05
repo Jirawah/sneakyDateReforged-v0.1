@@ -2,14 +2,14 @@
 
 ---
 
-## Tests unitaires
+## ✅ Tests unitaires
 
 | Fichier                                   | Méthodes / Logiques à tester                                      | Testé ? |
 |-------------------------------------------|-------------------------------------------------------------------|---------|
 | `service/AuthService.java`                | `register()`, `login()`, valid / invalid / duplicata             | ✅      |
 | `service/SteamVerificationService.java`   | `verifySteamUser()`, gestion d'erreurs API                       | ✅      |
 | `service/PasswordResetService.java`       | `requestReset()`, `resetPassword()` avec tokens expirés / valides | ✅      |
-| `service/UserAuthService.java`            | `updateSteamProfile()`, `syncDiscordProfile()`                   | ❌      |
+| `service/UserAuthService.java`            | `updateSteamProfile()`, `syncDiscordProfile()`                   | ✅      |
 | `service/UserAuthDetailsService.java`     | `loadUserByUsername()` (Spring Security)                         | ❌      |
 | `service/DiscordSyncService.java`         | `syncDiscord()` avec User existant ou non                        | ❌      |
 | `procedure/RegisterProcedureExecutor.java`| `execute()` avec différents codes retour                         | ❌      |
@@ -17,7 +17,7 @@
 
 ---
 
-## Tests d’intégration
+## 🔁 Tests d’intégration
 
 | Fichier / Endpoint                                 | Comportements / scénarios couverts                                  | Testé ? |
 |----------------------------------------------------|----------------------------------------------------------------------|---------|
@@ -32,8 +32,8 @@
 
 ---
 
-## Résumé
+## 📊 Résumé
 
-- **Tests unitaires implémentés** : `AuthServiceTest`, `SteamVerificationServiceTest`, `PasswordResetServiceTest`
+- **Tests unitaires implémentés** : `AuthServiceTest`, `SteamVerificationServiceTest`, `PasswordResetServiceTest`, `UserAuthServiceTest`
 - **Tests d’intégration en attente** : tous, à préparer avec `@SpringBootTest` ou `Testcontainers`
-- **Tests unitaires restants** : 5 fichiers prioritaires à couvrir
+- **Tests unitaires restants** : 4 fichiers prioritaires à couvrir

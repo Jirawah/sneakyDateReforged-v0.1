@@ -10,6 +10,7 @@ import com.sneakyDateReforged.ms_auth.repository.PasswordResetTokenRepository;
 import com.sneakyDateReforged.ms_auth.repository.UserAuthRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
@@ -43,9 +44,11 @@ class PasswordResetServiceTest {
     @Captor
     private ArgumentCaptor<MimeMessage> mimeMessageCaptor;
 
+    private AutoCloseable closeable;
+
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+        closeable = MockitoAnnotations.openMocks(this);
         passwordResetService = new PasswordResetService(
                 userRepo,
                 tokenRepo,
@@ -53,10 +56,14 @@ class PasswordResetServiceTest {
                 passwordEncoder
         );
 
-        // Injection manuelle du champ annoté @Value
         org.springframework.test.util.ReflectionTestUtils.setField(
                 passwordResetService, "resetBaseUrl", "http://localhost:4200/reset-password?token="
         );
+    }
+
+    @AfterEach
+    void tearDown() throws Exception {
+        closeable.close();
     }
 
     @Test
