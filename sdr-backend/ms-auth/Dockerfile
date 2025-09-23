@@ -9,7 +9,7 @@ FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
 # 🔐 Installation des certificats racines pour la JVM
-RUN apt-get update && apt-get install -y ca-certificates && update-ca-certificates
+RUN apt-get update && apt-get install -y curl ca-certificates && update-ca-certificates
 
 # 🔧 Copie de l'application
 COPY --from=builder /app/target/*.jar app.jar

@@ -27,7 +27,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private static final List<String> EXCLUDED_PATHS = List.of(
             "/auth/register",
             "/auth/login",
-            "/auth/discord-sync",
+//            "/auth/discord-sync",
+            "/api/auth/discord/sync",
             "/auth/reset-request",
             "/auth/reset-password",
             "/actuator/health"
