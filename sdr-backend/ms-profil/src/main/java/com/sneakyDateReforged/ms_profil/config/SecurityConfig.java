@@ -25,16 +25,25 @@ public class SecurityConfig {
                 .cors(c -> {})
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        // ---- Swagger / OpenAPI (doc) ----
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui.html",
+                                "/swagger-ui/**"
+                        ).permitAll()
+
+                        // ---- Actuator ----
                         .requestMatchers("/actuator/**").permitAll()
-                        // ✅ routes publiques
+
+                        // ---- Routes publiques ms-profil ----
                         .requestMatchers(HttpMethod.GET, "/profiles/*/public").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/profiles/*/public-full").permitAll()  // << ICI
-                        // ⬇️ le catch-all doit venir après
+                        .requestMatchers(HttpMethod.GET, "/profiles/*/public-full").permitAll()
+
+                        // ---- Tout le reste protégé ----
                         .requestMatchers("/profiles/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-
 }

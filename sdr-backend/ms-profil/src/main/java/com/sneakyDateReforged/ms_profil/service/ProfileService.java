@@ -6,10 +6,7 @@ import com.sneakyDateReforged.ms_profil.client.RdvClient;
 import com.sneakyDateReforged.ms_profil.client.dto.FriendCountResponse;
 import com.sneakyDateReforged.ms_profil.client.dto.RdvNextResponse;
 import com.sneakyDateReforged.ms_profil.client.dto.RdvStatsResponse;
-import com.sneakyDateReforged.ms_profil.dto.AggregatedProfileDTO;
-import com.sneakyDateReforged.ms_profil.dto.ProfileDTO;
-import com.sneakyDateReforged.ms_profil.dto.ProfileUpdateDTO;
-import com.sneakyDateReforged.ms_profil.dto.StatsRdvDTO;
+import com.sneakyDateReforged.ms_profil.dto.*;
 import com.sneakyDateReforged.ms_profil.exception.NotFoundException;
 import com.sneakyDateReforged.ms_profil.model.Profile;
 import com.sneakyDateReforged.ms_profil.repository.ProfileRepository;
@@ -19,9 +16,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import feign.FeignException;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 import java.util.function.Supplier;
 import java.util.List;
 import java.util.Objects;
+import java.util.LinkedHashSet;
+import java.util.Locale;
 
 @Slf4j
 @Service
@@ -38,10 +40,12 @@ public class ProfileService {
     @Transactional
     public ProfileDTO getOrCreateFor(long userId, String email) {
         Profile p = repo.findByUserId(userId).orElseGet(() -> {
+            String dn = deriveDisplayName(email);          // ex: avant l’@
+            dn = trimToNull(dn);                           // nettoie (la valeur par défaut "user" sera mise en @PrePersist si null)
             Profile np = Profile.builder()
                     .userId(userId)
-                    .email(email)
-                    .displayName(deriveDisplayName(email))
+                    .email(trimToNull(email))
+                    .displayName(dn)
                     .build();
             return repo.save(np);
         });
@@ -52,11 +56,13 @@ public class ProfileService {
     public ProfileDTO updateFor(long userId, ProfileUpdateDTO body) {
         Profile p = repo.findByUserId(userId)
                 .orElseThrow(() -> new NotFoundException("Profil introuvable"));
-        if (body.getDisplayName() != null) p.setDisplayName(body.getDisplayName());
-        if (body.getBio() != null) p.setBio(body.getBio());
-        if (body.getCountry() != null) p.setCountry(body.getCountry());
-        if (body.getLanguages() != null) p.setLanguages(body.getLanguages());
-        if (body.getAge() != null) p.setAge(body.getAge());
+
+        if (body.getDisplayName() != null) p.setDisplayName(trimToNull(body.getDisplayName()));
+        if (body.getBio() != null)         p.setBio(trimToNull(body.getBio()));
+        if (body.getCountry() != null)     p.setCountry(normalizeCountry(body.getCountry()));
+        if (body.getLanguages() != null)   p.setLanguages(normalizeLanguages(body.getLanguages()));
+        if (body.getAge() != null)         p.setAge(body.getAge()); // bornes déjà via @Min/@Max
+
         return toDTO(repo.save(p));
     }
 
@@ -68,7 +74,6 @@ public class ProfileService {
     }
 
     /* ---------- AGRÉGATION (non persistée) ---------- */
-
     @Transactional(readOnly = true)
     public AggregatedProfileDTO getAggregatedView(long userId) {
         Profile p = repo.findByUserId(userId)
@@ -77,39 +82,60 @@ public class ProfileService {
     }
 
     @Transactional(readOnly = true)
-    public AggregatedProfileDTO getAggregatedPublicView(long userId) {
+    public PublicAggregatedProfileDTO getAggregatedPublicView(long userId) {
         Profile p = repo.findByUserId(userId)
                 .orElseThrow(() -> new NotFoundException("Profil introuvable"));
-        return aggregateFor(p);
+        AggregatedProfileDTO agg = aggregateFor(p); // ta méthode actuelle
+        return toPublic(agg);
     }
 
     private AggregatedProfileDTO aggregateFor(Profile p) {
-        // --- Appels inter-MS via Feign (avec dégradation gracieuse si 401/403/5xx) ---
-        var friends = safe(() -> friendClient.getFriendCounts(p.getUserId()),
-                new FriendCountResponse(0), "friend.count");
+        // Détecte si on a un JWT utilisateur
+        boolean userCtx = hasUserToken();
 
-        var rdv = safe(() -> rdvClient.getStats(p.getUserId()),
-                new RdvStatsResponse(0, 0, 0, 0), "rdv.stats");
+        // ---- FRIENDS ----
+        var friends = userCtx
+                ? safe(() -> friendClient.getFriendCounts(p.getUserId()),
+                new FriendCountResponse(0), "friend.count")
+                : safe(() -> friendClient.getFriendCountsPublic(p.getUserId()),
+                new FriendCountResponse(0), "friend.count.public");
 
-        var next = safe(() -> rdvClient.getNextDate(p.getUserId()),
-                new RdvNextResponse(null), "rdv.next");
+        // ---- RDV ----
+        var rdv = userCtx
+                ? safe(() -> rdvClient.getStats(p.getUserId()),
+                new RdvStatsResponse(0,0,0,0), "rdv.stats")
+                : safe(() -> rdvClient.getStatsPublic(p.getUserId()),
+                new RdvStatsResponse(0,0,0,0), "rdv.stats.public");
 
-//        var games = safe(() -> authClient.getFavoriteGames(p.getUserId()),
-//                java.util.List.of(), "auth.games");
-        List<String> games = safe(() -> authClient.getFavoriteGames(p.getUserId()),
-                List.of(),
-                "auth.games");
+        var next = userCtx
+                ? safe(() -> rdvClient.getNextDate(p.getUserId()),
+                new RdvNextResponse(null), "rdv.next")
+                : safe(() -> rdvClient.getNextDatePublic(p.getUserId()),
+                new RdvNextResponse(null), "rdv.next.public");
 
-        String steamId = safe(() -> authClient.getSteamId(p.getUserId()).id(),
-                null, "auth.steamId");
+        // ---- AUTH (données privées) ----
+        // Si public: évite d’appeler ms-auth -> valeurs neutres
+        List<String> games = userCtx
+                ? safe(() -> authClient.getFavoriteGames(p.getUserId()),
+                List.of(), "auth.games")
+                : List.of();
 
-        String discordId = safe(() -> authClient.getDiscordId(p.getUserId()).id(),
-                null, "auth.discordId");
+        String steamId = userCtx
+                ? safe(() -> authClient.getSteamId(p.getUserId()).id(),
+                null, "auth.steamId")
+                : null;
 
-        String discordUsername = safe(() -> authClient.getDiscordUsername(p.getUserId()).username(),
-                null, "auth.discordUsername");
+        String discordId = userCtx
+                ? safe(() -> authClient.getDiscordId(p.getUserId()).id(),
+                null, "auth.discordId")
+                : null;
 
-        // --- Fusion identité / avatar (mêmes helpers que chez toi) ---
+        String discordUsername = userCtx
+                ? safe(() -> authClient.getDiscordUsername(p.getUserId()).username(),
+                null, "auth.discordUsername")
+                : null;
+
+        // ---- Fusion identité / avatar (persistés côté profil) ----
         String pseudo = firstNonBlank(
                 p.getDisplayName(),
                 discordUsername,
@@ -137,6 +163,18 @@ public class ProfileService {
                         .annules(rdv.annules())
                         .participations(rdv.participations())
                         .build())
+                .build();
+    }
+
+    private PublicAggregatedProfileDTO toPublic(AggregatedProfileDTO a) {
+        return PublicAggregatedProfileDTO.builder()
+                .userId(a.getUserId())
+                .pseudo(a.getPseudo())
+                .avatarUrl(a.getAvatarUrl())
+                .nombreAmis(a.getNombreAmis())
+                .nombreRDVs(a.getNombreRDVs())
+                .prochainRDV(a.getProchainRDV())
+                .statsRDV(a.getStatsRDV())
                 .build();
     }
 
@@ -170,6 +208,50 @@ public class ProfileService {
             log.warn("Call {} failed: {}", what, e.toString());
             return fallback;
         }
+    }
+
+    private boolean hasUserToken() {
+        var attrs = RequestContextHolder.getRequestAttributes();
+        if (attrs instanceof ServletRequestAttributes sra) {
+            String auth = sra.getRequest().getHeader("Authorization");
+            return auth != null && auth.startsWith("Bearer ");
+        }
+        return false;
+    }
+
+    private static String trimToNull(String s) {
+        if (s == null) return null;
+        String t = s.trim();
+        return t.isEmpty() ? null : t;
+    }
+
+    private static String normalizeCountry(String c) {
+        c = trimToNull(c);
+        if (c == null) return null;
+        c = c.toUpperCase(Locale.ROOT);
+        // Si tu as déjà la validation @Pattern, cette vérif est redondante mais sûre :
+        if (!c.matches("^[A-Z]{2}$")) {
+            throw new IllegalArgumentException("country must be ISO-3166 alpha-2 (e.g. FR)");
+        }
+        return c;
+    }
+
+    private static String normalizeLanguages(String langs) {
+        langs = trimToNull(langs);
+        if (langs == null) return null;
+
+        String[] parts = langs.split(",");
+        LinkedHashSet<String> set = new LinkedHashSet<>(); // garde l'ordre, supprime doublons
+        for (String part : parts) {
+            String t = part.trim().toLowerCase(Locale.ROOT);
+            if (!t.isEmpty()) {
+                if (!t.matches("^[a-z]{2}$")) {
+                    throw new IllegalArgumentException("languages must be like fr,en");
+                }
+                set.add(t);
+            }
+        }
+        return set.isEmpty() ? null : String.join(",", set);
     }
 
     private static String firstNonBlank(String... vals) {
