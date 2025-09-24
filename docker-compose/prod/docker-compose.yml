@@ -108,9 +108,59 @@ services:
     networks:
       - sneakydate-network
 
+  msprofildb:
+    image: mysql:8
+    container_name: msprofildb
+    platform: linux/amd64
+    environment:
+      MYSQL_DATABASE: msprofildb
+      MYSQL_USER: msprofiluser
+      MYSQL_PASSWORD: msprofilpwd
+      MYSQL_ROOT_PASSWORD: rootpwd
+    ports:
+      - "3310:3306"
+    volumes:
+      - msprofil_data:/var/lib/mysql
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+
+  ms-profil:
+    image: jirawah/ms-profil:latest
+    container_name: ms-profil
+    ports:
+      - "8087:8087"
+    depends_on:
+      configserver:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      msprofildb:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      SPRING_APPLICATION_NAME: ms-profil
+      JWT_SECRET: ${JWT_SECRET}
+      DB_HOST: msprofildb
+      DB_PORT: 3306
+      DB_NAME: msprofildb
+      DB_USERNAME: msprofiluser
+      DB_PASSWORD: msprofilpwd
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8087/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+
 networks:
   sneakydate-network:
     driver: bridge
 
 volumes:
   auth_data:
+  msprofil_data:
