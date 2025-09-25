@@ -1,4 +1,4 @@
-package com.sneakyDateReforged.ms_profil;
+package com.sneakyDateReforged.ms_profil.it;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.sneakyDateReforged.ms_profil.model.Profile;
@@ -26,10 +26,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 
 
 // Démarre MySQL dans un conteneur + l'app Spring complète (port aléatoire)

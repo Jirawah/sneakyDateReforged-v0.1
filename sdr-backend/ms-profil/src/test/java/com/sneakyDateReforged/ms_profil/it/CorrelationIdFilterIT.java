@@ -1,4 +1,4 @@
-package com.sneakyDateReforged.ms_profil;
+package com.sneakyDateReforged.ms_profil.it;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

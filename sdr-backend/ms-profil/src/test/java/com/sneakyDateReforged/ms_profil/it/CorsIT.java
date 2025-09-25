@@ -1,4 +1,4 @@
-package com.sneakyDateReforged.ms_profil;
+package com.sneakyDateReforged.ms_profil.it;
 
 import com.sneakyDateReforged.ms_profil.model.Profile;
 import com.sneakyDateReforged.ms_profil.repository.ProfileRepository;
