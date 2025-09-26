@@ -21,6 +21,6 @@ CREATE TABLE IF NOT EXISTS participant (
 );
 
 -- Index utiles
-CREATE INDEX IF NOT EXISTS idx_rdv_date ON rdv(date);
-CREATE INDEX IF NOT EXISTS idx_rdv_jeu_date ON rdv(jeu, date);
-CREATE INDEX IF NOT EXISTS idx_participant_rdv ON participant(rdv_id);
+CREATE INDEX idx_rdv_date ON rdv(date);
+CREATE INDEX idx_rdv_jeu_date ON rdv(jeu, date);
+CREATE INDEX idx_participant_rdv ON participant(rdv_id);

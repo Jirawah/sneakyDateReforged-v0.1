@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import com.sneakyDateReforged.ms_rdv.api.dto.UpdateRdvRequest;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -36,5 +38,21 @@ public class RdvController {
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
             @RequestParam(required = false) String jeu) {
         return rdvService.listByDate(date, jeu);
+    }
+
+    @PutMapping("/{id}")
+    public RdvDTO update(@PathVariable Long id, @Valid @RequestBody UpdateRdvRequest req) {
+        return rdvService.update(id, req);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        rdvService.delete(id);
+    }
+
+    @PostMapping("/{id}/cancel")
+    public RdvDTO cancel(@PathVariable Long id) {
+        return rdvService.cancel(id);
     }
 }

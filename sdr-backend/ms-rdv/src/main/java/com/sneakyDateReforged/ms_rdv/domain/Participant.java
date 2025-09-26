@@ -16,7 +16,7 @@ public class Participant {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="rdv_id")
-    private Rdv rdv;
+    private com.sneakyDateReforged.ms_rdv.domain.Rdv rdv;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable=false, length=50)
