@@ -157,6 +157,49 @@ services:
       file: common-config.yml
       service: microservice-base-config
 
+  msrdvdb:
+    image: mysql:8
+    container_name: msrdvdb
+    platform: linux/amd64
+    environment:
+      MYSQL_DATABASE: msrdvdb
+      MYSQL_USER: msrdvuser
+      MYSQL_PASSWORD: msrdvpwd
+      MYSQL_ROOT_PASSWORD: rootpwd
+    ports: [ "3311:3306" ]
+    volumes: [ "msrdv_data:/var/lib/mysql" ]
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+
+  ms-rdv:
+    image: jirawah/ms-rdv:latest   # (ou build: .)
+    container_name: ms-rdv
+    depends_on:
+      configserver: { condition: service_healthy }
+      eurekaserver: { condition: service_healthy }
+      msrdvdb: { condition: service_healthy }
+    env_file:
+      - .env
+    environment:
+      SPRING_APPLICATION_NAME: ms-rdv
+      JWT_SECRET: ${JWT_SECRET}
+      DB_HOST: msrdvdb
+      DB_PORT: 3306
+      DB_NAME: msrdvdb
+      DB_USERNAME: msrdvuser
+      DB_PASSWORD: msrdvpwd
+    ports: [ "8088:8088" ]
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8088/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+
 networks:
   sneakydate-network:
     driver: bridge
@@ -164,3 +207,4 @@ networks:
 volumes:
   auth_data:
   msprofil_data:
+  msrdv_data:

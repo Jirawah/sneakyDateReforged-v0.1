@@ -198,10 +198,15 @@ public class ProfileService {
                 .build();
     }
 
-    private static <T> T safe(Supplier<? extends T> call, T fallback, String what) {
+    private static <T> T safe(java.util.function.Supplier<? extends T> call, T fallback, String what) {
         try {
-            return call.get();
-        } catch (FeignException e) {
+            T res = call.get();
+            if (res == null) {
+                log.warn("Call {} returned null; using fallback", what);
+                return fallback;
+            }
+            return res;
+        } catch (feign.FeignException e) {
             log.warn("Feign {} failed: status={} msg={}", what, e.status(), e.getMessage());
             return fallback;
         } catch (Exception e) {

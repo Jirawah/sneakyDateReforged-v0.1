@@ -16,12 +16,18 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import static org.mockito.Mockito.*;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Optional;
 
+import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -29,12 +35,17 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class ProfileServiceTest {
 
-    @Mock ProfileRepository repo;
-    @Mock FriendClient friendClient;
-    @Mock RdvClient rdvClient;
-    @Mock AuthClient authClient;
+    @Mock
+    ProfileRepository repo;
+    @Mock
+    FriendClient friendClient;
+    @Mock
+    RdvClient rdvClient;
+    @Mock
+    AuthClient authClient;
 
-    @InjectMocks ProfileService service;
+    @InjectMocks
+    ProfileService service;
 
     /* ---------------- Bio ---------------- */
 
@@ -88,7 +99,7 @@ class ProfileServiceTest {
         void aggregated_public_uses_public_endpoints() {
             when(repo.findByUserId(1L)).thenReturn(Optional.of(prof(1L)));
             when(friendClient.getFriendCountsPublic(1L)).thenReturn(new FriendCountResponse(3));
-            when(rdvClient.getStatsPublic(1L)).thenReturn(new RdvStatsResponse(5,2,1,2));
+            when(rdvClient.getStatsPublic(1L)).thenReturn(new RdvStatsResponse(5, 2, 1, 2));
             when(rdvClient.getNextDatePublic(1L)).thenReturn(new RdvNextResponse(null));
 
             var dto = service.getAggregatedPublicView(1L);
@@ -104,11 +115,45 @@ class ProfileServiceTest {
 
             // En public, on ne doit PAS taper les endpoints privés ni auth
             verify(friendClient, never()).getFriendCounts(anyLong());
-            verify(rdvClient,   never()).getStats(anyLong());
-            verify(rdvClient,   never()).getNextDate(anyLong());
+            verify(rdvClient, never()).getStats(anyLong());
+            verify(rdvClient, never()).getNextDate(anyLong());
             verifyNoInteractions(authClient);
         }
 
+
+        //        @Test
+//        void aggregated_private_uses_private_endpoints_and_fallback_on_error() {
+//            when(repo.findByUserId(1L)).thenReturn(Optional.of(prof(1L)));
+//            when(friendClient.getFriendCounts(1L)).thenReturn(new FriendCountResponse(7));
+//            when(rdvClient.getStats(1L)).thenThrow(feignError(500));
+//            when(rdvClient.getNextDate(1L)).thenThrow(feignError(503));
+//
+//            SecurityContextHolder.getContext().setAuthentication(
+//                    new UsernamePasswordAuthenticationToken(
+//                            "me@example.com",
+//                            null,
+//                            java.util.List.of(new SimpleGrantedAuthority("ROLE_USER"))
+//                    )
+//            );
+//
+//            var dto = service.getAggregatedView(1L);
+//
+//            assertEquals(7, dto.getNombreAmis());
+//            assertEquals(0, dto.getStatsRDV().getTotal());
+//            assertNull(dto.getProchainRDV());
+//
+//            // 👉 vérifications clés
+//            verify(friendClient).getFriendCounts(1L);
+//            verify(rdvClient).getStats(1L);
+//            verify(rdvClient).getNextDate(1L);
+//
+//            // En privé, on ne doit PAS appeler les endpoints publics
+//            verify(friendClient, never()).getFriendCountsPublic(anyLong());
+//            verify(rdvClient,   never()).getStatsPublic(anyLong());
+//            verify(rdvClient,   never()).getNextDatePublic(anyLong());
+//
+//            SecurityContextHolder.clearContext();
+//        }
         @Test
         void aggregated_private_uses_private_endpoints_and_fallback_on_error() {
             when(repo.findByUserId(1L)).thenReturn(Optional.of(prof(1L)));
@@ -116,21 +161,34 @@ class ProfileServiceTest {
             when(rdvClient.getStats(1L)).thenThrow(feignError(500));
             when(rdvClient.getNextDate(1L)).thenThrow(feignError(503));
 
-            var dto = service.getAggregatedView(1L);
+            SecurityContextHolder.getContext().setAuthentication(
+                    new UsernamePasswordAuthenticationToken(
+                            "me@example.com", null,
+                            java.util.List.of(new SimpleGrantedAuthority("ROLE_USER"))
+                    )
+            );
 
-            assertEquals(7, dto.getNombreAmis());
-            assertEquals(0, dto.getStatsRDV().getTotal());
-            assertNull(dto.getProchainRDV());
+            MockHttpServletRequest req = new MockHttpServletRequest();
+            req.addHeader("Authorization", "Bearer test"); // n'importe quelle valeur
+            RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(req));
 
-            // 👉 vérifications clés
-            verify(friendClient).getFriendCounts(1L);
-            verify(rdvClient).getStats(1L);
-            verify(rdvClient).getNextDate(1L);
+            try {
+                var dto = service.getAggregatedView(1L);
 
-            // En privé, on ne doit PAS appeler les endpoints publics
-            verify(friendClient, never()).getFriendCountsPublic(anyLong());
-            verify(rdvClient,   never()).getStatsPublic(anyLong());
-            verify(rdvClient,   never()).getNextDatePublic(anyLong());
+                assertEquals(7, dto.getNombreAmis());
+                assertEquals(0, dto.getStatsRDV().getTotal());
+                assertNull(dto.getProchainRDV());
+
+                verify(friendClient).getFriendCounts(1L);
+                verify(rdvClient).getStats(1L);
+                verify(rdvClient).getNextDate(1L);
+                verify(friendClient, never()).getFriendCountsPublic(anyLong());
+                verify(rdvClient, never()).getStatsPublic(anyLong());
+                verify(rdvClient, never()).getNextDatePublic(anyLong());
+            } finally {
+                RequestContextHolder.resetRequestAttributes();
+                SecurityContextHolder.clearContext();
+            }
         }
 
         private feign.FeignException feignError(int status) {

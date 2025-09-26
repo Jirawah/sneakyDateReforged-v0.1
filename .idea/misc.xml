@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/sdr-backend/ms-eurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/sdr-backend/ms-auth/pom.xml" />
         <option value="$PROJECT_DIR$/sdr-backend/ms-profil/pom.xml" />
+        <option value="$PROJECT_DIR$/sdr-backend/ms-rdv/pom.xml" />
       </list>
     </option>
   </component>
