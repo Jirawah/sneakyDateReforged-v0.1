@@ -1,0 +1,226 @@
+2025-09-25 19:22:23.184 | 
+2025-09-25 19:22:23.184 |   .   ____          _            __ _ _
+2025-09-25 19:22:23.184 |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2025-09-25 19:22:23.184 | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2025-09-25 19:22:23.184 |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2025-09-25 19:22:23.184 |   '  |____| .__|_| |_|_| |_\__, | / / / /
+2025-09-25 19:22:23.184 |  =========|_|==============|___/=/_/_/_/
+2025-09-25 19:22:23.184 |  :: Spring Boot ::                (v3.1.3)
+2025-09-25 19:22:23.184 | 
+2025-09-25 19:22:23.235 | 2025-09-25 17:22:23,222 INFO  [no-req] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-09-25 19:22:23.573 | 2025-09-25 17:22:23,572 INFO  [no-req] c.s.ms_profil.MsProfilApplication - Starting MsProfilApplication v0.0.1-SNAPSHOT using Java 17.0.16 with PID 1 (/app/app.jar started by root in /app)
+2025-09-25 19:22:23.573 | 2025-09-25 17:22:23,573 DEBUG [no-req] c.s.ms_profil.MsProfilApplication - Running with Spring Boot v3.1.3, Spring v6.0.11
+2025-09-25 19:22:23.574 | 2025-09-25 17:22:23,574 INFO  [no-req] c.s.ms_profil.MsProfilApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-25 19:22:23.867 | 2025-09-25 17:22:23,864 INFO  [no-req] o.s.c.c.c.ConfigServerConfigDataLoader - Fetching config from server at : http://configserver:8071
+2025-09-25 19:22:23.867 | 2025-09-25 17:22:23,864 INFO  [no-req] o.s.c.c.c.ConfigServerConfigDataLoader - Located environment: name=ms-profil, profiles=[default], label=null, version=735175a03c92e90082b953e400340f3372e78954, state=null
+2025-09-25 19:22:34.269 | 2025-09-25 17:22:34,269 INFO  [no-req] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-09-25 19:22:34.571 | 2025-09-25 17:22:34,571 INFO  [no-req] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 289 ms. Found 1 JPA repository interfaces.
+2025-09-25 19:22:35.037 | 2025-09-25 17:22:35,036 INFO  [no-req] o.s.cloud.context.scope.GenericScope - BeanFactory id=9c184157-6fed-39e0-84ee-c48ea8d002c7
+2025-09-25 19:22:35.249 | 2025-09-25 17:22:35,249 INFO  [no-req] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.sneakyDateReforged.ms_profil.client.AuthClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-09-25 19:22:35.251 | 2025-09-25 17:22:35,250 INFO  [no-req] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.sneakyDateReforged.ms_profil.client.FriendClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-09-25 19:22:35.253 | 2025-09-25 17:22:35,253 INFO  [no-req] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.sneakyDateReforged.ms_profil.client.RdvClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-09-25 19:22:36.312 | 2025-09-25 17:22:36,310 INFO  [no-req] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8087 (http)
+2025-09-25 19:22:36.339 | 2025-09-25 17:22:36,327 INFO  [no-req] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8087"]
+2025-09-25 19:22:36.339 | 2025-09-25 17:22:36,329 INFO  [no-req] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-25 19:22:36.339 | 2025-09-25 17:22:36,329 INFO  [no-req] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.12]
+2025-09-25 19:22:36.474 | 2025-09-25 17:22:36,474 INFO  [no-req] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-25 19:22:36.475 | 2025-09-25 17:22:36,475 INFO  [no-req] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 12608 ms
+2025-09-25 19:22:37.489 | 2025-09-25 17:22:37,486 DEBUG [no-req] c.s.ms_profil.security.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+2025-09-25 19:22:43.629 | 2025-09-25 17:22:43,627 INFO  [no-req] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-09-25 19:22:44.201 | 2025-09-25 17:22:44,201 INFO  [no-req] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.7.Final
+2025-09-25 19:22:44.214 | 2025-09-25 17:22:44,214 INFO  [no-req] org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-09-25 19:22:44.604 | 2025-09-25 17:22:44,604 INFO  [no-req] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-09-25 19:22:44.840 | 2025-09-25 17:22:44,839 INFO  [no-req] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-09-25 19:22:44.882 | 2025-09-25 17:22:44,881 INFO  [no-req] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-09-25 19:22:54.471 | 2025-09-25 17:22:54,470 INFO  [no-req] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f6de586
+2025-09-25 19:22:54.488 | 2025-09-25 17:22:54,481 INFO  [no-req] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-09-25 19:22:56.013 | 2025-09-25 17:22:56,013 INFO  [no-req] o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-09-25 19:22:57.404 | 2025-09-25 17:22:57,404 INFO  [no-req] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-09-25 19:22:57.499 | Hibernate: create table profile (id bigint not null auto_increment, age integer, bio varchar(1000), country varchar(255), created_at datetime(6), discord_avatar_url varchar(255), discord_username varchar(255), display_name varchar(255) not null, email varchar(255), languages varchar(255), steam_avatar varchar(255), steam_pseudo varchar(255), updated_at datetime(6), user_id bigint not null, primary key (id)) engine=InnoDB
+2025-09-25 19:22:57.621 | Hibernate: create index idx_profile_display_name on profile (display_name)
+2025-09-25 19:22:58.713 | Hibernate: alter table profile drop index uk_profile_user
+2025-09-25 19:22:58.749 | Hibernate: alter table profile add constraint uk_profile_user unique (user_id)
+2025-09-25 19:22:58.851 | 2025-09-25 17:22:58,850 INFO  [no-req] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-09-25 19:23:00.582 | 2025-09-25 17:23:00,582 INFO  [no-req] o.s.c.o.FeignClientFactoryBean - For 'ms-friend' URL not provided. Will try picking an instance via load-balancing.
+2025-09-25 19:23:00.729 | 2025-09-25 17:23:00,729 INFO  [no-req] o.s.c.o.FeignClientFactoryBean - For 'ms-rdv' URL not provided. Will try picking an instance via load-balancing.
+2025-09-25 19:23:00.757 | 2025-09-25 17:23:00,757 INFO  [no-req] o.s.c.o.FeignClientFactoryBean - For 'ms-auth' URL not provided. Will try picking an instance via load-balancing.
+2025-09-25 19:23:00.859 | 2025-09-25 17:23:00,858 DEBUG [no-req] o.s.s.c.a.a.c.AuthenticationConfiguration$DefaultPasswordEncoderAuthenticationManagerBuilder - No authenticationProviders and no parentAuthenticationManager defined. Returning null.
+2025-09-25 19:23:01.953 | 2025-09-25 17:23:01,953 INFO  [no-req] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2025-09-25 19:23:02.050 | 2025-09-25 17:23:02,048 INFO  [no-req] o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1796b2d4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@935d3f9, org.springframework.security.web.context.SecurityContextHolderFilter@7bf018dd, org.springframework.security.web.header.HeaderWriterFilter@370c7cc5, org.springframework.web.filter.CorsFilter@214b342f, org.springframework.security.web.authentication.logout.LogoutFilter@6793f752, com.sneakyDateReforged.ms_profil.security.JwtAuthFilter@4a6c18ad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f6c2763, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c82031b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5db0003d, org.springframework.security.web.session.SessionManagementFilter@250967f1, org.springframework.security.web.access.ExceptionTranslationFilter@7ab63838, org.springframework.security.web.access.intercept.AuthorizationFilter@54895681]
+2025-09-25 19:23:02.957 | 2025-09-25 17:23:02,957 INFO  [no-req] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-09-25 19:23:03.033 | 2025-09-25 17:23:03,032 WARN  [no-req] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-09-25 19:23:03.169 | 2025-09-25 17:23:03,169 INFO  [no-req] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-09-25 19:23:03.330 | 2025-09-25 17:23:03,330 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-09-25 19:23:03.346 | 2025-09-25 17:23:03,345 INFO  [no-req] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-09-25 19:23:03.795 | 2025-09-25 17:23:03,794 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-09-25 19:23:03.795 | 2025-09-25 17:23:03,795 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-09-25 19:23:03.796 | 2025-09-25 17:23:03,795 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-09-25 19:23:03.796 | 2025-09-25 17:23:03,796 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-09-25 19:23:03.796 | 2025-09-25 17:23:03,796 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-09-25 19:23:03.796 | 2025-09-25 17:23:03,796 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-09-25 19:23:03.796 | 2025-09-25 17:23:03,796 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-09-25 19:23:07.810 | 2025-09-25 17:23:07,809 INFO  [no-req] c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-09-25 19:23:07.813 | 2025-09-25 17:23:07,813 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-09-25 19:23:07.827 | 2025-09-25 17:23:07,826 INFO  [no-req] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-09-25 19:23:07.863 | 2025-09-25 17:23:07,859 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1758820987859 with initial instances count: 0
+2025-09-25 19:23:07.865 | 2025-09-25 17:23:07,864 INFO  [no-req] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MS-PROFIL with eureka with status UP
+2025-09-25 19:23:07.866 | 2025-09-25 17:23:07,865 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1758820987865, current=UP, previous=STARTING]
+2025-09-25 19:23:07.871 | 2025-09-25 17:23:07,871 INFO  [no-req] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-PROFIL/c1a550c765a9:ms-profil:8087: registering service...
+2025-09-25 19:23:07.876 | 2025-09-25 17:23:07,875 INFO  [no-req] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8087"]
+2025-09-25 19:23:07.910 | 2025-09-25 17:23:07,909 INFO  [no-req] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8087 (http) with context path ''
+2025-09-25 19:23:07.914 | 2025-09-25 17:23:07,914 INFO  [no-req] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8087
+2025-09-25 19:23:07.961 | 2025-09-25 17:23:07,961 INFO  [no-req] c.s.ms_profil.MsProfilApplication - Started MsProfilApplication in 47.248 seconds (process running for 49.282)
+2025-09-25 19:23:08.183 | 2025-09-25 17:23:08,183 INFO  [no-req] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-PROFIL/c1a550c765a9:ms-profil:8087 - registration status: 204
+2025-09-25 19:23:22.018 | 2025-09-25 17:23:22,017 INFO  [no-req] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-25 19:23:22.018 | 2025-09-25 17:23:22,018 INFO  [no-req] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-25 19:23:22.021 | 2025-09-25 17:23:22,020 INFO  [no-req] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-25 19:23:22.055 | 2025-09-25 17:23:22,053 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:23:22.085 | 2025-09-25 17:23:22,084 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:23:22.123 | 2025-09-25 17:23:22,123 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:23:35.745 | 2025-09-25 17:23:35,741 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:23:35.747 | 2025-09-25 17:23:35,743 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:23:35.753 | 2025-09-25 17:23:35,752 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:23:37.792 | 2025-09-25 17:23:37,791 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-09-25 19:23:37.792 | 2025-09-25 17:23:37,791 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-09-25 19:23:37.792 | 2025-09-25 17:23:37,791 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-09-25 19:23:37.792 | 2025-09-25 17:23:37,791 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-09-25 19:23:37.792 | 2025-09-25 17:23:37,791 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-09-25 19:23:37.792 | 2025-09-25 17:23:37,791 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2025-09-25 19:23:37.792 | 2025-09-25 17:23:37,791 INFO  [no-req] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-09-25 19:23:37.804 | 2025-09-25 17:23:37,804 INFO  [no-req] c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-09-25 19:23:45.993 | 2025-09-25 17:23:45,993 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:23:45.994 | 2025-09-25 17:23:45,994 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:23:45.996 | 2025-09-25 17:23:45,995 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:23:56.094 | 2025-09-25 17:23:56,094 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:23:56.097 | 2025-09-25 17:23:56,097 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:23:56.102 | 2025-09-25 17:23:56,100 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:24:06.210 | 2025-09-25 17:24:06,209 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:24:06.210 | 2025-09-25 17:24:06,210 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:24:06.212 | 2025-09-25 17:24:06,212 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:24:16.308 | 2025-09-25 17:24:16,307 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:24:16.308 | 2025-09-25 17:24:16,308 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:24:16.310 | 2025-09-25 17:24:16,310 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:24:26.400 | 2025-09-25 17:24:26,400 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:24:26.401 | 2025-09-25 17:24:26,401 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:24:26.403 | 2025-09-25 17:24:26,403 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:24:36.549 | 2025-09-25 17:24:36,549 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:24:36.550 | 2025-09-25 17:24:36,550 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:24:36.553 | 2025-09-25 17:24:36,552 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:24:46.618 | 2025-09-25 17:24:46,615 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:24:46.618 | 2025-09-25 17:24:46,616 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:24:46.619 | 2025-09-25 17:24:46,618 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:24:56.705 | 2025-09-25 17:24:56,704 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:24:56.705 | 2025-09-25 17:24:56,705 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:24:56.707 | 2025-09-25 17:24:56,707 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:25:06.793 | 2025-09-25 17:25:06,793 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:25:06.793 | 2025-09-25 17:25:06,793 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:25:06.795 | 2025-09-25 17:25:06,795 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:25:16.854 | 2025-09-25 17:25:16,854 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:25:16.855 | 2025-09-25 17:25:16,855 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:25:16.857 | 2025-09-25 17:25:16,856 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:25:26.945 | 2025-09-25 17:25:26,944 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:25:26.945 | 2025-09-25 17:25:26,945 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:25:26.947 | 2025-09-25 17:25:26,946 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:25:37.025 | 2025-09-25 17:25:37,025 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:25:37.025 | 2025-09-25 17:25:37,025 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:25:37.029 | 2025-09-25 17:25:37,027 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:25:47.083 | 2025-09-25 17:25:47,083 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:25:47.083 | 2025-09-25 17:25:47,083 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:25:47.085 | 2025-09-25 17:25:47,085 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:25:57.163 | 2025-09-25 17:25:57,163 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:25:57.163 | 2025-09-25 17:25:57,163 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:25:57.165 | 2025-09-25 17:25:57,164 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:26:07.274 | 2025-09-25 17:26:07,273 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:26:07.274 | 2025-09-25 17:26:07,274 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:26:07.276 | 2025-09-25 17:26:07,275 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:26:17.331 | 2025-09-25 17:26:17,331 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:26:17.331 | 2025-09-25 17:26:17,331 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:26:17.333 | 2025-09-25 17:26:17,333 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:26:27.405 | 2025-09-25 17:26:27,404 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:26:27.405 | 2025-09-25 17:26:27,405 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:26:27.407 | 2025-09-25 17:26:27,407 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:26:37.507 | 2025-09-25 17:26:37,507 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:26:37.508 | 2025-09-25 17:26:37,508 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:26:37.510 | 2025-09-25 17:26:37,510 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:26:47.555 | 2025-09-25 17:26:47,554 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:26:47.555 | 2025-09-25 17:26:47,555 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:26:47.556 | 2025-09-25 17:26:47,556 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:26:57.625 | 2025-09-25 17:26:57,624 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:26:57.625 | 2025-09-25 17:26:57,625 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:26:57.627 | 2025-09-25 17:26:57,626 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:27:07.709 | 2025-09-25 17:27:07,709 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:27:07.709 | 2025-09-25 17:27:07,709 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:27:07.710 | 2025-09-25 17:27:07,710 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:27:17.771 | 2025-09-25 17:27:17,771 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:27:17.771 | 2025-09-25 17:27:17,771 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:27:17.773 | 2025-09-25 17:27:17,772 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:27:27.848 | 2025-09-25 17:27:27,848 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:27:27.848 | 2025-09-25 17:27:27,848 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:27:27.850 | 2025-09-25 17:27:27,849 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:27:37.928 | 2025-09-25 17:27:37,928 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:27:37.929 | 2025-09-25 17:27:37,929 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:27:37.930 | 2025-09-25 17:27:37,930 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:27:48.024 | 2025-09-25 17:27:48,022 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:27:48.024 | 2025-09-25 17:27:48,023 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:27:48.024 | 2025-09-25 17:27:48,024 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:27:58.122 | 2025-09-25 17:27:58,121 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:27:58.123 | 2025-09-25 17:27:58,122 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:27:58.124 | 2025-09-25 17:27:58,123 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:28:03.581 | 2025-09-25 17:28:03,581 INFO  [no-req] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-09-25 19:28:08.197 | 2025-09-25 17:28:08,197 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:28:08.197 | 2025-09-25 17:28:08,197 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:28:08.198 | 2025-09-25 17:28:08,198 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:28:18.245 | 2025-09-25 17:28:18,244 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:28:18.248 | 2025-09-25 17:28:18,245 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:28:18.248 | 2025-09-25 17:28:18,246 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:28:28.323 | 2025-09-25 17:28:28,323 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:28:28.328 | 2025-09-25 17:28:28,323 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:28:28.328 | 2025-09-25 17:28:28,325 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:28:38.441 | 2025-09-25 17:28:38,441 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:28:38.442 | 2025-09-25 17:28:38,442 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:28:38.444 | 2025-09-25 17:28:38,444 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:28:48.516 | 2025-09-25 17:28:48,516 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:28:48.517 | 2025-09-25 17:28:48,516 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:28:48.521 | 2025-09-25 17:28:48,518 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:28:58.767 | 2025-09-25 17:28:58,767 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:28:58.768 | 2025-09-25 17:28:58,768 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:28:58.771 | 2025-09-25 17:28:58,769 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:29:08.884 | 2025-09-25 17:29:08,884 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:29:08.884 | 2025-09-25 17:29:08,884 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:29:08.896 | 2025-09-25 17:29:08,886 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:29:18.930 | 2025-09-25 17:29:18,930 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:29:18.932 | 2025-09-25 17:29:18,931 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:29:18.937 | 2025-09-25 17:29:18,936 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:29:29.036 | 2025-09-25 17:29:29,036 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:29:29.047 | 2025-09-25 17:29:29,037 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:29:29.047 | 2025-09-25 17:29:29,039 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:29:39.123 | 2025-09-25 17:29:39,122 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:29:39.124 | 2025-09-25 17:29:39,123 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:29:39.126 | 2025-09-25 17:29:39,126 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:29:49.224 | 2025-09-25 17:29:49,224 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:29:49.224 | 2025-09-25 17:29:49,224 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:29:49.225 | 2025-09-25 17:29:49,225 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:29:59.356 | 2025-09-25 17:29:59,355 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:29:59.360 | 2025-09-25 17:29:59,357 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:29:59.367 | 2025-09-25 17:29:59,363 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:30:09.440 | 2025-09-25 17:30:09,439 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:30:09.440 | 2025-09-25 17:30:09,440 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:30:09.441 | 2025-09-25 17:30:09,441 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:30:19.521 | 2025-09-25 17:30:19,521 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:30:19.522 | 2025-09-25 17:30:19,522 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:30:19.524 | 2025-09-25 17:30:19,523 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:30:29.615 | 2025-09-25 17:30:29,615 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:30:29.616 | 2025-09-25 17:30:29,616 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:30:29.618 | 2025-09-25 17:30:29,617 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:30:39.703 | 2025-09-25 17:30:39,703 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:30:39.704 | 2025-09-25 17:30:39,704 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:30:39.711 | 2025-09-25 17:30:39,705 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:30:49.758 | 2025-09-25 17:30:49,757 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:30:49.758 | 2025-09-25 17:30:49,758 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:30:49.759 | 2025-09-25 17:30:49,759 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:30:59.825 | 2025-09-25 17:30:59,825 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:30:59.826 | 2025-09-25 17:30:59,826 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:30:59.829 | 2025-09-25 17:30:59,829 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health
+2025-09-25 19:31:09.923 | 2025-09-25 17:31:09,923 DEBUG [no-req] o.s.security.web.FilterChainProxy - Securing GET /actuator/health
+2025-09-25 19:31:09.923 | 2025-09-25 17:31:09,923 DEBUG [no-req] o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-09-25 19:31:09.926 | 2025-09-25 17:31:09,924 DEBUG [no-req] o.s.security.web.FilterChainProxy - Secured GET /actuator/health

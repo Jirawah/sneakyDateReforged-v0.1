@@ -1,0 +1,246 @@
+20:21:29.048 [main] ERROR org.springframework.boot.SpringApplication -- Application run failed
+org.springframework.cloud.config.client.ConfigClientFailFastException: Could not locate PropertySource and the fail fast property is set, failing
+
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://configserver:8071/ms-profil/default": configserver
+
+Caused by: java.net.UnknownHostException: configserver
+
+20:21:29.060 [main] ERROR org.springframework.test.context.TestContextManager -- Caught exception while allowing TestExecutionListener [or
+g.springframework.boot.test.mock.mockito.MockitoTestExecutionListener] to prepare test instance [com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest@21688427]
+
+Caused by: org.springframework.cloud.config.client.ConfigClientFailFastException: Could not locate PropertySource and the fail fast property is set, failing
+
+20:21:29.444 [main] ERROR org.springframework.boot.SpringApplication -- Application run failed
+org.springframework.cloud.config.client.ConfigClientFailFastException: Could not locate PropertySource and the fail fast property is set, failing
+
+Caused by: org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://configserver:8071/ms-profil/default": configserver
+
+[ERROR] Failures: 
+[ERROR]   ProfileServiceTest$Aggregation.aggregated_private_uses_private_endpoints_and_fallback_on_error:170 expected: <7> but was: <0>   
+[ERROR] Errors: 
+[ERROR]   MsProfilApplicationTests.contextLoads » IllegalState Failed to load ApplicationContext for [WebMergedContextConfiguration@1c79d0
+93 testClass = com.sneakyDateReforged.ms_profil.MsProfilApplicationTests, locations = [], classes = [com.sneakyDateReforged.ms_profil.MsPr
+ofilApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceLocations = [], propertySourceProperties = ["org.spri
+ngframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter
+.ExcludeFilterContextCustomizer@6f667ad1, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObje
+ctContextCustomizer@77a281fc, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.cli
+ent.TestRestTemplateContextCustomizer@61d6c8c4, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCust
+omizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCusto
+mizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.contex
+t.SpringBootTestAnnotation@9d07fa5c], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+[ERROR]   ProfileControllerWebTest.cors_preflight_is_allowed_for_public » IllegalState Failed to load ApplicationContext for [WebMergedCon
+textConfiguration@5621a671 testClass = com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest, locations = [], classes = [co
+m.sneakyDateReforged.ms_profil.MsProfilApplication], contextInitializerClasses = [], activeProfiles = ["test"], propertySourceLocations = 
+[], propertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCust
+omizers = [[ImportsContextCustomizer@2006fdaa key = [com.sneakyDateReforged.ms_profil.config.SecurityConfig, com.sneakyDateReforged.ms_pro
+fil.security.JwtAuthFilter, com.sneakyDateReforged.ms_profil.config.CorsConfig, com.sneakyDateReforged.ms_profil.exception.GlobalException
+Handler, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSource
+AutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.
+freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.spring
+framework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.s
+pringframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoC
+onfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.Mustach
+eAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thy
+meleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot
+.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfigurati
+on, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.Mo
+ckMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boo
+t.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.
+OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfigurati
+on, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.ser
+vlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.spr
+ingframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.We
+bTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6f667ad1, org.springframework.
+boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@77a281fc, org.springframework.boot.test.mo
+ck.mockito.MockitoContextCustomizer@ef57f3da, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactor
+y$DisableAutoConfigurationContextCustomizer@5754de72, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityConte
+xtCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContext
+Customizer@fcb66a7d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2a8f57fd, org.springframework
+.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.context.SpringBootTestAnnotation@e
+368bb77], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+[ERROR]   ProfileControllerWebTest.me_full_requires_auth_when_no_jwt » IllegalState Failed to load ApplicationContext for [WebMergedContex
+tConfiguration@5621a671 testClass = com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest, locations = [], classes = [com.s
+neakyDateReforged.ms_profil.MsProfilApplication], contextInitializerClasses = [], activeProfiles = ["test"], propertySourceLocations = [],
+ propertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCustomi
+zers = [[ImportsContextCustomizer@2006fdaa key = [com.sneakyDateReforged.ms_profil.config.SecurityConfig, com.sneakyDateReforged.ms_profil
+.security.JwtAuthFilter, com.sneakyDateReforged.ms_profil.config.CorsConfig, com.sneakyDateReforged.ms_profil.exception.GlobalExceptionHan
+dler, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAut
+oConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.fre
+emarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springfra
+mework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.spri
+ngframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConf
+iguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAu
+toConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymel
+eaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.au
+toconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,
+ org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockM
+vcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.t
+est.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAu
+th2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration,
+ org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servle
+t.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.spring
+framework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTe
+stClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6f667ad1, org.springframework.boo
+t.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@77a281fc, org.springframework.boot.test.mock.
+mockito.MockitoContextCustomizer@ef57f3da, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$D
+isableAutoConfigurationContextCustomizer@5754de72, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextC
+ustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCus
+tomizer@fcb66a7d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2a8f57fd, org.springframework.bo
+ot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.context.SpringBootTestAnnotation@e368bb77], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+[ERROR]   ProfileControllerWebTest.me_full_succeeds_with_valid_jwt » IllegalState Failed to load ApplicationContext for [WebMergedContextC
+onfiguration@5621a671 testClass = com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest, locations = [], classes = [com.sne
+akyDateReforged.ms_profil.MsProfilApplication], contextInitializerClasses = [], activeProfiles = ["test"], propertySourceLocations = [], p
+ropertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCustomize
+rs = [[ImportsContextCustomizer@2006fdaa key = [com.sneakyDateReforged.ms_profil.config.SecurityConfig, com.sneakyDateReforged.ms_profil.s
+ecurity.JwtAuthFilter, com.sneakyDateReforged.ms_profil.config.CorsConfig, com.sneakyDateReforged.ms_profil.exception.GlobalExceptionHandl
+er, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoC
+onfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freem
+arker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframe
+work.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.spring
+framework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfig
+uration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAuto
+Configuration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymelea
+f.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.auto
+configure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, o
+rg.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvc
+AutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.tes
+t.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth
+2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, o
+rg.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.
+SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springfr
+amework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTest
+ClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6f667ad1, org.springframework.boot.
+test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@77a281fc, org.springframework.boot.test.mock.mo
+ckito.MockitoContextCustomizer@ef57f3da, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$Dis
+ableAutoConfigurationContextCustomizer@5754de72, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCus
+tomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCusto
+mizer@fcb66a7d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2a8f57fd, org.springframework.boot
+.test.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.context.SpringBootTestAnnotation@e368bb77], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]  
+[ERROR]   ProfileControllerWebTest.me_requires_auth_when_no_jwt » IllegalState Failed to load ApplicationContext for [WebMergedContextConf
+iguration@5621a671 testClass = com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest, locations = [], classes = [com.sneaky
+DateReforged.ms_profil.MsProfilApplication], contextInitializerClasses = [], activeProfiles = ["test"], propertySourceLocations = [], prop
+ertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCustomizers 
+= [[ImportsContextCustomizer@2006fdaa key = [com.sneakyDateReforged.ms_profil.config.SecurityConfig, com.sneakyDateReforged.ms_profil.secu
+rity.JwtAuthFilter, com.sneakyDateReforged.ms_profil.config.CorsConfig, com.sneakyDateReforged.ms_profil.exception.GlobalExceptionHandler,
+ org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConf
+iguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemark
+er.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframewor
+k.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springfra
+mework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfigura
+tion, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoCon
+figuration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.T
+hymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autocon
+figure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.
+springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAut
+oConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.a
+utoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2Cl
+ientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.
+springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.Sec
+urityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframe
+work.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestCli
+entAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6f667ad1, org.springframework.boot.tes
+t.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@77a281fc, org.springframework.boot.test.mock.mocki
+to.MockitoContextCustomizer@ef57f3da, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$Disabl
+eAutoConfigurationContextCustomizer@5754de72, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustom
+izerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomiz
+er@fcb66a7d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2a8f57fd, org.springframework.boot.te
+st.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.context.SpringBootTestAnnotation@e368bb77], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]     
+[ERROR]   ProfileControllerWebTest.me_succeeds_with_valid_jwt » IllegalState Failed to load ApplicationContext for [WebMergedContextConfig
+uration@5621a671 testClass = com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest, locations = [], classes = [com.sneakyDa
+teReforged.ms_profil.MsProfilApplication], contextInitializerClasses = [], activeProfiles = ["test"], propertySourceLocations = [], proper
+tySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCustomizers = 
+[[ImportsContextCustomizer@2006fdaa key = [com.sneakyDateReforged.ms_profil.config.SecurityConfig, com.sneakyDateReforged.ms_profil.securi
+ty.JwtAuthFilter, com.sneakyDateReforged.ms_profil.config.CorsConfig, com.sneakyDateReforged.ms_profil.exception.GlobalExceptionHandler, o
+rg.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfig
+uration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker
+.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.
+boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframe
+work.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfigurati
+on, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfi
+guration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.Thy
+meleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfi
+gure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.sp
+ringframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoC
+onfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.aut
+oconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2Clie
+ntAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.sp
+ringframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.Secur
+ityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframewo
+rk.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClien
+tAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6f667ad1, org.springframework.boot.test.
+json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@77a281fc, org.springframework.boot.test.mock.mockito
+.MockitoContextCustomizer@ef57f3da, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableA
+utoConfigurationContextCustomizer@5754de72, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomiz
+erFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer
+@fcb66a7d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2a8f57fd, org.springframework.boot.test
+.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.context.SpringBootTestAnnotation@e368bb77], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]       
+[ERROR]   ProfileControllerWebTest.public_endpoint_is_permitAll » IllegalState Failed to load ApplicationContext for [WebMergedContextConf
+iguration@5621a671 testClass = com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest, locations = [], classes = [com.sneaky
+DateReforged.ms_profil.MsProfilApplication], contextInitializerClasses = [], activeProfiles = ["test"], propertySourceLocations = [], prop
+ertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCustomizers 
+= [[ImportsContextCustomizer@2006fdaa key = [com.sneakyDateReforged.ms_profil.config.SecurityConfig, com.sneakyDateReforged.ms_profil.secu
+rity.JwtAuthFilter, com.sneakyDateReforged.ms_profil.config.CorsConfig, com.sneakyDateReforged.ms_profil.exception.GlobalExceptionHandler,
+ org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConf
+iguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemark
+er.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframewor
+k.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springfra
+mework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfigura
+tion, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoCon
+figuration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.T
+hymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autocon
+figure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.
+springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAut
+oConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.a
+utoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2Cl
+ientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.
+springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.Sec
+urityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframe
+work.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestCli
+entAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6f667ad1, org.springframework.boot.tes
+t.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@77a281fc, org.springframework.boot.test.mock.mocki
+to.MockitoContextCustomizer@ef57f3da, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$Disabl
+eAutoConfigurationContextCustomizer@5754de72, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustom
+izerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomiz
+er@fcb66a7d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2a8f57fd, org.springframework.boot.te
+st.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.context.SpringBootTestAnnotation@e368bb77], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]     
+[ERROR]   ProfileControllerWebTest.update_validation_error_returns_400 » IllegalState Failed to load ApplicationContext for [WebMergedCont
+extConfiguration@5621a671 testClass = com.sneakyDateReforged.ms_profil.controller.ProfileControllerWebTest, locations = [], classes = [com
+.sneakyDateReforged.ms_profil.MsProfilApplication], contextInitializerClasses = [], activeProfiles = ["test"], propertySourceLocations = [
+], propertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCusto
+mizers = [[ImportsContextCustomizer@2006fdaa key = [com.sneakyDateReforged.ms_profil.config.SecurityConfig, com.sneakyDateReforged.ms_prof
+il.security.JwtAuthFilter, com.sneakyDateReforged.ms_profil.config.CorsConfig, com.sneakyDateReforged.ms_profil.exception.GlobalExceptionH
+andler, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceA
+utoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.f
+reemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springf
+ramework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.sp
+ringframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoCo
+nfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.Mustache
+AutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thym
+eleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.
+autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguratio
+n, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.Moc
+kMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot
+.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.O
+Auth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguratio
+n, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.serv
+oot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@77a281fc, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@ef57f3da, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5754de72, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@fcb66a7d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2a8f57fd, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@54562ea6, org.springframework.boot.test.context.SpringBootTestAnnotation@e368bb77], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+[INFO]
+[ERROR] Tests run: 15, Failures: 1, Errors: 8, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.071 s
+[INFO] Finished at: 2025-09-25T20:21:34+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project ms-profil: There are test failures.
+[ERROR]
+[ERROR] Please refer to C:\Users\Antoine\Desktop\SDR\sneakyDateReforged-v0.1\sdr-backend\ms-profil\target\surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
