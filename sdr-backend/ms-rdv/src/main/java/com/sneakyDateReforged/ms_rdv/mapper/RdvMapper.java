@@ -7,15 +7,21 @@ import com.sneakyDateReforged.ms_rdv.api.dto.RdvSummaryDTO;
 import com.sneakyDateReforged.ms_rdv.domain.Rdv;
 import com.sneakyDateReforged.ms_rdv.api.dto.ParticipantDTO;
 import com.sneakyDateReforged.ms_rdv.domain.Participant;
+import com.sneakyDateReforged.ms_rdv.domain.enums.RdvStatus;
 
 public final class RdvMapper {
     private RdvMapper() {}
 
     public static Rdv from(CreateRdvRequest r) {
+        var statut = r.statut() != null ? r.statut() : RdvStatus.OUVERT;
         return Rdv.builder()
-                .nom(r.nom()).date(r.date()).heure(r.heure())
-                .jeu(r.jeu()).statut(r.statut())
-                .slots(r.slots()).organisateurId(r.organisateurId())
+                .nom(r.nom())
+                .date(r.date())
+                .heure(r.heure())
+                .jeu(r.jeu())
+                .statut(statut)
+                .slots(r.slots())
+                .organisateurId(r.organisateurId())
                 .build();
     }
 
@@ -25,22 +31,31 @@ public final class RdvMapper {
     }
 
     public static RdvSummaryDTO toSummary(Rdv e) {
-        return new RdvSummaryDTO(e.getId(), e.getNom(), e.getJeu(), e.getDate(), e.getHeure(), e.getStatut());
+        return new RdvSummaryDTO(e.getId(), e.getNom(), e.getJeu(), e.getDate(), e.getHeure(), e.getStatut(), e.getOrganisateurId());
     }
 
     public static void copy(UpdateRdvRequest r, Rdv e) {
-        e.setNom(r.nom());
-        e.setDate(r.date());
-        e.setHeure(r.heure());
-        e.setJeu(r.jeu());
-        e.setStatut(r.statut());
-        e.setSlots(r.slots());
+        if (r.nom() != null) e.setNom(r.nom());
+        if (r.date() != null) e.setDate(r.date());
+        if (r.heure() != null) e.setHeure(r.heure());
+        if (r.jeu() != null) e.setJeu(r.jeu());
+        if (r.statut() != null) e.setStatut(r.statut());
+        if (r.slots() != null) e.setSlots(r.slots());
     }
 
     public static ParticipantDTO toDTO(Participant p) {
         return new ParticipantDTO(
                 p.getId(), p.getUserId(), p.getRdv().getId(),
                 p.getRole(), p.getStatutParticipation()
+        );
+    }
+
+    public static RdvParticipationDTO toParticipationDTO(Participant p) {
+        return new RdvParticipationDTO(
+                p.getId(),
+                p.getRole(),
+                p.getStatutParticipation(),
+                toSummary(p.getRdv())
         );
     }
 }

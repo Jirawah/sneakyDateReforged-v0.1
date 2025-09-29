@@ -25,12 +25,14 @@ services:
       - "8071:8071"
     environment:
       SPRING_PROFILES_ACTIVE: git
+      MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
+      MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED: "true"
     healthcheck:
-      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health"]
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health/readiness"]
       interval: 10s
       timeout: 5s
-      retries: 5
-      start_period: 10s
+      retries: 12
+      start_period: 90s
     extends:
       file: common-config.yml
       service: microservice-base-config
@@ -183,6 +185,7 @@ services:
       - .env
     environment:
       SPRING_APPLICATION_NAME: ms-rdv
+      SPRING_PROFILES_ACTIVE: dev
       JWT_SECRET: ${JWT_SECRET}
       DB_HOST: msrdvdb
       DB_PORT: 3306
@@ -200,6 +203,57 @@ services:
       file: common-config.yml
       service: microservice-base-config
 
+  msfrienddb:
+    image: mysql:8.0
+    container_name: msfrienddb
+    environment:
+      MYSQL_DATABASE: msfrienddb
+      MYSQL_USER: msfrienduser
+      MYSQL_PASSWORD: msfriendpwd
+      MYSQL_ROOT_PASSWORD: rootpwd
+    ports:
+      - "3313:3306"
+    volumes:
+      - msfrienddb_data:/var/lib/mysql
+    networks:
+      - sneakydate-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-pmsfriendpwd" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  ms-friend:
+    image: jirawah/ms-friend:latest
+    container_name: ms-friend
+    depends_on:
+      configserver:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      msfrienddb:
+        condition: service_healthy
+    environment:
+      # Vars lues par ms-friend.properties
+      DB_HOST: msfrienddb
+      DB_PORT: 3306
+      DB_NAME: msfrienddb
+      DB_USERNAME: msfrienduser
+      DB_PASSWORD: msfriendpwd
+      JWT_SECRET: ThisIsASecretKeyForJWTsAndMustBe256BitsLong!
+      # Optionnel si tu veux override
+      SPRING_PROFILES_ACTIVE: default
+    ports:
+      - "8083:8083"
+    networks:
+      - sneakydate-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8083/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
 networks:
   sneakydate-network:
     driver: bridge
@@ -208,3 +262,4 @@ volumes:
   auth_data:
   msprofil_data:
   msrdv_data:
+  msfrienddb_data:

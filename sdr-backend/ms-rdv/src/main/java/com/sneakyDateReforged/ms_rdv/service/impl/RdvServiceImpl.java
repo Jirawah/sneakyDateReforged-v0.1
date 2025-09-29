@@ -1,23 +1,25 @@
 package com.sneakyDateReforged.ms_rdv.service.impl;
 
-import com.sneakyDateReforged.ms_rdv.api.dto.CreateRdvRequest;
-import com.sneakyDateReforged.ms_rdv.api.dto.RdvDTO;
-import com.sneakyDateReforged.ms_rdv.api.dto.RdvSummaryDTO;
+import com.sneakyDateReforged.ms_rdv.api.dto.*;
 import com.sneakyDateReforged.ms_rdv.domain.Rdv;
+import com.sneakyDateReforged.ms_rdv.domain.enums.ParticipationStatus;
 import com.sneakyDateReforged.ms_rdv.mapper.RdvMapper;
 import com.sneakyDateReforged.ms_rdv.repository.ParticipantRepository;
 import com.sneakyDateReforged.ms_rdv.repository.RdvRepository;
 import com.sneakyDateReforged.ms_rdv.service.RdvService;
-import com.sneakyDateReforged.ms_rdv.api.dto.UpdateRdvRequest;
 import com.sneakyDateReforged.ms_rdv.domain.enums.RdvStatus;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Service @RequiredArgsConstructor
+@Service
+@RequiredArgsConstructor
+@Transactional
 public class RdvServiceImpl implements RdvService {
 
     private final RdvRepository rdvRepository;
@@ -31,6 +33,7 @@ public class RdvServiceImpl implements RdvService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public RdvDTO getById(Long id) {
         Rdv rdv = rdvRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("RDV not found: " + id));
@@ -39,10 +42,15 @@ public class RdvServiceImpl implements RdvService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<RdvSummaryDTO> listByDate(LocalDate date, String jeu) {
+        // tri par propriété d'entité "heure" (le nom du champ JPA, pas le nom de colonne)
+        Sort sort = Sort.by(Sort.Order.asc("heure"));
+
         List<Rdv> list = (jeu == null || jeu.isBlank())
-                ? rdvRepository.findAllByDate(date)
-                : rdvRepository.findAllByDateAndJeu(date, jeu);
+                ? rdvRepository.findAllByDate(date, sort)
+                : rdvRepository.findAllByDateAndJeu(date, jeu, sort);
+
         return list.stream().map(RdvMapper::toSummary).toList();
     }
 
@@ -74,5 +82,26 @@ public class RdvServiceImpl implements RdvService {
         Rdv saved = rdvRepository.save(rdv);
         int participants = (int) participantRepository.countByRdv(saved);
         return RdvMapper.toDTO(saved, participants);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<RdvSummaryDTO> listByOrganisateur(Long organisateurId) {
+        return rdvRepository.findByOrganisateurIdOrderByDateAscHeureAsc(organisateurId)
+                .stream()
+                .map(RdvMapper::toSummary)
+                .toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<RdvParticipationDTO> listParticipations(Long userId, ParticipationStatus statusOrNull) {
+        var list = (statusOrNull == null)
+                ? participantRepository.findByUserId(userId)
+                : participantRepository.findByUserIdAndStatutParticipation(userId, statusOrNull);
+
+        return list.stream()
+                .map(RdvMapper::toParticipationDTO)
+                .toList();
     }
 }

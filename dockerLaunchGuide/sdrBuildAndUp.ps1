@@ -144,7 +144,8 @@ $projects = @(
     @{ Name = "ms-eurekaServer"; Path = "..\sdr-backend\ms-eurekaServer"; Image = "jirawah/ms-eurekaserver:latest" },
     @{ Name = "ms-auth";         Path = "..\sdr-backend\ms-auth";         Image = "jirawah/ms-auth:latest" },
     @{ Name = "ms-profil";       Path = "..\sdr-backend\ms-profil";       Image = "jirawah/ms-profil:latest" },
-    @{ Name = "ms-rdv";          Path = "..\sdr-backend\ms-rdv";          Image = "jirawah/ms-rdv:latest" }  # 👈 ajouté
+    @{ Name = "ms-rdv";          Path = "..\sdr-backend\ms-rdv";          Image = "jirawah/ms-rdv:latest" },
+    @{ Name = "ms-friend";       Path = "..\sdr-backend\ms-friend";       Image = "jirawah/ms-friend:latest" }
 )
 
 $basePath = Split-Path -Parent $MyInvocation.MyCommand.Path

@@ -7,6 +7,9 @@ services:
   microservice-base-config:
     extends:
       service: network-deploy-service
+    environment:
+      SPRING_JACKSON_SERIALIZATION_WRITE_DATES_AS_TIMESTAMPS: "false"
+      SPRING_JACKSON_TIME_ZONE: "UTC"
 
   microservice-db-config:
     extends:

@@ -11,5 +11,5 @@ public record UpdateRdvRequest(
         @NotNull LocalTime heure,
         @NotBlank String jeu,
         @NotNull RdvStatus statut,
-        @Min(1) int slots
+        @Min(1) Integer slots
 ) {}

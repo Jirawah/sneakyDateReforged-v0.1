@@ -5,5 +5,5 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public record RdvSummaryDTO(
-        Long id, String nom, String jeu, LocalDate date, LocalTime heure, RdvStatus statut
+        Long id, String nom, String jeu, LocalDate date, LocalTime heure, RdvStatus statut, Long organisateurId
 ) {}

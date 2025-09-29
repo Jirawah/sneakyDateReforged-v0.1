@@ -1,5 +1,6 @@
 package com.sneakyDateReforged.ms_rdv.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sneakyDateReforged.ms_rdv.domain.enums.RdvStatus;
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
@@ -8,7 +9,7 @@ import java.time.LocalTime;
 public record CreateRdvRequest(
         @NotBlank String nom,
         @NotNull LocalDate date,
-        @NotNull LocalTime heure,
+        @NotNull @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm[:ss]") LocalTime heure,
         @NotBlank String jeu,
         @NotNull RdvStatus statut,     // OUVERT / FERME / ANNULE
         @Min(1) int slots,

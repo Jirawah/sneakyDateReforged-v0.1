@@ -6,7 +6,14 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Entity @Table(name="rdv")
+@Entity
+@Table(
+        name = "rdv",
+        indexes = {
+                @Index(name = "idx_rdv_date", columnList = "date"),
+                @Index(name = "idx_rdv_date_jeu", columnList = "date, jeu") // optionnel
+        }
+)
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class Rdv {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +33,18 @@ public class Rdv {
 
     @Column(name="organisateur_id", nullable=false)
     private Long organisateurId;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rdv that = (Rdv) o;
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
 }

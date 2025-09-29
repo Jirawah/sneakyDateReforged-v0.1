@@ -17,10 +17,14 @@ CREATE TABLE IF NOT EXISTS participant (
   rdv_id BIGINT NOT NULL,
   role VARCHAR(50) NOT NULL,                 -- ORGANISATEUR / JOUEUR / REMPLACANT
   statut_participation VARCHAR(50) NOT NULL, -- EN_ATTENTE / CONFIRME / REFUSE
-  CONSTRAINT fk_participant_rdv FOREIGN KEY (rdv_id) REFERENCES rdv(id) ON DELETE CASCADE
+  CONSTRAINT fk_participant_rdv FOREIGN KEY (rdv_id) REFERENCES rdv(id) ON DELETE CASCADE,
+  CONSTRAINT uq_participant_rdv_user UNIQUE (rdv_id, user_id)  -- <== unicité ici
 );
 
--- Index utiles
-CREATE INDEX idx_rdv_date ON rdv(date);
-CREATE INDEX idx_rdv_jeu_date ON rdv(jeu, date);
-CREATE INDEX idx_participant_rdv ON participant(rdv_id);
+-- Index RDV
+CREATE INDEX idx_rdv_date      ON rdv(date);
+CREATE INDEX idx_rdv_date_jeu  ON rdv(date, jeu);
+
+-- Index PARTICIPANT
+CREATE INDEX idx_participant_rdv          ON participant(rdv_id);
+CREATE INDEX idx_participant_user_status  ON participant(user_id, statut_participation);
