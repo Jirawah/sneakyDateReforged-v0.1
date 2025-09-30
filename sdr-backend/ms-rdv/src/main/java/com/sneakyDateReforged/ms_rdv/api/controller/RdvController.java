@@ -1,15 +1,12 @@
 package com.sneakyDateReforged.ms_rdv.api.controller;
 
-import com.sneakyDateReforged.ms_rdv.api.dto.CreateRdvRequest;
-import com.sneakyDateReforged.ms_rdv.api.dto.RdvDTO;
-import com.sneakyDateReforged.ms_rdv.api.dto.RdvSummaryDTO;
+import com.sneakyDateReforged.ms_rdv.api.dto.*;
 import com.sneakyDateReforged.ms_rdv.service.RdvService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import com.sneakyDateReforged.ms_rdv.api.dto.UpdateRdvRequest;
 import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;

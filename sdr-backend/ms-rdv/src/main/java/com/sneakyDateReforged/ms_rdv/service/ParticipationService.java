@@ -11,6 +11,7 @@ public interface ParticipationService {
     ParticipantDTO request(Long rdvId, ParticipationRequest req, Long currentUserId);
     ParticipantDTO invite(Long rdvId, ParticipationRequest req, Long currentUserId);
     ParticipantDTO updateStatus(Long rdvId, Long participationId, UpdateParticipationStatusRequest req);
+    ParticipantDTO acceptFromInvitation(Long rdvId, ParticipationRequest req, Long currentUserId);
     List<ParticipantDTO> list(Long rdvId);
     void withdraw(Long rdvId, Long participationId);
     com.sneakyDateReforged.ms_rdv.api.dto.ParticipantDTO withdrawAndReturn(Long rdvId, Long participationId);

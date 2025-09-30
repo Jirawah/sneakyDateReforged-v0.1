@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/sdr-backend/ms-configServer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sdr-backend/ms-eurekaServer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sdr-backend/ms-friend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sdr-backend/ms-invitation/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sdr-backend/ms-profil/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sdr-backend/ms-rdv/src/main/java" charset="UTF-8" />
   </component>

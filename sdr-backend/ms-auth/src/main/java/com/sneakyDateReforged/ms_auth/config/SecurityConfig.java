@@ -5,6 +5,7 @@ import com.sneakyDateReforged.ms_auth.service.UserAuthDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -29,6 +30,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(csrf -> csrf.disable())
+                .cors(c -> {})
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
@@ -37,8 +39,12 @@ public class SecurityConfig {
                                 "/api/auth/discord/sync",
                                 "/auth/reset-request",
                                 "/auth/reset-password",
-                                "/actuator/**"
+                                "/actuator/**",
+                                "/auth/steam/**",
+                                "/auth/discord/**"
                         ).permitAll()
+                        .requestMatchers(HttpMethod.GET, "/ping").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
                 )
 

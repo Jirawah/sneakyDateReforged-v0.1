@@ -35,11 +35,15 @@ public class JwtUtils {
     }
 
     public Long extractUserId(String token) {
-        Object id = parser().parseClaimsJws(token).getBody().get("id");
-        if (id == null) return null;
-        if (id instanceof Integer i) return i.longValue();
-        if (id instanceof Long l) return l;
-        if (id instanceof String s) return Long.parseLong(s);
+        Claims body = parser().parseClaimsJws(token).getBody();
+
+        Object v = body.get("userId");
+        if (v == null) v = body.get("id");
+
+        if (v == null) return null;
+        if (v instanceof Integer i) return i.longValue();
+        if (v instanceof Long l)    return l;
+        if (v instanceof String s)  return Long.parseLong(s);
         return null;
     }
 

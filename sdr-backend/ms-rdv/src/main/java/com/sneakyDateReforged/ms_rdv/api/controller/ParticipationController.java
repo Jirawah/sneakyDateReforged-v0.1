@@ -69,4 +69,13 @@ public class ParticipationController {
     public ParticipantDTO withdrawAndReturn(@PathVariable Long rdvId, @PathVariable Long participationId) {
         return participationService.withdrawAndReturn(rdvId, participationId);
     }
+
+    @PostMapping("/accept")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ParticipantDTO acceptFromInvitation(@PathVariable Long rdvId,
+                                               @Valid @RequestBody ParticipationRequest req,
+                                               @RequestHeader(value = "X-User-Id", required = false) Long currentUserId) {
+        Long callerId = currentUserId != null ? currentUserId : req.userId();
+        return participationService.acceptFromInvitation(rdvId, req, callerId);
+    }
 }

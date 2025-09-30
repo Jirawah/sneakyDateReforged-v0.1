@@ -5,7 +5,7 @@ import com.sneakyDateReforged.ms_profil.client.dto.RdvStatsResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "ms-rdv", url = "${ms-rdv.url:}")
+@FeignClient(name = "ms-rdv")
 public interface RdvClient {
     // privés
     @GetMapping("/rdv/stats/{userId}")

@@ -4,7 +4,7 @@ import com.sneakyDateReforged.ms_profil.client.dto.FriendCountResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "ms-friend", url = "${ms-friend.url:}")
+@FeignClient(name = "ms-friend")
 public interface FriendClient {
     // privé (JWT user)
     @GetMapping("/friends/{userId}/count")

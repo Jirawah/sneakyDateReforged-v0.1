@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "ms-auth", url = "${ms-auth.url:}") // ⚠️ doit matcher l'ID Eureka de ms-auth
+@FeignClient(name = "ms-auth")
 public interface AuthClient {
 
     @GetMapping("/auth/users/{userId}/steam-id")

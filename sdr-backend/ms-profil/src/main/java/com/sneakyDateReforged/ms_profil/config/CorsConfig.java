@@ -17,8 +17,9 @@ public class CorsConfig {
         );
         CorsConfiguration cfg = new CorsConfiguration();
         cfg.setAllowedOrigins(List.of(origins.split(",")));
-        cfg.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
+        cfg.setAllowedMethods(List.of("GET","POST","PUT", "PATCH", "DELETE","OPTIONS"));
         cfg.setAllowedHeaders(List.of("*"));
+        cfg.setExposedHeaders(List.of("X-Request-Id"));
         cfg.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

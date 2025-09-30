@@ -30,8 +30,11 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(c -> {})
                 .authorizeHttpRequests(reg -> reg
                         .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/ping").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/friends/ping").permitAll()
                         .anyRequest().authenticated()
                 )

@@ -35,6 +35,9 @@ public class SecurityConfig {
                         // ---- Actuator ----
                         .requestMatchers("/actuator/**").permitAll()
 
+                        .requestMatchers(HttpMethod.GET, "/ping").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
                         // ---- Routes publiques ms-profil ----
                         .requestMatchers(HttpMethod.GET, "/profiles/*/public").permitAll()
                         .requestMatchers(HttpMethod.GET, "/profiles/*/public-full").permitAll()

@@ -71,7 +71,7 @@ services:
       - .env
     environment:
       SPRING_APPLICATION_NAME: ms-auth
-      #    SPRING_PROFILES_ACTIVE: default
+      CORS_ALLOWED_ORIGINS: "http://localhost:4200,http://127.0.0.1:4200"
       JWT_SECRET: ${JWT_SECRET}
       JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS}
       SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME}
@@ -143,6 +143,7 @@ services:
       - .env
     environment:
       SPRING_APPLICATION_NAME: ms-profil
+      CORS_ALLOWED_ORIGINS: "http://localhost:4200,http://127.0.0.1:4200"
       JWT_SECRET: ${JWT_SECRET}
       DB_HOST: msprofildb
       DB_PORT: 3306
@@ -186,6 +187,7 @@ services:
     environment:
       SPRING_APPLICATION_NAME: ms-rdv
       SPRING_PROFILES_ACTIVE: dev
+      CORS_ALLOWED_ORIGINS: "http://localhost:4200,http://127.0.0.1:4200"
       JWT_SECRET: ${JWT_SECRET}
       DB_HOST: msrdvdb
       DB_PORT: 3306
@@ -234,15 +236,15 @@ services:
       msfrienddb:
         condition: service_healthy
     environment:
-      # Vars lues par ms-friend.properties
+      SPRING_APPLICATION_NAME: ms-friend
+      SPRING_PROFILES_ACTIVE: default
+      CORS_ALLOWED_ORIGINS: "http://localhost:4200,http://127.0.0.1:4200"
       DB_HOST: msfrienddb
       DB_PORT: 3306
       DB_NAME: msfrienddb
       DB_USERNAME: msfrienduser
       DB_PASSWORD: msfriendpwd
       JWT_SECRET: ThisIsASecretKeyForJWTsAndMustBe256BitsLong!
-      # Optionnel si tu veux override
-      SPRING_PROFILES_ACTIVE: default
     ports:
       - "8083:8083"
     networks:
@@ -254,6 +256,54 @@ services:
       retries: 12
       start_period: 20s
 
+  msinvitationdb:
+    image: mysql:8
+    container_name: msinvitationdb
+    platform: linux/amd64
+    environment:
+      MYSQL_DATABASE: msinvitationdb
+      MYSQL_USER: msinvitationuser
+      MYSQL_PASSWORD: msinvitationpwd
+      MYSQL_ROOT_PASSWORD: rootpwd
+    ports:
+      - "3312:3306"
+    volumes:
+      - msinvitation_data:/var/lib/mysql
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+
+  ms-invitation:
+    image: jirawah/ms-invitation:latest
+    container_name: ms-invitation
+    depends_on:
+      configserver: { condition: service_healthy }
+      eurekaserver: { condition: service_healthy }
+      msinvitationdb: { condition: service_healthy }
+    env_file:
+      - .env
+    environment:
+      SPRING_APPLICATION_NAME: ms-invitation
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:4200,http://127.0.0.1:4200}
+      DB_HOST: msinvitationdb
+      DB_PORT: 3306
+      DB_NAME: msinvitationdb
+      DB_USERNAME: msinvitationuser
+      DB_PASSWORD: msinvitationpwd
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "8084:8084"
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8084/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+
+
 networks:
   sneakydate-network:
     driver: bridge
@@ -263,3 +313,4 @@ volumes:
   msprofil_data:
   msrdv_data:
   msfrienddb_data:
+  msinvitation_data:

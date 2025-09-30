@@ -160,4 +160,39 @@ public class ParticipationServiceImpl implements ParticipationService {
                 .orElseThrow(() -> new EntityNotFoundException("Participation not found: " + participationId));
         return RdvMapper.toDTO(p);
     }
+
+    @Override
+    @Transactional
+    public ParticipantDTO acceptFromInvitation(Long rdvId, ParticipationRequest req, Long currentUserId) {
+        Rdv rdv = rdvRepository.findById(rdvId)
+                .orElseThrow(() -> new EntityNotFoundException("RDV not found: " + rdvId));
+
+        if (rdv.getStatut() == RdvStatus.ANNULE) {
+            throw new IllegalStateException("RDV annulé: participation impossible");
+        }
+
+        // 💡 ICI la différence : on AUTORISE la création par l’invité même si RDV.FERME
+        // (car il vient d’une invitation). Pas besoin d’être organisateur.
+
+        if (!currentUserId.equals(req.userId())) {
+            throw new AccessDeniedException("L'utilisateur courant doit être l'invité lui-même");
+        }
+
+        if (participantRepository.existsByRdvIdAndUserId(rdvId, req.userId())) {
+            // Idempotent : retour direct
+            return RdvMapper.toDTO(
+                    participantRepository.findByRdvIdAndUserId(rdvId, req.userId()).get()
+            );
+        }
+
+        // Par défaut on met EN_ATTENTE ; l’organisateur pourra CONFIRMER ensuite.
+        Participant p = Participant.builder()
+                .rdv(rdv)
+                .userId(req.userId())
+                .role(req.role())
+                .statutParticipation(ParticipationStatus.EN_ATTENTE)
+                .build();
+
+        return RdvMapper.toDTO(participantRepository.save(p));
+    }
 }

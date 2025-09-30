@@ -28,9 +28,12 @@ public class SecurityConfig {
         JwtAuthFilter jwtFilter = new JwtAuthFilter(jwtUtils());
 
         http.csrf(csrf -> csrf.disable())
+                .cors(c -> {})
                 .authorizeHttpRequests(auth -> auth
                         // laissez les healthchecks / monitoring accessibles
                         .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/ping").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         // (optionnel) laissez un ping public pour debug si vous voulez
                         .requestMatchers(HttpMethod.GET, "/api/rdv/ping").permitAll()
                         // tout le reste nécessite un Bearer

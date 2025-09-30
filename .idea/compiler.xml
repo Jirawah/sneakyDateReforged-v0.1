@@ -40,6 +40,15 @@
         <module name="ms-friend" />
         <module name="ms-rdv" />
       </profile>
+      <profile name="Annotation profile for ms-invitation" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="ms-invitation" />
+      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
@@ -48,6 +57,7 @@
       <module name="ms-configServer" options="-parameters" />
       <module name="ms-eurekaServer" options="-parameters" />
       <module name="ms-friend" options="-parameters" />
+      <module name="ms-invitation" options="-parameters" />
       <module name="ms-profil" options="-parameters" />
       <module name="ms-rdv" options="-parameters" />
     </option>
