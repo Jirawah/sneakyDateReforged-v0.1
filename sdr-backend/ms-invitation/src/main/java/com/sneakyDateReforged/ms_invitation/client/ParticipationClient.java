@@ -4,7 +4,7 @@ package com.sneakyDateReforged.ms_invitation.client;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "ms-rdv")
+@FeignClient(name = "ms-rdv", contextId = "participationClient")
 public interface ParticipationClient {
 
     @PostMapping("/rdv/{rdvId}/participations/accept")

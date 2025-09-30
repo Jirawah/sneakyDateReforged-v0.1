@@ -7,26 +7,32 @@ services:
   microservice-base-config:
     extends:
       service: network-deploy-service
+    restart: unless-stopped
     environment:
+      TZ: "UTC"
       SPRING_JACKSON_SERIALIZATION_WRITE_DATES_AS_TIMESTAMPS: "false"
       SPRING_JACKSON_TIME_ZONE: "UTC"
+      JAVA_TOOL_OPTIONS: >
+        -Duser.timezone=UTC
+        -XX:+UseContainerSupport
+        -XX:MaxRAMPercentage=75
+        -XX:InitialRAMPercentage=50
+        -XX:MinRAMPercentage=25
 
   microservice-db-config:
     extends:
       service: network-deploy-service
-    image: mysql
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      timeout: 10s
-      retries: 10
-      interval: 10s
-      start_period: 10s
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: "UTC"
 
   microservice-configserver-config:
     extends:
       service: network-deploy-service
+    restart: unless-stopped
+    environment:
+      TZ: "UTC"
 
 networks:
   sneakydate-network:

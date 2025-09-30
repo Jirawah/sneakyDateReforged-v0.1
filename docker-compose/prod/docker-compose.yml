@@ -3,7 +3,6 @@ services:
   authdb:
     container_name: authdb
     image: mysql:8
-    platform: linux/amd64
     ports:
       - "3308:3306"
     environment:
@@ -17,6 +16,12 @@ services:
     extends:
       file: common-config.yml
       service: microservice-db-config
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping --protocol=TCP -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
 
   configserver:
     image: jirawah/ms-configserver:latest
@@ -49,10 +54,11 @@ services:
       test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8070/actuator/health"]
       interval: 10s
       timeout: 5s
-      retries: 5
-      start_period: 10s
+      retries: 8
+      start_period: 20s
     environment:
       SPRING_APPLICATION_NAME: eurekaserver
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
     extends:
       file: common-config.yml
       service: microservice-configserver-config
@@ -113,19 +119,22 @@ services:
   msprofildb:
     image: mysql:8
     container_name: msprofildb
-    platform: linux/amd64
     environment:
       MYSQL_DATABASE: msprofildb
       MYSQL_USER: msprofiluser
       MYSQL_PASSWORD: msprofilpwd
-      MYSQL_ROOT_PASSWORD: rootpwd
-    ports:
-      - "3310:3306"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - msprofil_data:/var/lib/mysql
     extends:
       file: common-config.yml
       service: microservice-db-config
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping --protocol=TCP -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
 
   ms-profil:
     image: jirawah/ms-profil:latest
@@ -163,17 +172,21 @@ services:
   msrdvdb:
     image: mysql:8
     container_name: msrdvdb
-    platform: linux/amd64
     environment:
       MYSQL_DATABASE: msrdvdb
       MYSQL_USER: msrdvuser
       MYSQL_PASSWORD: msrdvpwd
-      MYSQL_ROOT_PASSWORD: rootpwd
-    ports: [ "3311:3306" ]
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes: [ "msrdv_data:/var/lib/mysql" ]
     extends:
       file: common-config.yml
       service: microservice-db-config
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping --protocol=TCP -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
 
   ms-rdv:
     image: jirawah/ms-rdv:latest   # (ou build: .)
@@ -212,18 +225,17 @@ services:
       MYSQL_DATABASE: msfrienddb
       MYSQL_USER: msfrienduser
       MYSQL_PASSWORD: msfriendpwd
-      MYSQL_ROOT_PASSWORD: rootpwd
-    ports:
-      - "3313:3306"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - msfrienddb_data:/var/lib/mysql
     networks:
       - sneakydate-network
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-pmsfriendpwd" ]
+      test: [ "CMD-SHELL", "mysqladmin ping --protocol=TCP -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} || exit 1" ]
       interval: 10s
       timeout: 5s
-      retries: 10
+      retries: 15
+      start_period: 30s
 
   ms-friend:
     image: jirawah/ms-friend:latest
@@ -238,17 +250,17 @@ services:
     environment:
       SPRING_APPLICATION_NAME: ms-friend
       SPRING_PROFILES_ACTIVE: default
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
+      SPRING_CLOUD_CONFIG_FAILFAST: "false"
       CORS_ALLOWED_ORIGINS: "http://localhost:4200,http://127.0.0.1:4200"
       DB_HOST: msfrienddb
       DB_PORT: 3306
       DB_NAME: msfrienddb
       DB_USERNAME: msfrienduser
       DB_PASSWORD: msfriendpwd
-      JWT_SECRET: ThisIsASecretKeyForJWTsAndMustBe256BitsLong!
+      JWT_SECRET: ${JWT_SECRET}
     ports:
       - "8083:8083"
-    networks:
-      - sneakydate-network
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8083/actuator/health" ]
       interval: 10s
@@ -259,19 +271,22 @@ services:
   msinvitationdb:
     image: mysql:8
     container_name: msinvitationdb
-    platform: linux/amd64
     environment:
       MYSQL_DATABASE: msinvitationdb
       MYSQL_USER: msinvitationuser
       MYSQL_PASSWORD: msinvitationpwd
-      MYSQL_ROOT_PASSWORD: rootpwd
-    ports:
-      - "3312:3306"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - msinvitation_data:/var/lib/mysql
     extends:
       file: common-config.yml
       service: microservice-db-config
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping --protocol=TCP -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 30s
 
   ms-invitation:
     image: jirawah/ms-invitation:latest

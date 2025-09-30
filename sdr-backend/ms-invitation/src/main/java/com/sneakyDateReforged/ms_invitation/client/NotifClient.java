@@ -3,7 +3,7 @@ package com.sneakyDateReforged.ms_invitation.client;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "ms-notif")
+@FeignClient(name = "ms-notif", contextId = "notifClient")
 public interface NotifClient {
 
     @PostMapping("/notifications")
