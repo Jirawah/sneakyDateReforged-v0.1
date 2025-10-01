@@ -13,12 +13,18 @@ import com.sneakyDateReforged.ms_rdv.repository.RdvRepository;
 import com.sneakyDateReforged.ms_rdv.service.ParticipationService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.transaction.annotation.Transactional;
+import com.sneakyDateReforged.ms_rdv.infra.notif.NotifClient;
+import com.sneakyDateReforged.ms_rdv.infra.notif.dto.NotificationEventDTO;
+import java.util.Map;
+import java.util.UUID;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -26,6 +32,7 @@ public class ParticipationServiceImpl implements ParticipationService {
 
     private final RdvRepository rdvRepository;
     private final ParticipantRepository participantRepository;
+    private final NotifClient notifClient;
 
     // --- EXISTANT modifié : délègue vers la version avec currentUserId
     @Override
@@ -108,6 +115,9 @@ public class ParticipationServiceImpl implements ParticipationService {
             throw new IllegalArgumentException("Participation n'appartient pas à ce RDV");
         }
 
+        // ⏮️ On garde l'ancien statut pour l'event
+        ParticipationStatus oldStatus = p.getStatutParticipation();
+
         // Règle de capacité uniquement quand on CONFIRME
         if (req.status() == ParticipationStatus.CONFIRME) {
             long confirmed = participantRepository.countByRdvAndStatutParticipation(
@@ -118,9 +128,63 @@ public class ParticipationServiceImpl implements ParticipationService {
             }
         }
 
+        // Mise à jour
         p.setStatutParticipation(req.status());
-        return RdvMapper.toDTO(participantRepository.save(p));
+        Participant saved = participantRepository.save(p);
+
+        // 🔔 Push évènements vers ms-notif (non bloquant)
+        try {
+            // Ne publie que s'il y a VRAIMENT un changement
+            if (oldStatus != req.status()) {
+                String date = rdv.getDate() != null ? rdv.getDate().toString() : null;
+                String heure = rdv.getHeure() != null ? rdv.getHeure().toString() : null;
+                String jeu = rdv.getJeu();
+
+                // 1) notif pour le participant lui-même
+                var evt = new NotificationEventDTO(
+                        "PARTICIPATION_STATUS_CHANGED",
+                        UUID.randomUUID().toString(),
+                        rdv.getId(),
+                        rdv.getOrganisateurId(),
+                        saved.getUserId(),          // participant concerné
+                        saved.getUserId(),          // destinataire = participant
+                        null,                       // invitedUserId
+                        null,                       // recipients (pas de fan-out ici)
+                        date, heure, jeu,
+                        oldStatus != null ? oldStatus.name() : null,
+                        saved.getStatutParticipation() != null ? saved.getStatutParticipation().name() : null,
+                        Map.of("source", "ms-rdv")
+                );
+                notifClient.send(evt);
+
+                // 2) notif pour l'organisateur (fan-out d'un seul)
+                var evtOrg = new NotificationEventDTO(
+                        "PARTICIPATION_STATUS_CHANGED",
+                        UUID.randomUUID().toString(),
+                        rdv.getId(),
+                        rdv.getOrganisateurId(),
+                        saved.getUserId(),
+                        null,                       // destinataire direct non imposé
+                        null,
+                        java.util.List.of(rdv.getOrganisateurId()),
+                        date, heure, jeu,
+                        oldStatus != null ? oldStatus.name() : null,
+                        saved.getStatutParticipation() != null ? saved.getStatutParticipation().name() : null,
+                        Map.of("source", "ms-rdv")
+                );
+                notifClient.send(evtOrg);
+            }
+        } catch (Exception e) {
+            log.warn("notif push failed [event=PARTICIPATION_STATUS_CHANGED, rdvId={}, participantUserId={}, oldStatus={}, newStatus={}]: {}",
+                    rdv.getId(), saved.getUserId(),
+                    oldStatus != null ? oldStatus.name() : null,
+                    saved.getStatutParticipation() != null ? saved.getStatutParticipation().name() : null,
+                    e.getMessage());
+        }
+
+        return RdvMapper.toDTO(saved);
     }
+
 
     @Override
     @Transactional(readOnly = true)

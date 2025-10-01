@@ -8,18 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      <profile name="Annotation profile for ms-profil" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
-        </processorPath>
-        <module name="ms-auth" />
-        <module name="ms-eurekaServer" />
-        <module name="ms-configServer" />
-        <module name="ms-profil" />
-      </profile>
       <profile name="Annotation profile for ms-rdv" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -31,6 +19,19 @@
         <module name="ms-friend" />
         <module name="ms-rdv" />
       </profile>
+      <profile name="Annotation profile for ms-notif" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="ms-notif" />
+        <module name="ms-auth" />
+        <module name="ms-eurekaServer" />
+        <module name="ms-configServer" />
+        <module name="ms-profil" />
+      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
@@ -40,6 +41,7 @@
       <module name="ms-eurekaServer" options="-parameters" />
       <module name="ms-friend" options="-parameters" />
       <module name="ms-invitation" options="-parameters" />
+      <module name="ms-notif" options="-parameters" />
       <module name="ms-profil" options="-parameters" />
       <module name="ms-rdv" options="-parameters" />
     </option>

@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/sdr-backend/ms-rdv/pom.xml" />
         <option value="$PROJECT_DIR$/sdr-backend/ms-friend/pom.xml" />
         <option value="$PROJECT_DIR$/sdr-backend/ms-invitation/pom.xml" />
+        <option value="$PROJECT_DIR$/sdr-backend/ms-notif/pom.xml" />
       </list>
     </option>
   </component>
