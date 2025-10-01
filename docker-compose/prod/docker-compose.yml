@@ -240,6 +240,8 @@ services:
   ms-friend:
     image: jirawah/ms-friend:latest
     container_name: ms-friend
+    networks:
+      - sneakydate-network
     depends_on:
       configserver:
         condition: service_healthy
@@ -325,6 +327,7 @@ services:
 
 networks:
   sneakydate-network:
+    name: prod_sneakydate-network
     driver: bridge
 
 volumes:
