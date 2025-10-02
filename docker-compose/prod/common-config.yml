@@ -18,6 +18,7 @@ services:
         -XX:MaxRAMPercentage=75
         -XX:InitialRAMPercentage=50
         -XX:MinRAMPercentage=25
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
 
   microservice-db-config:
     extends:

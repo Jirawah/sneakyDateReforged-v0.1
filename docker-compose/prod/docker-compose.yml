@@ -33,14 +33,14 @@ services:
       MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
       MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED: "true"
     healthcheck:
-      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health/readiness"]
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health"]
       interval: 10s
       timeout: 5s
-      retries: 12
-      start_period: 90s
+      retries: 30
+      start_period: 120s
     extends:
       file: common-config.yml
-      service: microservice-base-config
+      service: microservice-configserver-config
 
   eurekaserver:
     image: jirawah/ms-eurekaserver:latest
@@ -108,7 +108,7 @@ services:
     ports:
       - "8081:80"
     environment:
-      PMA_HOST: authdb
+      PMA_HOSTS: authdb,msprofildb,msfrienddb,msinvitationdb,msrdvdb
       PMA_USER: ${DB_USERNAME}
       PMA_PASSWORD: ${DB_PASSWORD}
     depends_on:
@@ -252,7 +252,6 @@ services:
     environment:
       SPRING_APPLICATION_NAME: ms-friend
       SPRING_PROFILES_ACTIVE: default
-      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
       SPRING_CLOUD_CONFIG_FAILFAST: "false"
       SPRING_DATASOURCE_URL: jdbc:mysql://msfrienddb:3306/msfrienddb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: msfrienduser
@@ -346,21 +345,28 @@ services:
   ms-notif:
     image: jirawah/ms-notif:latest
     container_name: ms-notif
-    ports:
-      - "8086:8086"
     depends_on:
       configserver: { condition: service_healthy }
       eurekaserver: { condition: service_healthy }
-      mongodb: { condition: service_healthy }
+      mongodb:      { condition: service_healthy }
+    ports:
+      - "8086:8086"
     env_file:
       - .env
     environment:
       SPRING_APPLICATION_NAME: ms-notif
-      # SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071
-      # SPRING_PROFILES_ACTIVE: prod
-      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:4200,http://127.0.0.1:4200}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
       JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION_MS: "${JWT_EXPIRATION_MS}"
       MONGODB_URI: ${MONGODB_URI}
+      SPRING_JACKSON_TIME_ZONE: UTC
+      SPRING_JACKSON_SERIALIZATION_WRITE_DATES_AS_TIMESTAMPS: "false"
+      SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD}
+      INTERNAL_TOKEN: ${INTERNAL_TOKEN}
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN}
+      STEAM_API_KEY: ${STEAM_API_KEY}
+      TEST_STEAM_ID: ${TEST_STEAM_ID}
     healthcheck:
       test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8086/actuator/health"]
       interval: 10s
@@ -370,6 +376,11 @@ services:
     extends:
       file: common-config.yml
       service: microservice-base-config
+    networks:
+      - sneakydate-network
+    restart: unless-stopped
+
+
 
 
 networks:
