@@ -228,8 +228,9 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - msfrienddb_data:/var/lib/mysql
-    networks:
-      - sneakydate-network
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
     healthcheck:
       test: [ "CMD-SHELL", "mysqladmin ping --protocol=TCP -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} || exit 1" ]
       interval: 10s
@@ -380,8 +381,25 @@ services:
       - sneakydate-network
     restart: unless-stopped
 
-
-
+  ms-webapp:
+    build:
+      context: ../../sdr-frontend/ms-webapp
+      dockerfile: Dockerfile
+    container_name: ms-webapp
+    ports:
+      - "4200:80"
+    depends_on:
+      eurekaserver:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
+    healthcheck:
+      test: ["CMD-SHELL", "[ -s /var/run/nginx.pid ] && [ -f /usr/share/nginx/html/index.html ] || exit 1"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
 networks:
   sneakydate-network:
