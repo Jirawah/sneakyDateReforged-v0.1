@@ -1,5 +1,6 @@
 # Fichier d'environnement
 .env
+_resolved.yml
 
 # Répertoire de debug
 debuggLog/
