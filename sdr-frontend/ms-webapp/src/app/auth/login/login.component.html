@@ -1,0 +1,28 @@
+<mat-card style="max-width:420px;margin:56px auto;padding:24px;display:block">
+  <h2 style="margin:0 0 16px">Connexion</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" style="display:grid;gap:16px">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required />
+      <mat-error *ngIf="form.controls.email.hasError('required')">Email requis</mat-error>
+      <mat-error *ngIf="form.controls.email.hasError('email')">Format invalide</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="password" required />
+      <mat-error *ngIf="form.controls.password.hasError('required')">Mot de passe requis</mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="form.invalid || loading">
+      {{ loading ? 'Connexion…' : 'Se connecter' }}
+    </button>
+
+    <p *ngIf="error" style="color:#c00;margin:0">{{ error }}</p>
+
+    <div>
+      <a mat-button routerLink="/auth/register">Créer un compte</a>
+    </div>
+  </form>
+</mat-card>

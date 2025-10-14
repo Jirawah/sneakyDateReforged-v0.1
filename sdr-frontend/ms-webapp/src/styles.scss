@@ -1,4 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/variables';
+@use 'styles/mixins';
+@use 'styles/theme/material-light'; // puis switcher dark via classe .dark sur <html>
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
