@@ -8,6 +8,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+imports: [
+  ReactiveFormsModule,
+  // Material
+  import('@angular/material/form-field').then(m => m.MatFormFieldModule),
+  import('@angular/material/input').then(m => m.MatInputModule),
+  import('@angular/material/button').then(m => m.MatButtonModule),
+]
 
 // import { AuthService } from '../../core/services/auth.service';
 
