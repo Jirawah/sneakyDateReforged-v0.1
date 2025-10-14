@@ -50,10 +50,10 @@ FROM nginx:1.25
 RUN rm -rf /usr/share/nginx/html/*
 
 # 1) Si ton build sort dans dist/ms-webapp (cas le plus courant)
-COPY --from=build /app/dist/ms-webapp/ /usr/share/nginx/html/
+#COPY --from=build /app/dist/ms-webapp/ /usr/share/nginx/html/
 
 # 2) Si jamais tu vois un sous-dossier browser (SSR ou config différente), utilise ceci à la place :
-# COPY --from=build /app/dist/ms-webapp/browser/ /usr/share/nginx/html/
+COPY --from=build /app/dist/ms-webapp/browser/ /usr/share/nginx/html/
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
