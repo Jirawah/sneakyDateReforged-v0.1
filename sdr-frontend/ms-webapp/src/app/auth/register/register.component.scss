@@ -1,0 +1,44 @@
+.auth-wrap {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-panel {
+  width: 100%;
+  max-width: 520px;
+  background: var(--sys-surface, #fff);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+
+  h2 { margin: 0 0 16px; }
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.discord-connect {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 8px;
+
+  .discord-checkbox {
+    font-weight: 700;
+    letter-spacing: .5px;
+  }
+
+  .btn-discord {
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  }
+}
+
+.auth-error { color: #c00; margin: 0; }
+.auth-links { display: flex; justify-content: flex-start; }

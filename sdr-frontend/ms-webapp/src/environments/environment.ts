@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  msAuthApi: 'http://localhost:8082',
+  apiBaseUrl: 'http://localhost:8082/api',
+  discordInviteUrl: 'https://discord.gg/sVskR8CC6P'
 };

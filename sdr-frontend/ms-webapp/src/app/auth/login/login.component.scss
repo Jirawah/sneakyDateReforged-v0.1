@@ -1,0 +1,36 @@
+@use '../register/register.component' as *; /* si tu préfères partager, sinon copie/colle */
+
+.auth-wrap {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-panel {
+  width: 100%;
+  max-width: 420px;
+  background: var(--sys-surface, #fff);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+
+  h2 {
+    margin: 0 0 16px;
+  }
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.auth-error {
+  color: #c00;
+  margin: 0;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: flex-start;
+}

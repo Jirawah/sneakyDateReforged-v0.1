@@ -1,46 +1,69 @@
-<mat-card style="max-width:520px;margin:56px auto;padding:24px;display:block">
-  <h2 style="margin:0 0 16px">Inscription</h2>
+<main class="auth-wrap">
+  <section class="auth-panel">
+    <h2>Inscription</h2>
 
-  <form [formGroup]="form" (ngSubmit)="submit()" style="display:grid;gap:16px">
-    <mat-form-field appearance="outline">
-      <mat-label>Pseudo (Discord de préférence)</mat-label>
-      <input matInput formControlName="pseudo" required />
-      <mat-error *ngIf="form.controls.pseudo.hasError('required')">Pseudo requis</mat-error>
-    </mat-form-field>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Pseudo (Discord de préférence)</mat-label>
+        <input matInput formControlName="pseudo" required />
+        <mat-error *ngIf="form.controls.pseudo.hasError('required')">Pseudo requis</mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email" required />
-      <mat-error *ngIf="form.controls.email.hasError('required')">Email requis</mat-error>
-      <mat-error *ngIf="form.controls.email.hasError('email')">Format invalide</mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+        <mat-error *ngIf="form.controls.email.hasError('required')">Email requis</mat-error>
+        <mat-error *ngIf="form.controls.email.hasError('email')">Format invalide</mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Steam ID</mat-label>
-      <input matInput formControlName="steamId" />
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Steam ID</mat-label>
+        <input matInput formControlName="steamId" />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Mot de passe (≥12 caractères)</mat-label>
-      <input matInput type="password" formControlName="password" required />
-      <mat-error *ngIf="form.controls.password.hasError('required')">Requis</mat-error>
-      <mat-error *ngIf="form.controls.password.hasError('minlength')">12 caractères min.</mat-error>
-    </mat-form-field>
+      <!-- Connexion Discord (UX) -->
+      <div class="discord-connect">
+        <mat-checkbox
+          formControlName="discordConnected"
+          class="discord-checkbox"
+          color="primary">
+          CONNEXION DISCORD
+        </mat-checkbox>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Confirmer le mot de passe</mat-label>
-      <input matInput type="password" formControlName="confirmPassword" required />
-      <mat-error *ngIf="form.controls.confirmPassword.hasError('required')">Requis</mat-error>
-    </mat-form-field>
+        <button
+          type="button"
+          mat-raised-button
+          class="btn-discord"
+          (click)="openDiscordInvite()">
+          Ouvrir Discord
+        </button>
+      </div>
 
-    <button mat-flat-button color="primary" [disabled]="form.invalid || loading">
-      {{ loading ? 'Création…' : 'Créer mon compte' }}
-    </button>
+      <mat-form-field appearance="outline">
+        <mat-label>Mot de passe (≥12 caractères)</mat-label>
+        <input matInput type="password" formControlName="password" required />
+        <mat-error *ngIf="form.controls.password.hasError('required')">Requis</mat-error>
+        <mat-error *ngIf="form.controls.password.hasError('minlength')">12 caractères min.</mat-error>
+      </mat-form-field>
 
-    <p *ngIf="error" style="color:#c00;margin:0">{{ error }}</p>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirmer le mot de passe</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" required />
+        <mat-error *ngIf="form.controls.confirmPassword.hasError('required')">Requis</mat-error>
+      </mat-form-field>
 
-    <div>
-      <a mat-button routerLink="/auth/login">J’ai déjà un compte</a>
-    </div>
-  </form>
-</mat-card>
+      <button
+        mat-flat-button
+        color="primary"
+        [disabled]="form.invalid || loading || !form.value.discordConnected">
+        {{ loading ? 'Création…' : 'Créer mon compte' }}
+      </button>
+
+      <p *ngIf="error" class="auth-error">{{ error }}</p>
+
+      <div class="auth-links">
+        <a mat-button routerLink="/auth/login">J’ai déjà un compte</a>
+      </div>
+    </form>
+  </section>
+</main>
