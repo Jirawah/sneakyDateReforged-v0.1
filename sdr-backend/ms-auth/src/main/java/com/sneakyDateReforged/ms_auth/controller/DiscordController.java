@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @Slf4j
 @RestController
 @RequestMapping("/api/auth/discord")
@@ -21,6 +23,13 @@ public class DiscordController {
         log.info("🔁 Reçu synchro Discord : {}", dto);
         System.out.println("✅ Données reçues du bot Discord : " + dto);
         discordSyncService.handleSync(dto);
+        discordSyncService.markConnectedFrom(dto);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/status")
+    public ResponseEntity<Map<String, Object>> status(@RequestParam String pseudo) {
+        boolean connected = discordSyncService.isConnected(pseudo);
+        return ResponseEntity.ok(Map.of("connected", connected));
     }
 }

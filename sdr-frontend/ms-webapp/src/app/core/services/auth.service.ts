@@ -9,7 +9,8 @@ const TOKEN_KEY = 'sdr_jwt';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
-  private base = environment.msAuthApi; // ex: http://localhost:8082
+  private base = environment.apiBaseUrl; // ex: http://localhost:8082
+  private discordStatusUrl = `${this.base}${environment.discordStatusEndpoint}`;
 
   login(payload: LoginRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.base}/auth/login`, payload)
@@ -24,4 +25,14 @@ export class AuthService {
   logout(): void { sessionStorage.removeItem(TOKEN_KEY); }
   get token(): string | null { return sessionStorage.getItem(TOKEN_KEY); }
   isAuthenticated(): boolean { return !!this.token; }
+
+  // getDiscordStatus(pseudo: string) {
+  //   return this.http.get<{ connected: boolean; profile?: any }>(
+  //     `${this.base}/auth/discord/status`,
+  //     { params: { pseudo } }
+  //   );
+  // }
+  getDiscordStatus(pseudo: string) {
+    return this.http.get<{ connected: boolean }>(this.discordStatusUrl, { params: { pseudo } });
+  }
 }
