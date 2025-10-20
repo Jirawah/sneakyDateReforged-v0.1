@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -16,9 +17,14 @@ import java.util.concurrent.ConcurrentMap;
 public class DiscordSyncService {
 
     private final UserAuthService userAuthService;
+
+    // ✅ Historique "username" (déjà en place)
     private final ConcurrentMap<String, Instant> recentConnections = new ConcurrentHashMap<>();
 
+    // ✅ Nouveau : corrélation par "state" (link code)
+    private final ConcurrentMap<String, Instant> connectedStates = new ConcurrentHashMap<>();
 
+    // TTL commun (3 min)
     private static final Duration TTL = Duration.ofMinutes(3);
 
     public void handleSync(DiscordSyncRequestDTO dto) {
@@ -29,20 +35,27 @@ public class DiscordSyncService {
         userAuthService.syncDiscordProfile(dto);
     }
 
+    /**
+     * Marque l'utilisateur comme "connecté" via username ET/OU via state si présent.
+     * Appelée après réception du POST /api/auth/discord/sync (par le bot).
+     */
     public void markConnectedFrom(DiscordSyncRequestDTO dto) {
-        // ⇩⇩⇩ IMPORTANT : choisis le bon champ qui représente le pseudo saisi côté front
-        // Exemples possibles selon ton DTO :
-        //   String key = safe(dto.getUsername());
-        //   String key = safe(dto.getPseudo());
-        //   String key = safe(dto.getDisplayName());
-        String key = safe(dto.getDiscordUsername()); // ← remplace par le bon getter si besoin
-
+        // Clé "username" (legacy)
+        String key = safe(dto.getDiscordUsername());
         if (!key.isBlank()) {
             recentConnections.put(key.toLowerCase(), Instant.now());
         }
+
+        // ✅ Clé "state" (nouveau, pour corréler navigateur <-> bot)
+        String st = safe(dto.getState());
+        if (!st.isBlank()) {
+            connectedStates.put(st, Instant.now());
+        }
     }
 
-    // GET /status?pseudo=...  → utilisé par le front (poll)
+    /**
+     * GET /status?pseudo=... → legacy (par username)
+     */
     public boolean isConnected(String pseudo) {
         String key = safe(pseudo);
         if (key.isBlank()) return false;
@@ -53,6 +66,31 @@ public class DiscordSyncService {
 
         if (Instant.now().isAfter(ts.plus(TTL))) {
             recentConnections.remove(key);
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * ✅ Création d’un "state" côté back (retourné au front via /pending)
+     * On ne stocke pas de "pending" côté back ; on marquera "connected" à l’arrivée du /sync.
+     */
+    public String createPendingState() {
+        return UUID.randomUUID().toString();
+    }
+
+    /**
+     * ✅ GET /status?state=... → vérifie si ce state a été marqué connecté par le /sync
+     */
+    public boolean isConnectedByState(String state) {
+        String st = safe(state);
+        if (st.isBlank()) return false;
+
+        Instant ts = connectedStates.get(st);
+        if (ts == null) return false;
+
+        if (Instant.now().isAfter(ts.plus(TTL))) {
+            connectedStates.remove(st);
             return false;
         }
         return true;

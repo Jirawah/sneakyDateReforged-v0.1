@@ -10,7 +10,10 @@ const TOKEN_KEY = 'sdr_jwt';
 export class AuthService {
   private http = inject(HttpClient);
   private base = environment.apiBaseUrl; // ex: http://localhost:8082
-  private discordStatusUrl = `${this.base}${environment.discordStatusEndpoint}`;
+
+  // ✅ URLs centralisées via environment
+  private discordStatusUrl  = `${this.base}${environment.discordStatusEndpoint}`;
+  private discordPendingUrl = `${this.base}${environment.discordPendingEndpoint}`;
 
   login(payload: LoginRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.base}/auth/login`, payload)
@@ -26,12 +29,17 @@ export class AuthService {
   get token(): string | null { return sessionStorage.getItem(TOKEN_KEY); }
   isAuthenticated(): boolean { return !!this.token; }
 
-  // getDiscordStatus(pseudo: string) {
-  //   return this.http.get<{ connected: boolean; profile?: any }>(
-  //     `${this.base}/auth/discord/status`,
-  //     { params: { pseudo } }
-  //   );
-  // }
+  // ✅ (nouveau) crée un state côté back pour corréler bot <-> navigateur
+  createDiscordPending() {
+    return this.http.post<{ state: string }>(this.discordPendingUrl, {});
+  }
+
+  // ✅ (nouveau) interroge le statut par state
+  getDiscordStatusByState(state: string) {
+    return this.http.get<{ connected: boolean }>(this.discordStatusUrl, { params: { state } });
+  }
+
+  // (optionnel) legacy: statut par pseudo — garde-le si tu l’utilises encore
   getDiscordStatus(pseudo: string) {
     return this.http.get<{ connected: boolean }>(this.discordStatusUrl, { params: { pseudo } });
   }

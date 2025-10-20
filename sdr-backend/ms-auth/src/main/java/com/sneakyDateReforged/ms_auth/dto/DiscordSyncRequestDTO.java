@@ -23,4 +23,7 @@ public class DiscordSyncRequestDTO {
     private String discordNickname;
 
     private String discordAvatarUrl;
+
+    /** Token de corrélation (link code) entre front et bot – optionnel. */
+    private String state;
 }

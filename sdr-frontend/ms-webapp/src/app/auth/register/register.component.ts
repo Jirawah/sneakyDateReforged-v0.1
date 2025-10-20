@@ -8,7 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../environments/environment';
 import { Subscription, interval, of } from 'rxjs';
-import { catchError, switchMap, takeWhile, timeout } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -35,13 +35,13 @@ export class RegisterComponent implements OnDestroy {
   error: string | null = null;
 
   private discordPollSub?: Subscription;
+  private discordState?: string; // ✅ on garde le "state" renvoyé par le back
 
-  // ✅ discordConnected désactivé (non cliquable) et sans requiredTrue
+  // ✅ plus de champ "pseudo"
   form: FormGroup = this.fb.group({
-    pseudo: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     steamId: [''],
-    discordConnected: [{ value: false, disabled: true }], // 🔒 UI non cliquable
+    discordConnected: [{ value: false, disabled: true }], // 🔒 non cliquable
     password: ['', [Validators.required, Validators.minLength(12)]],
     confirmPassword: ['', [Validators.required]]
   }, { validators: [passwordsMatchValidator()] });
@@ -51,40 +51,41 @@ export class RegisterComponent implements OnDestroy {
   }
 
   openDiscordInvite(): void {
-    const url = environment.discordInviteUrl || 'https://discord.com/app';
-    window.open(url, '_blank', 'noopener,noreferrer');
-
-    // (re)démarre le polling
     this.error = null;
-    this.discordPollSub?.unsubscribe();
 
-    const maxSeconds = 120; // 2 min
-    let elapsed = 0;
+    // 1) Demande un "state" au backend
+    this.authService.createDiscordPending().subscribe({
+      next: ({ state }) => {
+        this.discordState = state;
 
-    this.discordPollSub = interval(2000)
-      .pipe(
-        takeWhile(() => elapsed <= maxSeconds),
-        switchMap(() => {
-          elapsed += 2;
-          const pseudo = (this.form.get('pseudo')?.value ?? '').toString().trim();
-          // 🔁 Appel back: /discord/status?pseudo=...
-          return this.authService.getDiscordStatus(pseudo).pipe(
-            timeout(1800),
-            catchError(() => of({ connected: false } as { connected: boolean }))
-          );
-        })
-      )
-      .subscribe((res: { connected: boolean; profile?: any }) => {
-        if (res?.connected) {
-          // ✅ coche le contrôle (toujours disabled en UI)
-          this.form.get('discordConnected')?.setValue(true, { emitEvent: false });
-          this.discordPollSub?.unsubscribe();
-        }
-      });
+        // 2) Ouvre Discord
+        const url = environment.discordInviteUrl || 'https://discord.com/app';
+        window.open(url, '_blank', 'noopener,noreferrer');
+
+        // 3) Démarre le polling par state
+        const start = Date.now();
+        this.discordPollSub?.unsubscribe();
+
+        this.discordPollSub = interval(2000).pipe(
+          switchMap(() => this.authService.getDiscordStatusByState(state)),
+          catchError(() => of({ connected: false }))
+        ).subscribe(res => {
+          if (res?.connected) {
+            this.form.get('discordConnected')?.setValue(true, { emitEvent: false });
+            this.discordPollSub?.unsubscribe();
+          }
+          if (Date.now() - start > 120000) { // 2 min de polling max
+            this.discordPollSub?.unsubscribe();
+          }
+        });
+      },
+      error: () => {
+        this.error = 'Impossible de démarrer la connexion Discord (pending).';
+      }
+    });
   }
 
   async submit(): Promise<void> {
-    // Bloque tant que discordConnected n'est pas validé côté back
     if (this.form.invalid || !this.form.get('discordConnected')?.value) {
       this.form.markAllAsTouched();
       return;
@@ -94,7 +95,7 @@ export class RegisterComponent implements OnDestroy {
     this.error = null;
 
     try {
-      // Exemple si tu branches vraiment l'AuthService.register :
+      // Exemple quand tu brancheras vraiment l’AuthService.register :
       // const payload = this.form.getRawValue(); // inclut les disabled
       // await this.authService.register(payload).toPromise();
       // this.router.navigateByUrl('/auth/login');

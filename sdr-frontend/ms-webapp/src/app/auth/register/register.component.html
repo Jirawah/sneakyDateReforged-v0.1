@@ -3,11 +3,6 @@
     <h2>Inscription</h2>
 
     <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form">
-      <mat-form-field appearance="outline">
-        <mat-label>Pseudo (Discord de préférence)</mat-label>
-        <input matInput formControlName="pseudo" required />
-        <mat-error *ngIf="form.get('pseudo')?.hasError('required')">Pseudo requis</mat-error>
-      </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
@@ -23,11 +18,18 @@
 
       <!-- Connexion Discord (UX) -->
       <div class="discord-connect">
-        <mat-checkbox formControlName="discordConnected" class="discord-checkbox" color="primary">
+        <mat-checkbox
+          formControlName="discordConnected"
+          class="discord-checkbox"
+          color="primary">
           CONNEXION DISCORD
         </mat-checkbox>
 
-        <button type="button" mat-raised-button class="btn-discord" (click)="openDiscordInvite()">
+        <button
+          type="button"
+          mat-raised-button
+          class="btn-discord"
+          (click)="openDiscordInvite()">
           Ouvrir Discord
         </button>
       </div>
@@ -45,7 +47,9 @@
         <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">Requis</mat-error>
       </mat-form-field>
 
-      <button mat-flat-button color="primary"
+      <button
+        mat-flat-button
+        color="primary"
         [disabled]="form.invalid || loading || !form.get('discordConnected')?.value">
         {{ loading ? 'Création…' : 'Créer mon compte' }}
       </button>

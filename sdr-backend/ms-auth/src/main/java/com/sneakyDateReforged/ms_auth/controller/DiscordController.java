@@ -18,18 +18,50 @@ public class DiscordController {
 
     private final DiscordSyncService discordSyncService;
 
+    /**
+     * Créé un "state" (code de liaison) que le front utilisera pour corréler la session
+     * avec l'évènement envoyé par le bot Discord.
+     */
+    @PostMapping("/pending")
+    public ResponseEntity<Map<String, String>> createPending() {
+        String state = discordSyncService.createPendingState();
+        return ResponseEntity.ok(Map.of("state", state));
+    }
+
+    /**
+     * Récupère l'état de connexion Discord.
+     * - Préférence au "state" (flux sans saisie de pseudo)
+     * - Rétro-compat: accepte aussi "pseudo"
+     */
+    @GetMapping("/status")
+    public ResponseEntity<Map<String, Object>> status(
+            @RequestParam(required = false) String state,
+            @RequestParam(required = false) String pseudo) {
+
+        boolean connected = false;
+
+        if (state != null && !state.isBlank()) {
+            connected = discordSyncService.isConnectedByState(state);
+        } else if (pseudo != null && !pseudo.isBlank()) {
+            connected = discordSyncService.isConnected(pseudo);
+        }
+
+        return ResponseEntity.ok(Map.of("connected", connected));
+    }
+
+    /**
+     * Appelé par le bot quand il récupère les infos Discord de l'utilisateur.
+     * On met à jour le profil (handleSync) puis on marque la connexion
+     * (par username et/ou par state si présent).
+     */
     @PostMapping("/sync")
     public ResponseEntity<Void> syncDiscord(@Valid @RequestBody DiscordSyncRequestDTO dto) {
         log.info("🔁 Reçu synchro Discord : {}", dto);
         System.out.println("✅ Données reçues du bot Discord : " + dto);
+
         discordSyncService.handleSync(dto);
         discordSyncService.markConnectedFrom(dto);
-        return ResponseEntity.ok().build();
-    }
 
-    @GetMapping("/status")
-    public ResponseEntity<Map<String, Object>> status(@RequestParam String pseudo) {
-        boolean connected = discordSyncService.isConnected(pseudo);
-        return ResponseEntity.ok(Map.of("connected", connected));
+        return ResponseEntity.ok().build();
     }
 }
