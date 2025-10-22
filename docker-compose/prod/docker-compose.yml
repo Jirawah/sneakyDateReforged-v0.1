@@ -89,7 +89,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       STEAM_API_KEY: ${STEAM_API_KEY}
       DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN}
-      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID:}
+      DISCORD_GUILD_ID: ${DISCORD_GUILD_ID}
 
     extends:
       file: common-config.yml
