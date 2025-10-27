@@ -30,17 +30,26 @@ export class AuthService {
   isAuthenticated(): boolean { return !!this.token; }
 
   // ✅ (nouveau) crée un state côté back pour corréler bot <-> navigateur
-  createDiscordPending() {
-    return this.http.post<{ state: string }>(this.discordPendingUrl, {});
+  createDiscordPending(): Observable<{ state: string }> {
+    return this.http.post<{ state: string }>(
+      this.discordPendingUrl,
+      {}
+    );
   }
 
   // ✅ (nouveau) interroge le statut par state
-  getDiscordStatusByState(state: string) {
-    return this.http.get<{ connected: boolean }>(this.discordStatusUrl, { params: { state } });
+  getDiscordStatusByState(state: string): Observable<{ connected: boolean; discordPseudo: string | null }> {
+    return this.http.get<{ connected: boolean; discordPseudo: string | null }>(
+      this.discordStatusUrl,
+      { params: { state } }
+    );
   }
 
   // (optionnel) legacy: statut par pseudo — garde-le si tu l’utilises encore
-  getDiscordStatus(pseudo: string) {
-    return this.http.get<{ connected: boolean }>(this.discordStatusUrl, { params: { pseudo } });
+  getDiscordStatus(pseudo: string): Observable<{ connected: boolean; discordPseudo: string | null }> {
+    return this.http.get<{ connected: boolean; discordPseudo: string | null }>(
+      this.discordStatusUrl,
+      { params: { pseudo } }
+    );
   }
 }

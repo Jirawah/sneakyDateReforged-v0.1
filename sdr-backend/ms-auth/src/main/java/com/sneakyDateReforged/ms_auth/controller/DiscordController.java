@@ -36,17 +36,27 @@ public class DiscordController {
     @GetMapping("/status")
     public ResponseEntity<Map<String, Object>> status(
             @RequestParam(required = false) String state,
-            @RequestParam(required = false) String pseudo) {
-
+            @RequestParam(required = false) String pseudo
+    ) {
         boolean connected = false;
 
         if (state != null && !state.isBlank()) {
             connected = discordSyncService.isConnectedByState(state);
         } else if (pseudo != null && !pseudo.isBlank()) {
+            // rétro-compat (au cas où l'ancien flux par pseudo existe encore)
             connected = discordSyncService.isConnected(pseudo);
         }
 
-        return ResponseEntity.ok(Map.of("connected", connected));
+        // On récupère le pseudo Discord mémorisé lors de la connexion vocale.
+        // (c'est rempli dans markAllPendingAsConnectedFromVoiceJoin(...))
+        String discordPseudo = discordSyncService.getLastDiscordPseudo();
+
+        return ResponseEntity.ok(
+                Map.of(
+                        "connected", connected,
+                        "discordPseudo", discordPseudo
+                )
+        );
     }
 
     /**

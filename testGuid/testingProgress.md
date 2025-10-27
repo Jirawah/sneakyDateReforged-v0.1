@@ -12,7 +12,7 @@
 | `service/UserAuthService.java`            | `updateSteamProfile()`, `syncDiscordProfile()`                   | ✅     |
 | `service/UserAuthDetailsService.java`     | `loadUserByUsername()` (Spring Security)                         | ✅     |
 | `service/DiscordSyncService.java`         | `handleSync()` → délégation à `UserAuthService`                  | ✅     |
-| `procedure/RegisterProcedureExecutor.java`| `execute()` avec différents codes retour                         | ❌     |
+| `procedure/RegisterProcedureExecutor.java`| `execute()` avec différents codes retour                         | ✅     |
 | `security/JwtUtils.java`                  | `generateToken()`, `validateToken()`, `extractClaims()`          | ✅     |
 
 ---
