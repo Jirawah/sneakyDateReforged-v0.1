@@ -1,0 +1,101 @@
+<section class="public-home">
+
+  <!-- HEADER -->
+  <header class="public-home__header">
+    <div class="public-home__time">
+      <app-clock></app-clock>
+    </div>
+
+    <nav class="public-home__nav">
+      <a routerLink="/auth/register">INSCRIPTION</a>
+      <span class="sep">|</span>
+      <a routerLink="/auth/login">CONNEXION</a>
+    </nav>
+
+    <button
+      type="button"
+      class="public-home__dark-toggle"
+      (click)="toggleDarkMode()"
+    >
+      DARK MODE
+    </button>
+  </header>
+
+  <!-- BRAND -->
+  <section class="public-home__brand">
+    <h1 class="brand-title">SNEAKYDATE</h1>
+    <h2 class="brand-subtitle">RDV GAMING CHEATER FREE</h2>
+  </section>
+
+  <!-- 3 COLS -->
+  <section class="public-home__main">
+
+    <!-- COL GAUCHE -->
+    <aside class="stats-col">
+      <div class="stats-card">
+        <div class="stats-card__label">Membres</div>
+        <div class="stats-card__value">{{ membersCount }}</div>
+      </div>
+
+      <div class="stats-card">
+        <div class="stats-card__label">RDV organisés</div>
+        <div class="stats-card__value">{{ rdvCount }}</div>
+      </div>
+    </aside>
+
+    <!-- COL CENTRALE -->
+    <main class="pitch-col">
+
+      <div class="pitch-card">
+        <div class="pitch-card__art">
+          <div class="img-placeholder">[ART AMONG US]</div>
+        </div>
+
+        <div class="pitch-card__content">
+          <ul class="pitch-list">
+            <li *ngFor="let point of sellingPoints">
+              ✓ {{ point }}
+            </li>
+          </ul>
+
+          <div class="pitch-cta">
+            <a
+              class="pitch-cta__btn"
+              routerLink="/auth/register"
+            >
+              INSCRIPTION
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="partners">
+        <span class="partners__logo">facepunch</span>
+        <span class="partners__logo">KRAFTON</span>
+        <span class="partners__logo">INNERSLOTH</span>
+      </footer>
+    </main>
+
+    <!-- COL DROITE -->
+    <aside class="games-col">
+      <h3 class="games-col__title">Organise tes rendez-vous</h3>
+
+      <div class="game-card">
+        <div class="game-card__thumb">[Among Us IMG]</div>
+        <div class="game-card__label">AMONG US</div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-card__thumb">[Rust IMG]</div>
+        <div class="game-card__label">RUST</div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-card__thumb">[PUBG IMG]</div>
+        <div class="game-card__label">PUBG</div>
+      </div>
+    </aside>
+
+  </section>
+
+</section>
