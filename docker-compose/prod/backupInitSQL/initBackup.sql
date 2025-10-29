@@ -1,0 +1,36 @@
+--USE authdb;
+--
+--DELIMITER //
+--
+--DROP PROCEDURE IF EXISTS sp_register_user //
+--
+--CREATE PROCEDURE sp_register_user (
+--    IN p_email VARCHAR(255),
+--    IN p_pseudo VARCHAR(255),
+--    IN p_password VARCHAR(255),
+--    IN p_steam_id VARCHAR(255),
+--    IN p_discord_id VARCHAR(255),
+--    OUT p_result_code INT
+--)
+--BEGIN
+--    DECLARE existing_count INT;
+--
+--    SELECT COUNT(*) INTO existing_count
+--    FROM user_auth_model
+--    WHERE email = p_email OR pseudo = p_pseudo OR steam_id = p_steam_id;
+--
+--    IF existing_count > 0 THEN
+--        SET p_result_code = -1; -- doublon
+--    ELSE
+--        INSERT INTO user_auth_model (
+--            email, pseudo, password, steam_id, discord_id,
+--            discord_validated, steam_validated, role, created_at, updated_at
+--        ) VALUES (
+--            p_email, p_pseudo, p_password, p_steam_id, p_discord_id,
+--            FALSE, FALSE, 'USER', NOW(), NOW()
+--        );
+--        SET p_result_code = 1; -- succès
+--    END IF;
+--END //
+--
+--DELIMITER ;

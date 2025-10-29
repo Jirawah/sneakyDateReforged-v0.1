@@ -1,4 +1,7 @@
-export interface LoginRequest { email: string; password: string; }
+export interface LoginRequest { 
+  email: string; 
+  password: string; 
+}
 
 export interface RegisterRequest {
   pseudo: string;
@@ -6,7 +9,7 @@ export interface RegisterRequest {
   steamId: string;
   password: string;
   confirmPassword: string;
-  discordId?: string;
+  discordId?: string | null;
 }
 
 export interface AuthResponse {

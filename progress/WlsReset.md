@@ -80,3 +80,55 @@ wsl --status
 
 
 2. Relancer docker et le build doker-compose
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wsl --shutdown
+
+# Désenregistrer les distros Docker (OK si déjà absentes)
+wsl --unregister docker-desktop
+wsl --unregister docker-desktop-data
+
+# Supprimer/renommer les restes (VHDX et caches)
+$paths = @(
+"$env:LOCALAPPDATA\Docker\wsl\data\ext4.vhdx",
+"$env:LOCALAPPDATA\Docker",
+"$env:APPDATA\Docker",
+"$env:PROGRAMDATA\DockerDesktop"
+)
+foreach ($p in $paths) {
+if (Test-Path $p) {
+try {
+if ($p -like '*.vhdx') {
+Rename-Item $p ("$p.corrupted.{0:yyyyMMddHHmmss}" -f (Get-Date)) -ErrorAction SilentlyContinue
+} else {
+Remove-Item $p -Recurse -Force -ErrorAction SilentlyContinue
+}
+} catch {}
+}
+}
+
+# Revalider WSL & kernel à jour
+wsl --update
+wsl --status

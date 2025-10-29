@@ -117,6 +117,217 @@
 //        // pas d'appel à markConnectedFrom(dto) ici (on ne veut pas toucher à la checkbox sans state)
 //    }
 //}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//package com.sneakyDateReforged.ms_auth.bot;
+//
+//import com.sneakyDateReforged.ms_auth.dto.DiscordSyncRequestDTO;
+//import com.sneakyDateReforged.ms_auth.service.DiscordSyncService;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.slf4j.Slf4j;
+//import net.dv8tion.jda.api.entities.Member;
+//import net.dv8tion.jda.api.entities.User;
+//import net.dv8tion.jda.api.events.guild.voice.GuildVoiceUpdateEvent;
+//import net.dv8tion.jda.api.hooks.ListenerAdapter;
+//import org.jetbrains.annotations.NotNull;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.stereotype.Component;
+//
+//@Slf4j
+//@Component
+//@RequiredArgsConstructor
+//public class VoiceChannelListener extends ListenerAdapter {
+//
+//    private final DiscordSyncService discordSyncService;
+//
+//    // ⬅ Injecte l'ID du salon vocal d'auth depuis la config
+//    @Value("${discord.auth-voice-channel-id}")
+//    private String authVoiceChannelId;
+//
+//    @Override
+//    public void onGuildVoiceUpdate(@NotNull GuildVoiceUpdateEvent event) {
+//
+//        // Si getChannelJoined() est null -> il a quitté / bougé ailleurs -> on s'en fout
+//        if (event.getChannelJoined() == null) {
+//            return;
+//        }
+//
+//        // Salon vocal rejoint
+//        final var joinedChannel = event.getChannelJoined();
+//        final String joinedChannelId = joinedChannel.getId();
+//
+//        // On ne s'intéresse qu'au salon vocal d'auth
+//        if (!joinedChannelId.equals(authVoiceChannelId)) {
+//            // Il a rejoint un autre salon vocal : on ne valide pas la checkbox
+//            return;
+//        }
+//
+//        final Member member = event.getMember();
+//        final User user = member.getUser();
+//
+//        // On ignore le bot lui-même
+//        if (user.isBot()) {
+//            return;
+//        }
+//
+//        // Construit un username Discord "pseudo#1234" si le discriminant existe encore,
+//        // sinon juste le name. (tu l'avais déjà, je reprends pareil)
+//        final String discriminator = user.getDiscriminator(); // peut être "0000" avec les nouveaux usernames
+//        final String username = (discriminator != null && !discriminator.isBlank() && !"0000".equals(discriminator))
+//                ? user.getName() + "#" + discriminator
+//                : user.getName();
+//
+//        final String nickname = (member.getNickname() != null) ? member.getNickname() : user.getName();
+//        final String chosenPseudo = (member.getNickname() != null)
+//                ? member.getNickname()
+//                : username;
+//
+//        log.info(
+//                "🔔 Connexion vocale AUTH: userId={}, username={}, nick={}, chosenPseudo={}, channelId={}",
+//                user.getId(), username, nickname, chosenPseudo, joinedChannelId
+//        );
+//
+//        // 1) Toujours : on met à jour le profil en base (comme avant)
+//        DiscordSyncRequestDTO dto = DiscordSyncRequestDTO.builder()
+//                .discordId(user.getId())
+//                .discordUsername(username)
+//                .discordDiscriminator(discriminator)
+//                .discordNickname(nickname)
+//                .discordAvatarUrl(user.getEffectiveAvatarUrl())
+//                .build();
+//
+//        discordSyncService.handleSync(dto);
+//
+//        // 2) Nouveau : on considère que cette arrivée dans le salon vocal est une preuve OK
+//        //    => on marque TOUS les states en attente comme "connectés"
+//        discordSyncService.markAllPendingAsConnectedFromVoiceJoin(user.getId(), chosenPseudo);
+//
+//        // Avant, tu t'arrêtais ici sans rien faire pour cocher la checkbox.
+//        // Maintenant, le polling Angular sur /discord/status?state=xxx
+//        // va voir connected=true et donc débloquer le bouton "Créer mon compte".
+//    }
+//}
+//package com.sneakyDateReforged.ms_auth.bot;
+//
+//import com.sneakyDateReforged.ms_auth.dto.DiscordSyncRequestDTO;
+//import com.sneakyDateReforged.ms_auth.service.DiscordSyncService;
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.slf4j.Slf4j;
+//import net.dv8tion.jda.api.entities.Member;
+//import net.dv8tion.jda.api.entities.User;
+//import net.dv8tion.jda.api.events.guild.voice.GuildVoiceUpdateEvent;
+//import net.dv8tion.jda.api.hooks.ListenerAdapter;
+//import org.jetbrains.annotations.NotNull;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.stereotype.Component;
+//
+//@Slf4j
+//@Component
+//@RequiredArgsConstructor
+//public class VoiceChannelListener extends ListenerAdapter {
+//
+//    private final DiscordSyncService discordSyncService;
+//
+//    // ID du salon vocal d'auth (configurée dans application.properties / .env)
+//    @Value("${discord.auth-voice-channel-id}")
+//    private String authVoiceChannelId;
+//
+//    @Override
+//    public void onGuildVoiceUpdate(@NotNull GuildVoiceUpdateEvent event) {
+//
+//        // 1. On s'intéresse UNIQUEMENT aux joins (pas aux leaves/moves)
+//        if (event.getChannelJoined() == null) {
+//            // L'utilisateur a quitté ou a juste changé de channel sans rejoindre un nouveau ?
+//            // Pas notre problème pour la vérif d'auth.
+//            return;
+//        }
+//
+//        // 2. Vérifier que la personne rejoint bien le salon vocal d'auth
+//        final var joinedChannel = event.getChannelJoined();
+//        final String joinedChannelId = joinedChannel.getId();
+//
+//        if (!joinedChannelId.equals(authVoiceChannelId)) {
+//            // Il a rejoint un autre vocal que celui prévu pour valider l'inscription
+//            return;
+//        }
+//
+//        // 3. Infos membre / utilisateur Discord
+//        final Member member = event.getMember();
+//        final User user = member.getUser();
+//
+//        // On ignore le bot lui-même (sinon il se "validerait" tout seul)
+//        if (user.isBot()) {
+//            return;
+//        }
+//
+//        // 4. Reconstruire le username Discord
+//        //    - si Discord a encore un discriminant "xxxx", on fait "name#xxxx"
+//        //    - sinon (nouveau système Discord sans tag), juste le name
+//        final String discriminator = user.getDiscriminator(); // peut être "0000" ou vide maintenant
+//        final String username = (discriminator != null
+//                && !discriminator.isBlank()
+//                && !"0000".equals(discriminator))
+//                ? user.getName() + "#" + discriminator
+//                : user.getName();
+//
+//        // nickname sur le serveur (peut être null)
+//        final String nickname = (member.getNickname() != null)
+//                ? member.getNickname()
+//                : user.getName();
+//
+//        // avatar url
+//        final String avatarUrl = user.getEffectiveAvatarUrl();
+//
+//        log.info(
+//                "🔔 Connexion vocale AUTH détectée: userId={}, username={}, discriminator={}, nick={}, channelId={}",
+//                user.getId(), username, discriminator, nickname, joinedChannelId
+//        );
+//
+//        // --- ÉTAPE 1 ---
+//        // On dit au service :
+//        // - cette personne vient d'arriver dans le vocal d'auth
+//        // - considère les states en attente comme "connectés"
+//        // - mémorise son profil Discord complet dans lastSnapshot
+//        discordSyncService.markAllPendingAsConnectedFromVoiceJoin(
+//                user.getId(),       // discordUserId
+//                username,           // username (ex: "alwaysfailed#1234" ou "alwaysfailed")
+//                discriminator,      // "1234" ou "0000" ou null selon Discord
+//                nickname,           // surnom serveur si présent
+//                avatarUrl           // URL d'avatar
+//        );
+//
+//        // --- ÉTAPE 2 ---
+//        // On envoie aussi un DTO pour que le back essaie de sync un user déjà existant en base
+//        // (si quelqu'un relance l'app + revient dans le vocal par ex.)
+//        DiscordSyncRequestDTO dto = DiscordSyncRequestDTO.builder()
+//                .discordId(user.getId())
+//                .discordUsername(username)
+//                .discordDiscriminator(discriminator)
+//                .discordNickname(nickname)
+//                .discordAvatarUrl(avatarUrl)
+//                .build();
+//
+//        discordSyncService.handleSync(dto);
+//
+//        // Note :
+//        // - markAllPendingAsConnectedFromVoiceJoin() va aussi remplir lastDiscordPseudo
+//        //   et mettre l'état "connected" pour tous les states pendings.
+//        // - Du coup le front va voir `connected = true`,
+//        //   récupérer `discordPseudo`,
+//        //   et permettre le bouton "Créer mon compte".
+//    }
+//}
 package com.sneakyDateReforged.ms_auth.bot;
 
 import com.sneakyDateReforged.ms_auth.dto.DiscordSyncRequestDTO;
@@ -138,70 +349,67 @@ public class VoiceChannelListener extends ListenerAdapter {
 
     private final DiscordSyncService discordSyncService;
 
-    // ⬅ Injecte l'ID du salon vocal d'auth depuis la config
     @Value("${discord.auth-voice-channel-id}")
     private String authVoiceChannelId;
 
     @Override
     public void onGuildVoiceUpdate(@NotNull GuildVoiceUpdateEvent event) {
 
-        // Si getChannelJoined() est null -> il a quitté / bougé ailleurs -> on s'en fout
+        // on ne s'intéresse qu'aux JOIN (pas aux LEAVE)
         if (event.getChannelJoined() == null) {
             return;
         }
 
-        // Salon vocal rejoint
         final var joinedChannel = event.getChannelJoined();
         final String joinedChannelId = joinedChannel.getId();
 
-        // On ne s'intéresse qu'au salon vocal d'auth
+        // on vérifie que c'est bien NOTRE salon vocal d'auth
         if (!joinedChannelId.equals(authVoiceChannelId)) {
-            // Il a rejoint un autre salon vocal : on ne valide pas la checkbox
             return;
         }
 
         final Member member = event.getMember();
         final User user = member.getUser();
 
-        // On ignore le bot lui-même
+        // ignore le bot lui-même
         if (user.isBot()) {
             return;
         }
 
-        // Construit un username Discord "pseudo#1234" si le discriminant existe encore,
-        // sinon juste le name. (tu l'avais déjà, je reprends pareil)
-        final String discriminator = user.getDiscriminator(); // peut être "0000" avec les nouveaux usernames
+        final String discriminator = user.getDiscriminator(); // peut être "0000"
         final String username = (discriminator != null && !discriminator.isBlank() && !"0000".equals(discriminator))
                 ? user.getName() + "#" + discriminator
                 : user.getName();
 
-        final String nickname = (member.getNickname() != null) ? member.getNickname() : user.getName();
-        final String chosenPseudo = (member.getNickname() != null)
+        final String nickname = (member.getNickname() != null)
                 ? member.getNickname()
-                : username;
+                : user.getName();
+
+        final String avatarUrl = user.getEffectiveAvatarUrl();
 
         log.info(
-                "🔔 Connexion vocale AUTH: userId={}, username={}, nick={}, chosenPseudo={}, channelId={}",
-                user.getId(), username, nickname, chosenPseudo, joinedChannelId
+                "🔔 Connexion vocale AUTH: userId={}, username={}, nick={}, channelId={}",
+                user.getId(), username, nickname, joinedChannelId
         );
 
-        // 1) Toujours : on met à jour le profil en base (comme avant)
+        // 1) on enregistre le snapshot Discord complet en mémoire
+        discordSyncService.markAllPendingAsConnectedFromVoiceJoin(
+                user.getId(),
+                username,
+                discriminator,
+                nickname,
+                avatarUrl
+        );
+
+        // 2) on synchronise aussi côté BDD si jamais cet utilisateur Discord existe déjà
         DiscordSyncRequestDTO dto = DiscordSyncRequestDTO.builder()
                 .discordId(user.getId())
                 .discordUsername(username)
                 .discordDiscriminator(discriminator)
                 .discordNickname(nickname)
-                .discordAvatarUrl(user.getEffectiveAvatarUrl())
+                .discordAvatarUrl(avatarUrl)
                 .build();
 
         discordSyncService.handleSync(dto);
-
-        // 2) Nouveau : on considère que cette arrivée dans le salon vocal est une preuve OK
-        //    => on marque TOUS les states en attente comme "connectés"
-        discordSyncService.markAllPendingAsConnectedFromVoiceJoin(user.getId(), chosenPseudo);
-
-        // Avant, tu t'arrêtais ici sans rien faire pour cocher la checkbox.
-        // Maintenant, le polling Angular sur /discord/status?state=xxx
-        // va voir connected=true et donc débloquer le bouton "Créer mon compte".
     }
 }
