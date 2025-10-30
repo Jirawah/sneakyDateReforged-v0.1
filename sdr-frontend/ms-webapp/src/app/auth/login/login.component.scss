@@ -20,6 +20,13 @@
   }
 }
 
+.auth-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 16px 0 8px;
+}
+
 .auth-form {
   display: grid;
   gap: 16px;

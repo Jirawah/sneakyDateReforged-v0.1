@@ -389,11 +389,12 @@ public class AuthService {
 //    @Transactional
 //    public AuthResponseDTO register(RegisterRequestDTO request) {
 //
+//        // 1. mots de passe identiques
 //        if (!request.getPassword().equals(request.getConfirmPassword())) {
 //            throw new IllegalArgumentException("Les mots de passe ne correspondent pas.");
 //        }
 //
-//        // Vérification du compte Steam avec fallback
+//        // 2. récupérer / vérifier le profil Steam
 //        SteamProfileDTO steamProfile;
 //        try {
 //            steamProfile = steamVerificationService.verifySteamUser(request.getSteamId());
@@ -408,26 +409,47 @@ public class AuthService {
 //            throw new SteamAccountBannedException("Votre compte Steam a déjà été banni.");
 //        }
 //
-//        // Insertion via procédure stockée
+//        // 3. snapshot Discord capturé par le bot quand l'utilisateur a rejoint le vocal
+//        DiscordSyncService.DiscordSnapshot snap = discordSyncService.getLastSnapshot();
+//
+//        // 3.1 pseudo final : priorité au pseudo Discord choisi (nickname serveur)
+//        String finalPseudo = (snap != null && snap.getChosenPseudo() != null && !snap.getChosenPseudo().isBlank())
+//                ? snap.getChosenPseudo()
+//                : request.getPseudo();
+//
+//        // 4. hash du mdp
 //        String hashedPassword = passwordEncoder.encode(request.getPassword());
+//
+//        // 5. Appel de la procédure stockée enrichie
 //        int resultCode = registerProcedureExecutor.execute(
 //                request.getEmail(),
-//                request.getPseudo(),
+//                finalPseudo,
 //                hashedPassword,
 //                request.getSteamId(),
-//                request.getDiscordId()
+//
+//                snap != null ? snap.getDiscordId()            : null,
+//                snap != null ? snap.getUsername()             : null,
+//                snap != null ? snap.getDiscriminator()        : null,
+//                snap != null ? snap.getNickname()             : null,
+//                snap != null ? snap.getAvatarUrl()            : null,
+//                snap != null, // discord_validated -> true si on a bien un snapshot
+//
+//                steamProfile.getPersonaName(),
+//                steamProfile.getAvatarFull()
 //        );
 //
 //        if (resultCode == -1) {
 //            throw new DuplicateUserException("Email, pseudo ou Steam ID déjà utilisé.");
 //        }
 //
-//        // Mise à jour Steam (avatar + pseudo)
+//        // 6. On recharge l'utilisateur pour compléter ce qui manque (heures de jeu etc.)
 //        UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
 //                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé après enregistrement."));
 //
+//        // Steam hours, etc. (ton code existant le fait déjà)
 //        userAuthService.updateSteamProfile(user, steamProfile);
 //
+//        // 7. Génère le JWT pour le connecter direct
 //        String jwt = jwtUtils.generateToken(user);
 //
 //        return AuthResponseDTO.builder()
@@ -437,8 +459,9 @@ public class AuthService {
 //                .gamesHours(steamProfile.getGamesHours())
 //                .build();
 //    }
+    // Méthode d'inscription
     @Transactional
-    public AuthResponseDTO register(RegisterRequestDTO request) {
+    public void register(RegisterRequestDTO request) {
 
         // 1. mots de passe identiques
         if (!request.getPassword().equals(request.getConfirmPassword())) {
@@ -497,76 +520,10 @@ public class AuthService {
         UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé après enregistrement."));
 
-        // Steam hours, etc. (ton code existant le fait déjà)
+        // Mise à jour du profil Steam (heures, etc.)
         userAuthService.updateSteamProfile(user, steamProfile);
-
-        // 7. Génère le JWT pour le connecter direct
-        String jwt = jwtUtils.generateToken(user);
-
-        return AuthResponseDTO.builder()
-                .token(jwt)
-                .steamPseudo(user.getSteamPseudo())
-                .steamAvatar(user.getSteamAvatar())
-                .gamesHours(steamProfile.getGamesHours())
-                .build();
     }
 
-
-    // Appel à la procédure stockée qui vérifie si le mail et l'id Steam n'existe pas déjà en BDD
-//    private int registerUserWithProcedure(String email, String pseudo, String passwordHash, String steamId, String discordId) {
-//        SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate)
-//                .withProcedureName("sp_register_user")
-//                .declareParameters(
-//                        new SqlParameter("p_email", Types.VARCHAR),
-//                        new SqlParameter("p_pseudo", Types.VARCHAR),
-//                        new SqlParameter("p_password", Types.VARCHAR),
-//                        new SqlParameter("p_steam_id", Types.VARCHAR),
-//                        new SqlParameter("p_discord_id", Types.VARCHAR),
-//                        new SqlOutParameter("p_result_code", Types.INTEGER)
-//                );
-//
-//        Map<String, Object> inParams = new HashMap<>();
-//        inParams.put("p_email", email);
-//        inParams.put("p_pseudo", pseudo);
-//        inParams.put("p_password", passwordHash);
-//        inParams.put("p_steam_id", steamId);
-//        inParams.put("p_discord_id", discordId);
-//
-//        try {
-//            Map<String, Object> result = jdbcCall.execute(inParams);
-//            return (Integer) result.get("p_result_code");
-//        } catch (DataAccessException ex) {
-//            throw new RuntimeException("Erreur lors de l’enregistrement via la procédure stockée", ex);
-//        }
-//    }
-
-    // Connexion
-//    @Transactional(readOnly = true)
-//    @Transactional
-//    public AuthResponseDTO login(LoginRequestDTO request) {
-//        System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
-//        authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        request.getEmail(),
-//                        request.getPassword()
-//                )
-//        );
-//
-//        UserAuthModel user = userAuthRepository.findByEmail(request.getEmail())
-//                .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé."));
-//
-//        String jwt = jwtUtils.generateToken(user);
-//        return AuthResponseDTO.builder()
-//                .token(jwt)
-//                .steamPseudo(user.getSteamPseudo())
-//                .steamAvatar(user.getSteamAvatar())
-//                .gamesHours(Map.of(
-//                        "PUBG", user.getPubgHours(),
-//                        "Rust", user.getRustHours(),
-//                        "Among Us", user.getAmongUsHours()
-//                ))
-//                .build();
-//    }
     @Transactional(readOnly = true)
     public AuthResponseDTO login(LoginRequestDTO request) {
         System.out.println("[LOGIN] Tentative de connexion avec : " + request.getEmail());
@@ -607,7 +564,6 @@ public class AuthService {
                 .gamesHours(gamesHours)
                 .build();
     }
-
 
     // Lien Discord
     @Transactional

@@ -1,101 +1,84 @@
-<section class="public-home">
-
-  <!-- HEADER -->
-  <header class="public-home__header">
-    <div class="public-home__time">
+<!-- En-tête compact avec horloge + CTA -->
+<mat-card style="margin-bottom:16px;">
+  <div class="flex-row space-between align-center">
+    <div class="flex-row align-center" style="gap:12px">
+      <mat-icon aria-hidden="true">schedule</mat-icon>
       <app-clock></app-clock>
     </div>
 
-    <nav class="public-home__nav">
-      <a routerLink="/auth/register">INSCRIPTION</a>
-      <span class="sep">|</span>
-      <a routerLink="/auth/login">CONNEXION</a>
-    </nav>
+    <div class="flex-row align-center" style="gap:8px">
+      <a mat-stroked-button routerLink="/auth/register">INSCRIPTION</a>
+      <a mat-flat-button color="primary" routerLink="/auth/login">CONNEXION</a>
+      <button mat-button type="button" (click)="toggleDarkMode()">DARK MODE</button>
+    </div>
+  </div>
+</mat-card>
 
-    <button
-      type="button"
-      class="public-home__dark-toggle"
-      (click)="toggleDarkMode()"
-    >
-      DARK MODE
-    </button>
-  </header>
+<!-- Branding -->
+<mat-card style="margin-bottom:16px; text-align:center;">
+  <h1 style="margin:0">SNEAKYDATE</h1>
+  <h2 style="margin:4px 0 0">RDV GAMING CHEATER FREE</h2>
+</mat-card>
 
-  <!-- BRAND -->
-  <section class="public-home__brand">
-    <h1 class="brand-title">SNEAKYDATE</h1>
-    <h2 class="brand-subtitle">RDV GAMING CHEATER FREE</h2>
-  </section>
+<div class="grid-3" style="display:grid; grid-template-columns: 260px 1fr 260px; gap:16px;">
+  <!-- Colonne gauche : stats -->
+  <div>
+    <mat-card style="margin-bottom:16px;">
+      <div>🧑 Membres</div>
+      <h2 style="margin:8px 0 0">{{ membersCount }}</h2>
+    </mat-card>
 
-  <!-- 3 COLS -->
-  <section class="public-home__main">
+    <mat-card>
+      <div>📅 RDV organisés</div>
+      <h2 style="margin:8px 0 0">{{ rdvCount }}</h2>
+    </mat-card>
+  </div>
 
-    <!-- COL GAUCHE -->
-    <aside class="stats-col">
-      <div class="stats-card">
-        <div class="stats-card__label">Membres</div>
-        <div class="stats-card__value">{{ membersCount }}</div>
-      </div>
-
-      <div class="stats-card">
-        <div class="stats-card__label">RDV organisés</div>
-        <div class="stats-card__value">{{ rdvCount }}</div>
-      </div>
-    </aside>
-
-    <!-- COL CENTRALE -->
-    <main class="pitch-col">
-
-      <div class="pitch-card">
-        <div class="pitch-card__art">
-          <div class="img-placeholder">[ART AMONG US]</div>
+  <!-- Colonne centrale : pitch + CTA -->
+  <div>
+    <mat-card style="margin-bottom:16px;">
+      <div class="flex-row" style="gap:16px; align-items:flex-start;">
+        <div style="min-width:180px; text-align:center; padding:24px; border:1px dashed rgba(0,0,0,.2);">
+          [ART AMONG US]
         </div>
 
-        <div class="pitch-card__content">
-          <ul class="pitch-list">
-            <li *ngFor="let point of sellingPoints">
-              ✓ {{ point }}
-            </li>
+        <div style="flex:1">
+          <ul style="margin-top:0">
+            <li *ngFor="let point of sellingPoints">✓ {{ point }}</li>
           </ul>
 
-          <div class="pitch-cta">
-            <a
-              class="pitch-cta__btn"
-              routerLink="/auth/register"
-            >
-              INSCRIPTION
-            </a>
+          <div style="margin-top:16px;">
+            <a mat-flat-button color="primary" routerLink="/auth/register">INSCRIPTION</a>
           </div>
         </div>
       </div>
+    </mat-card>
 
-      <footer class="partners">
-        <span class="partners__logo">facepunch</span>
-        <span class="partners__logo">KRAFTON</span>
-        <span class="partners__logo">INNERSLOTH</span>
-      </footer>
-    </main>
-
-    <!-- COL DROITE -->
-    <aside class="games-col">
-      <h3 class="games-col__title">Organise tes rendez-vous</h3>
-
-      <div class="game-card">
-        <div class="game-card__thumb">[Among Us IMG]</div>
-        <div class="game-card__label">AMONG US</div>
+    <mat-card>
+      <div class="flex-row" style="gap:16px; justify-content:center; flex-wrap:wrap;">
+        <span>facepunch</span>
+        <span>KRAFTON</span>
+        <span>INNERSLOTH</span>
       </div>
+    </mat-card>
+  </div>
 
-      <div class="game-card">
-        <div class="game-card__thumb">[Rust IMG]</div>
-        <div class="game-card__label">RUST</div>
-      </div>
+  <!-- Colonne droite : jeux -->
+  <div>
+    <mat-card style="margin-bottom:16px;">
+      <h3 style="margin:0 0 8px;">Organise tes rendez-vous</h3>
+      <div style="padding:24px; border:1px dashed rgba(0,0,0,.2); margin-bottom:8px;">[Among Us IMG]</div>
+      <div>AMONG US</div>
+    </mat-card>
 
-      <div class="game-card">
-        <div class="game-card__thumb">[PUBG IMG]</div>
-        <div class="game-card__label">PUBG</div>
-      </div>
-    </aside>
+    <mat-card style="margin-bottom:16px;">
+      <div style="padding:24px; border:1px dashed rgba(0,0,0,.2); margin-bottom:8px;">[Rust IMG]</div>
+      <div>RUST</div>
+    </mat-card>
 
-  </section>
-
-</section>
+    <mat-card>
+      <div style="padding:24px; border:1px dashed rgba(0,0,0,.2); margin-bottom:8px;">[PUBG IMG]</div>
+      <div>PUBG</div>
+    </mat-card>
+  </div>
+</div>

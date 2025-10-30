@@ -1,4 +1,6 @@
 <main class="auth-wrap">
+
+
   <section class="auth-panel">
 
     <!-- Titre + lien "Pas encore inscrit ?" -->
@@ -17,40 +19,20 @@
       <!-- Email -->
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input
-          matInput
-          type="email"
-          formControlName="email"
-          required
-        />
-        <mat-error *ngIf="form.get('email')?.hasError('required')">
-          Email requis
-        </mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')">
-          Format invalide
-        </mat-error>
+        <input matInput type="email" formControlName="email" required />
+        <mat-error *ngIf="form.get('email')?.hasError('required')">Email requis</mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">Format invalide</mat-error>
       </mat-form-field>
 
       <!-- Mot de passe -->
       <mat-form-field appearance="outline">
         <mat-label>Mot de passe</mat-label>
-        <input
-          matInput
-          type="password"
-          formControlName="password"
-          required
-        />
-        <mat-error *ngIf="form.get('password')?.hasError('required')">
-          Mot de passe requis
-        </mat-error>
+        <input matInput type="password" formControlName="password" required />
+        <mat-error *ngIf="form.get('password')?.hasError('required')">Mot de passe requis</mat-error>
       </mat-form-field>
 
       <!-- Bouton Connexion -->
-      <button
-        mat-flat-button
-        color="primary"
-        [disabled]="form.invalid || loading"
-      >
+      <button mat-flat-button color="primary" [disabled]="form.invalid || loading">
         {{ loading ? 'Connexion…' : 'CONNEXION' }}
       </button>
 
@@ -61,7 +43,7 @@
       <div class="auth-links">
         <a routerLink="/forgot-password">Mot de passe oublié ?</a>
       </div>
-
+      
     </form>
   </section>
 </main>

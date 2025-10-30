@@ -1,24 +1,27 @@
-// import { Component, OnInit, OnDestroy } from '@angular/core';
+// import { Component } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 // import { RouterLink } from '@angular/router';
 
+// // horloge réutilisable
+// import { ClockComponent } from '../../shared/ui/clock/clock.component';
+
 // @Component({
-//   standalone: true,
 //   selector: 'app-public-home',
-//   imports: [CommonModule, RouterLink],
+//   standalone: true,
+//   imports: [
+//     CommonModule,
+//     RouterLink,
+//     ClockComponent
+//   ],
 //   templateUrl: './public-home.component.html',
-//   styleUrls: ['./public-home.component.scss'],
+//   styleUrls: ['./public-home.component.scss']
 // })
-// export class PublicHomeComponent implements OnInit, OnDestroy {
+// export class PublicHomeComponent {
+//   // Ces valeurs viendront du back plus tard
+//   membersCount = 1125;
+//   rdvCount = 83;
 
-//   // heure affichée en haut à gauche
-//   currentTime = '';
-
-//   // stats
-//   membersCount = 1125; // TODO: viendra du back plus tard
-//   rdvCount = 83;       // TODO: idem
-
-//   // puces marketing
+//   // Texte marketing affiché dans la carte centrale
 //   sellingPoints: string[] = [
 //     `Les membres sont définis comme "clean" via l’API Web Steam`,
 //     `Création d’équipes et de communautés éthiques`,
@@ -26,28 +29,7 @@
 //     `Facilité de recherche de joueurs fairplay`,
 //   ];
 
-//   private clockIntervalId: any;
-
-//   ngOnInit(): void {
-//     this.updateTime();
-//     this.clockIntervalId = setInterval(() => {
-//       this.updateTime();
-//     }, 60_000);
-//   }
-
-//   ngOnDestroy(): void {
-//     if (this.clockIntervalId) {
-//       clearInterval(this.clockIntervalId);
-//     }
-//   }
-
-//   private updateTime(): void {
-//     const now = new Date();
-//     const hours = now.getHours().toString().padStart(2, '0');
-//     const mins = now.getMinutes().toString().padStart(2, '0');
-//     this.currentTime = `${hours} h ${mins}`;
-//   }
-
+//   // placeholder pour le switch dark mode
 //   toggleDarkMode(): void {
 //     console.log('[TODO] toggle dark mode');
 //   }
@@ -56,7 +38,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-// horloge réutilisable
+// Angular Material
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+// Horloge déjà existante
 import { ClockComponent } from '../../shared/ui/clock/clock.component';
 
 @Component({
@@ -65,26 +52,26 @@ import { ClockComponent } from '../../shared/ui/clock/clock.component';
   imports: [
     CommonModule,
     RouterLink,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
     ClockComponent
   ],
   templateUrl: './public-home.component.html',
-  styleUrls: ['./public-home.component.scss']
+  styleUrls: ['./public-home.component.scss'],
 })
 export class PublicHomeComponent {
-  // Ces valeurs viendront du back plus tard
-  membersCount = 1125;
-  rdvCount = 83;
+  membersCount = 0;
+  rdvCount = 0;
 
-  // Texte marketing affiché dans la carte centrale
-  sellingPoints: string[] = [
-    `Les membres sont définis comme "clean" via l’API Web Steam`,
-    `Création d’équipes et de communautés éthiques`,
-    `Connexion vocale simplifiée avec l’API Discord`,
-    `Facilité de recherche de joueurs fairplay`,
+  sellingPoints = [
+    'Anti-cheat social (Steam + Discord)',
+    'Organisation de RDV par jeu',
+    'Notes & historique joueurs',
   ];
 
-  // placeholder pour le switch dark mode
   toggleDarkMode(): void {
-    console.log('[TODO] toggle dark mode');
+    // placeholder sans style pour l’instant
+    console.log('[HOME] toggleDarkMode()');
   }
 }
