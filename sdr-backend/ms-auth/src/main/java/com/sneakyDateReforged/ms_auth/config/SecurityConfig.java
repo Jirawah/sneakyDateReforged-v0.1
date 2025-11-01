@@ -30,7 +30,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(csrf -> csrf.disable())
-                .cors(c -> {})
+                .cors(c -> {
+                })
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
@@ -47,6 +48,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/auth/discord/pending").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/auth/discord/status").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/auth/users/*/profile-bootstrap").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/auth/users/*/discord-avatar").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/auth/users/*/discord-username").authenticated()
                         .anyRequest().authenticated()
                 )
 

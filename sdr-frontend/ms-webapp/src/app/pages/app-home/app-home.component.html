@@ -5,28 +5,32 @@
 <div class="app-home">
   <!-- Colonne gauche : profil utilisateur -->
   <aside class="app-home__left">
-    <app-user-sidebar [profile]="profile"></app-user-sidebar>
+    <app-user-sidebar [profile]="profile$ | async"></app-user-sidebar>
   </aside>
 
   <!-- Colonne centrale : nav + contenu principal -->
   <main class="app-home__center">
     <app-nav></app-nav>
 
-    <section class="main-card">
+    <!-- <section class="main-card">
       <h2 class="main-card__title">Bienvenue, {{ profile?.pseudo }}</h2>
       <p class="main-card__hint">
         Ici on placera le contenu central (ex: prochains RDV, feed, etc.).
       </p>
-    </section>
+    </section> -->
+    <ng-container *ngIf="profile$ | async as profile">
+      <section class="main-card">
+        <h2 class="main-card__title">Bienvenue, {{ profile.pseudo }}</h2>
+        <p class="main-card__hint">
+          Ici on placera le contenu central (ex: prochains RDV, feed, etc.).
+        </p>
+      </section>
+    </ng-container>
   </main>
 
   <!-- Colonne droite : listes d'amis & invitations -->
   <aside class="app-home__right">
-    <app-friends-lists
-      [friends]="friends"
-      [invitations]="invitations"
-      (accept)="onAccept($event)"
-      (decline)="onDecline($event)"
-    ></app-friends-lists>
+    <app-friends-lists [friends]="friends" [invitations]="invitations" (accept)="onAccept($event)"
+      (decline)="onDecline($event)"></app-friends-lists>
   </aside>
 </div>

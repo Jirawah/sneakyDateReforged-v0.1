@@ -62,9 +62,20 @@ public class ProfileController {
             summary = "Ma vue complète agrégée",
             description = "Vue complète (bio + agrégats amis/RDV/jeux) calculée à la volée. **JWT requis.**"
     )
+//    @GetMapping("/me/full")
+//    public AggregatedProfileDTO meFull() {
+//        long userId = userCtx.getUserId();
+//        return service.getAggregatedView(userId);
+//    }
     @GetMapping("/me/full")
     public AggregatedProfileDTO meFull() {
         long userId = userCtx.getUserId();
+        String email = userCtx.getEmail();
+
+        // ✅ On s'assure que la bio existe (création + snapshot depuis ms-auth si absent)
+        service.getOrCreateFor(userId, email);
+
+        // Puis on calcule la vue agrégée (amis/RDV/jeux + pseudo/avatar fusionnés)
         return service.getAggregatedView(userId);
     }
 
