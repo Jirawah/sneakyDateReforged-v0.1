@@ -8,11 +8,13 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
-# 🔐 Installation des certificats racines pour la JVM
+# Installation des certificats racines pour la JVM
 RUN apt-get update && apt-get install -y curl ca-certificates && update-ca-certificates
 
-# 🔧 Copie de l'application
+# Copie de l'application
 COPY --from=builder /app/target/*.jar app.jar
 
-# 🚀 Lancement (avec pause pour attendre Config Server)
+# Lancement (avec pause pour attendre Config Server)
 ENTRYPOINT ["sh", "-c", "sleep 30 && java -jar app.jar"]
+
+

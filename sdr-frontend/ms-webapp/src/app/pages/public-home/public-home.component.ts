@@ -1,49 +1,12 @@
-// import { Component } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { RouterLink } from '@angular/router';
-
-// // horloge réutilisable
-// import { ClockComponent } from '../../shared/ui/clock/clock.component';
-
-// @Component({
-//   selector: 'app-public-home',
-//   standalone: true,
-//   imports: [
-//     CommonModule,
-//     RouterLink,
-//     ClockComponent
-//   ],
-//   templateUrl: './public-home.component.html',
-//   styleUrls: ['./public-home.component.scss']
-// })
-// export class PublicHomeComponent {
-//   // Ces valeurs viendront du back plus tard
-//   membersCount = 1125;
-//   rdvCount = 83;
-
-//   // Texte marketing affiché dans la carte centrale
-//   sellingPoints: string[] = [
-//     `Les membres sont définis comme "clean" via l’API Web Steam`,
-//     `Création d’équipes et de communautés éthiques`,
-//     `Connexion vocale simplifiée avec l’API Discord`,
-//     `Facilité de recherche de joueurs fairplay`,
-//   ];
-
-//   // placeholder pour le switch dark mode
-//   toggleDarkMode(): void {
-//     console.log('[TODO] toggle dark mode');
-//   }
-// }
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
-// Angular Material
-import { MatCardModule } from '@angular/material/card';
+// Angular Material (minimum)
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-// Horloge déjà existante
+// Horloge existante
 import { ClockComponent } from '../../shared/ui/clock/clock.component';
 
 @Component({
@@ -52,7 +15,7 @@ import { ClockComponent } from '../../shared/ui/clock/clock.component';
   imports: [
     CommonModule,
     RouterLink,
-    MatCardModule,
+    RouterLinkActive,
     MatButtonModule,
     MatIconModule,
     ClockComponent
@@ -61,17 +24,44 @@ import { ClockComponent } from '../../shared/ui/clock/clock.component';
   styleUrls: ['./public-home.component.scss'],
 })
 export class PublicHomeComponent {
-  membersCount = 0;
-  rdvCount = 0;
+  membersStatSrc = 'assets/home/asideLeft/membersImg.png';
+  rdvStatSrc = 'assets/home/asideLeft/rdvImg.png';
+
+  heroLeftSrc  = 'assets/home/center/amongUsLeft.png';
+  heroRightSrc = 'assets/home/center/amongUsRight.png';
+
+  promoCards = [
+    {
+      alt: 'Among Us',
+      logo: 'assets/home/asideRight/amongUsLogo.png',
+      image: 'assets/home/asideRight/amongUsImg.png'
+    },
+    {
+      alt: 'Rust',
+      logo: 'assets/home/asideRight/rustLogo.png',
+      image: 'assets/home/asideRight/rustImg.png'
+    },
+    {
+      alt: 'PUBG',
+      logo: 'assets/home/asideRight/pubgLogo.png',
+      image: 'assets/home/asideRight/pubgImg.png'
+    }
+  ];
+
+  partners = [
+    { src: 'assets/brand/facepunch.png', alt: 'Facepunch Studios' },
+    { src: 'assets/brand/krafton.png', alt: 'KRAFTON' },
+    { src: 'assets/brand/innerslot.png', alt: 'Innersloth' }
+  ];
 
   sellingPoints = [
-    'Anti-cheat social (Steam + Discord)',
-    'Organisation de RDV par jeu',
-    'Notes & historique joueurs',
+    'Les membres sont définis comme “clean” via l’API Web Steam',
+    'Création d’équipes et de communautés éthiques',
+    'Connexion vocale simplifiée avec l’API Discord',
+    'Facilité de recherche de joueurs fairplay',
   ];
 
   toggleDarkMode(): void {
-    // placeholder sans style pour l’instant
     console.log('[HOME] toggleDarkMode()');
   }
 }

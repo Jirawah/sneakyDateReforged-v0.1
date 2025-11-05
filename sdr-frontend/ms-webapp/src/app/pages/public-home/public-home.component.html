@@ -1,84 +1,130 @@
-<!-- En-tête compact avec horloge + CTA -->
-<mat-card style="margin-bottom:16px;">
-  <div class="flex-row space-between align-center">
-    <div class="flex-row align-center" style="gap:12px">
-      <mat-icon aria-hidden="true">schedule</mat-icon>
-      <app-clock></app-clock>
-    </div>
+<div class="page-frame">
+  <div class="home-shell">
+    <!-- 1) Topbar -->
+    <header class="home-topbar">
+      <div class="topbar-left">
+        <app-clock></app-clock>
+      </div>
 
-    <div class="flex-row align-center" style="gap:8px">
-      <a mat-stroked-button routerLink="/auth/register">INSCRIPTION</a>
-      <a mat-flat-button color="primary" routerLink="/auth/login">CONNEXION</a>
-      <button mat-button type="button" (click)="toggleDarkMode()">DARK MODE</button>
-    </div>
-  </div>
-</mat-card>
-
-<!-- Branding -->
-<mat-card style="margin-bottom:16px; text-align:center;">
-  <h1 style="margin:0">SNEAKYDATE</h1>
-  <h2 style="margin:4px 0 0">RDV GAMING CHEATER FREE</h2>
-</mat-card>
-
-<div class="grid-3" style="display:grid; grid-template-columns: 260px 1fr 260px; gap:16px;">
-  <!-- Colonne gauche : stats -->
-  <div>
-    <mat-card style="margin-bottom:16px;">
-      <div>🧑 Membres</div>
-      <h2 style="margin:8px 0 0">{{ membersCount }}</h2>
-    </mat-card>
-
-    <mat-card>
-      <div>📅 RDV organisés</div>
-      <h2 style="margin:8px 0 0">{{ rdvCount }}</h2>
-    </mat-card>
-  </div>
-
-  <!-- Colonne centrale : pitch + CTA -->
-  <div>
-    <mat-card style="margin-bottom:16px;">
-      <div class="flex-row" style="gap:16px; align-items:flex-start;">
-        <div style="min-width:180px; text-align:center; padding:24px; border:1px dashed rgba(0,0,0,.2);">
-          [ART AMONG US]
+      <!-- Switch -->
+      <nav class="home-switch" aria-label="Accès rapide">
+        <div class="switch">
+          <a routerLink="/auth/register" routerLinkActive="active" class="switch-btn start"
+            [routerLinkActiveOptions]="{ exact: true }">INSCRIPTION</a>
+          <span class="switch-divider" aria-hidden="true"></span>
+          <a routerLink="/auth/login" routerLinkActive="active" class="switch-btn end"
+            [routerLinkActiveOptions]="{ exact: true }">CONNEXION</a>
         </div>
+      </nav>
 
-        <div style="flex:1">
-          <ul style="margin-top:0">
-            <li *ngFor="let point of sellingPoints">✓ {{ point }}</li>
-          </ul>
+      <nav class="topbar-cta">
+        <button type="button" class="dark-toggle" (click)="toggleDarkMode()" aria-pressed="false">
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="currentColor" />
+          </svg>
+          <span class="label">DARK MODE</span>
+        </button>
+      </nav>
+    </header>
 
-          <div style="margin-top:16px;">
-            <a mat-flat-button color="primary" routerLink="/auth/register">INSCRIPTION</a>
+    <!-- 2) Branding -->
+    <section class="home-brand" aria-label="Branding">
+      <img class="brand-logo" src="assets/brand/sneakyDateReforged-Logo.svg" alt="SNEAKYDATE — RDV GAMING CHEATER FREE"
+        draggable="false" />
+      <h1 class="sr-only">SNEAKYDATE</h1>
+      <p class="sr-only">RDV GAMING CHEATER FREE</p>
+    </section>
+
+    <!-- 3) Grille principale -->
+    <section class="home-main" aria-label="Contenu principal">
+
+      <!-- ⬅️ Colonne gauche : stats façon maquette -->
+      <aside class="col-left">
+        <section class="statbox" aria-label="Membres">
+          <div class="statbox-head">Membres</div>
+          <div class="statbox-body">
+            <!-- 👉 image du nombre (remplace la source quand tu veux) -->
+            <img class="stat-figure" [src]="membersStatSrc" alt="Nombre de membres" />
           </div>
-        </div>
-      </div>
-    </mat-card>
+        </section>
 
-    <mat-card>
-      <div class="flex-row" style="gap:16px; justify-content:center; flex-wrap:wrap;">
-        <span>facepunch</span>
-        <span>KRAFTON</span>
-        <span>INNERSLOTH</span>
-      </div>
-    </mat-card>
-  </div>
+        <section class="statbox" aria-label="RDV organisés">
+          <div class="statbox-head">RDV organisés</div>
+          <div class="statbox-body">
+            <img class="stat-figure" [src]="rdvStatSrc" alt="Nombre de RDV organisés" />
+          </div>
+        </section>
+      </aside>
 
-  <!-- Colonne droite : jeux -->
-  <div>
-    <mat-card style="margin-bottom:16px;">
-      <h3 style="margin:0 0 8px;">Organise tes rendez-vous</h3>
-      <div style="padding:24px; border:1px dashed rgba(0,0,0,.2); margin-bottom:8px;">[Among Us IMG]</div>
-      <div>AMONG US</div>
-    </mat-card>
+      <!-- Centre : hero + partenaires -->
+      <main class="col-center">
+        <!-- <section class="hero-panel" aria-label="Pitch">
+          <div class="hero-art">[ART AMONG US]</div>
+          <div class="hero-points">
+            <ul class="points">
+              <li *ngFor="let point of sellingPoints">✓ {{ point }}</li>
+            </ul>
+            <div class="hero-cta">
+              <a mat-flat-button color="primary" routerLink="/auth/register" class="btn-primary">INSCRIPTION</a>
+            </div>
+            <img class="hero-characters" src="assets/home/center/crew-right.png" alt="" aria-hidden="true" />
+          </div>
+        </section> -->
 
-    <mat-card style="margin-bottom:16px;">
-      <div style="padding:24px; border:1px dashed rgba(0,0,0,.2); margin-bottom:8px;">[Rust IMG]</div>
-      <div>RUST</div>
-    </mat-card>
+        <section class="hero-panel" aria-labelledby="hero-title">
+          <h2 id="hero-title" class="sr-only">Pourquoi SneakyDate</h2>
 
-    <mat-card>
-      <div style="padding:24px; border:1px dashed rgba(0,0,0,.2); margin-bottom:8px;">[PUBG IMG]</div>
-      <div>PUBG</div>
-    </mat-card>
+          <!-- Col. 1 — Image gauche -->
+          <figure class="hero-media hero-media--left" aria-hidden="true">
+            <img class="hero-img" [src]="heroLeftSrc" alt="" width="540" height="540" decoding="async"
+              [attr.fetchpriority]="'high'" />
+          </figure>
+
+          <!-- Col. 2 — Contenu -->
+          <div class="hero-copy">
+            <ul class="points" role="list">
+              <li *ngFor="let point of sellingPoints">
+                <span class="check" aria-hidden="true">✓</span>
+                <span class="txt">{{ point }}</span>
+              </li>
+            </ul>
+
+            <div class="hero-cta">
+              <a mat-flat-button color="primary" routerLink="/auth/register" class="btn-primary">
+                INSCRIPTION
+              </a>
+            </div>
+          </div>
+
+          <!-- Col. 3 — Image droite -->
+          <figure class="hero-media hero-media--right" aria-hidden="true">
+            <img class="hero-img" [src]="heroRightSrc" alt="" width="540" height="540" decoding="async" />
+          </figure>
+        </section>
+
+        <section class="partners" aria-label="Partenaires éditeurs">
+          <ul class="partner-logos">
+            <li class="partner-item" *ngFor="let p of partners">
+              <img class="partner-logo" [src]="p.src" [alt]="p.alt">
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- ➡️ Colonne droite : jeux -->
+      <aside class="col-right" aria-label="Organise tes rendez-vous">
+        <h2 class="promo-title">Organise tes rendez-vous</h2>
+
+        <article class="promo-card" *ngFor="let it of promoCards">
+          <div class="promo-cap">
+            <img class="promo-logo" [src]="it.logo" [alt]="it.alt" />
+          </div>
+
+          <div class="promo-window">
+            <img class="promo-img" [src]="it.image" [alt]="it.alt + ' — visuel'" loading="lazy" />
+          </div>
+        </article>
+      </aside>
+    </section>
   </div>
 </div>

@@ -8,18 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      <profile name="Annotation profile for ms-rdv" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="ms-invitation" />
-        <module name="ms-friend" />
-        <module name="ms-rdv" />
-      </profile>
-      <profile name="Annotation profile for ms-notif" enabled="true">
+      <profile name="Annotation profile for ms-profil" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -31,6 +20,17 @@
         <module name="ms-eurekaServer" />
         <module name="ms-configServer" />
         <module name="ms-profil" />
+      </profile>
+      <profile name="Annotation profile for ms-rdv" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="ms-invitation" />
+        <module name="ms-friend" />
+        <module name="ms-rdv" />
       </profile>
     </annotationProcessing>
   </component>
