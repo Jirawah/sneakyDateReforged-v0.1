@@ -1,1075 +1,311 @@
-/* ===========================
-   Public Home — SCSS clean
-   =========================== */
-
 /* ---------------------------
-   TOKENS (variables globales)
+   TOKENS locaux du composant
    --------------------------- */
 :host {
-    /* Layout général */
-    --shell-max: 100%;
-    --shell-pad-inline: clamp(6px, 0.8vw, 12px);
-    /* padding horizontal du shell */
+  display: block;
 
-    /* Spacings */
-    --gap-lg: 24px;
-    --gap-md: 16px;
-    --pad-card: 16px;
+  /* Spacings / colonnes */
+  --gap-lg: 24px;
+  --gap-md: 16px;
+  --pad-card: 16px;
+  --col-side: 210px;
+  --col-side-md: 180px;
+  --outer-gutter: clamp(50px, 0.35vw, 6px);
+  --center-gap: clamp(56px, 6vw, 128px);
+  --aside-gap: 16px;
 
-    /* Colonnes */
-    --col-side: 210px;
-    /* asides compacts */
-    --col-side-md: 180px;
+  /* Fenêtres & tuiles */
+  --tile-radius: 22px;
+  --tile-shadow: 0 0 0 3px var(--accent);
+  --tile-pad: 10px 6px 6px;
+  --win-radius: 0 0 18px 18px;
+  --win-min-h: 110px;
+  --win-pad: 8px;
 
-    /* Couleurs & traits */
-    --surface: #f5f5f7;
-    --line: rgba(0, 0, 0, 0.15);
-    --accent: #2CEAC6;
-    --accent-glow: rgba(29, 233, 209, .35);
-    --switch-bg: #0b0f10;
-    --switch-fg: #ffffff;
+  /* Ajustements */
+  --right-aside-lift: 100px;
+  --topbar-nudge: 16px;
 
-    /* Tuiles & fenêtres (asides) */
-    --tile-radius: 22px;
-    --tile-shadow: 0 0 0 3px var(--accent);
-    --tile-pad: 10px 6px 6px;
+  /* HERO / CTA / points */
+  --hero-left-w:  clamp(180px, 24vw, 280px);
+  --hero-right-w: clamp(180px, 24vw, 300px);
+  --hero-pad:     clamp(14px, 2vw, 22px);
 
-    --win-radius: 0px 0px 18px 18px;
-    --win-min-h: 110px;
-    --win-pad: 8px;
+  --cta-min-w: clamp(240px, 34vw, 300px);
+  --cta-h:     clamp(42px, 5.4vw, 40px);
+  --cta-font:  clamp(.95rem, 1.2vw, 1.25rem);
+  --cta-ring:  rgba(44,234,198,.22);
 
-    /* Gouttières & écart centre */
-    --outer-gutter: clamp(50px, 0.35vw, 6px);
-    --center-gap: clamp(56px, 6vw, 128px);
-    --aside-gap: 16px;
-    /* écart vertical interne des asides */
-
-    /* Host container */
-    --frame-gap: clamp(8px, 1.6vw, 16px);
-    --topbar-nudge: 14px;
-
-    display: block;
-    position: fixed;
-    inset: 0;
-    padding: var(--frame-gap);
-    background: #0a0d0e;
-    overflow: hidden;
+  --copy-size: clamp(16px, 1.45vw, 22px);
+  --copy-line: 1.55;
+  --copy-gap:  clamp(12px, 1.2vw, 18px);
+  --li-step:   clamp(10px, 1.35vw, 20px);
 }
 
 /* ---------------------------
-   CADRE principal (page-frame)
-   --------------------------- */
-.page-frame {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    /* le shell gère son propre padding */
-    background: #ffffff;
-    border-radius: 28px;
-    border: 3px solid var(--accent);
-    box-shadow:
-        // 0 0 0 4px rgba(44, 234, 198, .12),
-        0 12px 28px rgba(0, 0, 0, .25);
-    overflow: hidden;
-}
-
-/* ---------------------------
-   SHELL (contenu dans le cadre)
-   --------------------------- */
-.home-shell {
-    max-width: var(--shell-max);
-    margin: 0 auto;
-    padding-inline: var(--shell-pad-inline);
-    padding-block: 16px;
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow: auto;
-}
-
-/* ---------------------------
-   A11Y helpers
+   A11Y helper
    --------------------------- */
 .sr-only {
-    position: absolute !important;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
 }
 
 /* ---------------------------
-   TOPBAR
+   TOPBAR (horloge | switch | dark)
    --------------------------- */
 .home-topbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    /* gauche | centre | droite */
-    align-items: center;
-    padding-block: 8px 6px;
-    margin-bottom: 8px;
-}
+  display: grid;
+  grid-template-columns:
+    var(--outer-gutter) var(--col-side) var(--center-gap) 1fr var(--center-gap) var(--col-side) var(--outer-gutter);
+  grid-template-areas: ". clock . switch . dark .";
+  align-items: start;
+  padding-block: 8px 6px;
+  margin-bottom: 40px;
 
-.topbar-left,
-.topbar-cta {
-    transform: translateY(var(--topbar-nudge));
+  /* resserre l’écart centre ↔ droite uniquement ici */
+  --center-gap: clamp(20px, 2.6vw, 40px);
 }
+.topbar-left   { grid-area: clock;  justify-self: center; transform: translateY(var(--topbar-nudge)); }
+.home-topbar>.home-switch { grid-area: switch; justify-self: center; margin: 0; }
+.topbar-cta    { grid-area: dark;   justify-self: center; transform: translateY(var(--topbar-nudge)); }
 
-.topbar-left {
-    justify-self: start;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin: 20px;
-}
-
-.topbar-cta {
-    justify-self: end;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 20px;
-}
-
-/* pas de marge parasite si la switch est dans la topbar */
-.home-topbar>.home-switch {
-    margin: 0;
-}
-
-/* ---------------------------
-   Bouton DARK MODE
-   --------------------------- */
+/* Bouton DARK MODE */
 .topbar-cta .dark-toggle {
-    --_accent: var(--accent, #2CEAC6);
-    --_glow: var(--accent-glow, rgba(44, 234, 198, .30));
-    --_bg: #0b0f10;
-    --_fg: #ffffff;
+  --_accent: var(--accent);
+  --_glow: var(--accent-glow);
+  --_bg: #0b0f10; --_fg: #ffffff;
 
-    appearance: none;
-    border: none;
-    background: none;
+  appearance: none; border: none; background: none;
+  display: inline-flex; align-items: center; gap: 8px;
 
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 6px 14px;
-    background-color: var(--_bg);
-    color: var(--_fg);
-    border: 2px solid var(--_accent);
-    border-radius: 999px;
-    box-shadow:
-        0 0 0 3px rgba(44, 234, 198, .14),
-        0 6px 14px rgba(0, 0, 0, .25);
-
-    font-weight: 800;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    line-height: 1;
-    cursor: pointer;
-    user-select: none;
-    -webkit-font-smoothing: antialiased;
+  padding: 6px 14px;
+  background-color: var(--_bg); color: var(--_fg);
+  border: 2px solid var(--_accent);
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px rgba(44,234,198,.14), 0 6px 14px rgba(0,0,0,.25);
+  font-weight: 800; letter-spacing: .07em; text-transform: uppercase; line-height: 1;
+  cursor: pointer; user-select: none;
 }
+.topbar-cta .dark-toggle .moon { width: 18px; height: 18px; color: #C9C7C7; filter: drop-shadow(0 0 1px rgba(0,0,0,.35)); }
+.topbar-cta .dark-toggle:hover { background:#111; box-shadow: 0 0 0 3px rgba(44,234,198,.18), 0 0 14px var(--_glow), 0 8px 18px rgba(0,0,0,.28); }
+.topbar-cta .dark-toggle:active { transform: translateY(1px); }
+.topbar-cta .dark-toggle:focus-visible { outline: none; box-shadow: 0 0 0 2px #fff inset, 0 0 0 3px var(--_accent), 0 0 12px var(--_glow); }
 
-.topbar-cta .dark-toggle .moon {
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-    color: #C9C7C7;
-    filter: drop-shadow(0 0 1px rgba(0, 0, 0, .35));
-}
-
-.topbar-cta .dark-toggle .label {
-    transform: translateY(0.5px);
-}
-
-.topbar-cta .dark-toggle:hover {
-    background-color: #111;
-    box-shadow:
-        0 0 0 3px rgba(44, 234, 198, .18),
-        0 0 14px var(--_glow),
-        0 8px 18px rgba(0, 0, 0, .28);
-}
-
-.topbar-cta .dark-toggle:active {
-    transform: translateY(1px);
-}
-
-.topbar-cta .dark-toggle:focus-visible {
-    outline: none;
-    box-shadow:
-        0 0 0 2px #fff inset,
-        0 0 0 3px var(--_accent),
-        0 0 12px var(--_glow);
-}
-
-/* Variante très compacte */
 @media (max-width: 480px) {
-    .topbar-cta .dark-toggle {
-        padding: 5px 12px;
-    }
-
-    .topbar-cta .dark-toggle .moon {
-        width: 16px;
-        height: 16px;
-    }
-
-    .topbar-cta .dark-toggle .label {
-        letter-spacing: .04em;
-    }
+  .topbar-cta .dark-toggle { padding: 5px 12px; }
+  .topbar-cta .dark-toggle .moon { width: 16px; height: 16px; }
 }
-
-/* Neutralise le style Material si utilisé */
-.topbar-cta .mat-mdc-button-base.dark-toggle {
-    all: unset;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+@media (max-width:1023px){
+  .home-topbar{
+    grid-template-columns: 1fr;
+    grid-template-areas: "switch" "clock" "dark";
+    row-gap: 10px;
+  }
+  .topbar-left, .topbar-cta { transform: none; }
 }
 
 /* ---------------------------
-   SWITCH INSCRIPTION | CONNEXION
+   SWITCH Inscription | Connexion
    --------------------------- */
-.home-switch {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
+.home-switch { display: flex; justify-content: center; margin-bottom: 20px; }
 .home-switch .switch {
-    display: inline-flex;
-    align-items: center;
-    padding: 2px 50px;
-    border: 2px solid var(--accent);
-    border-radius: 999px;
-    background: var(--switch-bg);
-    box-shadow: 0 0 10px var(--accent-glow);
+  display: inline-flex; align-items: center;
+  padding: 2px 50px;
+  border: 2px solid var(--accent); border-radius: 999px;
+  background: #0b0f10; box-shadow: 0 0 10px var(--accent-glow);
 }
-
 .switch-btn {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--switch-fg);
-    font-weight: 800;
-    letter-spacing: 0.15em;
-    line-height: 1;
-    padding: 4px 22px;
-    border-radius: 999px;
-    outline: none;
-    transition: background-color .2s ease, transform .06s ease;
-    will-change: background-color, transform;
+  text-decoration: none; text-transform: uppercase;
+  color: #fff; font-weight: 800; letter-spacing: .15em; line-height: 1;
+  padding: 4px 22px; border-radius: 999px;
+  transition: background-color .2s ease, transform .06s ease;
 }
-
-.switch-btn:hover {
-    background-color: rgba(255, 255, 255, .06);
-}
-
-.switch-btn:active {
-    transform: translateY(1px);
-}
-
-.switch-btn:focus-visible {
-    box-shadow: 0 0 0 2px #fff inset, 0 0 0 3px var(--accent);
-}
-
+.switch-btn:hover { background-color: rgba(255, 255, 255, 0.09); }
+.switch-btn:active { transform: translateY(1px); }
 .switch-divider {
-    width: 1px;
-    height: 22px;
-    margin: 0 30px;
-    opacity: .7;
-    background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .9) 0 2px, transparent 2px 4px);
-}
-
-.switch-btn.active {
-    background-color: rgba(255, 255, 255, .12);
+  width: 1px; height: 22px; margin: 0 30px; opacity: .7;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.9) 0 2px, transparent 2px 4px);
 }
 
 /* ---------------------------
    Branding (logo)
    --------------------------- */
-.home-brand {
-    text-align: center;
-    margin-bottom: var(--gap-lg);
-}
-
+.home-brand { text-align: center; margin-bottom: var(--gap-lg); }
 .brand-logo {
-    display: block;
-    margin: 0 auto;
-    width: clamp(200px, 42vw, 980px);
-    height: auto;
-    user-select: none;
-    -webkit-user-drag: none;
-    padding-bottom: 30px;
+  display: block; margin: 0 auto;
+  width: clamp(200px, 42vw, 980px); height: auto;
+  user-select: none; -webkit-user-drag: none;
+  padding-bottom: 30px;
 }
 
 /* ---------------------------
-   GRILLE principale
+   Grille principale
    --------------------------- */
 .home-main {
-    display: grid;
-    /* 7 colonnes : [gouttière][left][gap][center][gap][right][gouttière] */
-    grid-template-columns:
-        var(--outer-gutter) var(--col-side) var(--center-gap) 1fr var(--center-gap) var(--col-side) var(--outer-gutter);
-    grid-template-areas: ". left . center . right .";
-    column-gap: 0;
-    row-gap: var(--gap-lg);
-
-    /* Full-bleed: compense le padding horizontal du shell pour coller aux bords du cadre */
-    margin-inline: calc(-1 * var(--shell-pad-inline));
-}
-
-.col-left {
-    grid-area: left;
-}
-
-.col-center {
-    grid-area: center;
-}
-
-.col-right {
-    grid-area: right;
-}
-
-/* Uniformisation des 3 colonnes */
-.col-left,
-.col-right,
-.col-center {
-    display: grid;
-    align-content: start;
-}
-
-.col-left,
-.col-right {
-    gap: var(--aside-gap);
-}
-
-.col-center {
-    gap: var(--gap-lg);
-}
-
-/* ---------------------------
-   Stat cards (headless)
-   --------------------------- */
-.stat-card {
-    padding: var(--pad-card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: var(--surface);
-}
-
-.stat-title {
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.stat-value {
-    font-size: 2rem;
-    line-height: 1;
-}
-
-/* ---------------------------
-   Hero panel
-   --------------------------- */
-// .hero-panel {
-//     display: grid;
-//     grid-template-columns: 320px 1fr;
-//     gap: var(--gap-lg);
-//     align-items: start;
-//     padding: var(--pad-card);
-//     border: 1px dashed var(--line);
-//     border-radius: 16px;
-//     background: var(--surface);
-//     min-height: 240px;
-// }
-
-// .hero-art {
-//     width: 100%;
-//     aspect-ratio: 1 / 1;
-//     display: grid;
-//     place-items: center;
-//     border: 1px dashed var(--line);
-//     border-radius: 12px;
-//     background: #fff;
-// }
-
-// .hero-points {
-//     display: grid;
-//     gap: var(--gap-md);
-//     align-content: start;
-// }
-
-// .points {
-//     margin: 0;
-//     padding-left: 1.2rem;
-// }
-
-// .points li {
-//     margin-bottom: 6px;
-// }
-
-// .hero-cta {
-//     margin-top: 4px;
-// }
-/* ===== Hero (3 colonnes) ===== */
-// .hero-panel{
-//   display: grid;
-//   grid-template-columns:
-//     clamp(220px, 26vw, 320px)   /* média gauche */
-//     1fr                         /* copy */
-//     clamp(180px, 22vw, 260px);  /* média droite */
-//   gap: var(--gap-lg);
-//   align-items: center;
-//   padding: var(--pad-card);
-//   border: 1px dashed var(--line);
-//   border-radius: 16px;
-//   background: var(--surface);
-//   min-height: 240px;
-// }
-
-// /* Médias uniformisés (gauche/droite) */
-// .hero-media{
-//   aspect-ratio: 1 / 1;
-//   display: grid;
-//   place-items: center;
-//   border: 1px dashed var(--line);
-//   border-radius: 12px;
-//   background: #fff;
-//   overflow: hidden;
-// }
-// .hero-img{
-//   display: block;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: contain; /* cover si tu veux “remplir” le carré */
-// }
-
-// /* Colonne centrale (texte + CTA) */
-// .hero-copy{
-//   display: grid;
-//   align-content: start;
-//   gap: var(--gap-md);
-// }
-
-// /* Liste des points (petit polish) */
-// .points{
-//   margin: 0;
-//   padding: 0;
-//   list-style: none;
-// }
-// .points li{
-//   display: grid;
-//   grid-template-columns: auto 1fr;
-//   align-items: start;
-//   gap: 8px;
-//   margin-bottom: 6px;
-// }
-// .points .check{ font-weight: 800; }
-
-// /* Optionnel: calage “maquette” de l’image droite en bas */
-// .hero-media--right{
-//   align-self: end;           /* colle au bas du panneau */
-//   /* légère retouche si besoin */
-//   /* transform: translateY(4px); */
-// }
-
-// /* Responsive: on empile et on garde des tailles harmonieuses */
-// @media (max-width: 1279px){
-//   .hero-panel{
-//     grid-template-columns: 1fr;
-//     gap: var(--gap-md);
-//   }
-//   .hero-media--left{
-//     justify-self: center;
-//     max-width: clamp(160px, 45vw, 320px);
-//   }
-//   .hero-copy{
-//     order: 2;
-//   }
-//   .hero-media--right{
-//     order: 3;
-//     justify-self: center;
-//     max-width: clamp(150px, 40vw, 260px);
-//   }
-// }
-:host{
-  /* tailles des illus gauche/droite */
-  --hero-left-w:  clamp(180px, 24vw, 280px);
-  --hero-right-w: clamp(180px, 24vw, 300px);
-  --hero-pad:     clamp(14px, 2vw, 22px);
-}
-
-/* panneau sombre avec bord teal + glow */
-.hero-panel{
-  position: relative;
-  display: grid;
-  place-items: center;
-  padding: var(--hero-pad);
-  min-height: clamp(200px, 24vw, 340px);
-
-  background: #0b0f10;                /* fond sombre */
-  border: 3px solid var(--accent);    /* bord teal */
-  border-radius: 18px;
-  box-shadow:
-    0 0 0 4px rgba(44,234,198,.12),
-    0 12px 28px rgba(0,0,0,.35);
-  overflow: hidden;
-}
-
-/* contenu texte centré (au-dessus des images) */
-.hero-copy{
-  position: relative;
-  z-index: 2;
-  display: grid;
-  gap: var(--gap-md);
-  align-content: start;
-  max-width: 980px;
-  text-align: left;
-  color: #fff;
-  padding-top: 80px;                        /* texte blanc comme la maquette */
-}
-
-/* check + texte sur 2 colonnes tight */
-.points{
-  margin: 0; padding: 0; list-style: none;
-}
-.points li{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-.points .check{ font-weight: 800; color: var(--accent); }
-
-/* CTA façon pill blanche + bord teal */
-.hero-cta .btn-primary{
-  --ring: rgba(44,234,198,.22);
-  background: #fff;
-  color: #111;
-  border: 2px solid var(--accent);
-  border-radius: 999px;
-  padding: 10px 26px;
-  font-weight: 800;
-  box-shadow: 0 0 0 3px var(--ring);
-}
-
-/* === Images flottantes (gauche/droite) === */
-.hero-media{           /* on neutralise le vieux style “carte” */
-  position: absolute;
-  inset: auto;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  z-index: 1;          /* sous le texte */
-  pointer-events: none;
-}
-
-.hero-img{
-  display: block;
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,.35)); /* petite profondeur */
-}
-
-/* Gauche : ancrée bas-gauche, déborde légèrement */
-.hero-media--left{
-  left: -5%;
-  bottom: -8%;
-  width: var(--hero-left-w);
-}
-
-/* Droite : ancrée bas-droit, un peu plus petite */
-.hero-media--right{
-  right: -5%;
-  bottom: -14%;
-  width: var(--hero-right-w);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 1279px){
-  :host{
-    --hero-left-w:  clamp(160px, 36vw, 280px);
-    --hero-right-w: clamp(150px, 32vw, 240px);
-  }
-}
-
-@media (max-width: 768px){
-  :host{
-    --hero-left-w:  44vw;
-    --hero-right-w: 38vw;
-  }
-  .hero-media--left{  left: -10%; bottom: -10%; }
-  .hero-media--right{ right: -12%; bottom: -16%; }
-  .hero-cta .btn-primary{ padding: 8px 20px; }
-}
-
-/* ---------------------------
-   Partners
-   --------------------------- */
-.partners {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    align-items: center;
-    padding: var(--pad-card);
-    border: 1px dashed var(--line);
-    border-radius: 12px;
-    background: var(--surface);
-}
-
-.partner {
-    white-space: nowrap;
-}
-
-/* ---------------------------
-   Partners (logos images)
-   --------------------------- */
-.partners{
-  padding: clamp(10px, 1.6vw, 18px);
-  border: 1px dashed var(--line);
-  border-radius: 12px;
-  background: var(--surface);
-}
-
-.partner-logos{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(16px, 6vw, 72px);
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.partner-item{ line-height: 0; } /* évite l'espace texte autour des <img> */
-
-.partner-logo{
-  display: block;
-  height: clamp(28px, 3.6vw, 52px); /* taille responsive proche maquette */
-  width: auto;
-  object-fit: contain;
-  user-select: none;
-  -webkit-user-drag: none;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.20));
-}
-
-/* ---------------------------
-   Partners (logos images) — version maquette (flat)
-   --------------------------- */
-
-/* On a parfois 2 blocs .partners dans ton fichier.
-   Garde celui-ci en dernier pour surcharger l’ancien. */
-.partners{
-  /* plus de carte grise ni de bordure */
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-
-  /* respiration légère, sans cadre visuel autour */
-  padding: clamp(8px, 1.2vw, 14px) 0;
-  padding-top: 40px;
-}
-
-/* La liste des logos reste en flex, on réduit un peu l’écart */
-.partner-logos{
-  gap: clamp(14px, 5vw, 60px);
-}
-
-/* Logos légèrement plus petits (≈ 15–20% de moins) */
-.partner-logo{
-  display: block;
-  height: clamp(22px, 2.8vw, 42px); /* (avant: 28–52px) */
-  width: auto;
-  object-fit: contain;
-  user-select: none;
-  -webkit-user-drag: none;
-  /* tu peux aussi enlever l’ombre si tu veux un rendu ultra-plat : */
-  /* filter: none; */
-}
-
-
-/* Optionnel : si un logo paraît plus petit visuellement, tu peux surclasser sa hauteur
-.partner-logo.logo-krafton { height: clamp(30px, 3.9vw, 56px); }
-*/
-
-
-/* ---------------------------
-   Game cards
-   --------------------------- */
-.game-card {
-    display: grid;
-    gap: 8px;
-}
-
-.game-thumb {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: 1px dashed var(--line);
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    background: #fff;
-}
-
-.game-label {
-    text-align: left;
-    font-weight: 600;
-}
-
-/* ---------------------------
-   ASIDES (statbox + promo)
-   --------------------------- */
-.stat-tile,
-.statbox,
-.promo-card {
-    background: #111;
-    border: 0;
-    border-radius: var(--tile-radius);
-    box-shadow: var(--tile-shadow);
-    padding: var(--tile-pad);
-}
-
-/* Têtes / titres dans les boîtes */
-.stat-head,
-.statbox-head {
-    margin: 2px 0 12px;
-    text-align: center;
-    color: #fff;
-    font-weight: 800;
-    font-size: 1rem;
-    /* compact */
-    letter-spacing: .02em;
-    line-height: 1.1;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .55);
-    padding: 8px 10px;
-}
-
-/* Fenêtres grises internes */
-.stat-window,
-.statbox-body,
-.promo-window {
-    background: #e9e9e9;
-    border: 0;
-    border-radius: var(--win-radius);
-    min-height: var(--win-min-h);
-    display: grid;
-    place-items: center;
-    padding: var(--win-pad);
-    overflow: hidden;
-}
-
-/* Figures / images internes */
-.stat-img,
-.stat-figure,
-.promo-img {
-    max-width: 78%;
-    max-height: 88px;
-    height: auto;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, .08));
-}
-
-/* Placeholder si pas d’image */
-.stat-placeholder {
-    color: #999;
-    font-weight: 700;
-    font-size: 1.4rem;
-}
-
-/* Promo: cap/logo + titre */
-.promo-cap {
-    background: #111;
-    border-radius: 16px;
-    display: grid;
-    place-items: center;
-    padding: 6px 10px;
-    min-height: 40px;
-}
-
-.promo-logo {
-    max-width: 72%;
-    height: auto;
-    user-select: none;
-    -webkit-user-drag: none;
-    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, .35));
-}
-
-.promo-title {
-    margin: 0;
-    /* l’espace vient du gap de .col-right */
-    font-size: .95rem;
-    font-weight: 700;
-    text-align: center;
-    opacity: .85;
-}
-
-/* Pas de marge additionnelle entre promo-cards :
-   on ne garde QUE le gap de la colonne droite */
-.promo-card+.promo-card {
-    margin-top: 0;
-}
-
-/* ===== CTA INSCRIPTION — style maquette ===== */
-:host{
-  --cta-min-w: clamp(240px, 34vw, 300px);
-  --cta-h:     clamp(42px, 5.4vw, 40px);
-  --cta-font:  clamp(.95rem, 1.2vw, 1.25rem);
-}
-
-/* conteneur du CTA : centré sous la liste */
-.hero-cta{
-  justify-self: center;
-  margin-top: clamp(36px, 2.4vw, 28px);
-}
-
-/* pilule blanche + large + texte plus grand */
-.hero-cta .btn-primary{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: var(--cta-min-w);
-  height: var(--cta-h);
-  padding-inline: clamp(28px, 6vw, 80px);
-
-  background: #fff;
-  color: #111;
-  font-weight: 900;
-  font-size: var(--cta-font);
-  letter-spacing: .06em;
-  text-transform: uppercase;
-
-  border: 3px solid var(--accent);
-  border-radius: 999px;
-  box-shadow: 0 0 0 5px var(--cta-ring), 0 10px 20px rgba(0,0,0,.35);
-
-  transition: box-shadow .2s ease, transform .06s linear;
-}
-.hero-cta .btn-primary:hover{
-  box-shadow: 0 0 0 6px var(--cta-ring), 0 12px 24px rgba(0,0,0,.42);
-}
-.hero-cta .btn-primary:active{
-  transform: translateY(1px);
-}
-
-/* petites coches un poil plus visibles comme sur la maquette */
-.points .check{
-  font-weight: 900;
-  font-size: 1.1em;
-}
-
-/* ===== HERO — Typo des points (sans pointillés, CTA inchangé) ===== */
-:host{
-  --copy-size: clamp(16px, 1.45vw, 22px); /* taille texte */
-  --copy-line: 1.55;                      /* interligne */
-  --copy-gap:  clamp(12px, 1.2vw, 18px);  /* écart entre points */
-}
-
-/* On garde ton layout ; on ajuste juste le calage vertical du bloc texte */
-.hero-copy{
-  padding-top: clamp(36px, 3vw, 44px);
-}
-
-/* Liste des points (grosse typo + colonne coche + texte) */
-.points{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  row-gap: var(--copy-gap);
-  font-size: var(--copy-size);
-  line-height: var(--copy-line);
-  font-weight: 800;
-  letter-spacing: .01em;
-}
-
-/* Chaque ligne : coche étroite + texte fluide */
-.points li{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: start;
-  column-gap: clamp(10px, 1vw, 14px);
-}
-
-/* Coche bien visible (vert) */
-.points .check{
-  font-weight: 900;
-  color: var(--accent);
-  font-size: clamp(20px, 1.8vw, 28px);
-  line-height: 1;
-  transform: translateY(3px); /* alignement optique */
-}
-
-/* Corps du texte : lisibilité sur fond sombre */
-.points .txt{
-  text-shadow: 0 0 1px rgba(0,0,0,.25);
-}
-
-/* ⚠️ Pas de .points::before ici → aucun pointillé ajouté */
-
-
-/* ---------------------------
-   RESPONSIVE
-   --------------------------- */
-@media (max-width: 1279px) {
-    :host {
-        --outer-gutter: clamp(4px, 0.8vw, 10px);
-        --center-gap: clamp(28px, 3.6vw, 56px);
-    }
-
-    .home-main {
-        grid-template-columns:
-            var(--outer-gutter) var(--col-side-md) var(--center-gap) 1fr var(--center-gap) var(--col-side-md) var(--outer-gutter);
-        grid-template-areas: ". left . center . right .";
-        column-gap: 0;
-        row-gap: var(--gap-lg);
-    }
-
-    .hero-panel {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 1023px) {
-    .home-main {
-        grid-template-columns: 1fr;
-        grid-template-areas: "center" "right" "left";
-        margin-inline: 0;
-        /* plus de full-bleed en mono-colonne */
-    }
-}
-
-@media (max-width: 480px) {
-    .switch-btn {
-        padding: 8px 16px;
-        font-weight: 700;
-    }
-
-    .switch-divider {
-        height: 18px;
-        margin: 0 8px;
-    }
-}
-
-/* === Right-aside visuals: full-bleed images === */
-.col-right .promo-window {
-    padding: 0;
-    /* no inner gutter */
-    min-height: 0;
-    /* let aspect-ratio drive the height */
-    aspect-ratio: 16 / 9;
-    /* same shape as the mock */
-    overflow: hidden;
-    /* keep rounded corners clean */
-}
-
-.col-right .promo-window>img,
-.col-right .promo-window .promo-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    /* kill previous 78% cap */
-    max-height: none;
-    /* kill previous 88px cap */
-    object-fit: cover;
-    /* fill the frame */
-    border-radius: inherit;
-    /* match the window's rounding */
-}
-
-.home-topbar{
   display: grid;
   grid-template-columns:
-    var(--outer-gutter) var(--col-side) var(--center-gap) 1fr
-    var(--center-gap) var(--col-side) var(--outer-gutter);
-  grid-template-areas: ". clock . switch . dark .";
-  align-items: start;
-  padding-block: 8px 6px;   /* tu peux ajuster */
-  margin-bottom: 8px;       /* espace sous la barre */
+    var(--outer-gutter) var(--col-side) var(--center-gap) 1fr var(--center-gap) var(--col-side) var(--outer-gutter);
+  grid-template-areas: ". left . center . right .";
+  column-gap: 0; row-gap: var(--gap-lg);
+  /* full-bleed jusqu'au bord du cadre (variable globale dans :root) */
+  margin-inline: calc(-1 * var(--shell-pad-inline));
 }
+.col-left   { grid-area: left;   display: grid; align-content: start; gap: var(--aside-gap); }
+.col-center { grid-area: center; display: grid; align-content: start; gap: var(--gap-lg); }
+.col-right  { grid-area: right;  display: grid; align-content: start; gap: var(--aside-gap); margin-top: calc(-1 * var(--right-aside-lift)); }
 
-/* place les éléments dans les zones */
-.topbar-left{            /* ⌚ horloge */
-  grid-area: clock;
-  justify-self: center;
-  transform: none;       /* annule le nudge vertical */
+@media (max-width: 1279px) {
+  :host { --outer-gutter: clamp(4px, 0.8vw, 10px); --center-gap: clamp(28px, 3.6vw, 56px); --li-step: clamp(8px, 1.4vw, 14px); }
 }
-
-.home-topbar > .home-switch{ /* 🔁 switch Inscription/Connexion */
-  grid-area: switch;
-  justify-self: center;
-  margin: 0;             /* déjà neutre mais on confirme */
-}
-
-.topbar-cta{             /* 🌙 Dark mode */
-  grid-area: dark;
-  justify-self: center;
-  transform: none;       /* annule le nudge vertical */
-}
-
-/* ✅ 3) Responsive: on repasse en pile proprement */
-@media (max-width: 1023px){
-  .home-topbar{
+@media (max-width: 1023px) {
+  .home-main {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "switch"
-      "clock"
-      "dark";
-    row-gap: 10px;
-  }
-  .topbar-left,
-  .topbar-cta,
-  .home-topbar > .home-switch{
-    justify-self: center;
+    grid-template-areas: "center" "right" "left";
+    margin-inline: 0;
   }
 }
-
-/* ====== Rapprocher le bouton DARK MODE de l’aside droit ====== */
-
-/* 1) HORIZONTAL — on réduit l’écart "centre ↔ droite" uniquement pour la topbar */
-.home-topbar{
-  /* valeur plus serrée que --center-gap global */
-  --center-gap: clamp(20px, 2.6vw, 40px);
+@media (max-width: 480px) {
+  .switch-btn { padding: 8px 16px; font-weight: 700; }
+  .switch-divider { height: 18px; margin: 0 8px; }
 }
 
-/* 2) VERTICAL — on remonte légèrement toute la colonne de droite */
-:host{ --right-aside-lift: 100px; }   /* ajuste 10–22px selon ton goût */
-.col-right{ margin-top: calc(-1 * var(--right-aside-lift)); }
-
-/* 2bis) Si tu as un titre "Organise tes rendez-vous" au-dessus, on supprime ses marges par défaut */
-.col-right h1,
-.col-right h2,
-.col-right h3,
-.col-right h4,
-.col-right h5,
-.col-right h6{
-  margin-top: 0;
-  margin-bottom: 6px;
+/* ---------------------------
+   ASIDES (stats + promos)
+   --------------------------- */
+.statbox, .promo-card {
+  background: #111; border: 0; border-radius: var(--tile-radius);
+  box-shadow: var(--tile-shadow); padding: var(--tile-pad);
+}
+.statbox-head {
+  margin: 2px 0 12px; text-align: center; color: #fff;
+  font-weight: 800; font-size: 1rem; letter-spacing: .02em; line-height: 1.1;
+  text-shadow: 0 1px 0 rgba(0,0,0,.55);
+  padding: 8px 10px;
+}
+.statbox-body, .promo-window {
+  background: #e9e9e9; border: 0; border-radius: var(--win-radius);
+  min-height: var(--win-min-h);
+  display: grid; place-items: center; padding: var(--win-pad); overflow: hidden;
+}
+.stat-figure, .promo-img {
+  max-width: 78%; max-height: 88px; height: auto; width: auto; object-fit: contain;
 }
 
-/* (Optionnel) Si tu veux coller encore un poil plus, tu peux aussi enlever le padding externe du bouton */
-.topbar-cta .dark-toggle{ margin: 0; }
+/* Images promos à droite : plein cadre */
+.col-right .promo-window { padding: 0; min-height: 0; aspect-ratio: 16/9; overflow: hidden; }
+.col-right .promo-window>img {
+  display: block; width: 100%; height: 100%;
+  max-width: none; max-height: none;
+  object-fit: cover; object-position: 50% 50%;
+  border-radius: inherit;
+}
+.promo-title { margin: 0; font-size: 1rem; font-weight: 900; text-align: center; }
+.promo-card + .promo-card { margin-top: 0; }
 
-/* Décalage plus discret (2e, 3e, 4e lignes) */
-:host{
-  --li-step: clamp(10px, 1.35vw, 20px); /* ↓ avant: 22px–56px */
+/* Centrer horizontalement les logos-titres des cartes jeux */
+.promo-card .statbox-head,
+.promo-card .promo-cap {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.promo-card .statbox-head img,
+.promo-card .promo-cap img,
+.promo-logo {
+  display: block; margin-inline: auto; line-height: 0; padding-bottom: 10px; height: auto;
 }
 
-.points li{ margin-left: 0; }                      /* 1ère ligne */
+/* ---------------------------
+   HERO (panneau sombre central)
+   --------------------------- */
+.hero-panel {
+  position: relative; display: grid; place-items: center;
+  padding: var(--hero-pad);
+  min-height: clamp(200px, 24vw, 340px);
+  background: #0b0f10;
+  border: 3px solid var(--accent); border-radius: 18px;
+  box-shadow: 0 0 0 4px rgba(44,234,198,.12), 0 12px 28px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+/* superposition: texte au-dessus des images */
+.hero-panel>.hero-copy, .hero-panel>.hero-media { grid-area: 1 / 1; }
+figure.hero-media { margin: 0; }
+
+.hero-copy {
+  position: relative; z-index: 2;
+  display: grid; gap: var(--gap-md); align-content: start; max-width: 980px;
+  text-align: left; color: #fff;
+  padding-top: clamp(36px, 3vw, 44px);
+}
+.points {
+  margin: 0; padding: 0; list-style: none;
+  display: grid; row-gap: var(--copy-gap);
+  font-size: var(--copy-size); line-height: var(--copy-line); font-weight: 800; letter-spacing: .01em;
+}
+.points li { display: grid; grid-template-columns: auto 1fr; align-items: start; column-gap: clamp(10px, 1vw, 14px); }
+.points .check { font-weight: 900; color: var(--accent); font-size: clamp(20px, 1.8vw, 28px); line-height: 1; transform: translateY(3px); }
 .points li:nth-child(2){ margin-left: var(--li-step); }
 .points li:nth-child(3){ margin-left: calc(var(--li-step) * 1.6); }
 .points li:nth-child(4){ margin-left: calc(var(--li-step) * 2.1); }
 
-/* Responsive : encore plus léger puis annulation sur très petit écran */
-@media (max-width: 900px){
-  :host{ --li-step: clamp(8px, 1.4vw, 14px); }
+.hero-cta { justify-self: center; margin-top: clamp(36px, 2.4vw, 28px); }
+.hero-cta .btn-primary{
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: var(--cta-min-w); height: var(--cta-h);
+  padding-inline: clamp(28px, 6vw, 80px);
+  background: #fff; color: #111; font-weight: 900; font-size: var(--cta-font);
+  letter-spacing: .06em; text-transform: uppercase;
+  border: 3px solid var(--accent); border-radius: 999px;
+  transition: box-shadow .2s ease, transform .06s linear;
 }
-@media (max-width: 560px){
-  .points li{ margin-left: 0 !important; }
+.hero-cta .btn-primary:hover { box-shadow: 0 0 0 6px var(--cta-ring), 0 12px 24px rgba(0,0,0,.42); }
+.hero-cta .btn-primary:active { transform: translateY(1px); }
+
+/* Médias du hero : absolus sous le texte */
+.hero-media {
+  position: absolute !important; inset: auto; z-index: 1;
+  pointer-events: none; border: 0; background: transparent; box-shadow: none;
+}
+.hero-media--left  { left: -5%; bottom: -10%; width: var(--hero-left-w)  !important; }
+.hero-media--right { right: -1%; bottom: -6%;  width: var(--hero-right-w) !important; }
+.hero-img { display: block; width: 100%; height: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,.35)); }
+
+/* ---------------------------
+   Partners (logos)
+   --------------------------- */
+.partners {
+  background: transparent; border: 0; box-shadow: none;
+  padding: clamp(8px, 1.2vw, 14px) 0; padding-top: 50px;
+}
+.partner-logos {
+  display: flex; justify-content: center; align-items: center;
+  gap: clamp(14px, 5vw, 60px);
+  flex-wrap: wrap; list-style: none; margin: 0; padding: 0;
+}
+.partner-item { line-height: 0; }
+.partner-logo { display: block; height: clamp(22px, 2.8vw, 42px); width: auto; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+
+/* ---------------------------
+   Micro-responsives utiles
+   --------------------------- */
+@media (max-width: 900px){ :host{ --li-step: clamp(8px, 1.4vw, 14px); } }
+@media (max-width: 560px){ .points li{ margin-left: 0 !important; } }
+
+/* ===== SWITCH Inscription | Connexion ===== */
+
+/* ▶️ Hover beaucoup plus visible (tint teal + anneau inset + glow) */
+.switch-btn:hover {
+  background-color: rgba(0, 0, 0, 0.22); /* avant: rgba(255,255,255,.06) */
+  box-shadow:
+    0 0 0 1px var(--accent) inset,
+}
+
+/* ✅ État actif (onglet courant) plus marqué et persistant */
+.switch-btn.active,
+.switch-btn[aria-current="page"],
+.switch-btn[aria-selected="true"] {
+  background-color: rgba(44, 234, 198, .18);
+  box-shadow: 0 0 0 2px var(--accent) inset;
 }
 

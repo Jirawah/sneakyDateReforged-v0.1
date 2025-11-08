@@ -20,11 +20,6 @@ public class AuthController {
 
     private final AuthService authService;
 
-    //    @PostMapping("/register")
-//    public ResponseEntity<AuthResponseDTO> register(@Valid @RequestBody RegisterRequestDTO request) {
-//        AuthResponseDTO response = authService.register(request);
-//        return ResponseEntity.ok(response);
-//    }
     @PostMapping("/register")
     public ResponseEntity<Map<String, String>> register(@Valid @RequestBody RegisterRequestDTO request) {
         authService.register(request); // plus de token généré
@@ -44,3 +39,4 @@ public class AuthController {
         return ResponseEntity.ok("✅ Connexion Discord synchronisée avec succès.");
     }
 }
+

@@ -1,9 +1,3 @@
-// .public-shell {
-//   min-height: 100dvh;
-//   display: grid;
-//   grid-template-rows: auto 1fr;
-// }
-
 .public-header {
   display: flex;
   justify-content: center; // ou flex-start selon la maquette
@@ -11,8 +5,3 @@
   padding: 16px 0;
 }
 
-// .public-content {
-//   display: grid;
-//   place-items: center; // centre les cartes login/register/forgot/reset
-//   padding: 16px;
-// }

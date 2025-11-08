@@ -3,5 +3,67 @@
 @use 'styles/theme/material-light'; // puis switcher dark via classe .dark sur <html>
 
 
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* ======= Tokens globaux ======= */
+:root{
+  /* couleurs / effets */
+  --accent: #2CEAC6;
+  --accent-glow: rgba(44,233,198,.35);
+
+  /* cadre & respirations */
+  --frame-gap: clamp(8px, 1.6vw, 16px);
+  --shell-pad-inline: clamp(6px, .8vw, 12px);
+
+  --accent: #2CEAC6;
+  --accent-glow: rgba(44,233,198,.35);
+  --frame-gap: clamp(8px, 1.6vw, 16px);
+  --shell-pad-inline: clamp(6px, .8vw, 12px);
+
+  /* pile typographique globale */
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI",
+               "Noto Sans", "Helvetica Neue", Arial,
+               "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* fond app (derrière le cadre) */
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{
+  margin: 0;
+  background: #0a0d0e; /* halo noir autour */
+  color: #111;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after { font-family: inherit; }
+
+/* ======= Cadre commun (toutes pages) ======= */
+.page-frame{
+  position: fixed;
+  inset: 0;
+  padding: var(--frame-gap);
+}
+
+.shell{
+  height: 100%;
+  background: #fff;
+  border: 3px solid var(--accent);
+  border-radius: 28px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  overflow: hidden;              /* bords toujours nets */
+  display: flex;
+  flex-direction: column;
+}
+
+/* zone scrollable/padding interne commune à toutes les pages */
+.shell-body{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding-inline: var(--shell-pad-inline);
+  padding-block: 16px;
+}
+
