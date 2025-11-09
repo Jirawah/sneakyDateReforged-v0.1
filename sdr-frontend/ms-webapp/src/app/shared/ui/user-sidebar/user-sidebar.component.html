@@ -1,1 +1,35 @@
-<p>user-sidebar works!</p>
+<aside class="aside-card" *ngIf="profile as p">
+  <!-- Panneau avatar -->
+  <div class="panel">
+    <h3 class="panel__title">AVATAR</h3>
+
+    <div class="avatar-frame">
+      <img class="avatar" [src]="p.avatarUrl || placeholder" alt="avatar" />
+    </div>
+
+    <div class="welcome">
+      <div class="welcome__title">BIENVENUE</div>
+      <div class="welcome__name">{{ p.pseudo }}</div>
+    </div>
+
+    <button class="btn-ghost" type="button" (click)="logout.emit()">DÉCONNEXION</button>
+  </div>
+
+  <!-- Section RDV -->
+  <h3 class="section-title">MES RDV</h3>
+
+  <div class="stat-card">
+    <span class="stat-card__label">Nombres de RDV</span>
+    <span class="pill">{{ p.rdvCount ?? 0 }}</span>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-card__label">Prochain RDV</span>
+    <span class="pill">{{ fakeNextRdvDate }}</span>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-card__label">Horaire</span>
+    <span class="pill">{{ fakeNextRdvTime }}</span>
+  </div>
+</aside>

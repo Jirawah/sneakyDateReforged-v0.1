@@ -1,0 +1,137 @@
+<!-- HEADER (logo + horloge, cible authentifiée => /home) -->
+<app-header target="app"></app-header>
+
+<!-- LAYOUT 3 COLONNES -->
+<div class="app-home">
+  <!-- Colonne gauche : profil utilisateur -->
+  <aside class="app-home__left">
+    <app-user-sidebar [profile]="profile$ | async"></app-user-sidebar>
+  </aside>
+
+  <!-- Colonne centrale : nav + contenu principal -->
+  <main class="app-home__center">
+    <app-nav></app-nav>
+
+    <ng-container *ngIf="profile$ | async as profile">
+      <section class="main-card">
+        <h2 class="main-card__title">Bienvenue, {{ profile.pseudo }}</h2>
+        <p class="main-card__hint">
+          Ici on placera le contenu central (ex: prochains RDV, feed, etc.).
+        </p>
+      </section>
+    </ng-container>
+  </main>
+
+  <!-- Colonne droite : listes d'amis & invitations -->
+  <aside class="app-home__right">
+    <app-friends-lists [friends]="friends" [invitations]="invitations" (accept)="onAccept($event)"
+      (decline)="onDecline($event)"></app-friends-lists>
+  </aside>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.app-home {
+  display: grid;
+  grid-template-columns: 280px 1fr 320px;
+  gap: 24px;
+  padding: 16px 24px;
+  min-height: calc(100dvh - 88px);
+}
+
+/* Bloc central simple (tu styliseras plus tard en Material si tu veux) */
+.main-card {
+  background: var(--sys-surface, #fff);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+
+  &__title {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  &__hint {
+    margin: 0;
+    opacity: .8;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+
+import { AppHeaderComponent } from '../../shared/ui/app-header/app-header.component';
+import { AppNavComponent } from '../../shared/ui/app-nav/app-nav.component';
+import { UserSidebarComponent } from '../../shared/ui/user-sidebar/user-sidebar.component';
+import { FriendsListsComponent } from '../../shared/ui/friends-lists/friends-lists.component';
+
+import { UserSummary } from '../../shared/models/user';
+import { Friend } from '../../shared/models/friend';
+import { ProfileService } from '../../core/services/profile.service';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [
+    CommonModule,
+    AppHeaderComponent,
+    AppNavComponent,
+    UserSidebarComponent,
+    FriendsListsComponent
+  ],
+  templateUrl: './app-home.component.html',
+  styleUrls: ['./app-home.component.scss'],
+})
+export class AppHomeComponent {
+  private profileService = inject(ProfileService);
+  profile$!: Observable<UserSummary>;
+
+  friends: Friend[] = [
+    { id: 2, pseudo: 'Teammate1' },
+    { id: 3, pseudo: 'Teammate2' },
+    { id: 4, pseudo: 'Teammate3' },
+  ];
+  invitations: Friend[] = [
+    { id: 9, pseudo: 'NewGuy' },
+    { id: 10, pseudo: 'AnotherOne' },
+  ];
+
+  constructor() {
+    this.profile$ = this.profileService.getUserSummaryForAside();
+  }
+
+  onAccept(friend: Friend) {/* TODO */ }
+  onDecline(friend: Friend) {/* TODO */ }
+}
+

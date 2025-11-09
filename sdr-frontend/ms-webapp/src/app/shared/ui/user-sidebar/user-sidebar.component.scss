@@ -1,0 +1,110 @@
+:host {
+  --accent: #2CEAC6;
+  --accent-glow: rgba(44,234,198,.26);
+  --dark: #0b0f10;
+  --mint: #E6FBF6;
+  --ink: #111;
+}
+
+.aside-card{
+  background: var(--mint);
+  padding: 14px 14px 18px;
+  border-radius: 22px;
+  width: 100%;
+}
+
+/* ===== Panneau principal noir ===== */
+.panel{
+  background: var(--dark);
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  padding: 14px 14px 18px;
+  text-align: center;
+  color: #fff;
+}
+
+.panel__title{
+  margin: 4px 0 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.avatar-frame{
+  display: inline-block;
+  border: 3px solid var(--accent);
+  border-radius: 14px;
+}
+
+.avatar{
+  display: block;
+  width: 240px; /* ajuste si besoin */
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.welcome{ margin: 14px 0 10px; }
+.welcome__title{ font-weight: 700; letter-spacing: .05em; }
+.welcome__name{ margin-top: 4px; font-weight: 500; }
+
+.btn-ghost{
+  margin-top: 8px;
+  font-size: 1.1rem;
+  height: 44px;
+  padding: 0 40px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: #111;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border: 3px solid var(--accent);
+  cursor: pointer;
+}
+
+/* ===== Titre de section ===== */
+.section-title{
+  text-align: center;
+  color: var(--ink);
+  font-weight: 900;
+  letter-spacing: .04em;
+  margin: 16px 0 16px;
+}
+
+/* ===== Cartes de stats ===== */
+.stat-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--dark);
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  padding: 12px 14px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.stat-card__label{
+  font-weight: 800;
+  letter-spacing: .02em;
+  line-height: 1.15;
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  height: 40px;
+  padding: 0 12px;
+  background: #E9EDF1;
+  color: var(--ink);
+  font-weight: 900;
+  letter-spacing: .04em;
+  border: 3px solid var(--accent);
+  border-radius: 12px;
+}
+
+@media (max-width: 380px){
+  .avatar{ width: 100%; height: 160px; }
+}
