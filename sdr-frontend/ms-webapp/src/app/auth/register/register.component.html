@@ -1,114 +1,168 @@
-<main class="auth-wrap">
-  <section class="auth-panel">
-    <h2>Inscription</h2>
+<img class="brandbar-logo" src=".../../../../../assets/brand/sneakyDateReforged-Logo.svg" alt="SneakyDate" />
+<main class="reg-layout">
 
-    <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form">
+  <!-- Colonne gauche : Titre + Carte formulaire -->
+  <section class="reg-left">
+    <header class="reg-head">
+      <h1 class="reg-title">INSCRIPTION</h1>
+      <a class="reg-login" routerLink="/auth/login">
+        Déjà inscrit ? <span>CONNEXION</span>
+      </a>
+    </header>
 
-      <!-- Email -->
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" required />
-        <mat-error *ngIf="form.get('email')?.hasError('required')">
-          Email requis
-        </mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')">
-          Format invalide
-        </mat-error>
-      </mat-form-field>
+    <section class="reg-card">
+      <!-- Formulaire réactif -->
+      <!-- <form class="reg-form" [formGroup]="form" (ngSubmit)="submit()"> -->
+        <form id="registerForm" class="reg-form" [formGroup]="form" (ngSubmit)="submit()">
 
-      <!-- Steam ID -->
-      <mat-form-field appearance="outline">
-        <mat-label>Steam ID</mat-label>
-        <input matInput formControlName="steamId" required />
-        <mat-error *ngIf="form.get('steamId')?.hasError('required')">
-          Steam ID requis
-        </mat-error>
-      </mat-form-field>
 
-      <!-- Connexion Discord -->
-      <div class="discord-connect">
+        <!-- <div class="field">
+          <label class="label">Email</label>
+          <input class="input" type="email" formControlName="email" placeholder="exemple@email.com" />
+          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')">
+            Email requis
+          </p>
+          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">
+            Format invalide
+          </p>
+        </div> -->
+        <div class="field inbox">
+          <label class="label" for="email">Email</label>
+          <input id="email" class="input" type="email" formControlName="email" placeholder="exemple@email.com" />
+          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">Format
+            invalide</p>
+        </div>
 
-        <!-- Bouton pour lancer le flux Discord -->
-        <button
-          type="button"
-          mat-raised-button
-          class="btn-discord"
-          (click)="openDiscordInvite()">
-          Ouvrir Discord
+        <!-- <div class="row row-steam">
+          <div class="field">
+            <label class="label">Steam ID</label>
+            <input class="input" type="text" formControlName="steamId" placeholder="767554922136481" />
+            <p class="hint error" *ngIf="form.get('steamId')?.touched && form.get('steamId')?.hasError('required')">
+              Steam ID requis
+            </p>
+          </div>
+
+          <button type="button" class="btn-outline">
+            COMMENT OBTENIR MA STEAM ID ?
+          </button>
+        </div> -->
+        <div class="row row-steam">
+          <div class="field inbox">
+            <label class="label" for="steamId">Steam ID</label>
+            <input id="steamId" class="input" type="text" formControlName="steamId" placeholder="767554922136481" />
+            
+          </div>
+          <button type="button" class="btn-outline">COMMENT OBTENIR MA STEAM ID ?</button>
+        </div>
+
+
+        <!-- <button type="button" class="btn-discord" (click)="openDiscordInvite()">
+          CONNEXION DISCORD
         </button>
 
-        <!-- Statut Discord -->
-        <div class="status" *ngIf="form.get('discordConnected')?.value; else waitingDiscord">
-          ✅ Discord connecté
-        </div>
-        <ng-template #waitingDiscord>
-          <div class="status">
-            En attente de validation Discord...
+
+        <div class="discord-status">
+          <span class="checkbox"></span>
+          <span class="muted" *ngIf="!form.get('discordConnected')?.value">En attente de validation Discord…</span>
+          <span class="ok" *ngIf="form.get('discordConnected')?.value">✅ Connexion Discord validée</span>
+        </div> -->
+        <!-- Connexion Discord (icône dans le bouton) -->
+        <button type="button" class="btn-discord" (click)="openDiscordInvite()"
+          [class.is-valid]="form.get('discordConnected')?.value"
+          [attr.aria-pressed]="form.get('discordConnected')?.value">
+          <img class="chk-icon" [src]="form.get('discordConnected')?.value
+            ? 'assets/icons/checkboxChecked.png'
+            : 'assets/icons/checkboxEmpty.png'" alt="" width="16" height="16" loading="lazy" />
+          <span class="btn-label">
+            {{ form.get('discordConnected')?.value ? 'DISCORD CONNECTÉ' : 'CONNEXION DISCORD' }}
+          </span>
+        </button>
+
+
+
+        <!-- <div class="row row-2">
+          <div class="field">
+            <label class="label">Mot de passe</label>
+            <input class="input" type="password" formControlName="password" placeholder="********" />
+            <p class="hint">12 caractères minimum</p>
+            <p class="hint error" *ngIf="form.get('password')?.touched && form.get('password')?.hasError('required')">
+              Requis
+            </p>
+            <p class="hint error" *ngIf="form.get('password')?.touched && form.get('password')?.hasError('minlength')">
+              Minimum 12 caractères
+            </p>
           </div>
-        </ng-template>
 
-        <!-- Pseudo détecté côté backend -->
-        <div class="detected-pseudo" *ngIf="discordPseudoFromBackend">
-          Pseudo détecté :
-          <strong>{{ discordPseudoFromBackend }}</strong>
-          <small>(ce pseudo sera utilisé dans l'application)</small>
+          <div class="field">
+            <label class="label">Répétez votre mot de passe</label>
+            <input class="input" type="password" formControlName="confirmPassword" placeholder="********" />
+            <p class="hint error"
+              *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">
+              Requis
+            </p>
+            <p class="hint error" *ngIf="form.touched && form.hasError('passwordsMismatch')">
+              Les mots de passe ne correspondent pas
+            </p>
+          </div>
+        </div> -->
+        <div class="row row-2">
+          <div class="field inbox">
+            <label class="label" for="password">Mot de passe</label>
+            <input id="password" class="input" type="password" formControlName="password" placeholder="********" />
+          </div>
+
+          <div class="field inbox">
+            <label class="label" for="confirmPassword">Répétez votre mot de passe</label>
+            <input id="confirmPassword" class="input" type="password" formControlName="confirmPassword"
+              placeholder="********" />
+            <p class="hint error"
+              *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">Requis
+            </p>
+          </div>
         </div>
 
-        <!-- Checkbox (lecture seule dans l'UI, mais liée au formControl) -->
-        <mat-checkbox
-          formControlName="discordConnected"
-          class="discord-checkbox"
-          [disabled]="true"
-          color="primary">
-          Connexion Discord validée
-        </mat-checkbox>
-      </div>
 
-      <!-- Mot de passe -->
-      <mat-form-field appearance="outline">
-        <mat-label>Mot de passe (≥12 caractères)</mat-label>
-        <input matInput type="password" formControlName="password" required />
-        <mat-hint>12 caractères minimum</mat-hint>
-        <mat-error *ngIf="form.get('password')?.hasError('required')">
-          Requis
-        </mat-error>
-        <mat-error *ngIf="form.get('password')?.hasError('minlength')">
-          Minimum 12 caractères
-        </mat-error>
-      </mat-form-field>
+        <!-- <div class="cta-wrap">
+          <button class="btn-cta" type="submit"
+            [disabled]="loading || form.invalid || !form.get('discordConnected')?.value">
+            {{ loading ? 'Création…' : 'INSCRIPTION' }}
+          </button>
+          <a class="policy" href="javascript:void(0)">Politiques de confidentialité</a>
+        </div> -->
 
-      <!-- Confirmation mot de passe -->
-      <mat-form-field appearance="outline">
-        <mat-label>Confirmer le mot de passe</mat-label>
-        <input matInput type="password" formControlName="confirmPassword" required />
-        <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">
-          Requis
-        </mat-error>
-        <mat-error *ngIf="form.hasError('passwordsMismatch')">
-          Les mots de passe ne correspondent pas
-        </mat-error>
-      </mat-form-field>
 
-      <!-- Bouton créer mon compte -->
-      <button
-        mat-flat-button
-        color="primary"
-        type="submit"
-        [disabled]="
-          loading
-          || form.invalid
-          || !form.get('discordConnected')?.value
-        ">
-        {{ loading ? 'Création…' : 'Créer mon compte' }}
+        <p *ngIf="error" class="auth-error">{{ error }}</p>
+      </form>
+    </section>
+
+    <div class="reg-cta">
+      <button class="btn-cta" type="submit" form="registerForm"
+        [disabled]="loading || form.invalid || !form.get('discordConnected')?.value">
+        {{ loading ? 'Création…' : 'INSCRIPTION' }}
       </button>
 
-      <!-- Erreur globale -->
-      <p *ngIf="error" class="auth-error">{{ error }}</p>
-
-      <!-- Lien vers login -->
-      <div class="auth-links">
-        <a mat-button routerLink="/auth/login">J’ai déjà un compte</a>
-      </div>
-    </form>
+      <a class="policy" href="javascript:void(0)">Politiques de confidentialité</a>
+    </div>
   </section>
+
+  <!-- Colonne droite : panneau visuel + encart conditions -->
+  <aside class="reg-right">
+    <div class="hero">
+      <!-- mets ton image en background via CSS (voir SCSS), ou remplace par une <img> si tu préfères -->
+      <div class="conditions">
+        <!-- <div class="cond-head">
+          <span><img src="../../../assets/icons/membershipIcon.png" alt="valide icon">CONDITIONS D’ADHESIONS :</span>
+        </div> -->
+        <div class="cond-head">
+          <img class="cond-icon" src="../../../assets/icons/membershipIcon.png" alt="">
+          <span class="cond-title">CONDITIONS D’ADHESIONS :</span>
+        </div>
+        <ul class="cond-list">
+          <li><img src="../../../assets/icons/validateIcon.png" alt="valide icon"> Avoir un compte Discord</li>
+          <li><img src="../../../assets/icons/validateIcon.png" alt="valide icon"> Avoir un compte Steam</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
 </main>

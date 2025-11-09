@@ -1,0 +1,366 @@
+<main class="auth-wrap">
+  <section class="auth-panel">
+    <h2>Inscription</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="auth-form">
+
+      <!-- Email -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Email requis
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          Format invalide
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Steam ID -->
+      <mat-form-field appearance="outline">
+        <mat-label>Steam ID</mat-label>
+        <input matInput formControlName="steamId" required />
+        <mat-error *ngIf="form.get('steamId')?.hasError('required')">
+          Steam ID requis
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Connexion Discord -->
+      <div class="discord-connect">
+
+        <!-- Bouton pour lancer le flux Discord -->
+        <button
+          type="button"
+          mat-raised-button
+          class="btn-discord"
+          (click)="openDiscordInvite()">
+          Ouvrir Discord
+        </button>
+
+        <!-- Statut Discord -->
+        <div class="status" *ngIf="form.get('discordConnected')?.value; else waitingDiscord">
+          ✅ Discord connecté
+        </div>
+        <ng-template #waitingDiscord>
+          <div class="status">
+            En attente de validation Discord...
+          </div>
+        </ng-template>
+
+        <!-- Pseudo détecté côté backend -->
+        <div class="detected-pseudo" *ngIf="discordPseudoFromBackend">
+          Pseudo détecté :
+          <strong>{{ discordPseudoFromBackend }}</strong>
+          <small>(ce pseudo sera utilisé dans l'application)</small>
+        </div>
+
+        <!-- Checkbox (lecture seule dans l'UI, mais liée au formControl) -->
+        <mat-checkbox
+          formControlName="discordConnected"
+          class="discord-checkbox"
+          [disabled]="true"
+          color="primary">
+          Connexion Discord validée
+        </mat-checkbox>
+      </div>
+
+      <!-- Mot de passe -->
+      <mat-form-field appearance="outline">
+        <mat-label>Mot de passe (≥12 caractères)</mat-label>
+        <input matInput type="password" formControlName="password" required />
+        <mat-hint>12 caractères minimum</mat-hint>
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Requis
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+          Minimum 12 caractères
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Confirmation mot de passe -->
+      <mat-form-field appearance="outline">
+        <mat-label>Confirmer le mot de passe</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" required />
+        <mat-error *ngIf="form.get('confirmPassword')?.hasError('required')">
+          Requis
+        </mat-error>
+        <mat-error *ngIf="form.hasError('passwordsMismatch')">
+          Les mots de passe ne correspondent pas
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Bouton créer mon compte -->
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        [disabled]="
+          loading
+          || form.invalid
+          || !form.get('discordConnected')?.value
+        ">
+        {{ loading ? 'Création…' : 'Créer mon compte' }}
+      </button>
+
+      <!-- Erreur globale -->
+      <p *ngIf="error" class="auth-error">{{ error }}</p>
+
+      <!-- Lien vers login -->
+      <div class="auth-links">
+        <a mat-button routerLink="/auth/login">J’ai déjà un compte</a>
+      </div>
+    </form>
+  </section>
+</main>
+
+
+
+
+
+
+.auth-wrap {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-panel {
+  width: 100%;
+  max-width: 520px;
+  background: var(--sys-surface, #fff);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+
+  h2 { margin: 0 0 16px; }
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.discord-connect {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 8px;
+
+  .discord-checkbox {
+    font-weight: 700;
+    letter-spacing: .5px;
+  }
+
+  .btn-discord {
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  }
+}
+
+.auth-error { color: #c00; margin: 0; }
+.auth-links { display: flex; justify-content: flex-start; }
+
+
+
+
+
+
+
+import { Component, OnDestroy, inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
+import { Subscription, interval, of } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { AuthService } from '../../core/services/auth.service';
+import { RegisterRequest } from '../../shared/models/auth';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+  ],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
+})
+export class RegisterComponent implements OnDestroy {
+  // injections
+  private fb = inject(FormBuilder);
+  private router = inject(Router);
+  private authService = inject(AuthService);
+
+  // état UI
+  loading = false;
+  error: string | null = null;
+
+  // polling Discord
+  private discordPollSub?: Subscription;
+  private discordState?: string;
+
+  // infos retournées par le backend quand l'utilisateur rejoint le vocal Discord
+  public discordPseudoFromBackend: string | null = null;
+  public discordIdFromBackend: string | null = null;
+
+  // formulaire d'inscription
+  form: FormGroup = this.fb.group(
+    {
+      email: ['', [Validators.required, Validators.email]],
+      steamId: ['', [Validators.required]],
+      discordConnected: [{ value: false, disabled: true }], // sera coché par le polling Discord
+      password: ['', [Validators.required, Validators.minLength(12)]],
+      confirmPassword: ['', [Validators.required]],
+    },
+    {
+      validators: [passwordsMatchValidator()],
+    }
+  );
+
+  ngOnDestroy(): void {
+    this.discordPollSub?.unsubscribe();
+  }
+
+  /**
+   * Lance le flux Discord :
+   *  1. on demande un "state" au backend
+   *  2. on ouvre Discord
+   *  3. on poll /discord/status?state=... jusqu'à ce que connected = true
+   *     -> à ce moment-là on remplit la checkbox + on retient le pseudo Discord
+   */
+  openDiscordInvite(): void {
+    this.error = null;
+
+    this.authService.createDiscordPending().subscribe({
+      next: ({ state }) => {
+        this.discordState = state;
+
+        // on ouvre ton serveur Discord (l'invite)
+        const url = environment.discordInviteUrl || 'https://discord.com/app';
+        window.open(url, '_blank', 'noopener,noreferrer');
+
+        // on démarre le polling régulier
+        const start = Date.now();
+        this.discordPollSub?.unsubscribe();
+
+        this.discordPollSub = interval(2000)
+          .pipe(
+            switchMap(() =>
+              this.authService.getDiscordStatusByState(state)
+            ),
+            catchError(() =>
+              // si le GET /discord/status plante temporairement, on ne casse pas tout le flux
+              of({ connected: false, discordPseudo: null, discordId: null })
+            )
+          )
+          .subscribe((status) => {
+            if (status?.connected) {
+              // on coche la case Discord dans le form
+              this.form
+                .get('discordConnected')
+                ?.setValue(true, { emitEvent: false });
+
+              // on garde les infos Discord en mémoire locale pour le register()
+              this.discordPseudoFromBackend = status.discordPseudo || null;
+              this.discordIdFromBackend = status.discordId || null;
+
+              // stop polling
+              this.discordPollSub?.unsubscribe();
+            }
+
+            // sécurité : arrêt du polling après 2 minutes
+            if (Date.now() - start > 120000) {
+              this.discordPollSub?.unsubscribe();
+            }
+          });
+      },
+      error: () => {
+        this.error = 'Impossible de démarrer la connexion Discord (pending).';
+      },
+    });
+  }
+
+  /**
+   * Soumission du formulaire d'inscription.
+   * Si tout est valide -> on appelle le backend /auth/register.
+   * Au succès -> redirection vers /auth/login.
+   */
+  submit(): void {
+    // blocage si form invalide ou discord pas validé
+    if (this.form.invalid || !this.form.get('discordConnected')?.value) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.loading = true;
+    this.error = null;
+
+    // 🔒 sécurité : on ne tente pas register sans discordId capturé
+    if (!this.discordIdFromBackend) {
+      this.loading = false;
+      this.error =
+        "Discord non détecté. Merci de rejoindre le salon vocal Discord d'authentification avant de créer le compte.";
+      return;
+    }
+
+    // on choisit le pseudo final : priorité pseudo Discord
+    // (fallback "player" juste au cas où)
+    const finalPseudo = this.discordPseudoFromBackend?.trim() || 'player';
+
+    // payload que le backend attend (RegisterRequest côté ms-auth)
+    const payload: RegisterRequest = {
+      pseudo: finalPseudo,
+      email: this.form.get('email')!.value,
+      steamId: this.form.get('steamId')!.value,
+      password: this.form.get('password')!.value,
+      confirmPassword: this.form.get('confirmPassword')!.value,
+      // on envoie l'id Discord réel capturé
+      discordId: this.discordIdFromBackend,
+    };
+
+    this.authService.register(payload).subscribe({
+      next: () => {
+        // 🔄 on coupe le spinner ici aussi
+        this.loading = false;
+
+        // ✅ Succès -> on envoie l'utilisateur vers la page login
+        this.router.navigateByUrl('/auth/login');
+      },
+      error: (err) => {
+        // ❌ Échec -> on reste ici et on affiche l'erreur
+        console.error('[REGISTER] error', err);
+        this.error =
+          err?.error?.message || 'Impossible de créer le compte.';
+        this.loading = false;
+      },
+    });
+  }
+}
+
+/** Validator custom : password === confirmPassword */
+export function passwordsMatchValidator() {
+  return (group: FormGroup) => {
+    const p = group.get('password')?.value;
+    const c = group.get('confirmPassword')?.value;
+    return p && c && p === c ? null : { passwordsMismatch: true };
+  };
+}
+

@@ -1,44 +1,1131 @@
-.auth-wrap {
-  min-height: 100dvh;
+// /* ===== Layout global en 2 colonnes ===== */
+// .reg-layout {
+//   display: grid;
+//   /* Colonne gauche ~640px (min 560), colonne droite prend le reste comme sur la maquette */
+//   grid-template-columns: minmax(560px, 680px) 1fr;
+//   gap: clamp(24px, 4.5vw, 64px);
+//   align-items: start;
+// }
+
+// /* ===== Colonne gauche ===== */
+// .reg-left {
+//   padding-top: 8px;
+// }
+
+// .reg-head {
+//   margin: 0 0 10px;
+
+//   .reg-title {
+//     margin: 0;
+//     font-size: clamp(24px, 3.2vw, 40px);
+//     letter-spacing: .04em;
+//     font-weight: 900;
+//   }
+
+//   .reg-login {
+//     display: inline-block;
+//     margin-top: 4px;
+//     font-size: .9rem;
+//     color: #111;
+//     text-decoration: none;
+
+//     span {
+//       color: #0c5;
+//       text-decoration: underline;
+//     }
+//   }
+// }
+
+// /* Carte sombre à bord turquoise */
+// .reg-card {
+//   background: #0b0f10;
+//   border: 3px solid var(--accent);
+//   border-radius: 18px;
+//   box-shadow: 0 8px 24px rgba(0, 0, 0, .35), 0 0 0 4px rgba(44, 234, 198, .12);
+//   padding: clamp(14px, 2vw, 22px);
+//   max-width: 720px;
+// }
+
+// /* Forme des champs */
+// .field {
+//   margin-bottom: 12px;
+// }
+
+// .label {
+//   display: block;
+//   color: #cfd3d6;
+//   font-weight: 800;
+//   letter-spacing: .02em;
+//   margin: 2px 0 6px;
+// }
+
+// .input {
+//   width: 100%;
+//   height: 44px;
+//   border-radius: 10px;
+//   border: 0;
+//   background: #e9edf1;
+//   padding: 10px 12px;
+//   font-weight: 700;
+//   letter-spacing: .02em;
+//   outline: none;
+//   box-shadow: inset 0 0 0 2px transparent;
+// }
+
+// .input::placeholder {
+//   color: #8a8f95;
+// }
+
+// .input:focus {
+//   box-shadow: inset 0 0 0 2px var(--accent), 0 0 0 3px rgba(44, 234, 198, .18);
+// }
+
+// /* Grilles internes */
+// .reg-form {
+//   display: grid;
+//   gap: 12px;
+// }
+
+// .row {
+//   display: grid;
+//   gap: 12px;
+// }
+
+// .row-steam {
+//   grid-template-columns: 1fr auto;
+//   align-items: end;
+// }
+
+// .row-2 {
+//   grid-template-columns: 1fr 1fr;
+// }
+
+// /* Bouton aide Steam */
+// .btn-outline {
+//   height: 44px;
+//   white-space: nowrap;
+//   padding: 0 16px;
+//   border-radius: 12px;
+//   background: #28D8B6;
+//   color: #111;
+//   font-weight: 900;
+//   letter-spacing: .06em;
+//   border: 2px solid var(--accent);
+//   cursor: pointer;
+// }
+
+// .btn-outline:hover {
+//   box-shadow: 0 0 0 3px rgba(44, 234, 198, .18), 0 0 14px rgba(44, 234, 198, .28);
+// }
+
+// /* Gros bouton Discord */
+// // .btn-discord {
+// //   height: 48px;
+// //   width: 100%;
+// //   border-radius: 12px;
+// //   border: 4px solid var(--accent);
+// //   background: #28D8B6;
+// //   color: #111;
+// //   font-weight: 900;
+// //   letter-spacing: .08em;
+// //   text-transform: uppercase;
+// //   cursor: pointer;
+// // }
+// /* Bouton Discord avec icône de checkbox */
+// .btn-discord{
+//   height: 56px;               /* ou 48px si tu préfères, mais 56px matche mieux tes inputs */
+//   width: 100%;
+//   border-radius: 12px;
+//   border: 2px solid var(--accent);
+//   background: var(--accent);
+//   color: #111;
+//   font-weight: 900;
+//   letter-spacing: .08em;
+//   text-transform: uppercase;
+//   display: inline-flex;       /* icône + texte alignés */
+//   align-items: center;
+//   justify-content: center;
+//   gap: 12px;                  /* espace entre l’icône et le label */
+//   cursor: pointer;
+// }
+
+// .btn-discord .chk-icon{
+//   display: block;
+//   width: 16px;
+//   height: 16px;
+// }
+
+// /* État "connecté" : légère emphase visuelle optionnelle */
+// .btn-discord.is-valid{
+//   box-shadow: 0 0 0 4px rgba(44, 234, 198, .18), 0 12px 28px rgba(0,0,0,.38);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// /* Statut Discord */
+// .discord-status {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+
+//   .checkbox {
+//     width: 14px;
+//     height: 14px;
+//     border-radius: 3px;
+//     border: 2px solid #bbb;
+//     display: inline-block;
+//     background: #0b0f10;
+//   }
+
+//   .muted {
+//     color: #ccd2d7;
+//     font-weight: 700;
+//     letter-spacing: .02em;
+//   }
+
+//   .ok {
+//     color: #20d69f;
+//     font-weight: 900;
+//   }
+// }
+
+// /* Hints/erreurs */
+// .hint {
+//   margin: 4px 2px 0;
+//   font-size: .85rem;
+//   color: #b6bdc3;
+// }
+
+// .error {
+//   color: #ff6b6b;
+// }
+
+// /* CTA + lien policy */
+// .cta-wrap {
+//   text-align: center;
+//   margin-top: 6px;
+// }
+
+// .btn-cta {
+//   min-width: 220px;
+//   height: 46px;
+//   padding: 0 24px;
+//   border-radius: 999px;
+//   background: #0b0f10;
+//   color: #fff;
+//   font-weight: 900;
+//   letter-spacing: .08em;
+//   text-transform: uppercase;
+//   border: 3px solid var(--accent);
+//   box-shadow: 0 0 0 6px rgba(44, 234, 198, .14), 0 10px 20px rgba(0, 0, 0, .35);
+//   cursor: pointer;
+// }
+
+// .btn-cta:disabled {
+//   opacity: .45;
+//   cursor: not-allowed;
+// }
+
+// .btn-cta:hover {
+//   box-shadow: 0 0 0 6px rgba(44, 234, 198, .18), 0 0 16px rgba(44, 234, 198, .35);
+// }
+
+// .policy {
+//   display: block;
+//   margin-top: 10px;
+//   color: #9ad7c9;
+//   text-decoration: underline;
+//   font-size: .9rem;
+// }
+
+// .auth-error {
+//   color: #ff5c5c;
+//   text-align: center;
+//   margin-top: 8px;
+// }
+
+// /* ===== Colonne droite (HÉRO) ===== */
+// .reg-right {
+//   /* assure que la colonne droite s’étire sur toute la hauteur dispo du grid */
+//   align-self: stretch;
+// }
+
+// .reg-right .hero {
+//   position: relative;
+//   width: 100%;
+//   /* Très grande hauteur comme sur la maquette */
+//   min-height: clamp(560px, 76vh, 880px);
+
+//   /* image plein cadre */
+//   background: #000 url('/assets/visuals/pubg.png') center/cover no-repeat;
+
+//   border-radius: 0px 18px 18px 0px;
+//   border-left: 8px solid #EAEAEA;
+//   margin: 0px;
+//   /* collé au bord de la colonne */
+// }
+
+// /* Effet sticky pour qu'il reste calé en haut pendant le scroll */
+// @media (min-width: 1101px) {
+//   .reg-right .hero {
+//     position: sticky;
+//     /* se cale sous le padding interne de la shell */
+//     top: var(--shell-pad-inline, 12px);
+//     /* occupe quasi toute la hauteur visible à l’intérieur du cadre */
+//     height: calc(100vh - (var(--frame-gap, 16px) * 2) - (var(--shell-pad-inline, 12px) * 2));
+//     min-height: 560px;
+//     /* garde une borne basse agréable */
+//   }
+// }
+
+// /* Encadré conditions */
+// .conditions {
+//   position: absolute;
+//   top: 134px;
+//   left: -50px;
+//   background: #0b0f10;
+//   color: #fff;
+//   border: 3px solid var(--accent);
+//   border-radius: 14px;
+//   padding: 12px 16px;
+//   box-shadow: 0 0 0 16px #EAEAEA;
+// }
+
+// .cond-head {
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
+//   font-weight: 900;
+//   letter-spacing: .04em;
+//   margin-bottom: 6px;
+// }
+
+// .spot {
+//   width: 18px;
+//   height: 18px;
+//   border-radius: 50%;
+//   background: #9aa3a8;
+//   display: inline-block;
+// }
+
+// .cond-list {
+//   margin: 0;
+//   padding-left: 16px;
+// }
+
+// .cond-list li {
+//   line-height: 1.5;
+// }
+
+// /* ===== Responsive ===== */
+// @media (max-width: 1100px) {
+//   .reg-layout {
+//     grid-template-columns: 1fr;
+//   }
+
+//   .reg-right {
+//     order: -1;
+//   }
+
+//   .row-2 {
+//     grid-template-columns: 1fr;
+//   }
+
+//   .row-steam {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// /* === Desktop : 50 / 50 strict === */
+// @media (min-width: 1101px) {
+
+//   /* 1) Deux colonnes égales */
+//   .reg-layout {
+//     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+//     /* 50% / 50% */
+//   }
+
+//   /* 2) On annule le padding interne coté droit pour que le hero colle au bord */
+//   .reg-right {
+//     margin-right: calc(-1 * var(--shell-pad-inline, 12px));
+//   }
+
+//   /* 3) Le panneau image remplit bien sa colonne */
+//   .reg-right .hero {
+//     width: 97.5%;
+//     /* sticky déjà en place chez toi, on garde : */
+//     position: sticky;
+//     top: var(--shell-pad-inline, 12px);
+//     height: calc(99vh - (var(--frame-gap, 16px) * 2) - (var(--shell-pad-inline, 12px) * 2));
+//     min-height: 560px;
+
+//   }
+// }
+
+// /* Option confort (garde la carte à ~720px max et alignée à gauche dans sa 1/2 colonne) */
+// .reg-left {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+// }
+
+// .reg-card {
+//   width: min(720px, 100%);
+// }
+
+// // .cond-list{
+// //   list-style: none;
+// //   padding-left: 40px;
+
+// //   img{
+// //     width: 10%;
+// //     padding-right: 10px;
+// //   }
+// // }
+// .cond-list {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   margin-left: 60px;
+//   /* enlève l’indent artificiel */
+//   display: grid;
+//   gap: 6px;
+//   /* espace entre les lignes */
+// }
+
+// .cond-list li {
+//   display: flex;
+//   align-items: center;
+//   /* ✅ centrage vertical icône + texte */
+//   gap: 10px;
+//   /* espace entre icône et texte */
+//   line-height: 1.3;
+//   /* évite un gros interligne */
+// }
+
+// .cond-list li img {
+//   width: 30px;
+//   /* taille fixe, évite le 10% qui déforme */
+//   height: 20px;
+//   display: block;
+//   /* supprime l’alignement baseline */
+//   flex: 0 0 20px;
+//   /* réserve l’espace, pas d’étirement */
+// }
+
+// .cond-head {
+//   display: flex;
+//   align-items: center;
+//   /* centre verticalement icône + titre */
+//   gap: 10px;
+//   font-weight: 500;
+//   letter-spacing: .05em;
+//   margin-bottom: 6px;
+// }
+
+// /* ===== Label dans la boîte (style maquette) ===== */
+// .field.inbox { position: relative; }
+
+// .field.inbox .label {
+//   position: absolute;
+//   top: 6px;               /* place le libellé en haut de la boîte */
+//   left: 14px;
+//   margin: 0;
+//   font-size: .9rem;
+//   font-weight: 800;
+//   color: #111;            /* texte foncé sur fond clair */
+//   pointer-events: none;   /* le clic passe à l'input */
+// }
+
+// .field.inbox .input {
+//   height: 56px;           /* un peu plus haut pour laisser la place du label */
+//   padding-top: 26px;      /* espace pour le label au-dessus du placeholder */
+//   border-radius: 12px;
+// }
+
+// .field.inbox:focus-within .label {
+//   color: #0b0f10;         /* légère emphase quand le champ est focus */
+// }
+
+// /* Harmoniser le bouton aide Steam avec la nouvelle hauteur */
+// .btn-outline { height: 56px; }
+
+// /* === Liseré vert fluo sur les champs === */
+// .field.inbox .input{
+//   /* look maquette */
+//   border: 3px solid var(--accent);
+//   background: #e9edf1;
+//   height: 56px;                                   /* garde la même hauteur qu'avant */
+//   padding-top: 26px;                              /* espace pour le label interne */
+//   border-radius: 12px;
+//   transition: box-shadow .15s ease, transform .15s ease;
+// }
+
+// /* états : hover/focus */
+
+// .field.inbox .input:focus{
+//   outline: none;
+// }
+
+// /* état erreur (Angular ajoute .ng-invalid.ng-touched sur l’input) */
+// .field.inbox .input.ng-invalid.ng-touched{
+//   border-color: #ff6b6b;
+// }
+
+// /* Option : le bouton "COMMENT OBTENIR MA STEAM ID ?" avec le même liseré */
+// .btn-outline{
+//   border: 3px solid var(--accent);
+//   height: 56px;                                   /* aligné à l’input Steam */
+// }
+
+// .btn-outline:focus-visible{
+//   outline: 0;
+// }
+
+// /* espace sous la carte pour que le CTA “respire” */
+// .reg-card {
+//   margin-bottom: clamp(12px, 2.2vw, 24px);
+// }
+
+// /* conteneur du CTA sous la carte, même largeur et alignement */
+// .reg-cta {
+//   width: min(720px, 100%);
+//   text-align: center;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===========================
+   Register (SCSS complet)
+   =========================== */
+
+// /* ===== Layout global en 2 colonnes ===== */
+// .reg-layout {
+//   display: grid;
+//   grid-template-columns: minmax(560px, 680px) 1fr; /* gauche fixe, droite fluide */
+//   gap: clamp(24px, 4.5vw, 64px);
+//   align-items: start;
+// }
+
+// /* ===== Colonne gauche ===== */
+// .reg-left { padding-top: 8px; }
+
+// .reg-head {
+//   margin: 0 0 10px;
+
+//   .reg-title {
+//     margin: 0;
+//     font-size: clamp(24px, 3.2vw, 40px);
+//     letter-spacing: .04em;
+//     font-weight: 900;
+//   }
+
+//   .reg-login {
+//     display: inline-block;
+//     margin-top: 4px;
+//     font-size: .9rem;
+//     color: #111;
+//     text-decoration: none;
+
+//     span {
+//       color: #0c5;
+//       text-decoration: underline;
+//     }
+//   }
+// }
+
+// /* ===== Carte formulaire ===== */
+// .reg-card {
+//   /* Variables locales (look maquette) */
+//   --field-h: 52px;                       /* hauteur uniforme des champs/boutons */
+//   --radius: 12px;                        /* arrondi des champs/boutons */
+//   --steam-help-w: clamp(260px, 34%, 360px);
+
+//   background: #0b0f10;
+//   border: 3px solid var(--accent);
+//   border-radius: 18px;
+//   box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 4px rgba(44,234,198,.12);
+//   padding: clamp(14px, 2vw, 22px);
+//   max-width: 720px;
+//   width: min(720px, 100%);
+//   margin-bottom: clamp(12px, 2.2vw, 24px); /* respiration avant le CTA */
+// }
+
+// /* ===== Grilles internes du formulaire ===== */
+// .reg-form { display: grid; gap: clamp(12px, 1.8vw, 16px); }
+// .row      { display: grid; gap: clamp(12px, 1.8vw, 16px); }
+
+// .row-steam {
+//   grid-template-columns: minmax(0, 1fr) var(--steam-help-w); /* input + bouton aide */
+//   align-items: center;                                       /* parfait alignement */
+// }
+
+// .row-2 { grid-template-columns: 1fr 1fr; }
+
+// /* ===== Champs avec label “dans la boîte” ===== */
+// .field.inbox { position: relative; }
+
+// .field.inbox .label {
+//   position: absolute;
+//   top: 6px;
+//   left: 14px;
+//   margin: 0;
+//   font-size: .92rem;
+//   font-weight: 800;
+//   color: #111;
+//   letter-spacing: .02em;
+//   pointer-events: none; /* clic transmis à l’input */
+// }
+
+// .field.inbox .input {
+//   width: 100%;
+//   height: var(--field-h);
+//   padding: 10px 12px;
+//   padding-top: 22px;                  /* place le label interne */
+//   border-radius: var(--radius);
+//   border: 3px solid var(--accent);    /* liseré vert fluo */
+//   background: #e9edf1;
+//   font-weight: 700;
+//   letter-spacing: .02em;
+//   outline: none;
+// }
+
+// .field.inbox .input::placeholder { color: #8a8f95; }
+// .field.inbox:focus-within .label { color: #0b0f10; }
+
+// /* État erreur (Angular ajoute .ng-invalid.ng-touched sur l’input) */
+// .field.inbox .input.ng-invalid.ng-touched { border-color: #ff6b6b; }
+
+// /* ===== Bouton aide Steam (mêmes dimensions que les inputs) ===== */
+// .btn-outline {
+//   height: var(--field-h);
+//   border-radius: var(--radius);
+//   border: 3px solid var(--accent);
+//   padding-inline: 18px;
+//   background: #28D8B6;
+//   color: #111;
+//   font-weight: 900;
+//   letter-spacing: .06em;
+//   white-space: nowrap;
+//   cursor: pointer;
+// }
+// .btn-outline:hover {
+//   box-shadow: 0 0 0 3px rgba(44,234,198,.18), 0 0 14px rgba(44,234,198,.28);
+// }
+
+// /* ===== Bouton Discord (icône checkbox dynamique) ===== */
+// .btn-discord {
+//   height: var(--field-h);
+//   width: 100%;
+//   border-radius: var(--radius);
+//   border: 3px solid var(--accent);
+//   background: var(--accent);
+//   color: #111;
+//   font-weight: 900;
+//   letter-spacing: .08em;
+//   text-transform: uppercase;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 12px;
+//   cursor: pointer;
+// }
+// .btn-discord .chk-icon { width: 16px; height: 16px; display: block; }
+// .btn-discord.is-valid  { box-shadow: 0 0 0 4px rgba(44,234,198,.18), 0 12px 28px rgba(0,0,0,.38); }
+
+// /* ===== Hints / erreurs ===== */
+// .hint  { margin: 4px 2px 0; font-size: .85rem; color: #b6bdc3; }
+// .error { color: #ff6b6b; }
+
+// /* ===== CTA sous la carte (en dehors du form) ===== */
+// .reg-cta { width: min(720px, 100%); text-align: center; }
+
+// .btn-cta {
+//   min-width: 220px;
+//   height: 46px;
+//   padding: 0 24px;
+//   border-radius: 999px;
+//   background: #0b0f10;
+//   color: #fff;
+//   font-weight: 900;
+//   letter-spacing: .08em;
+//   text-transform: uppercase;
+//   border: 3px solid var(--accent);
+//   box-shadow: 0 0 0 6px rgba(44,234,198,.14), 0 10px 20px rgba(0,0,0,.35);
+//   cursor: pointer;
+// }
+// .btn-cta:disabled { opacity: .45; cursor: not-allowed; }
+// .btn-cta:hover    { box-shadow: 0 0 0 6px rgba(44,234,198,.18), 0 0 16px rgba(44,234,198,.35); }
+
+// .policy {
+//   display: block;
+//   margin-top: 10px;
+//   color: #9ad7c9;
+//   text-decoration: underline;
+//   font-size: .9rem;
+// }
+
+// .auth-error { color: #ff5c5c; text-align: center; margin-top: 8px; }
+
+// /* ===== Colonne droite (HÉRO) ===== */
+// .reg-right { align-self: stretch; }
+
+// .reg-right .hero {
+//   position: relative;
+//   width: 100%;
+//   min-height: clamp(560px, 76vh, 880px);
+//   background: #000 url('/assets/visuals/pubg.png') center/cover no-repeat;
+//   border-radius: 0 18px 18px 0;
+//   border-left: 8px solid #EAEAEA;
+//   margin: 0;
+// }
+
+// /* Encadré conditions */
+// .conditions {
+//   position: absolute;
+//   top: 134px;
+//   left: -50px;
+//   background: #0b0f10;
+//   color: #fff;
+//   border: 3px solid var(--accent);
+//   border-radius: 14px;
+//   padding: 12px 16px;
+//   box-shadow: 0 0 0 16px #EAEAEA;
+// }
+
+// .cond-head {
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
+//   font-weight: 900;
+//   letter-spacing: .04em;
+//   margin-bottom: 6px;
+// }
+
+// .cond-list { margin: 0; padding-left: 16px; }
+// .cond-list li { line-height: 1.5; }
+
+// /* ===== Responsive ===== */
+// @media (max-width: 1100px) {
+//   .reg-layout { grid-template-columns: 1fr; }
+//   .reg-right  { order: -1; }
+//   .row-2      { grid-template-columns: 1fr; }
+//   .row-steam  { grid-template-columns: 1fr; } /* bouton aide passe dessous */
+// }
+
+// @media (min-width: 1101px) {
+//   /* 50 / 50 strict */
+//   .reg-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+//   /* Hero collé au bord droit de la shell */
+//   .reg-right { margin-right: calc(-1 * var(--shell-pad-inline, 12px)); }
+
+//   .reg-right .hero {
+//     width: 97.5%;
+//     position: sticky;
+//     top: var(--shell-pad-inline, 12px);
+//     height: calc(99vh - (var(--frame-gap, 16px) * 2) - (var(--shell-pad-inline, 12px) * 2));
+//     min-height: 560px;
+//   }
+// }
+
+// /* ===== Confort alignement colonne gauche ===== */
+// .reg-left { display: flex; flex-direction: column; align-items: flex-start; }
+
+
+
+/* ============================
+   Register component (full SCSS)
+   ============================ */
+
+/* ===== Layout global en 2 colonnes ===== */
+.reg-layout {
   display: grid;
-  place-items: center;
-  padding: 24px;
+  grid-template-columns: minmax(560px, 680px) 1fr;
+  /* gauche fixe, droite fluide */
+  gap: clamp(24px, 4.5vw, 64px);
+  align-items: start;
 }
 
-.auth-panel {
+/* ===== Colonne gauche ===== */
+// .reg-left {
+//   padding-top: 8px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+// }
+.reg-left{
+  --col-max: 720px;                     /* largeur cible maquette */
+  padding-top: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;                   /* centre horizontalement les enfants */
+  gap: clamp(8px, 1.8vw, 16px);
+}
+
+.reg-head {
+  margin: 0 0 10px;
+
+  .reg-title {
+    margin: 0;
+    font-size: clamp(24px, 3.2vw, 40px);
+    letter-spacing: .04em;
+    font-weight: 700;
+  }
+
+  .reg-login {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: .9rem;
+    color: #111;
+    text-decoration: none;
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+.reg-head{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;     /* le H1 reste à gauche */
+  margin: 0 0 10px;
+}
+
+.reg-head .reg-login{
+  align-self: center;          /* centre horizontalement le lien */
+  display: inline-block;
+  margin-top: 4px;
+  text-align: center;
+  /* (optionnel) largeur ajustée au contenu : */
+  width: fit-content;
+}
+
+/* =========================
+   Formulaire (styles seul)
+   ========================= */
+
+/* Carte + variables locales (look maquette) */
+.reg-card {
+  --field-h: 52px;
+  /* hauteur uniforme des champs/boutons */
+  --radius: 12px;
+  /* arrondi uniforme */
+  --steam-help-w: clamp(260px, 34%, 360px);
+
+  background: #0b0f10;
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  //padding: clamp(14px, 2vw, 22px);
+  padding-top: 16px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  max-width: 600px;
+  width: min(720px, 100%);
+  margin-bottom: clamp(12px, 2.2vw, 24px);
+  /* respiration avant le CTA */
+}
+
+/* Grilles internes */
+.reg-form {
+  display: grid;
+  gap: clamp(12px, 1.8vw, 16px);
+}
+
+.row {
+  display: grid;
+  gap: clamp(8px, 1.8vw, 1px);
+}
+
+.row-steam {
+  // grid-template-columns: minmax(0,1fr) var(--steam-help-w); /* input + bouton aide */
+  // align-items: center;                                      /* alignement parfait */
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.row-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* On laisse le spacing au grid: pas de marge sur .field */
+.field {
+  margin: 0;
+}
+
+/* ===== Label "dans la boîte" ===== */
+.field.inbox {
+  position: relative;
+}
+
+.field.inbox .label {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  margin: 0;
+  font-size: .92rem;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: .02em;
+  pointer-events: none;
+  /* le clic passe à l’input */
+}
+
+/* ===== Inputs : même box-model que les boutons ===== */
+.field.inbox .input {
+  box-sizing: border-box;
+  /* IMPORTANT pour la vraie hauteur */
   width: 100%;
-  max-width: 520px;
-  background: var(--sys-surface, #fff);
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-
-  h2 { margin: 0 0 16px; }
+  height: var(--field-h);
+  padding: 22px 12px 10px;
+  /* place le label en haut */
+  border-radius: var(--radius);
+  border: 3px solid var(--accent);
+  /* liseré vert fluo */
+  background: #e9edf1;
+  font-weight: 700;
+  letter-spacing: .02em;
+  outline: none;
 }
 
-.auth-form {
-  display: grid;
-  gap: 16px;
+.field.inbox .input::placeholder {
+  color: #8a8f95;
 }
 
-.discord-connect {
+.field.inbox:focus-within .label {
+  color: #0b0f10;
+}
+
+/* État erreur Angular */
+.field.inbox .input.ng-invalid.ng-touched {
+  border-color: #ff6b6b;
+}
+
+/* ===== Bouton aide Steam : mêmes dimensions que les inputs ===== */
+.btn-outline {
+  box-sizing: border-box;
+  height: var(--field-h);
+  border-radius: var(--radius);
+  border: 3px solid var(--accent);
+  padding-inline: 18px;
+  background: #28D8B6;
+  color: #111;
+  font-weight: 900;
+  letter-spacing: .06em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  box-shadow: 0 0 0 3px rgba(44, 234, 198, .18), 0 0 14px rgba(44, 234, 198, .28);
+}
+
+/* ===== Bouton Discord (icône checkbox) ===== */
+.btn-discord {
+  box-sizing: border-box;
+  height: var(--field-h);
+  width: 100%;
+  border-radius: var(--radius);
+  border: 3px solid var(--accent);
+  background: var(--accent);
+  color: #111;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.btn-discord .chk-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.btn-discord.is-valid {
+  box-shadow: 0 0 0 4px rgba(44, 234, 198, .18), 0 12px 28px rgba(0, 0, 0, .38);
+}
+
+/* Hints / erreurs */
+.hint {
+  margin-top: 6px;
+  font-size: .85rem;
+  color: #b6bdc3;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+/* ===== CTA sous la carte (hors formulaire) ===== */
+.reg-cta {
+  width: min(720px, 100%);
+  text-align: center;
+}
+
+.btn-cta {
+  font-size: medium;
+  min-width: 220px;
+  height: 46px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #0b0f10;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 6px rgba(44, 234, 198, .14), 0 10px 20px rgba(0, 0, 0, .35);
+  cursor: pointer;
+}
+
+.btn-cta:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.btn-cta:hover {
+  box-shadow: 0 0 0 6px rgba(44, 234, 198, .18), 0 0 16px rgba(44, 234, 198, .35);
+}
+
+.policy {
+  display: block;
+  margin-top: 10px;
+  color: #111;
+  text-decoration: underline;
+  font-size: .9rem;
+}
+
+.auth-error {
+  color: #ff5c5c;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ===== Colonne droite (HÉRO) ===== */
+.reg-right {
+  align-self: stretch;
+}
+
+.reg-right .hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(560px, 76vh, 880px);
+  background: #000 url('/assets/visuals/pubg.png') center/cover no-repeat;
+  border-radius: 0 18px 18px 0;
+  border-left: 8px solid #EAEAEA;
+  margin: 0;
+}
+
+/* Encadré conditions */
+.conditions {
+  position: absolute;
+  top: 134px;
+  left: -50px;
+  background: #0b0f10;
+  color: #fff;
+  border: 3px solid var(--accent);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 0 0 16px #EAEAEA;
+}
+
+.cond-head {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 4px 0 8px;
+  gap: 8px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  margin-bottom: 6px;
+}
 
-  .discord-checkbox {
-    font-weight: 700;
-    letter-spacing: .5px;
+.cond-list {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.cond-list li {
+  line-height: 1.5;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  .reg-layout {
+    grid-template-columns: 1fr;
   }
 
-  .btn-discord {
-    border-radius: 9999px;
-    padding: 8px 16px;
-    font-weight: 600;
-    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  .reg-right {
+    order: -1;
+  }
+
+  .row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .row-steam {
+    grid-template-columns: 1fr;
+  }
+
+  /* bouton aide passe dessous */
+}
+
+@media (min-width: 1101px) {
+
+  /* 50 / 50 strict */
+  .reg-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  /* Hero collé au bord droit de la shell */
+  .reg-right {
+    margin-right: calc(-1 * var(--shell-pad-inline, 12px));
+  }
+
+  .reg-right .hero {
+    width: 97.5%;
+    position: sticky;
+    top: var(--shell-pad-inline, 12px);
+    height: calc(99vh - (var(--frame-gap, 16px) * 2) - (var(--shell-pad-inline, 12px) * 2));
+    min-height: 560px;
   }
 }
 
-.auth-error { color: #c00; margin: 0; }
-.auth-links { display: flex; justify-content: flex-start; }
+.brandbar-logo{
+  height: 48px;                       /* proche de la maquette */
+  width: auto;
+  display: block;
+  position: absolute;                 /* n'occupe pas de place dans le flux */
+  top: 68px;                          /* marge intérieure de ton cadre */
+  left: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;  
+}

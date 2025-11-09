@@ -1,0 +1,666 @@
+<main class="reg-layout">
+
+  <!-- Colonne gauche : Titre + Carte formulaire -->
+  <section class="reg-left">
+    <header class="reg-head">
+      <h1 class="reg-title">INSCRIPTION</h1>
+      <a class="reg-login" routerLink="/auth/login">
+        Déjà inscrit ? <span>CONNEXION</span>
+      </a>
+    </header>
+
+    <section class="reg-card">
+      <!-- Formulaire réactif -->
+      <form class="reg-form" [formGroup]="form" (ngSubmit)="submit()">
+
+        <!-- Email -->
+        <div class="field">
+          <label class="label">Email</label>
+          <input class="input" type="email" formControlName="email" placeholder="exemple@email.com" />
+          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')">
+            Email requis
+          </p>
+          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">
+            Format invalide
+          </p>
+        </div>
+
+        <!-- Steam + bouton aide -->
+        <div class="row row-steam">
+          <div class="field">
+            <label class="label">Steam ID</label>
+            <input class="input" type="text" formControlName="steamId" placeholder="767554922136481" />
+            <p class="hint error" *ngIf="form.get('steamId')?.touched && form.get('steamId')?.hasError('required')">
+              Steam ID requis
+            </p>
+          </div>
+
+          <button type="button" class="btn-outline">
+            COMMENT OBTENIR MA STEAM ID ?
+          </button>
+        </div>
+
+        <!-- Connexion Discord (gros bouton plein) -->
+        <button type="button" class="btn-discord" (click)="openDiscordInvite()">
+          <span class="led"></span>
+          CONNEXION DISCORD
+        </button>
+
+        <!-- Statut Discord (texte sous le bouton) -->
+        <div class="discord-status">
+          <span class="checkbox"></span>
+          <span class="muted" *ngIf="!form.get('discordConnected')?.value">En attente de validation Discord…</span>
+          <span class="ok" *ngIf="form.get('discordConnected')?.value">✅ Connexion Discord validée</span>
+        </div>
+
+        <!-- Mots de passe (2 colonnes) -->
+        <div class="row row-2">
+          <div class="field">
+            <label class="label">Mot de passe</label>
+            <input class="input" type="password" formControlName="password" placeholder="********" />
+            <p class="hint">12 caractères minimum</p>
+            <p class="hint error" *ngIf="form.get('password')?.touched && form.get('password')?.hasError('required')">
+              Requis
+            </p>
+            <p class="hint error" *ngIf="form.get('password')?.touched && form.get('password')?.hasError('minlength')">
+              Minimum 12 caractères
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Répétez votre mot de passe</label>
+            <input class="input" type="password" formControlName="confirmPassword" placeholder="********" />
+            <p class="hint error"
+              *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">
+              Requis
+            </p>
+            <p class="hint error" *ngIf="form.touched && form.hasError('passwordsMismatch')">
+              Les mots de passe ne correspondent pas
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-wrap">
+          <button class="btn-cta" type="submit"
+            [disabled]="loading || form.invalid || !form.get('discordConnected')?.value">
+            {{ loading ? 'Création…' : 'INSCRIPTION' }}
+          </button>
+          <a class="policy" href="javascript:void(0)">Politiques de confidentialité</a>
+        </div>
+
+        <!-- Erreur globale -->
+        <p *ngIf="error" class="auth-error">{{ error }}</p>
+      </form>
+    </section>
+  </section>
+
+  <!-- Colonne droite : panneau visuel + encart conditions -->
+  <aside class="reg-right">
+    <div class="hero">
+      <!-- mets ton image en background via CSS (voir SCSS), ou remplace par une <img> si tu préfères -->
+      <div class="conditions">
+        <!-- <div class="cond-head">
+          <span><img src="../../../assets/icons/membershipIcon.png" alt="valide icon">CONDITIONS D’ADHESIONS :</span>
+        </div> -->
+        <div class="cond-head">
+          <img class="cond-icon" src="../../../assets/icons/membershipIcon.png" alt="">
+          <span class="cond-title">CONDITIONS D’ADHESIONS :</span>
+        </div>
+        <ul class="cond-list">
+          <li><img src="../../../assets/icons/validateIcon.png" alt="valide icon"> Avoir un compte Discord</li>
+          <li><img src="../../../assets/icons/validateIcon.png" alt="valide icon"> Avoir un compte Steam</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Layout global en 2 colonnes ===== */
+.reg-layout {
+  display: grid;
+  /* Colonne gauche ~640px (min 560), colonne droite prend le reste comme sur la maquette */
+  grid-template-columns: minmax(560px, 680px) 1fr;
+  gap: clamp(24px, 4.5vw, 64px);
+  align-items: start;
+}
+
+/* ===== Colonne gauche ===== */
+.reg-left {
+  padding-top: 8px;
+}
+
+.reg-head {
+  margin: 0 0 10px;
+
+  .reg-title {
+    margin: 0;
+    font-size: clamp(24px, 3.2vw, 40px);
+    letter-spacing: .04em;
+    font-weight: 900;
+  }
+
+  .reg-login {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: .9rem;
+    color: #111;
+    text-decoration: none;
+
+    span {
+      color: #0c5;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Carte sombre à bord turquoise */
+.reg-card {
+  background: #0b0f10;
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35), 0 0 0 4px rgba(44, 234, 198, .12);
+  padding: clamp(14px, 2vw, 22px);
+  max-width: 720px;
+}
+
+/* Forme des champs */
+.field {
+  margin-bottom: 12px;
+}
+
+.label {
+  display: block;
+  color: #cfd3d6;
+  font-weight: 800;
+  letter-spacing: .02em;
+  margin: 2px 0 6px;
+}
+
+.input {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  border: 0;
+  background: #e9edf1;
+  padding: 10px 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  outline: none;
+  box-shadow: inset 0 0 0 2px transparent;
+}
+
+.input::placeholder {
+  color: #8a8f95;
+}
+
+.input:focus {
+  box-shadow: inset 0 0 0 2px var(--accent), 0 0 0 3px rgba(44, 234, 198, .18);
+}
+
+/* Grilles internes */
+.reg-form {
+  display: grid;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  gap: 12px;
+}
+
+.row-steam {
+  grid-template-columns: 1fr auto;
+  align-items: end;
+}
+
+.row-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Bouton aide Steam */
+.btn-outline {
+  height: 44px;
+  white-space: nowrap;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #0b0f10;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .06em;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 3px rgba(44, 234, 198, .12);
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  box-shadow: 0 0 0 3px rgba(44, 234, 198, .18), 0 0 14px rgba(44, 234, 198, .28);
+}
+
+/* Gros bouton Discord */
+.btn-discord {
+  height: 48px;
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: #111;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 4px rgba(44, 234, 198, .12), 0 12px 24px rgba(0, 0, 0, .35);
+  cursor: pointer;
+}
+
+.btn-discord .led {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0b0f10;
+  margin-right: 10px;
+}
+
+/* Statut Discord */
+.discord-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .checkbox {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 2px solid #bbb;
+    display: inline-block;
+    background: #0b0f10;
+  }
+
+  .muted {
+    color: #ccd2d7;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+
+  .ok {
+    color: #20d69f;
+    font-weight: 900;
+  }
+}
+
+/* Hints/erreurs */
+.hint {
+  margin: 4px 2px 0;
+  font-size: .85rem;
+  color: #b6bdc3;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+/* CTA + lien policy */
+.cta-wrap {
+  text-align: center;
+  margin-top: 6px;
+}
+
+.btn-cta {
+  min-width: 220px;
+  height: 46px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #0b0f10;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 6px rgba(44, 234, 198, .14), 0 10px 20px rgba(0, 0, 0, .35);
+  cursor: pointer;
+}
+
+.btn-cta:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.btn-cta:hover {
+  box-shadow: 0 0 0 6px rgba(44, 234, 198, .18), 0 0 16px rgba(44, 234, 198, .35);
+}
+
+.policy {
+  display: block;
+  margin-top: 10px;
+  color: #9ad7c9;
+  text-decoration: underline;
+  font-size: .9rem;
+}
+
+.auth-error {
+  color: #ff5c5c;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ===== Colonne droite (HÉRO) ===== */
+.reg-right {
+  /* assure que la colonne droite s’étire sur toute la hauteur dispo du grid */
+  align-self: stretch;
+}
+
+.reg-right .hero {
+  position: relative;
+  width: 100%;
+  /* Très grande hauteur comme sur la maquette */
+  min-height: clamp(560px, 76vh, 880px);
+
+  /* image plein cadre */
+  background: #000 url('/assets/visuals/pubg.png') center/cover no-repeat;
+
+  border-radius: 0px 18px 18px 0px;
+  border-left: 8px solid #EAEAEA;
+  margin: 0px;
+  /* collé au bord de la colonne */
+}
+
+/* Effet sticky pour qu'il reste calé en haut pendant le scroll */
+@media (min-width: 1101px) {
+  .reg-right .hero {
+    position: sticky;
+    /* se cale sous le padding interne de la shell */
+    top: var(--shell-pad-inline, 12px);
+    /* occupe quasi toute la hauteur visible à l’intérieur du cadre */
+    height: calc(100vh - (var(--frame-gap, 16px) * 2) - (var(--shell-pad-inline, 12px) * 2));
+    min-height: 560px;
+    /* garde une borne basse agréable */
+  }
+}
+
+/* Encadré conditions */
+.conditions {
+  position: absolute;
+  top: 134px;
+  left: -50px;
+  background: #0b0f10;
+  color: #fff;
+  border: 3px solid var(--accent);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 0 0 16px #EAEAEA;
+}
+
+.cond-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  margin-bottom: 6px;
+}
+
+.spot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #9aa3a8;
+  display: inline-block;
+}
+
+.cond-list {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.cond-list li {
+  line-height: 1.5;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  .reg-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .reg-right {
+    order: -1;
+  }
+
+  .row-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .row-steam {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Desktop : 50 / 50 strict === */
+@media (min-width: 1101px) {
+
+  /* 1) Deux colonnes égales */
+  .reg-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    /* 50% / 50% */
+  }
+
+  /* 2) On annule le padding interne coté droit pour que le hero colle au bord */
+  .reg-right {
+    margin-right: calc(-1 * var(--shell-pad-inline, 12px));
+  }
+
+  /* 3) Le panneau image remplit bien sa colonne */
+  .reg-right .hero {
+    width: 97.5%;
+    /* sticky déjà en place chez toi, on garde : */
+    position: sticky;
+    top: var(--shell-pad-inline, 12px);
+    height: calc(99vh - (var(--frame-gap, 16px) * 2) - (var(--shell-pad-inline, 12px) * 2));
+    min-height: 560px;
+
+  }
+}
+
+/* Option confort (garde la carte à ~720px max et alignée à gauche dans sa 1/2 colonne) */
+.reg-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.reg-card {
+  width: min(720px, 100%);
+}
+
+// .cond-list{
+//   list-style: none;
+//   padding-left: 40px;
+
+//   img{
+//     width: 10%;
+//     padding-right: 10px;
+//   }
+// }
+.cond-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 60px;
+  /* enlève l’indent artificiel */
+  display: grid;
+  gap: 6px;
+  /* espace entre les lignes */
+}
+
+.cond-list li {
+  display: flex;
+  align-items: center;
+  /* ✅ centrage vertical icône + texte */
+  gap: 10px;
+  /* espace entre icône et texte */
+  line-height: 1.3;
+  /* évite un gros interligne */
+}
+
+.cond-list li img {
+  width: 30px;
+  /* taille fixe, évite le 10% qui déforme */
+  height: 20px;
+  display: block;
+  /* supprime l’alignement baseline */
+  flex: 0 0 20px;
+  /* réserve l’espace, pas d’étirement */
+}
+
+.cond-head {
+  display: flex;
+  align-items: center;
+  /* centre verticalement icône + titre */
+  gap: 10px;
+  font-weight: 500;
+  letter-spacing: .05em;
+  margin-bottom: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Component, OnDestroy, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Subscription, interval, of } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+
+import { environment } from '../../../environments/environment';
+import { AuthService } from '../../core/services/auth.service';
+import { RegisterRequest } from '../../shared/models/auth';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
+})
+export class RegisterComponent implements OnDestroy {
+  private fb = inject(FormBuilder);
+  private router = inject(Router);
+  private authService = inject(AuthService);
+
+  loading = false;
+  error: string | null = null;
+
+  // polling Discord
+  private discordPollSub?: Subscription;
+  private discordState?: string;
+
+  // infos détectées côté backend
+  public discordPseudoFromBackend: string | null = null;
+  public discordIdFromBackend: string | null = null;
+
+  // Formulaire
+  form: FormGroup = this.fb.group(
+    {
+      email: ['', [Validators.required, Validators.email]],
+      steamId: ['', [Validators.required]],
+      discordConnected: [{ value: false, disabled: true }],
+      password: ['', [Validators.required, Validators.minLength(12)]],
+      confirmPassword: ['', [Validators.required]],
+    },
+    { validators: [passwordsMatchValidator()] }
+  );
+
+  ngOnDestroy(): void {
+    this.discordPollSub?.unsubscribe();
+  }
+
+  openDiscordInvite(): void {
+    this.error = null;
+    this.authService.createDiscordPending().subscribe({
+      next: ({ state }) => {
+        this.discordState = state;
+        const url = environment.discordInviteUrl || 'https://discord.com/app';
+        window.open(url, '_blank', 'noopener,noreferrer');
+
+        const start = Date.now();
+        this.discordPollSub?.unsubscribe();
+        this.discordPollSub = interval(2000).pipe(
+          switchMap(() => this.authService.getDiscordStatusByState(state)),
+          catchError(() => of({ connected: false, discordPseudo: null, discordId: null }))
+        ).subscribe((status) => {
+          if (status?.connected) {
+            this.form.get('discordConnected')?.setValue(true, { emitEvent: false });
+            this.discordPseudoFromBackend = status.discordPseudo || null;
+            this.discordIdFromBackend = status.discordId || null;
+            this.discordPollSub?.unsubscribe();
+          }
+          if (Date.now() - start > 120000) this.discordPollSub?.unsubscribe();
+        });
+      },
+      error: () => this.error = 'Impossible de démarrer la connexion Discord (pending).',
+    });
+  }
+
+  submit(): void {
+    if (this.form.invalid || !this.form.get('discordConnected')?.value) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    if (!this.discordIdFromBackend) {
+      this.error = "Discord non détecté. Rejoignez le salon vocal d'authentification.";
+      return;
+    }
+
+    this.loading = true;
+    const payload: RegisterRequest = {
+      pseudo: (this.discordPseudoFromBackend || 'player').trim(),
+      email: this.form.get('email')!.value,
+      steamId: this.form.get('steamId')!.value,
+      password: this.form.get('password')!.value,
+      confirmPassword: this.form.get('confirmPassword')!.value,
+      discordId: this.discordIdFromBackend,
+    };
+
+    this.authService.register(payload).subscribe({
+      next: () => { this.loading = false; this.router.navigateByUrl('/auth/login'); },
+      error: (err) => { this.loading = false; this.error = err?.error?.message || 'Impossible de créer le compte.'; },
+    });
+  }
+}
+
+export function passwordsMatchValidator() {
+  return (group: FormGroup) => {
+    const p = group.get('password')?.value;
+    const c = group.get('confirmPassword')?.value;
+    return p && c && p === c ? null : { passwordsMismatch: true };
+  };
+}
