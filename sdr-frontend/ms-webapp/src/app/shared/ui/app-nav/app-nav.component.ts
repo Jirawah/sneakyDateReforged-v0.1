@@ -22,4 +22,4 @@ import { MatButtonModule } from '@angular/material/button';
     </nav>
   `,
 })
-export class AppNavComponent {}
+export class AppNavComponent { }

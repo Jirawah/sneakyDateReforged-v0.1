@@ -34,5 +34,5 @@ import { UserSummary } from '../../models/user';
 })
 export class UserSidebarComponent {
   @Input() profile!: UserSummary | null;
-  placeholder = '/assets/placeholders/avatar.png'; // mets une image si tu veux
+  placeholder = '/assets/placeholders/avatar.png';
 }

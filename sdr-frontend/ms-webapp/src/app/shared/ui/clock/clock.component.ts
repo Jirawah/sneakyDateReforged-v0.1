@@ -23,26 +23,25 @@ import { CommonModule } from '@angular/common';
       align-items: center;
       justify-content: center;
 
-      padding: 4px 4px;                 /* épaisseur de la pilule */
-      border-radius: 999px;               /* forme pilule */
-      background: #f1f3f3;                /* intérieur CLAIR (comme la maquette) */
-      color: #0b0f10;                      /* texte noir */
-      border: 1.5px solid #0b0f10;        /* fin liseré noir interne */
+      padding: 4px 4px;          
+      border-radius: 999px;            
+      background: #f1f3f3;               
+      color: #0b0f10;                     
+      border: 1.5px solid #0b0f10;        
 
-      /* anneau vert net + glow doux autour (maquette) */
       box-shadow:
-        0 0 0 3px var(--_accent),         /* anneau vert (épaisseur) */
-        0 0 14px var(--_glow);            /* halo néon */
+        0 0 0 3px var(--_accent),         
+        0 0 14px var(--_glow);            
 
       font-weight: 800;
       letter-spacing: .02em;
       line-height: 1;
-      font-variant-numeric: tabular-nums; /* chiffres monospaces, évite les sauts */
+      font-variant-numeric: tabular-nums; 
       -webkit-font-smoothing: antialiased;
       user-select: none;
 
       /* stabilité visuelle quand l'heure change */
-      min-width: 88px;                    /* ~ largeur “23 h 59” */
+      min-width: 88px;                 
     }
 
     /* Variante compacte sur écrans étroits */
@@ -58,7 +57,7 @@ export class ClockComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.updateTimeText();
-    this.intervalId = setInterval(() => this.updateTimeText(), 30_000); // refresh toutes les 30s
+    this.intervalId = setInterval(() => this.updateTimeText(), 30_000);
   }
 
   ngOnDestroy(): void {
@@ -69,6 +68,6 @@ export class ClockComponent implements OnInit, OnDestroy {
     const now = new Date();
     const hh = now.getHours().toString().padStart(2, '0');
     const mm = now.getMinutes().toString().padStart(2, '0');
-    this.timeText = `${hh} h ${mm}`; // ex: "13 h 53"
+    this.timeText = `${hh} h ${mm}`;
   }
 }

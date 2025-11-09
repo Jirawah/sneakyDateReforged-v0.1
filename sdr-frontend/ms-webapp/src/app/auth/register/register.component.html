@@ -1,110 +1,47 @@
-<img class="brandbar-logo" src=".../../../../../assets/brand/sneakyDateReforged-Logo.svg" alt="SneakyDate" />
-<main class="reg-layout">
+<a class="brandbar-logo-link" routerLink="/" aria-label="Revenir à l’accueil (non authentifié)">
+  <img class="brandbar-logo" src="assets/brand/sneakyDateReforged-Logo.svg" alt="SneakyDate" />
+</a>
 
+<main class="reg-layout">
   <!-- Colonne gauche : Titre + Carte formulaire -->
   <section class="reg-left">
     <header class="reg-head">
       <h1 class="reg-title">INSCRIPTION</h1>
-      <a class="reg-login" routerLink="/auth/login">
-        Déjà inscrit ? <span>CONNEXION</span>
-      </a>
+      <a class="reg-login" routerLink="/auth/login">Déjà inscrit ? <span>CONNEXION</span></a>
     </header>
 
     <section class="reg-card">
       <!-- Formulaire réactif -->
-      <!-- <form class="reg-form" [formGroup]="form" (ngSubmit)="submit()"> -->
-        <form id="registerForm" class="reg-form" [formGroup]="form" (ngSubmit)="submit()">
-
-
-        <!-- <div class="field">
-          <label class="label">Email</label>
-          <input class="input" type="email" formControlName="email" placeholder="exemple@email.com" />
-          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')">
-            Email requis
-          </p>
-          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">
-            Format invalide
-          </p>
-        </div> -->
+      <form id="registerForm" class="reg-form" [formGroup]="form" (ngSubmit)="submit()">
         <div class="field inbox">
           <label class="label" for="email">Email</label>
           <input id="email" class="input" type="email" formControlName="email" placeholder="exemple@email.com" />
-          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">Format
-            invalide</p>
+          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">
+            Format invalide
+          </p>
         </div>
 
-        <!-- <div class="row row-steam">
-          <div class="field">
-            <label class="label">Steam ID</label>
-            <input class="input" type="text" formControlName="steamId" placeholder="767554922136481" />
-            <p class="hint error" *ngIf="form.get('steamId')?.touched && form.get('steamId')?.hasError('required')">
-              Steam ID requis
-            </p>
-          </div>
-
-          <button type="button" class="btn-outline">
-            COMMENT OBTENIR MA STEAM ID ?
-          </button>
-        </div> -->
         <div class="row row-steam">
           <div class="field inbox">
             <label class="label" for="steamId">Steam ID</label>
             <input id="steamId" class="input" type="text" formControlName="steamId" placeholder="767554922136481" />
-            
           </div>
-          <button type="button" class="btn-outline">COMMENT OBTENIR MA STEAM ID ?</button>
+          <!-- Ouvre le popup -->
+          <button type="button" class="btn-outline" (click)="openSteamHelp()">COMMENT OBTENIR MA STEAM ID ?</button>
         </div>
 
-
-        <!-- <button type="button" class="btn-discord" (click)="openDiscordInvite()">
-          CONNEXION DISCORD
-        </button>
-
-
-        <div class="discord-status">
-          <span class="checkbox"></span>
-          <span class="muted" *ngIf="!form.get('discordConnected')?.value">En attente de validation Discord…</span>
-          <span class="ok" *ngIf="form.get('discordConnected')?.value">✅ Connexion Discord validée</span>
-        </div> -->
-        <!-- Connexion Discord (icône dans le bouton) -->
+        <!-- Connexion Discord -->
         <button type="button" class="btn-discord" (click)="openDiscordInvite()"
           [class.is-valid]="form.get('discordConnected')?.value"
           [attr.aria-pressed]="form.get('discordConnected')?.value">
-          <img class="chk-icon" [src]="form.get('discordConnected')?.value
-            ? 'assets/icons/checkboxChecked.png'
-            : 'assets/icons/checkboxEmpty.png'" alt="" width="16" height="16" loading="lazy" />
+          <img class="chk-icon"
+            [src]="form.get('discordConnected')?.value ? 'assets/icons/checkboxChecked.png' : 'assets/icons/checkboxEmpty.png'"
+            alt="" width="16" height="16" loading="lazy" />
           <span class="btn-label">
             {{ form.get('discordConnected')?.value ? 'DISCORD CONNECTÉ' : 'CONNEXION DISCORD' }}
           </span>
         </button>
 
-
-
-        <!-- <div class="row row-2">
-          <div class="field">
-            <label class="label">Mot de passe</label>
-            <input class="input" type="password" formControlName="password" placeholder="********" />
-            <p class="hint">12 caractères minimum</p>
-            <p class="hint error" *ngIf="form.get('password')?.touched && form.get('password')?.hasError('required')">
-              Requis
-            </p>
-            <p class="hint error" *ngIf="form.get('password')?.touched && form.get('password')?.hasError('minlength')">
-              Minimum 12 caractères
-            </p>
-          </div>
-
-          <div class="field">
-            <label class="label">Répétez votre mot de passe</label>
-            <input class="input" type="password" formControlName="confirmPassword" placeholder="********" />
-            <p class="hint error"
-              *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">
-              Requis
-            </p>
-            <p class="hint error" *ngIf="form.touched && form.hasError('passwordsMismatch')">
-              Les mots de passe ne correspondent pas
-            </p>
-          </div>
-        </div> -->
         <div class="row row-2">
           <div class="field inbox">
             <label class="label" for="password">Mot de passe</label>
@@ -116,20 +53,11 @@
             <input id="confirmPassword" class="input" type="password" formControlName="confirmPassword"
               placeholder="********" />
             <p class="hint error"
-              *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">Requis
+              *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.hasError('required')">
+              Requis
             </p>
           </div>
         </div>
-
-
-        <!-- <div class="cta-wrap">
-          <button class="btn-cta" type="submit"
-            [disabled]="loading || form.invalid || !form.get('discordConnected')?.value">
-            {{ loading ? 'Création…' : 'INSCRIPTION' }}
-          </button>
-          <a class="policy" href="javascript:void(0)">Politiques de confidentialité</a>
-        </div> -->
-
 
         <p *ngIf="error" class="auth-error">{{ error }}</p>
       </form>
@@ -140,29 +68,44 @@
         [disabled]="loading || form.invalid || !form.get('discordConnected')?.value">
         {{ loading ? 'Création…' : 'INSCRIPTION' }}
       </button>
-
       <a class="policy" href="javascript:void(0)">Politiques de confidentialité</a>
     </div>
   </section>
 
-  <!-- Colonne droite : panneau visuel + encart conditions -->
+  <!-- Colonne droite -->
   <aside class="reg-right">
     <div class="hero">
-      <!-- mets ton image en background via CSS (voir SCSS), ou remplace par une <img> si tu préfères -->
       <div class="conditions">
-        <!-- <div class="cond-head">
-          <span><img src="../../../assets/icons/membershipIcon.png" alt="valide icon">CONDITIONS D’ADHESIONS :</span>
-        </div> -->
         <div class="cond-head">
           <img class="cond-icon" src="../../../assets/icons/membershipIcon.png" alt="">
           <span class="cond-title">CONDITIONS D’ADHESIONS :</span>
         </div>
         <ul class="cond-list">
-          <li><img src="../../../assets/icons/validateIcon.png" alt="valide icon"> Avoir un compte Discord</li>
-          <li><img src="../../../assets/icons/validateIcon.png" alt="valide icon"> Avoir un compte Steam</li>
+          <li><img src="../../../assets/icons/validateIcon.png" alt=""> Avoir un compte Discord</li>
+          <li><img src="../../../assets/icons/validateIcon.png" alt=""> Avoir un compte Steam</li>
         </ul>
       </div>
     </div>
   </aside>
-
 </main>
+
+<!-- ===== Modal Steam Help ===== -->
+<div class="modal-backdrop" *ngIf="steamHelpOpen" (click)="closeSteamHelp()"></div>
+<div class="modal" *ngIf="steamHelpOpen" role="dialog" aria-modal="true" aria-labelledby="steamHelpTitle"
+  (click)="closeSteamHelp()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <header class="modal-header">
+      <h2 id="steamHelpTitle">Où trouver votre Steam ID ?</h2>
+      <button type="button" class="modal-close" (click)="closeSteamHelp()" aria-label="Fermer">×</button>
+    </header>
+    <div class="modal-body">
+      <p>
+        Ouvrez Steam → cliquez sur votre <strong>Profil</strong> → copiez l’URL (ex.
+        <em>https://steamcommunity.com/id/…</em>).<br><br>
+        Si c’est une URL personnalisée, faites clic-droit &ldquo;Copier l’identifiant&rdquo; ou utilisez
+        <em>Afficher l’URL du profil</em> dans les paramètres.<br><br>Votre SteamID64 ressemble à
+        <code>7656119XXXXXXXXXX</code>.
+      </p>
+    </div>
+  </div>
+</div>

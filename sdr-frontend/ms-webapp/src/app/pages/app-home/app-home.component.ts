@@ -12,7 +12,7 @@ import { Friend } from '../../shared/models/friend';
 import { ProfileService } from '../../core/services/profile.service';
 
 @Component({
-  selector: 'app-home', // ✅ garde le selector initial
+  selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
@@ -28,7 +28,6 @@ export class AppHomeComponent {
   private profileService = inject(ProfileService);
   profile$!: Observable<UserSummary>;
 
-  // ✅ garde ces props si ton template affiche encore friends/invitations
   friends: Friend[] = [
     { id: 2, pseudo: 'Teammate1' },
     { id: 3, pseudo: 'Teammate2' },
@@ -43,7 +42,7 @@ export class AppHomeComponent {
     this.profile$ = this.profileService.getUserSummaryForAside();
   }
 
-  onAccept(friend: Friend) {/* TODO */}
-  onDecline(friend: Friend) {/* TODO */}
+  onAccept(friend: Friend) {/* TODO */ }
+  onDecline(friend: Friend) {/* TODO */ }
 }
 

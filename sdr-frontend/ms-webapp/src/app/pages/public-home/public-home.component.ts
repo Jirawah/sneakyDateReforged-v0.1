@@ -27,7 +27,7 @@ export class PublicHomeComponent {
   membersStatSrc = 'assets/home/asideLeft/membersImg.png';
   rdvStatSrc = 'assets/home/asideLeft/rdvImg.png';
 
-  heroLeftSrc  = 'assets/home/center/amongUsLeft.png';
+  heroLeftSrc = 'assets/home/center/amongUsLeft.png';
   heroRightSrc = 'assets/home/center/amongUsRight.png';
 
   promoCards = [

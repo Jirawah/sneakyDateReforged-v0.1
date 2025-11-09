@@ -12,12 +12,6 @@
   <main class="app-home__center">
     <app-nav></app-nav>
 
-    <!-- <section class="main-card">
-      <h2 class="main-card__title">Bienvenue, {{ profile?.pseudo }}</h2>
-      <p class="main-card__hint">
-        Ici on placera le contenu central (ex: prochains RDV, feed, etc.).
-      </p>
-    </section> -->
     <ng-container *ngIf="profile$ | async as profile">
       <section class="main-card">
         <h2 class="main-card__title">Bienvenue, {{ profile.pseudo }}</h2>

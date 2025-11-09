@@ -9,7 +9,7 @@ import { UserSummary } from '../../shared/models/user';
 export class ProfileService {
   private readonly base = environment.profileApiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /** Vue agrégée de l'utilisateur courant (JWT requis). */
   getMeFull(): Observable<AggregatedProfile> {
@@ -23,7 +23,7 @@ export class ProfileService {
     const fallback: UserSummary = {
       id: 0,
       pseudo: '...',
-      avatarUrl: undefined,   // laisse le composant afficher son placeholder
+      avatarUrl: undefined,
       countryCode: null,
       rdvCount: 0,
       friendsCount: 0

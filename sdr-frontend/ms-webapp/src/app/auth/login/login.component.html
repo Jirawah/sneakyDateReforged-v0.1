@@ -1,49 +1,53 @@
-<main class="auth-wrap">
+<a class="brandbar-logo-link" routerLink="/" aria-label="Revenir à l’accueil (non authentifié)">
+  <img class="brandbar-logo" src="assets/brand/sneakyDateReforged-Logo.svg" alt="SneakyDate" />
+</a>
 
+<main class="reg-layout">
+  <!-- Colonne gauche -->
+  <section class="reg-left">
+    <header class="reg-head">
+      <h1 class="reg-title">CONNEXION</h1>
+      <a class="reg-login" routerLink="/auth/register">
+        Pas encore inscrit ? <span>INSCRIPTION</span>
+      </a>
+    </header>
 
-  <section class="auth-panel">
+    <section class="reg-card">
+      <form id="loginForm" class="reg-form" [formGroup]="form" (ngSubmit)="submit()">
+        <!-- Email -->
+        <div class="field inbox">
+          <label class="label" for="email">Email</label>
+          <input id="email" class="input" type="email" formControlName="email" placeholder="exemple@email.com" />
+          <p class="hint error" *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')">
+            Format invalide
+          </p>
+        </div>
 
-    <!-- Titre + lien "Pas encore inscrit ?" -->
-    <h2>CONNEXION</h2>
-    <div class="auth-subtext">
-      Pas encore inscrit ?
-      <a routerLink="/auth/register">INSCRIPTION</a>
-    </div>
+        <!-- Mot de passe -->
+        <div class="field inbox">
+          <label class="label" for="password">Mot de passe</label>
+          <input id="password" class="input" type="password" formControlName="password" placeholder="********" />
+        </div>
 
-    <form
-      [formGroup]="form"
-      (ngSubmit)="submit()"
-      class="auth-form"
-      style="max-width:420px"
-    >
-      <!-- Email -->
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="email" required />
-        <mat-error *ngIf="form.get('email')?.hasError('required')">Email requis</mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')">Format invalide</mat-error>
-      </mat-form-field>
+        <p *ngIf="error" class="auth-error">{{ error }}</p>
+      </form>
+    </section>
 
-      <!-- Mot de passe -->
-      <mat-form-field appearance="outline">
-        <mat-label>Mot de passe</mat-label>
-        <input matInput type="password" formControlName="password" required />
-        <mat-error *ngIf="form.get('password')?.hasError('required')">Mot de passe requis</mat-error>
-      </mat-form-field>
-
-      <!-- Bouton Connexion -->
-      <button mat-flat-button color="primary" [disabled]="form.invalid || loading">
+    <div class="reg-cta">
+      <button class="btn-cta" type="submit" form="loginForm" [disabled]="loading || form.invalid">
         {{ loading ? 'Connexion…' : 'CONNEXION' }}
       </button>
-
-      <!-- Erreur éventuelle -->
-      <p *ngIf="error" class="auth-error">{{ error }}</p>
-
-      <!-- Liens bas de formulaire -->
-      <div class="auth-links">
-        <a routerLink="/forgot-password">Mot de passe oublié ?</a>
-      </div>
-      
-    </form>
+      <a class="policy" routerLink="/forgot-password">Mot de passe oublié ?</a>
+    </div>
   </section>
+
+  <!-- Colonne droite (Hero) -->
+  <aside class="reg-right">
+    <div class="hero hero--login">
+      <div class="welcome">
+        <img class="welcome-icon" src="../../../assets/icons/helloIcon.png" alt="" />
+        <span class="welcome-title">BIENVENUE</span>
+      </div>
+    </div>
+  </aside>
 </main>

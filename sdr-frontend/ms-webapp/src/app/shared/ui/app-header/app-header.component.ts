@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppLogoComponent } from '../app-logo/app-logo.component'; // tu l'as déjà
-import { ClockComponent } from '../clock/clock.component';          // tu l’as déjà (ou ajuste le chemin)
+import { AppLogoComponent } from '../app-logo/app-logo.component';
+import { ClockComponent } from '../clock/clock.component';
 
 @Component({
   selector: 'app-header',
