@@ -1,0 +1,24 @@
+# Reset-Docker-WSL2-lite.ps1
+# Soft reset Docker Desktop + WSL2 (non destructif)
+$ErrorActionPreference = "SilentlyContinue"
+
+Write-Host "→ Fermeture Docker Desktop..."
+Stop-Process -Name "Docker Desktop","com.docker.backend","com.docker.proxy" -Force
+Stop-Service -Name "com.docker.service" -Force
+
+Write-Host "→ Arrêt de WSL..."
+wsl --shutdown
+
+Write-Host "→ Redémarrage du service WSL (LxssManager)..."
+Restart-Service LxssManager -Force
+
+Write-Host "→ Démarrage de Docker Desktop..."
+$exe = "$Env:ProgramFiles\Docker\Docker\Docker Desktop.exe"
+if (Test-Path $exe) { Start-Process $exe } else { Write-Host "Docker Desktop.exe introuvable à $exe" -ForegroundColor Yellow }
+
+Write-Host "→ Attente que Docker soit prêt..."
+for ($i=0; $i -lt 60; $i++) {
+  & docker info *> $null
+  if ($LASTEXITCODE -eq 0) { Write-Host " Docker prêt."; break }
+  Start-Sleep 2
+}

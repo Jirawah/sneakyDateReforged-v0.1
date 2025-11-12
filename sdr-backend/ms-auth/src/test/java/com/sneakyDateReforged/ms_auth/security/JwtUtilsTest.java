@@ -80,35 +80,60 @@ class JwtUtilsTest {
         assertFalse(jwtUtils.isTokenValid(token, userDetails));
     }
 
-    @Test
-    void isTokenValid_shouldReturnFalse_ifTokenExpired() throws Exception {
-        JwtUtils shortLivedJwt = new JwtUtils();
+//    @Test
+//    void isTokenValid_shouldReturnFalse_ifTokenExpired() throws Exception {
+//        JwtUtils shortLivedJwt = new JwtUtils();
+//
+//        // Réglage : expiration 1 ms
+//        Field secretField = JwtUtils.class.getDeclaredField("secret");
+//        secretField.setAccessible(true);
+//        secretField.set(shortLivedJwt, secret);
+//
+//        Field expField = JwtUtils.class.getDeclaredField("expirationMs");
+//        expField.setAccessible(true);
+//        expField.set(shortLivedJwt, 1L);
+//
+//        shortLivedJwt.init();
+//
+//        UserAuthModel user = UserAuthModel.builder()
+//                .id(7L)
+//                .email("expired@email.com")
+//                .role("USER")
+//                .build();
+//
+//        String token = shortLivedJwt.generateToken(user);
+//
+//        Thread.sleep(5); // Laisse le temps d’expirer
+//
+//        User userDetails = new User("expired@email.com", "pwd", Collections.emptyList());
+//
+//        assertFalse(shortLivedJwt.isTokenValid(token, userDetails));
+//    }
+@Test
+void isTokenValid_shouldReturnFalse_ifTokenExpired_immediately() throws Exception {
+    JwtUtils expJwt = new JwtUtils();
 
-        // Réglage : expiration 1 ms
-        Field secretField = JwtUtils.class.getDeclaredField("secret");
-        secretField.setAccessible(true);
-        secretField.set(shortLivedJwt, secret);
+    // secret identique
+    var secretField = JwtUtils.class.getDeclaredField("secret");
+    secretField.setAccessible(true);
+    secretField.set(expJwt, "ThisIsASecretKeyForJWTsAndMustBe256BitsLong!");
 
-        Field expField = JwtUtils.class.getDeclaredField("expirationMs");
-        expField.setAccessible(true);
-        expField.set(shortLivedJwt, 1L);
+    // expiration négative => déjà expiré
+    var expField = JwtUtils.class.getDeclaredField("expirationMs");
+    expField.setAccessible(true);
+    expField.set(expJwt, -1000L);
 
-        shortLivedJwt.init();
+    expJwt.init();
 
-        UserAuthModel user = UserAuthModel.builder()
-                .id(7L)
-                .email("expired@email.com")
-                .role("USER")
-                .build();
+    var user = com.sneakyDateReforged.ms_auth.model.UserAuthModel.builder()
+            .email("expired@email.com").role("USER").id(7L).build();
 
-        String token = shortLivedJwt.generateToken(user);
+    var token = expJwt.generateToken(user);
+    var userDetails = new org.springframework.security.core.userdetails.User(
+            "expired@email.com", "pwd", java.util.Collections.emptyList());
 
-        Thread.sleep(5); // Laisse le temps d’expirer
-
-        User userDetails = new User("expired@email.com", "pwd", Collections.emptyList());
-
-        assertFalse(shortLivedJwt.isTokenValid(token, userDetails));
-    }
+    assertFalse(expJwt.isTokenValid(token, userDetails));
+}
 
     @Test
     void extractUsername_shouldThrowException_forMalformedToken() {
