@@ -70,6 +70,8 @@
       </div>
     </header>
 
+    <h1 class="layout-title" *ngIf="pageTitle">{{ pageTitle }}</h1>
+
     <!-- Contenu des pages -->
     <div class="shell-body">
       <router-outlet></router-outlet>

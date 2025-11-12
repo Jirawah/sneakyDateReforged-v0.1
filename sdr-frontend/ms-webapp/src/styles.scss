@@ -7,13 +7,6 @@
   /* couleurs / effets */
   --accent: #2CEAC6;
   --accent-glow: rgba(44, 233, 198, .35);
-
-  /* cadre & respirations */
-  --frame-gap: clamp(8px, 1.6vw, 16px);
-  --shell-pad-inline: clamp(6px, .8vw, 12px);
-
-  --accent: #2CEAC6;
-  --accent-glow: rgba(44, 233, 198, .35);
   --frame-gap: clamp(8px, 1.6vw, 16px);
   --shell-pad-inline: clamp(6px, .8vw, 12px);
 
@@ -57,7 +50,6 @@ body {
   background: #fff;
   border: 3px solid var(--accent);
   border-radius: 28px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, .25);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -69,5 +61,5 @@ body {
   min-height: 0;
   overflow: hidden;
   padding-inline: var(--shell-pad-inline);
-  padding-block: 16px;
+  padding-block: 0px;
 }
