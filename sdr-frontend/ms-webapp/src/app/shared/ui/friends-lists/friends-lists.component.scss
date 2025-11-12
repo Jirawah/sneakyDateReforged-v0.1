@@ -1,3 +1,155 @@
+// :host { display: block; }
+
+// /* ======= Carte conteneur (fond menthe + anneau turquoise) ======= */
+// .friends-aside{
+//   --accent: var(--accent, #2CEAC6);
+//   --glow:   var(--accent-glow, rgba(44,234,198,.22));
+//   --ink:    #0b0f10;
+
+//   inline-size: 100%;
+//   background: #E9FBF6;                      /* fond clair comme sur la maquette */
+//   border-radius: 18px;
+//   padding: 10px 10px 12px;
+
+//   /* pour qu’elle reste calée sous la topbar fixe */
+//   position: sticky;
+//   top: 140px; /* même hauteur que ta topbar réservée */
+// }
+
+// /* ======= En-tête "AMIS" ======= */
+// .aside-head{
+//   text-align: center;
+//   margin: 2px 0 10px;
+// }
+// .title{
+//   margin: 0;
+//   font-weight: 900;
+//   font-size: 1rem;
+//   letter-spacing: .08em;
+// }
+
+// /* ======= Liste d'amis ======= */
+// .friend-list{
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   display: grid;
+//   gap: 10px;
+//   border: 3px solid var(--accent);
+// }
+// .friend-card{
+//   display: grid;
+//   grid-template-columns: auto 1fr;
+//   align-items: center;
+//   gap: 10px;
+//   background: #0b0f10;
+//   color: #fff;
+//   border-radius: 14px;
+//   border: 3px solid #2CEAC6;
+//   padding: 4px 4px;
+// }
+
+// /* avatar rectangulaire avec bord turquoise */
+// .avatar{
+//   inline-size: 58px;
+//   block-size: 58px;
+//   object-fit: cover;
+//   border-radius: 10px;
+//   border: 3px solid #2CEAC6;
+//   box-shadow: 0 2px 6px rgba(0,0,0,.35);
+// }
+// .avatar.placeholder{
+//   display: grid;
+//   place-items: center;
+//   font-weight: 900;
+//   font-size: 1.1rem;
+//   background: #111;
+// }
+
+// /* Nom + statut */
+// .meta{ display: grid; align-content: center; row-gap: 4px; }
+// .name{
+//   font-weight: 900;
+//   letter-spacing: .02em;
+//   line-height: 1.1;
+// }
+// .status{
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 6px;
+//   font-size: .84rem;
+//   letter-spacing: .02em;
+//   opacity: .95;
+// }
+// .status .dot{
+//   inline-size: 10px;
+//   block-size: 10px;
+//   border-radius: 50%;
+//   box-shadow: 0 0 0 2px #111; /* petit liseré interne */
+// }
+
+// /* couleurs ONLINE / OFFLINE */
+// .friend-card.is-online .dot{ background: #31D158; }   /* vert */
+// .friend-card.is-offline .dot{ background: #FF4D55; }  /* rouge */
+
+// /* ======= Bloc "Invitations" ======= */
+// .block-title{
+//   margin: 12px 0 6px;
+//   text-align: left;
+//   font-weight: 900;
+//   font-size: .95rem;
+//   letter-spacing: .02em;
+// }
+// .invite-list{
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   display: grid;
+//   gap: 8px;
+// }
+// .invite-card{
+//   display: grid;
+//   grid-template-columns: 1fr auto auto;
+//   align-items: center;
+//   gap: 8px;
+
+//   background: #0b0f10;
+//   color: #fff;
+//   border-radius: 14px;
+//   border: 3px solid var(--accent);
+//   box-shadow: 0 0 0 6px rgba(44,234,198,.12);
+//   padding: 8px 10px;
+// }
+// .invite-card .name{
+//   font-weight: 800;
+// }
+// .invite-card .spacer{ display: none; }
+
+// /* boutons style maquette : Accept = pilule blanche + bord turquoise, Refuse = lien */
+// .btn-accept{
+//   appearance: none;
+//   border: 2px solid var(--accent);
+//   background: #fff;
+//   color: #111;
+//   border-radius: 999px;
+//   padding: 4px 12px;
+//   font-weight: 800;
+//   letter-spacing: .02em;
+//   line-height: 1;
+//   cursor: pointer;
+// }
+// .btn-accept:hover{ box-shadow: 0 0 0 3px rgba(44,234,198,.18); }
+
+// .btn-decline{
+//   appearance: none;
+//   background: transparent;
+//   border: 0;
+//   color: #2F6DF6;     /* bleu lien "Refuser" */
+//   font-weight: 700;
+//   cursor: pointer;
+//   padding: 4px 6px;
+// }
+// .btn-decline:hover{ text-decoration: underline; }
 :host { display: block; }
 
 /* ======= Carte conteneur (fond menthe + anneau turquoise) ======= */
@@ -36,7 +188,22 @@
   display: grid;
   gap: 10px;
   border: 3px solid var(--accent);
+
+  /* ⬇️ Rend la liste scrollable si elle dépasse */
+  max-height: calc(100dvh - 260px); /* ajuste vite fait si besoin */
+  overflow-y: auto;
+  padding-right: 6px;               /* espace pour le scrollbar */
+
+  /* Scrollbar (optionnel) */
+  scrollbar-width: thin;            /* Firefox */
 }
+.friend-list::-webkit-scrollbar{ width: 8px; }
+.friend-list::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.25);
+  border-radius: 8px;
+}
+.friend-list::-webkit-scrollbar-track{ background: transparent; }
+
 .friend-card{
   display: grid;
   grid-template-columns: auto 1fr;
