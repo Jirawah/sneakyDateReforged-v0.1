@@ -125,25 +125,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             "/actuator/**"
     };
 
-    //    @Override
-//    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-//        String path = request.getServletPath(); // 👈 évite les soucis de context-path
-//        // OPTIONS (préflight CORS) -> toujours bypass
-//        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-//            System.out.println("[FILTER] OPTIONS bypass sur : " + path);
-//            return true;
-//        }
-//        boolean excluded = false;
-//        for (String pattern : WHITELIST) {
-//            if (MATCHER.match(pattern, path)) {
-//                excluded = true;
-//                break;
-//            }
-//        }
-//        System.out.println("[FILTER] Requête reçue sur : " + path);
-//        System.out.println("[FILTER] Est exclue du filtre ? " + excluded);
-//        return excluded;
-//    }
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getServletPath();
