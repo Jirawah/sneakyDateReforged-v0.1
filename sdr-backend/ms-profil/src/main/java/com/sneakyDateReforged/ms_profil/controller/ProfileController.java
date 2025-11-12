@@ -3,6 +3,7 @@ package com.sneakyDateReforged.ms_profil.controller;
 import com.sneakyDateReforged.ms_profil.dto.AggregatedProfileDTO;
 import com.sneakyDateReforged.ms_profil.dto.ProfileDTO;
 import com.sneakyDateReforged.ms_profil.dto.ProfileUpdateDTO;
+import com.sneakyDateReforged.ms_profil.dto.ProfileDetailsDTO;
 import com.sneakyDateReforged.ms_profil.service.ProfileService;
 import com.sneakyDateReforged.ms_profil.service.UserContext;
 import com.sneakyDateReforged.ms_profil.dto.PublicAggregatedProfileDTO;
@@ -87,5 +88,17 @@ public class ProfileController {
     @GetMapping("/{userId}/public-full")
     public PublicAggregatedProfileDTO publicFull(@PathVariable long userId) {
         return service.getAggregatedPublicView(userId);
+    }
+
+    @Operation(
+            summary = "Détails de mon profil (Discord/Steam/Jeux)",
+            description = "Alimente la page MON PROFIL. **JWT requis.**"
+    )
+    @GetMapping("/me/details")
+    public ProfileDetailsDTO myDetails() {
+        long userId = userCtx.getUserId();
+        // On s’assure que la bio existe (comme pour /me/full)
+        service.getOrCreateFor(userId, userCtx.getEmail());
+        return service.getMyDetails(userId);
     }
 }

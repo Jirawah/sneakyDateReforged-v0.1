@@ -344,6 +344,7 @@ import com.sneakyDateReforged.ms_profil.client.RdvClient;
 import com.sneakyDateReforged.ms_profil.client.dto.FriendCountResponse;
 import com.sneakyDateReforged.ms_profil.client.dto.RdvNextResponse;
 import com.sneakyDateReforged.ms_profil.client.dto.RdvStatsResponse;
+import com.sneakyDateReforged.ms_profil.dto.ProfileDetailsDTO;
 import com.sneakyDateReforged.ms_profil.dto.*;
 import com.sneakyDateReforged.ms_profil.exception.NotFoundException;
 import com.sneakyDateReforged.ms_profil.model.Profile;
@@ -359,6 +360,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.ArrayList;
 
 @Slf4j
 @Service
@@ -416,6 +418,57 @@ public class ProfileService {
         if (body.getAge() != null) p.setAge(body.getAge());
 
         return toDTO(repo.save(p));
+    }
+
+    @Transactional(readOnly = true)
+    public ProfileDetailsDTO getMyDetails(long userId) {
+        // S’assure qu’une bio existe déjà (comme tu le fais pour /me/full)
+        var p = repo.findByUserId(userId)
+                .orElseThrow(() -> new NotFoundException("Profil introuvable"));
+
+        // On récupère en priorité depuis ms-auth (JWT propagé via FeignAuthForwarder),
+        // et on retombe sur les snapshots persistés si ms-auth répond 403/404/etc.
+        var boot = safe(() -> authClient.getProfileBootstrap(userId), null, "auth.profileBootstrap");
+
+        String discordPseudo = firstNonBlank(
+                safe(() -> authClient.getDiscordUsername(userId).username(), null, "auth.discordUsername"),
+                boot != null ? boot.discordUsername() : null,
+                p.getDiscordUsername()
+        );
+        String discordAvatar = firstNonBlank(
+                safe(() -> authClient.getDiscordAvatar(userId).url(), null, "auth.discordAvatar"),
+                boot != null ? boot.discordAvatarUrl() : null,
+                p.getDiscordAvatarUrl()
+        );
+
+        String steamPseudo = firstNonBlank(
+                boot != null ? boot.steamPseudo() : null,
+                p.getSteamPseudo()
+        );
+        String steamAvatar = firstNonBlank(
+                boot != null ? boot.steamAvatar() : null,
+                p.getSteamAvatar()
+        );
+
+        // Jeux : on fabrique une petite liste à partir des heures présentes dans le bootstrap
+        var games = new ArrayList<ProfileDetailsDTO.Game>();
+        if (boot != null) {
+            if (boot.hoursPubg() != null)   games.add(ProfileDetailsDTO.Game.builder().name("PUBG").     hours(boot.hoursPubg()).build());
+            if (boot.hoursRust() != null)   games.add(ProfileDetailsDTO.Game.builder().name("Rust").     hours(boot.hoursRust()).build());
+            if (boot.hoursAmongUs() != null)games.add(ProfileDetailsDTO.Game.builder().name("Among Us"). hours(boot.hoursAmongUs()).build());
+        }
+
+        return ProfileDetailsDTO.builder()
+                .discord(ProfileDetailsDTO.Identity.builder()
+                        .pseudo(discordPseudo)
+                        .avatarUrl(discordAvatar)
+                        .build())
+                .steam(ProfileDetailsDTO.Identity.builder()
+                        .pseudo(steamPseudo)
+                        .avatarUrl(steamAvatar)
+                        .build())
+                .games(games)
+                .build();
     }
 
     @Transactional(readOnly = true)

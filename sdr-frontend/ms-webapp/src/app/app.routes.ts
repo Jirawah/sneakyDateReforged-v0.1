@@ -119,6 +119,12 @@ export const routes: Routes = [
             .then(m => m.AppHomeComponent),
         data: { pageTitle: 'ACCUEIL' }   // ← ← ← ICI !
       },
+      {
+        path: 'profile',
+        loadComponent: () => import('./pages/profile/profile.component')
+          .then(m => m.ProfileComponent),
+        data: { pageTitle: 'MON PROFIL' }
+      },
 
       // Exemples pour plus tard :
       // { path: 'profile',  loadComponent: ... , data: { pageTitle: 'MON PROFIL' } },

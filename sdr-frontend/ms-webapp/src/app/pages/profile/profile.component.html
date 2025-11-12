@@ -1,0 +1,153 @@
+<!-- <section class="profile-wrap" *ngIf="details$ | async as d">
+  <div class="profile-card">
+    <div class="profiles-row">
+      <article class="identity">
+        <header class="identity__head">AVATAR DISCORD</header>
+        <div class="identity__body">
+          <div class="avatar-frame">
+            <img class="avatar" [src]="d.discord.avatarUrl || placeholder" alt="Avatar Discord">
+          </div>
+          <div class="identity__labels">
+            <div class="label">Pseudo Discord</div>
+            <div class="value">{{ d.discord.pseudo }}</div>
+          </div>
+        </div>
+      </article>
+
+      <div class="mid-sep" aria-hidden="true"></div>
+
+      <article class="identity">
+        <header class="identity__head">AVATAR STEAM</header>
+        <div class="identity__body">
+          <div class="avatar-frame">
+            <img class="avatar" [src]="d.steam.avatarUrl || placeholder" alt="Avatar Steam">
+          </div>
+          <div class="identity__labels">
+            <div class="label">Pseudo Steam</div>
+            <div class="value">{{ d.steam.pseudo }}</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <section class="games">
+      <header class="games__head">
+        <div class="col col--name">Jeux</div>
+        <div class="col col--hours">Temps de jeu (en heure)</div>
+      </header>
+
+      <div class="games__rows" *ngIf="d.games.length; else empty">
+        <div class="row" *ngFor="let g of d.games">
+          <div class="cell col--name">{{ g.name }}</div>
+          <div class="cell col--hours">{{ g.hours }} h</div>
+        </div>
+      </div>
+
+      <ng-template #empty>
+        <div class="empty">Aucune statistique pour le moment.</div>
+      </ng-template>
+    </section>
+  </div>
+</section> -->
+<div class="profile-layout">
+    <!-- Aside gauche -->
+    <aside class="profile-layout__left">
+        <app-user-sidebar [profile]="profile$ | async" (logout)="onLogout()">
+        </app-user-sidebar>
+    </aside>
+
+    <!-- Centre : ton contenu existant -->
+    <main class="profile-layout__center">
+        <section class="profile-wrap" *ngIf="details$ | async as d">
+            <div class="profile-card">
+                <!-- <div class="profiles-row">
+          
+          <article class="identity">
+            <header class="identity__head">AVATAR DISCORD</header>
+            <div class="identity__body">
+              <div class="avatar-frame">
+                <img class="avatar" [src]="d.discord.avatarUrl || placeholder" alt="Avatar Discord">
+              </div>
+              <div class="identity__labels">
+                <div class="label">Pseudo Discord</div>
+                <div class="value">{{ d.discord.pseudo }}</div>
+              </div>
+            </div>
+          </article>
+
+          
+          <div class="mid-sep" aria-hidden="true"></div>
+
+          
+          <article class="identity">
+            <header class="identity__head">AVATAR STEAM</header>
+            <div class="identity__body" id="id_body_right">
+              <div class="avatar-frame">
+                <img class="avatar" [src]="d.steam.avatarUrl || placeholder" alt="Avatar Steam">
+              </div>
+              <div class="identity__labels">
+                <div class="label">Pseudo Steam</div>
+                <div class="value">{{ d.steam.pseudo }}</div>
+              </div>
+            </div>
+          </article>
+        </div> -->
+                <div class="profiles-row">
+                    <!-- Bloc Discord -->
+                    <article class="identity">
+                        <header class="identity__head">AVATAR DISCORD</header>
+                        <div class="identity__body">
+                            <div class="identity__label">Pseudo Discord</div>
+                            <div class="avatar-frame">
+                                <img class="avatar" [src]="d.discord.avatarUrl || placeholder" alt="Avatar Discord">
+                            </div>
+                            <div class="identity__value">{{ d.discord.pseudo }}</div>
+                        </div>
+                    </article>
+
+                    <!-- Séparateur pointillé -->
+                    <div class="mid-sep" aria-hidden="true"></div>
+
+                    <!-- Bloc Steam -->
+                    <article class="identity">
+                        <header class="identity__head">AVATAR STEAM</header>
+                        <div class="identity__body">
+                            <div class="identity__label">Pseudo Steam</div>
+                            <div class="avatar-frame">
+                                <img class="avatar" [src]="d.steam.avatarUrl || placeholder" alt="Avatar Steam">
+                            </div>
+                            <div class="identity__value">{{ d.steam.pseudo }}</div>
+                        </div>
+                    </article>
+                </div>
+
+
+                <!-- Tableau jeux / heures -->
+                <section class="games">
+                    <header class="games__head">
+                        <div class="col col--name">Jeux</div>
+                        <div class="col col--hours">Temps de jeu (en heure)</div>
+                    </header>
+
+                    <div class="games__rows" *ngIf="d.games.length; else empty">
+                        <div class="row" *ngFor="let g of d.games">
+                            <div class="cell col--name">{{ g.name }}</div>
+                            <div class="cell col--hours">{{ g.hours }} h</div>
+                        </div>
+                    </div>
+
+                    <ng-template #empty>
+                        <div class="empty">Aucune statistique pour le moment.</div>
+                    </ng-template>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Aside droite -->
+    <aside class="profile-layout__right">
+        <app-friends-lists [friends]="friends" [invitations]="invitations" (accept)="onAccept($event)"
+            (decline)="onDecline($event)">
+        </app-friends-lists>
+    </aside>
+</div>

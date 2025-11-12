@@ -1,0 +1,833 @@
+// // // // :host { display: block; }
+
+// // // // .profile-wrap{
+// // // //   display: grid;
+// // // //   place-items: start center;
+// // // // }
+
+// // // // .profile-card{
+// // // //   --accent: #2CEAC6;
+// // // //   --mint:   #E6FBF6;
+// // // //   --dark:   #0b0f10;
+
+// // // //   width: min(980px, 92vw);
+// // // //   background: var(--mint);
+// // // //   border-radius: 18px;
+// // // //   padding: 12px;
+// // // //   box-shadow: 0 0 0 3px rgba(44,234,198,.12);
+// // // // }
+
+// // // // /* Ligne du haut : Discord | Steam */
+// // // // .profiles-row{
+// // // //   background: var(--dark);
+// // // //   border: 3px solid var(--accent);
+// // // //   border-radius: 16px;
+// // // //   display: grid;
+// // // //   grid-template-columns: 1fr 1px 1fr;
+// // // //   gap: 0;
+// // // //   padding: 12px;
+// // // //   color: #fff;
+// // // // }
+
+// // // // .identity{
+// // // //   display: grid;
+// // // //   grid-template-rows: auto 1fr;
+// // // //   padding: 6px 10px;
+// // // // }
+// // // // .identity__head{
+// // // //   text-align: center;
+// // // //   font-weight: 900;
+// // // //   letter-spacing: .06em;
+// // // //   margin: 2px 0 10px;
+// // // // }
+// // // // .identity__body{
+// // // //   display: grid;
+// // // //   grid-template-columns: auto 1fr;
+// // // //   gap: 14px;
+// // // //   align-items: center;
+// // // // }
+// // // // .avatar-frame{
+// // // //   border: 3px solid var(--accent);
+// // // //   border-radius: 12px;
+// // // //   padding: 0;
+// // // // }
+// // // // .avatar{
+// // // //   display: block;
+// // // //   width: 220px;
+// // // //   height: 140px;
+// // // //   object-fit: cover;
+// // // //   border-radius: 10px;
+// // // // }
+// // // // .identity__labels .label{
+// // // //   opacity: .9; font-weight: 700; letter-spacing: .02em; margin-bottom: 6px;
+// // // // }
+// // // // .identity__labels .value{
+// // // //   font-weight: 900;
+// // // //   letter-spacing: .02em;
+// // // // }
+
+// // // // /* séparateur central pointillé turquoise */
+// // // // .mid-sep{
+// // // //   width: 1px;
+// // // //   margin: 0 8px;
+// // // //   background:
+// // // //     repeating-linear-gradient(to bottom, var(--accent) 0 6px, transparent 6px 12px);
+// // // //   opacity: .9;
+// // // // }
+
+// // // // /* Tableau jeux */
+// // // // .games{
+// // // //   margin-top: 12px;
+// // // //   background: #fff;
+// // // //   border-radius: 12px;
+// // // //   overflow: hidden;
+// // // //   border: 3px solid var(--accent);
+// // // // }
+
+// // // // .games__head{
+// // // //   display: grid;
+// // // //   grid-template-columns: 1fr 260px;
+// // // //   background: #43f3d0;
+// // // //   color: #111;
+// // // //   font-weight: 900;
+// // // //   letter-spacing: .02em;
+// // // //   text-align: center;
+// // // //   padding: 10px 6px;
+// // // // }
+// // // // .games__rows .row{
+// // // //   display: grid;
+// // // //   grid-template-columns: 1fr 260px;
+// // // //   background: #e9edf1;
+// // // //   border-top: 2px solid rgba(0,0,0,.06);
+// // // // }
+// // // // .games__rows .row:nth-child(2n){ background: #f4f6f8; }
+// // // // .games__rows .cell{
+// // // //   padding: 12px 10px;
+// // // //   text-align: center;
+// // // //   font-weight: 800;
+// // // //   color: #111;
+// // // // }
+// // // // .empty{
+// // // //   padding: 16px;
+// // // //   text-align: center;
+// // // //   font-weight: 700;
+// // // //   color: #333;
+// // // // }
+
+// // // // @media (max-width: 720px){
+// // // //   .avatar{ width: 180px; height: 120px; }
+// // // //   .games__head, .games__rows .row{ grid-template-columns: 1fr 180px; }
+// // // // }
+
+// // // // /* grille 3 colonnes façon Home */
+// // // // .profile-layout {
+// // // //   display: grid;
+// // // //   grid-template-columns: 280px minmax(0, 1fr) 320px; /* left | main | right */
+// // // //   gap: 24px;
+// // // //   align-items: start;
+// // // // }
+
+// // // // .profile-layout__center { min-width: 0; } /* évite l'overflow */
+
+// // // // .profile-layout__left,
+// // // // .profile-layout__right {
+// // // //   position: sticky;
+// // // //   top: 96px; /* ajuste selon la hauteur de ta topbar + titre */
+// // // //   align-self: start;
+// // // // }
+// // // :host { display: block; }
+
+// // // /* ====== Grille 3 colonnes — même logique que .app-home ====== */
+// // // .profile-layout {
+// // //   display: grid;
+// // //   grid-template-columns: 260px 0.97fr 260px; /* left | main | right */
+// // //   gap: 24px;
+// // //   padding: 16px 24px;
+// // //   min-height: calc(100dvh - 140px);
+// // // }
+
+// // // .profile-layout__center {
+// // //   display: grid;
+// // //   align-content: start;
+// // //   gap: 0;
+// // //   min-width: 0; /* évite l'overflow du centre */
+// // // }
+
+// // // /* Option “sticky” comme tu veux : décommente si tu veux figer les asides */
+// // // /*
+// // // .profile-layout__left,
+// // // .profile-layout__right {
+// // //   position: sticky;
+// // //   top: 96px;  // ajuste selon la hauteur topbar + titre
+// // //   align-self: start;
+// // // }
+// // // */
+
+// // // /* ====== Contenu central ====== */
+// // // .profile-wrap { margin: 0; }
+
+// // // .profile-card{
+// // //   --accent: #2CEAC6;
+// // //   --mint:   #E6FBF6;
+// // //   --dark:   #0b0f10;
+
+// // //   width: 100%;                 /* ⬅️ prend toute la colonne centrale */
+// // //   background: var(--mint);
+// // //   border-radius: 18px;
+// // //   padding: 12px;
+// // //   box-shadow: 0 0 0 3px rgba(44,234,198,.12);
+// // // }
+
+// // // /* Ligne du haut : Discord | Steam */
+// // // .profiles-row{
+// // //   background: var(--dark);
+// // //   border: 3px solid var(--accent);
+// // //   border-radius: 16px;
+// // //   display: grid;
+// // //   grid-template-columns: 1fr 1px 1fr;
+// // //   gap: 0;
+// // //   padding: 12px;
+// // //   color: #fff;
+// // // }
+
+// // // .identity{
+// // //   display: grid;
+// // //   grid-template-rows: auto 1fr;
+// // //   padding: 6px 10px;
+// // // }
+// // // .identity__head{
+// // //   text-align: center;
+// // //   font-weight: 900;
+// // //   letter-spacing: .06em;
+// // //   margin: 2px 0 10px;
+// // // }
+// // // .identity__body{
+// // //   display: grid;
+// // //   grid-template-columns: auto 1fr;
+// // //   gap: 14px;
+// // //   align-items: center;
+// // // }
+// // // .avatar-frame{
+// // //   border: 3px solid var(--accent);
+// // //   border-radius: 12px;
+// // // }
+// // // .avatar{
+// // //   display: block;
+// // //   width: 220px;
+// // //   height: 140px;
+// // //   object-fit: cover;
+// // //   border-radius: 10px;
+// // // }
+// // // .identity__labels .label{ opacity: .9; font-weight: 700; letter-spacing: .02em; margin-bottom: 6px; }
+// // // .identity__labels .value{ font-weight: 900; letter-spacing: .02em; }
+
+// // // /* séparateur central pointillé turquoise */
+// // // .mid-sep{
+// // //   width: 1px;
+// // //   margin: 0 8px;
+// // //   background:
+// // //     repeating-linear-gradient(to bottom, var(--accent) 0 6px, transparent 6px 12px);
+// // //   opacity: .9;
+// // // }
+
+// // // /* Tableau jeux */
+// // // .games{
+// // //   margin-top: 12px;
+// // //   background: #fff;
+// // //   border-radius: 12px;
+// // //   overflow: hidden;
+// // //   border: 3px solid var(--accent);
+// // // }
+// // // .games__head{
+// // //   display: grid;
+// // //   grid-template-columns: 1fr 260px;
+// // //   background: #43f3d0;
+// // //   color: #111;
+// // //   font-weight: 900;
+// // //   letter-spacing: .02em;
+// // //   text-align: center;
+// // //   padding: 10px 6px;
+// // // }
+// // // .games__rows .row{
+// // //   display: grid;
+// // //   grid-template-columns: 1fr 260px;
+// // //   background: #e9edf1;
+// // //   border-top: 2px solid rgba(0,0,0,.06);
+// // // }
+// // // .games__rows .row:nth-child(2n){ background: #f4f6f8; }
+// // // .games__rows .cell{
+// // //   padding: 12px 10px;
+// // //   text-align: center;
+// // //   font-weight: 800;
+// // //   color: #111;
+// // // }
+// // // .empty{
+// // //   padding: 16px;
+// // //   text-align: center;
+// // //   font-weight: 700;
+// // //   color: #333;
+// // // }
+
+// // // /* Petits écrans : on passe à 1 colonne (comme l’accueil si besoin) */
+// // // @media (max-width: 1100px){
+// // //   .profile-layout { grid-template-columns: 1fr; }
+// // //   .games__head, .games__rows .row{ grid-template-columns: 1fr 180px; }
+// // //   .avatar{ width: 180px; height: 120px; }
+// // // }
+// // :host { display: block; }
+
+// // /* ====== Grille 3 colonnes — même logique que .app-home ====== */
+// // .profile-layout {
+// //   display: grid;
+// //   grid-template-columns: 260px 0.97fr 260px; /* left | main | right */
+// //   gap: 24px;
+// //   padding: 16px 24px;
+// //   min-height: calc(100dvh - 140px);
+// // }
+// // .profile-layout__center { display: grid; align-content: start; gap: 0; min-width: 0; }
+
+// // /* ====== Cartouche central façon maquette ====== */
+// // .profile-wrap { margin: 0; }
+
+// // .profile-card{
+// //   --accent: #2CEAC6;
+// //   --mint:   #E6FBF6;
+// //   --dark:   #0b0f10;
+
+// //   width: 100%;
+// //   background: var(--mint);
+// //   border-radius: 22px;
+// //   padding: 14px 16px 18px;
+// //   border: 3px solid rgba(44,234,198,.65);               /* l’anneau turquoise */
+// //   box-shadow: 0 6px 0 rgba(0,0,0,.08);
+// // }
+
+// // /* ====== Bandeau noir Discord | Steam ====== */
+// // .profiles-row{
+// //   background: linear-gradient(180deg, #0f1315 0%, #090d0f 100%);
+// //   border: 4px solid var(--accent);
+// //   border-radius: 18px;
+// //   display: grid;
+// //   grid-template-columns: 1fr 1px 1fr;
+// //   padding: 18px;
+// //   color: #fff;
+// //   box-shadow: inset 0 0 0 2px rgba(255,255,255,.05);
+// // }
+
+// // .identity{
+// //   display: grid;
+// //   grid-template-rows: auto 1fr;
+// //   padding: 6px 12px;
+// // }
+// // .identity__head{
+// //   text-align: center;
+// //   font-weight: 900;
+// //   letter-spacing: .10em;              /* plus “UI kit” */
+// //   font-size: .95rem;
+// //   margin: 0 0 12px;
+// // }
+// // .identity__body{
+// //   display: grid;
+// //   grid-template-columns: auto 1fr;
+// //   gap: 18px;
+// //   align-items: center;
+// // }
+
+// // /* Cadre image avec effet “néon” turquoise */
+// // .avatar-frame{
+// //   position: relative;
+// //   border-radius: 16px;
+// //   padding: 6px;
+// //   background: #0b0f10;
+// //   border: 3px solid var(--accent);
+// //   box-shadow:
+// //     0 0 0 3px rgba(44,234,198,.28),    /* halo externe */
+// //     0 10px 18px rgba(44,234,198,.12);  /* glow doux */
+// // }
+// // .avatar{
+// //   display: block;
+// //   width: 280px;
+// //   height: 170px;
+// //   object-fit: cover;
+// //   border-radius: 12px;
+// // }
+
+// // .identity__labels{
+// //   text-align: center;
+// // }
+// // .identity__labels .label{
+// //   opacity: .9;
+// //   font-weight: 700;
+// //   letter-spacing: .02em;
+// //   margin-bottom: 6px;
+// // }
+// // .identity__labels .value{
+// //   font-weight: 900;
+// //   letter-spacing: .02em;
+// // }
+
+// // /* Séparateur vertical pointillé turquoise */
+// // .mid-sep{
+// //   width: 1px;
+// //   margin: 0 14px;
+// //   background:
+// //     repeating-linear-gradient(to bottom, var(--accent) 0 6px, transparent 6px 12px);
+// //   opacity: .9;
+// // }
+
+// // /* ====== Tableau des jeux ====== */
+// // .games{
+// //   margin-top: 14px;
+// //   background: #fff;
+// //   border-radius: 16px;
+// //   overflow: hidden;
+// //   border: 3px solid var(--accent);
+// //   box-shadow: 0 4px 0 rgba(0,0,0,.05);
+// // }
+// // .games__head{
+// //   display: grid;
+// //   grid-template-columns: 1fr 280px;   /* colonne heures un peu plus large */
+// //   background: #43f3d0;
+// //   color: #111;
+// //   font-weight: 900;
+// //   letter-spacing: .02em;
+// //   text-align: center;
+// //   padding: 12px 8px;
+// // }
+// // .games__rows .row{
+// //   display: grid;
+// //   grid-template-columns: 1fr 280px;
+// //   background: #ffffff;
+// // }
+// // .games__rows .row + .row{
+// //   border-top: 3px solid rgba(44,234,198,.35); /* séparateur interne turquoise */
+// // }
+// // .games__rows .cell{
+// //   padding: 14px 12px;
+// //   text-align: center;
+// //   font-weight: 800;
+// //   color: #111;
+// // }
+// // .games__rows .row:nth-child(2n) .cell{
+// //   background: #f6faf9; /* très léger alterné menthe */
+// // }
+// // .empty{
+// //   padding: 18px;
+// //   text-align: center;
+// //   font-weight: 700;
+// //   color: #333;
+// // }
+
+// // /* ====== Responsive ====== */
+// // @media (max-width: 1300px){
+// //   .avatar{ width: 240px; height: 150px; }
+// //   .games__head, .games__rows .row{ grid-template-columns: 1fr 240px; }
+// // }
+// // @media (max-width: 1100px){
+// //   .profile-layout { grid-template-columns: 1fr; }
+// //   .profiles-row{ grid-template-columns: 1fr; row-gap: 16px; }
+// //   .mid-sep{ display: none; }
+// //   .identity__body{ grid-template-columns: 1fr; justify-items: center; }
+// //   .avatar{ width: 220px; height: 140px; }
+// // }
+// :host { display: block; }
+
+// /* ===== Grille 3 colonnes — identique à l’accueil ===== */
+// .profile-layout{
+//   display: grid;
+//   grid-template-columns: 260px 0.97fr 260px; /* left | main | right */
+//   gap: 24px;
+//   padding: 16px 24px;
+//   min-height: calc(100dvh - 140px);
+// }
+
+// .profile-layout__center{
+//   display: grid;
+//   align-content: start;
+//   justify-items: center;   /* ⬅ centre la carte */
+//   gap: 0;
+//   min-width: 0;
+// }
+
+// /* ===== Carte centrale (plus compacte) ===== */
+// .profile-wrap{ width: 100%; }
+
+// .profile-card{
+//   --accent: #2CEAC6;
+//   --mint:   #E6FBF6;
+//   --dark:   #0b0f10;
+
+//   /* ⬅⭐ largeur beaucoup plus contenue */
+//   --card-w: clamp(620px, 44vw, 840px);
+//   width: var(--card-w);
+//   margin: 0 auto;
+
+//   background: var(--mint);
+//   border-radius: 16px;
+//   padding: 10px;
+//   box-shadow: 0 0 0 3px rgba(44,234,198,.12);
+// }
+
+// /* ===== Ligne du haut : Discord | Steam (compact) ===== */
+// .profiles-row{
+//   background: var(--dark);
+//   border: 3px solid var(--accent);
+//   border-radius: 14px;
+//   display: grid;
+//   grid-template-columns: 1fr 1px 1fr;
+//   gap: 0;
+//   padding: 10px;            /* ⬅ moins haut */
+//   color: #fff;
+// }
+
+// .identity{
+//   display: grid;
+//   grid-template-rows: auto 1fr;
+//   padding: 6px 8px;         /* ⬅ moins large */
+// }
+// .identity__head{
+//   text-align: center;
+//   font-weight: 900;
+//   letter-spacing: .06em;
+//   font-size: .9rem;         /* ⬅ plus petit */
+//   margin: 2px 0 8px;
+// }
+// .identity__body{
+//   display: grid;
+//   grid-template-columns: auto 1fr;
+//   gap: 12px;
+//   align-items: center;
+// }
+// .avatar-frame{
+//   border: 3px solid var(--accent);
+//   border-radius: 10px;
+// }
+// .avatar{
+//   display: block;
+//   width: 190px;             /* ⬅ avatars plus petits */
+//   height: 118px;
+//   object-fit: cover;
+//   border-radius: 8px;
+// }
+// .identity__labels .label{
+//   opacity: .9;
+//   font-weight: 700;
+//   letter-spacing: .02em;
+//   margin-bottom: 4px;
+//   font-size: .92rem;
+// }
+// .identity__labels .value{
+//   font-weight: 900;
+//   letter-spacing: .02em;
+//   font-size: .98rem;
+// }
+
+// /* séparateur central pointillé turquoise (plus fin) */
+// .mid-sep{
+//   width: 1px;
+//   margin: 0 6px;
+//   background: repeating-linear-gradient(to bottom, var(--accent) 0 5px, transparent 5px 11px);
+//   opacity: .9;
+// }
+
+// /* ===== Tableau jeux (compact) ===== */
+// .games{
+//   margin-top: 10px;
+//   background: #fff;
+//   border-radius: 12px;
+//   overflow: hidden;
+//   border: 3px solid var(--accent);
+// }
+
+// .games__head{
+//   display: grid;
+//   grid-template-columns: 1fr 220px; /* ⬅ col heures plus étroite */
+//   background: #43f3d0;
+//   color: #111;
+//   font-weight: 900;
+//   letter-spacing: .02em;
+//   text-align: center;
+//   padding: 8px 6px;         /* ⬅ moins haut */
+//   font-size: .98rem;
+// }
+
+// .games__rows .row{
+//   display: grid;
+//   grid-template-columns: 1fr 220px;
+//   background: #e9edf1;
+//   border-top: 2px solid rgba(0,0,0,.06);
+//   min-height: 44px;         /* ⬅ lignes moins hautes */
+// }
+// .games__rows .row:nth-child(2n){ background: #f4f6f8; }
+
+// .games__rows .cell{
+//   padding: 10px 8px;
+//   text-align: center;
+//   font-weight: 800;
+//   color: #111;
+//   font-size: .95rem;
+// }
+
+// .empty{
+//   padding: 14px;
+//   text-align: center;
+//   font-weight: 700;
+//   color: #333;
+//   font-size: .95rem;
+// }
+
+// /* ===== Responsive : carte garde un bon ratio ===== */
+// @media (max-width: 1400px){
+//   .profile-card{ --card-w: clamp(600px, 58vw, 820px); }
+// }
+// @media (max-width: 1100px){
+//   .profile-layout{ grid-template-columns: 1fr; }
+//   .profile-card{ --card-w: min(720px, 92vw); }
+//   .games__head, .games__rows .row{ grid-template-columns: 1fr 200px; }
+//   .avatar{ width: 180px; height: 112px; }
+// }
+// @media (max-width: 720px){
+//   .profile-card{ --card-w: 96vw; }
+//   .games__head, .games__rows .row{ grid-template-columns: 1fr 160px; }
+//   .avatar{ width: 160px; height: 100px; }
+// }
+:host { display: block; }
+
+/* =========================
+   GRILLE 3 COLONNES (identique Home)
+   ========================= */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 260px 0.97fr 260px; /* left | main | right */
+  gap: 24px;
+  padding: 16px 24px;
+  min-height: calc(100dvh - 140px);
+  margin-top: 20px;
+}
+
+.profile-layout__center {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  min-width: 0; /* évite overflow */
+}
+
+/* =========================
+   CONTENEUR CENTRAL – version compacte
+   ========================= */
+.profile-wrap {
+  display: grid;
+  place-items: start center;
+  width: 100%;
+}
+
+.profile-card {
+  /* ⬇️ 3 réglages pour piloter la compacité */
+//   --center-max: 760px;         /* largeur max cible (maquette plus fine) */
+//   --avatar-w: 180px;           /* largeur images Discord/Steam */
+//   --avatar-h: 112px;           /* hauteur images Discord/Steam */
+  --center-max: 700px;   /* encore un cran plus étroit */
+  --avatar-w: 168px;
+  --avatar-h: 104px;
+
+  --accent: #2CEAC6;
+  --mint:   #EAFBF6;
+  --dark:   #0b0f10;
+
+  width: min(var(--center-max), 78vw);
+  background: var(--mint);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 0 0 2px rgba(44,234,198,.12);
+}
+
+/* =========================
+   LIGNE HAUTE : Discord | Steam (compactée)
+   ========================= */
+.profiles-row {
+  background: var(--dark);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0;
+  padding: 10px;
+  color: #fff;
+  min-height: 190px; /* réduit */
+}
+
+.identity {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 4px 8px;
+}
+
+.identity__head {
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: .05em;
+  font-size: .95rem;           /* réduit */
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+// .identity__body {
+//   display: grid;
+//   grid-template-columns: auto 1fr;
+//   gap: 12px;
+//   align-items: center;
+// }
+.identity__body{
+  display: grid;
+  grid-template-rows: auto auto auto;   /* label / avatar / value */
+  justify-items: center;
+  align-items: center;
+  gap: 6px;                              /* espacement serré comme la maquette */
+}
+
+// .avatar-frame {
+//   border: 2px solid var(--accent);
+//   border-radius: 10px;
+// }
+
+// .avatar {
+//   display: block;
+//   width: var(--avatar-w);
+//   height: var(--avatar-h);
+//   object-fit: cover;
+//   border-radius: 8px;
+// }
+// .avatar-frame{
+//   border: 2px solid var(--accent);
+//   border-radius: 10px;
+// }
+
+// .avatar{
+//   width: var(--avatar-w);
+//   height: var(--avatar-h);
+//   object-fit: cover;
+//   border-radius: 8px;
+// }
+.avatar-frame{
+  width: var(--avatar-w);          /* ex. 168px */
+  height: var(--avatar-h);         /* ex. 104px */
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  overflow: hidden;                /* important pour clipper l'image arrondie */
+  background: #0b0f10;             /* facultatif */
+  line-height: 0;                   /* supprime le gap de baseline éventuel */
+  display: block;
+  box-sizing: content-box;         /* width/height = contenu, hors bordure */
+}
+
+/* L’image remplit 100% du cadre, sans déformer */
+.avatar{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;                  /* élimine le gap inline */
+  border-radius: 0;                /* inutile, on clip via le cadre */
+}
+
+// .identity__labels .label {
+//   opacity: .9;
+//   font-weight: 700;
+//   letter-spacing: .02em;
+//   margin-bottom: 4px;
+//   font-size: .82rem;          /* réduit */
+// }
+
+// .identity__labels .value {
+//   font-weight: 900;
+//   letter-spacing: .02em;
+//   font-size: .95rem;          /* réduit */
+// }
+.identity__label{
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  opacity: .95;
+  text-transform: none;                  /* la maquette n'est pas full uppercase ici */
+  line-height: 1.1;
+  text-align: center;
+}
+
+.identity__value{
+  font-size: .95rem;
+  font-weight: 900;
+  letter-spacing: .02em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* séparateur central pointillé turquoise */
+.mid-sep{
+  width: 1px;
+  margin: 0 0px;
+  
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--accent) 0 6px,
+    transparent 6px 12px
+  );
+  opacity: .8;
+}
+
+/* =========================
+   TABLEAU JEUX (compact)
+   ========================= */
+.games {
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--accent);   /* plus fin */
+}
+
+.games__head{
+  display: grid;
+  grid-template-columns: 1fr 200px;  /* colonne heures plus étroite */
+  background: #43f3d0;
+  color: #111;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-align: center;
+  padding: 8px 6px;                  /* réduit */
+  font-size: .92rem;                 /* réduit */
+}
+
+.games__rows .row{
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  background: #ecf0f3;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+
+.games__rows .row:nth-child(2n){ background: #f6f8fa; }
+
+.games__rows .cell{
+  padding: 10px 8px;                 /* réduit */
+  text-align: center;
+  font-weight: 800;
+  color: #111;
+  font-size: .9rem;                  /* réduit */
+}
+
+.empty{
+  padding: 14px;
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  font-size: .9rem;
+}
+
+/* =========================
+   RESPONSIVE (si besoin)
+   ========================= */
+@media (max-width: 1100px){
+  .profile-layout { grid-template-columns: 1fr; }
+  .profile-card { width: min(92vw, var(--center-max)); }
+  .games__head, .games__rows .row{ grid-template-columns: 1fr 180px; }
+  .avatar { width: 168px; height: 104px; }
+}
+
