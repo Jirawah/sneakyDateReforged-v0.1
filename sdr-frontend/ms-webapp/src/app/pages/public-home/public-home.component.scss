@@ -585,3 +585,43 @@ figure.hero-media {
   background-color: rgba(44, 234, 198, .18);
   box-shadow: 0 0 0 2px var(--accent) inset;
 }
+
+/* --- Hover des boutons INSCRIPTION / CONNEXION : texte turquoise, pas de fond --- */
+.switch-btn{
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: .15em;
+  line-height: 1;
+  padding: 4px 22px;
+  border-radius: 999px;
+
+  /* on anime la couleur, plus le fond */
+  transition: color .15s ease;
+}
+
+/* Hover/focus : juste la couleur du texte */
+.switch-btn:hover,
+.switch-btn:focus-visible{
+  color: var(--accent, #2CEAC6);
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+/* État actif (l’onglet courant reste en pilule) */
+.switch-btn.active,
+.switch-btn[aria-current="page"],
+.switch-btn[aria-selected="true"]{
+  background-color: rgba(44,234,198,.18);
+  box-shadow: 0 0 0 2px var(--accent) inset;
+  color: #fff; /* bon contraste quand actif */
+}
+
+/* Optionnel : quand actif, ne pas virer en turquoise au hover */
+.switch-btn.active:hover,
+.switch-btn[aria-current="page"]:hover,
+.switch-btn[aria-selected="true"]:hover{
+  color: #fff;
+}

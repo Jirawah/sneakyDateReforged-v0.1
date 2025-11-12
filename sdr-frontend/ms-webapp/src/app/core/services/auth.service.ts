@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router'; 
 import { Observable, tap } from 'rxjs';
 import { LoginRequest, RegisterRequest, AuthResponse } from '../../shared/models/auth';
 import { environment } from '../../../environments/environment';
@@ -9,6 +10,7 @@ const TOKEN_KEY = 'sdr_jwt';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private http = inject(HttpClient);
+  private router = inject(Router); 
   private base = environment.apiBaseUrl;
 
   private discordStatusUrl = `${this.base}${environment.discordStatusEndpoint}`;
@@ -36,8 +38,28 @@ export class AuthService {
   // ---------------------------
   // DISCONNECT
   // ---------------------------
-  logout(): void {
-    sessionStorage.removeItem(TOKEN_KEY);
+  // logout(): void {
+  //   sessionStorage.removeItem(TOKEN_KEY);
+  // }
+
+  // get token(): string | null {
+  //   return sessionStorage.getItem(TOKEN_KEY);
+  // }
+
+  // isAuthenticated(): boolean {
+  //   return !!this.token;
+  // }
+    logout(): void {
+    try {
+      sessionStorage.removeItem(TOKEN_KEY);
+      localStorage.removeItem(TOKEN_KEY);            // au cas où tu l'aurais utilisé ailleurs
+      // si tu stockes d'autres infos liées à la session, nettoie-les ici
+      // sessionStorage.removeItem('user');
+      // localStorage.removeItem('refreshToken');
+    } finally {
+      // Redirige vers la page publique (layout non-auth)
+      this.router.navigateByUrl('/');                // ou: this.router.navigate(['/'], { replaceUrl: true })
+    }
   }
 
   get token(): string | null {
@@ -47,7 +69,7 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!this.token;
   }
-
+  
   // ---------------------------
   // DISCORD LINKING FLOW
   // ---------------------------

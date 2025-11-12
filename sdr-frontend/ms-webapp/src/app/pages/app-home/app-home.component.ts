@@ -10,6 +10,7 @@ import { FriendsListsComponent } from '../../shared/ui/friends-lists/friends-lis
 import { UserSummary } from '../../shared/models/user';
 import { Friend } from '../../shared/models/friend';
 import { ProfileService } from '../../core/services/profile.service';
+import { AuthService } from '../../core/services/auth.service'; 
 
 @Component({
   selector: 'app-home',
@@ -26,6 +27,7 @@ import { ProfileService } from '../../core/services/profile.service';
 })
 export class AppHomeComponent {
   private profileService = inject(ProfileService);
+  private auth = inject(AuthService);
   profile$!: Observable<UserSummary>;
 
   friends: Friend[] = [
@@ -44,5 +46,9 @@ export class AppHomeComponent {
 
   onAccept(friend: Friend) {/* TODO */ }
   onDecline(friend: Friend) {/* TODO */ }
+
+  onLogout(): void {
+    this.auth.logout(); // ⬅️ vide le token et redirige vers '/'
+  }
 }
 

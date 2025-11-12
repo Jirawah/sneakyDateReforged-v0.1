@@ -273,6 +273,29 @@
 }
 
 /* Liens = mêmes “chips” que le switch public */
+// .app-nav__link{
+//   color: #fff;
+//   text-decoration: none;
+//   text-transform: uppercase;
+//   font-weight: 800;
+//   letter-spacing: .15em;
+//   line-height: 1;
+//   padding: 4px 26px;
+//   border-radius: 999px;
+//   transition: background-color .2s ease, transform .06s ease;
+
+//   &:hover{
+//     background-color: rgba(255,255,255,.09);
+//     transform: translateY(-1px);
+//   }
+
+//   &.is-active,
+//   &[aria-current="page"]{
+//     background-color: rgba(44,234,198,.18);
+//     box-shadow: 0 0 0 2px var(--accent-c) inset;
+//   }
+// }
+/* Liens = mêmes “chips” que le switch public */
 .app-nav__link{
   color: #fff;
   text-decoration: none;
@@ -282,19 +305,33 @@
   line-height: 1;
   padding: 4px 26px;
   border-radius: 999px;
-  transition: background-color .2s ease, transform .06s ease;
 
-  &:hover{
-    background-color: rgba(255,255,255,.09);
-    transform: translateY(-1px);
+  /* on anime la couleur, pas le fond */
+  transition: color .15s ease;
+
+  /* HOVER/FOCUS: plus de fond, juste le texte en turquoise */
+  &:hover,
+  &:focus-visible{
+    color: var(--accent-c, #2CEAC6);
+    outline: none;              /* on enlève l’outline par défaut */
+    text-decoration: none;      /* au cas où */
   }
 
+  /* État actif conservé (pilule) */
   &.is-active,
   &[aria-current="page"]{
     background-color: rgba(44,234,198,.18);
     box-shadow: 0 0 0 2px var(--accent-c) inset;
+    color: #fff;                /* on garde un bon contraste */
+  }
+
+  /* Optionnel: si tu veux éviter que l’actif passe turquoise au hover */
+  &.is-active:hover,
+  &[aria-current="page"]:hover{
+    color: #fff;
   }
 }
+
 
 /* Séparateur pointillé turquoise (comme .switch-divider) */
 .app-nav__divider{
