@@ -3,4 +3,5 @@ export interface Friend {
   pseudo: string;
   avatarUrl?: string | null;
   status?: 'CONFIRME' | 'EN_ATTENTE' | 'REFUSE';
+  online?: boolean;
 }

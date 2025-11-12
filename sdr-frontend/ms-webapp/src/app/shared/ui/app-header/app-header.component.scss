@@ -1,0 +1,304 @@
+// // // :host { display: block; }
+
+// // // .app-header {
+// // //   --accent: var(--accent, #2CEAC6);
+// // //   --glow: var(--accent-glow, rgba(44,234,198,.25));
+// // //   --ink: #0b0f10;
+
+// // //   padding: 12px 20px 6px;
+// // // }
+
+// // // .app-header__grid{
+// // //   display: grid;
+// // //   grid-template-columns: minmax(260px, 340px) 1fr minmax(160px, 220px);
+// // //   align-items: center;
+// // //   gap: 16px;
+// // // }
+
+// // // /* Colonne gauche : logo + horloge empilés */
+// // // .brand{
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   align-items: flex-start;
+// // //   gap: 10px;
+
+// // //   .clock-wrap { margin-left: 12px; } /* léger décalage comme sur la maquette */
+// // // }
+
+// // // /* Centre */
+// // // .center{
+// // //   display: flex;
+// // //   justify-content: center;
+// // // }
+
+// // // /* Droite */
+// // // .actions{
+// // //   display: flex;
+// // //   justify-content: flex-end;
+// // // }
+
+// // // /* Bouton Dark Mode façon pilule */
+// // // .dark-toggle{
+// // //   display: inline-flex;
+// // //   align-items: center;
+// // //   gap: 8px;
+// // //   padding: 8px 14px;
+// // //   border-radius: 999px;
+// // //   background: #0b0f10;
+// // //   color: #fff;
+// // //   font-weight: 900;
+// // //   letter-spacing: .04em;
+// // //   border: 3px solid var(--accent);
+// // //   box-shadow: 0 0 0 6px var(--glow), 0 8px 18px rgba(0,0,0,.25);
+// // //   cursor: pointer;
+
+// // //   .moon{ font-size: 14px; line-height: 1; }
+// // // }
+
+// // // /* Responsive : on empile nav sous le bloc gauche sur petits écrans */
+// // // @media (max-width: 1100px){
+// // //   .app-header__grid{
+// // //     grid-template-columns: 1fr auto;
+// // //     grid-template-areas:
+// // //       "brand actions"
+// // //       "center center";
+// // //     row-gap: 12px;
+// // //   }
+// // //   .brand  { grid-area: brand; }
+// // //   .center { grid-area: center; }
+// // //   .actions{ grid-area: actions; }
+// // // }
+// // :host { display: block; }
+
+// // .app-header {
+// //   --accent: var(--accent, #2CEAC6);
+// //   --accent-glow: var(--accent-glow, rgba(44,234,198,.25));
+// //   --ink: #0b0f10;
+
+// //   padding: 12px 20px 6px;
+// // }
+
+// // .app-header__grid{
+// //   display: grid;
+// //   grid-template-columns: minmax(260px, 340px) 1fr minmax(160px, 220px);
+// //   align-items: center;
+// //   gap: 16px;
+// // }
+
+// // .brand{
+// //   display: flex;
+// //   flex-direction: column;
+// //   align-items: flex-start;
+// //   gap: 10px;
+
+
+// //   .clock-wrap { margin-left: 12px; }
+// // }
+
+// // .center{ display: flex; justify-content: center; }
+// // .actions{ display: flex; justify-content: flex-end; }
+
+// // /* === Bouton DARK MODE (copié du public) === */
+// // .actions .dark-toggle{
+// //   /* aliases locaux pour éviter toute auto-référence */
+// //   --_accent: var(--accent, #2CEAC6);
+// //   --_glow:   var(--accent-glow, rgba(44,234,198,.25));
+// //   --_bg: #0b0f10;
+// //   --_fg: #ffffff;
+
+// //   appearance: none;
+// //   border: none;
+// //   background: none;
+
+// //   display: inline-flex;
+// //   align-items: center;
+// //   gap: 8px;
+
+// //   padding: 6px 14px;
+// //   background-color: var(--_bg);
+// //   color: var(--_fg);
+// //   border: 2px solid var(--_accent);
+// //   border-radius: 999px;
+// //   box-shadow: 0 0 0 3px rgba(44,234,198,.14), 0 6px 14px rgba(0,0,0,.25);
+// //   font-weight: 800;
+// //   letter-spacing: .07em;
+// //   text-transform: uppercase;
+// //   line-height: 1;
+// //   cursor: pointer;
+// //   user-select: none;
+// // }
+
+// // .actions .dark-toggle .moon{
+// //   width: 18px;
+// //   height: 18px;
+// //   color: #C9C7C7;
+// //   filter: drop-shadow(0 0 1px rgba(0,0,0,.35));
+// // }
+
+// // .actions .dark-toggle:hover{
+// //   background: #111;
+// //   box-shadow: 0 0 0 3px rgba(44,234,198,.18), 0 0 14px var(--_glow), 0 8px 18px rgba(0,0,0,.28);
+// // }
+
+// // .actions .dark-toggle:active{ transform: translateY(1px); }
+
+// // .actions .dark-toggle:focus-visible{
+// //   outline: none;
+// //   box-shadow: 0 0 0 2px #fff inset, 0 0 0 3px var(--_accent), 0 0 12px var(--_glow);
+// // }
+
+// // @media (max-width: 480px){
+// //   .actions .dark-toggle{ padding: 5px 12px; }
+// //   .actions .dark-toggle .moon{ width: 16px; height: 16px; }
+// // }
+
+// // /* Responsive du header */
+// // @media (max-width: 1100px){
+// //   .app-header__grid{
+// //     grid-template-columns: 1fr auto;
+// //     grid-template-areas:
+// //       "brand actions"
+// //       "center center";
+// //     row-gap: 12px;
+// //   }
+// //   .brand  { grid-area: brand; }
+// //   .center { grid-area: center; }
+// //   .actions{ grid-area: actions; }
+// // }
+
+// :host {
+//     display: block;
+// }
+
+// /* Espace global autour du header */
+// .app-header {
+//     --accent: var(--accent, #2CEAC6);
+//     --accent-glow: var(--accent-glow, rgba(44, 234, 198, .25));
+//     padding: 10px 24px 2px;
+// }
+
+// /* Grille 2 lignes / 3 colonnes pour reproduire la maquette
+//    brand (logo) au-dessus de clock ; nav au centre sur 2 lignes ; actions à droite */
+// .app-header__grid {
+//     display: grid;
+//     grid-template-columns: minmax(280px, 420px) 1fr minmax(180px, 240px);
+//     grid-template-rows: auto auto;
+//     grid-template-areas:
+//         "brand  center actions"
+//         "clock  center actions";
+//     align-items: center;
+//     column-gap: 24px;
+//     row-gap: 6px;
+// }
+
+// /* Zones */
+// .brand {
+//     grid-area: brand;
+//     display: flex;
+//     align-items: flex-start;
+// }
+
+// .center {
+//     grid-area: center;
+//     display: flex;
+//     justify-content: center;
+// }
+
+// .actions {
+//     grid-area: actions;
+//     display: flex;
+//     justify-content: flex-end;
+// }
+
+// .clock-slot {
+//     grid-area: clock;
+//     display: flex;
+//     align-items: flex-start;
+// }
+
+// /* Petits ajustements visuels pour coller à la maquette */
+// .brand {
+//     padding-left: 8px;
+// }
+
+// /* logo un peu rentré */
+// .clock-slot {
+//     margin-left: 28px;
+//     margin-top: -6px;
+// }
+
+// /* horloge sous le logo, légèrement décalée */
+
+// /* Bouton DARK MODE (même style que page publique) */
+// .actions .dark-toggle {
+//     --_accent: var(--accent, #2CEAC6);
+//     --_glow: var(--accent-glow, rgba(44, 234, 198, .25));
+//     --_bg: #0b0f10;
+//     --_fg: #ffffff;
+
+//     appearance: none;
+//     border: none;
+//     background: none;
+
+//     display: inline-flex;
+//     align-items: center;
+//     gap: 8px;
+
+//     padding: 6px 14px;
+//     background-color: var(--_bg);
+//     color: var(--_fg);
+//     border: 2px solid var(--_accent);
+//     border-radius: 999px;
+//     box-shadow: 0 0 0 3px rgba(44, 234, 198, .14), 0 6px 14px rgba(0, 0, 0, .25);
+//     font-weight: 800;
+//     letter-spacing: .07em;
+//     text-transform: uppercase;
+//     line-height: 1;
+//     cursor: pointer;
+//     user-select: none;
+// }
+
+// .actions .dark-toggle .moon {
+//     width: 18px;
+//     height: 18px;
+//     color: #C9C7C7;
+//     filter: drop-shadow(0 0 1px rgba(0, 0, 0, .35));
+// }
+
+// .actions .dark-toggle:hover {
+//     background: #111;
+//     box-shadow: 0 0 0 3px rgba(44, 234, 198, .18), 0 0 14px var(--_glow), 0 8px 18px rgba(0, 0, 0, .28);
+// }
+
+// .actions .dark-toggle:active {
+//     transform: translateY(1px);
+// }
+
+// .actions .dark-toggle:focus-visible {
+//     outline: none;
+//     box-shadow: 0 0 0 2px #fff inset, 0 0 0 3px var(--_accent), 0 0 12px var(--_glow);
+// }
+
+// /* Responsive : nav passe en dessous sur petits écrans */
+// @media (max-width: 1100px) {
+//     .app-header__grid {
+//         grid-template-columns: 1fr auto;
+//         grid-template-rows: auto auto auto;
+//         grid-template-areas:
+//             "brand  actions"
+//             "clock  actions"
+//             "center center";
+//         row-gap: 10px;
+//     }
+
+//     .brand {
+//         padding-left: 0;
+//     }
+
+//     .clock-slot {
+//         margin-left: 10px;
+//         margin-top: 0;
+//     }
+// }
+/* Le centrage est géré par le layout; on garde juste un host propre */
+:host { display: inline-block; }

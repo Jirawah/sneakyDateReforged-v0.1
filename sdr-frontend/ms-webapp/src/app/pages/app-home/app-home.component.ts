@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 
 import { AppHeaderComponent } from '../../shared/ui/app-header/app-header.component';
-import { AppNavComponent } from '../../shared/ui/app-nav/app-nav.component';
+// import { AppNavComponent } from '../../shared/ui/app-nav/app-nav.component';
 import { UserSidebarComponent } from '../../shared/ui/user-sidebar/user-sidebar.component';
 import { FriendsListsComponent } from '../../shared/ui/friends-lists/friends-lists.component';
 
@@ -17,7 +17,7 @@ import { ProfileService } from '../../core/services/profile.service';
   imports: [
     CommonModule,
     AppHeaderComponent,
-    AppNavComponent,
+    //AppNavComponent,
     UserSidebarComponent,
     FriendsListsComponent
   ],

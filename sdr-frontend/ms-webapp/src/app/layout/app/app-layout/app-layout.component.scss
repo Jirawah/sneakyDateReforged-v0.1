@@ -1,0 +1,279 @@
+// // :host { display: block; }
+
+// // /* Bandeau haut avec grille 2 lignes / 3 colonnes (comme la maquette) */
+// // .layout-topbar{
+// //   --accent: var(--accent, #2CEAC6);
+// //   --glow:   var(--accent-glow, rgba(44,234,198,.25));
+
+// //   padding: 10px 24px 2px;
+
+// //   display: grid;
+// //   grid-template-columns: minmax(280px, 420px) 1fr minmax(180px, 240px);
+// //   grid-template-rows: auto auto;
+// //   grid-template-areas:
+// //     "brand nav actions"
+// //     "clock nav actions";
+// //   align-items: center;
+// //   column-gap: 24px;
+// //   row-gap: 6px;
+// // }
+
+// // /* Zones */
+// // .brand   { grid-area: brand; display:flex; flex-direction:column; align-items:flex-start; }
+// // .nav     { grid-area: nav;   display:flex; justify-content:center; }
+// // .actions { grid-area: actions; display:flex; justify-content:flex-end; }
+
+// // /* Légers ajustements visuels pour coller à la maquette */
+// // .brand { padding-left: 8px; }
+// // .clock-wrap { margin-left: 28px; margin-top: -6px; } /* horloge sous le logo, un peu décalée */
+// // .clock-wrap app-clock { display:inline-block; }
+
+// // /* Bouton DARK MODE (identique au public) */
+// // .dark-toggle{
+// //   --_accent: var(--accent, #2CEAC6);
+// //   --_glow:   var(--accent-glow, rgba(44,234,198,.25));
+// //   --_bg: #0b0f10;
+// //   --_fg: #ffffff;
+
+// //   appearance: none;
+// //   border: none;
+// //   background: none;
+
+// //   display: inline-flex;
+// //   align-items: center;
+// //   gap: 8px;
+
+// //   padding: 6px 14px;
+// //   background-color: var(--_bg);
+// //   color: var(--_fg);
+// //   border: 2px solid var(--_accent);
+// //   border-radius: 999px;
+// //   box-shadow: 0 0 0 3px rgba(44,234,198,.14), 0 6px 14px rgba(0,0,0,.25);
+// //   font-weight: 800;
+// //   letter-spacing: .07em;
+// //   text-transform: uppercase;
+// //   line-height: 1;
+// //   cursor: pointer;
+// //   user-select: none;
+// // }
+// // .dark-toggle .moon{
+// //   width: 18px; height: 18px; color: #C9C7C7;
+// //   filter: drop-shadow(0 0 1px rgba(0,0,0,.35));
+// // }
+// // .dark-toggle:hover{
+// //   background:#111;
+// //   box-shadow: 0 0 0 3px rgba(44,234,198,.18), 0 0 14px var(--_glow), 0 8px 18px rgba(0,0,0,.28);
+// // }
+// // .dark-toggle:active{ transform: translateY(1px); }
+// // .dark-toggle:focus-visible{
+// //   outline: none;
+// //   box-shadow: 0 0 0 2px #fff inset, 0 0 0 3px var(--_accent), 0 0 12px var(--_glow);
+// // }
+
+// // /* Responsive : nav passe sous le bloc gauche */
+// // @media (max-width: 1100px){
+// //   .layout-topbar{
+// //     grid-template-columns: 1fr auto;
+// //     grid-template-rows: auto auto auto;
+// //     grid-template-areas:
+// //       "brand  actions"
+// //       "clock  actions"
+// //       "nav    nav";
+// //     row-gap: 10px;
+// //   }
+// //   .brand { padding-left: 0; }
+// //   .clock-wrap { margin-left: 10px; margin-top: 0; }
+// // }
+// :host { display: block; }
+
+// /* ---------- TOPBAR FIXE (non responsive) ---------- */
+// .layout-topbar{
+//   /* variables d’alignement (ajuste si besoin) */
+//   --brand-left: 56px;
+//   --brand-top: 68px;
+
+//   --clock-left: 86px;
+//   --clock-top: 64px;
+
+//   --dark-right: 106px;
+//   --dark-top: 78px;
+
+//   /* taille du logo transmise au composant <app-logo> */
+//   --logo-h: 46px;
+
+//   position: relative;
+//   height: 120px;                /* réserve la hauteur du bandeau */
+//   padding: 10px 24px 0;
+//   margin-bottom: 10px;          /* petit espace sous le bandeau */
+// }
+
+// /* LOGO (en haut à gauche) */
+// .layout-topbar .brand{
+//   position: absolute;
+//   left: var(--brand-left);
+//   top:  var(--brand-top);
+//   display: flex;
+//   align-items: flex-start;
+//   z-index: 3;
+// }
+
+// /* HORLOGE (sous le logo, légèrement décalée) */
+// .layout-topbar .clock-wrap{
+//   position: absolute;
+//   left: var(--clock-left);
+//   top:  var(--clock-top);
+//   z-index: 3;
+// }
+
+// /* BOUTON DARK MODE (en haut à droite) */
+// .layout-topbar .actions{
+//   position: absolute;
+//   right: var(--dark-right);
+//   top:   var(--dark-top);
+//   z-index: 3;
+// }
+
+// /* =============== Bouton DARK MODE (identique au public) =============== */
+// .dark-toggle{
+//   --_accent: var(--accent, #2CEAC6);
+//   --_glow:   var(--accent-glow, rgba(44,234,198,.25));
+//   --_bg: #0b0f10;
+//   --_fg: #ffffff;
+
+//   appearance: none;
+//   border: none;
+//   background: none;
+
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 8px;
+
+//   padding: 6px 14px;
+//   background-color: var(--_bg);
+//   color: var(--_fg);
+//   border: 2px solid var(--_accent);
+//   border-radius: 999px;
+//   box-shadow: 0 0 0 3px rgba(44,234,198,.14), 0 6px 14px rgba(0,0,0,.25);
+//   font-weight: 800;
+//   letter-spacing: .07em;
+//   text-transform: uppercase;
+//   line-height: 1;
+//   cursor: pointer;
+//   user-select: none;
+// }
+// .dark-toggle .moon{
+//   width: 18px; height: 18px; color: #C9C7C7;
+//   filter: drop-shadow(0 0 1px rgba(0,0,0,.35));
+// }
+// .dark-toggle:hover{
+//   background:#111;
+//   box-shadow: 0 0 0 3px rgba(44,234,198,.18), 0 0 14px var(--_glow), 0 8px 18px rgba(0,0,0,.28);
+// }
+// .dark-toggle:active{ transform: translateY(1px); }
+// .dark-toggle:focus-visible{
+//   outline: none;
+//   box-shadow: 0 0 0 2px #fff inset, 0 0 0 3px var(--_accent), 0 0 12px var(--_glow);
+// }
+
+// /* On supprime/ignore le @media grid précédent puisque pas de responsive ici */
+:host { display: block; }
+
+/* ---------- TOPBAR FIXE (non responsive) ---------- */
+.layout-topbar{
+  /* variables d’alignement (ajuste si besoin) */
+  --brand-left: 51px;
+  --brand-top: 58px;
+
+  --clock-left: 86px;
+  --clock-top: 58px;
+
+  --dark-right: 134px;
+  --dark-top: 68px;
+
+  --nav-top: 38px;     /* position verticale de la nav au centre */
+  --logo-h: 44px;   
+  --nav-nudge: 6px;   /* taille du logo (utilisée par <app-logo>) */
+
+  position: relative;
+  height: 140px;       /* réserve la hauteur du bandeau */
+}
+
+/* LOGO (en haut à gauche) */
+.layout-topbar .brand{
+  position: absolute;
+  left: var(--brand-left);
+  top:  var(--brand-top);
+  display: flex;
+  align-items: flex-start;
+  z-index: 3;
+}
+
+/* HORLOGE (sous le logo) */
+.layout-topbar .clock-wrap{
+  position: absolute;
+  left: var(--clock-left);
+  top:  var(--clock-top);
+  z-index: 3;
+}
+
+/* NAV centrée horizontalement dans le bandeau */
+.layout-topbar .nav{
+  position: absolute;
+  width: 1080px;
+  left: 50%;
+  top: var(--nav-top);
+//   transform: translateX(-50%);
+transform: translateX(calc(-50% + var(--nav-nudge)));
+  z-index: 2;           /* sous le logo/bouton si chevauchement */
+  pointer-events: auto; /* cliquable */
+}
+
+/* BOUTON DARK MODE (en haut à droite) */
+.layout-topbar .actions{
+  position: absolute;
+  right: var(--dark-right);
+  top:   var(--dark-top);
+  z-index: 3;
+}
+
+/* ====== Bouton DARK MODE (identique au public) ====== */
+.dark-toggle{
+  --_accent: var(--accent, #2CEAC6);
+  --_glow:   var(--accent-glow, rgba(44,234,198,.25));
+  --_bg: #0b0f10;
+  --_fg: #ffffff;
+
+  appearance: none;
+  border: none;
+  background: none;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 14px;
+  background-color: var(--_bg);
+  color: var(--_fg);
+  border: 2px solid var(--_accent);
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px rgba(44,234,198,.14), 0 6px 14px rgba(0,0,0,.25);
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+}
+.dark-toggle .moon{
+  width: 18px; height: 18px; color: #C9C7C7;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,.35));
+}
+.dark-toggle:hover{
+  background:#111;
+  box-shadow: 0 0 0 3px rgba(44,234,198,.18), 0 0 14px var(--_glow), 0 8px 18px rgba(0,0,0,.28);
+}
+.dark-toggle:active{ transform: translateY(1px); }
+.dark-toggle:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 2px #fff inset, 0 0 0 3px var(--_accent), 0 0 12px var(--_glow);
+}

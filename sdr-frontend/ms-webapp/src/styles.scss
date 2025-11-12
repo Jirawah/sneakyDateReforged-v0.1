@@ -67,7 +67,7 @@ body {
 .shell-body {
   flex: 1 1 auto;
   min-height: 0;
-  overflow: auto;
+  overflow: hidden;
   padding-inline: var(--shell-pad-inline);
   padding-block: 16px;
 }

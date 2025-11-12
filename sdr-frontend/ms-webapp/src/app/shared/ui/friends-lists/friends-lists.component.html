@@ -1,1 +1,39 @@
-<p>friends-lists works!</p>
+<aside class="friends-aside" aria-labelledby="friendsTitle">
+  <header class="aside-head">
+    <h3 id="friendsTitle" class="title">AMIS</h3>
+  </header>
+
+  <ul class="friend-list" role="list">
+    <li *ngFor="let f of friends"
+        class="friend-card"
+        [class.is-online]="f?.online"
+        [class.is-offline]="!f?.online">
+      <ng-container *ngIf="f?.avatarUrl; else initials">
+        <img class="avatar" [src]="f.avatarUrl!" [alt]="f.pseudo" />
+      </ng-container>
+      <ng-template #initials>
+        <div class="avatar placeholder" aria-hidden="true">
+          {{ (f?.pseudo || '?') | slice:0:1 }}
+        </div>
+      </ng-template>
+
+      <div class="meta">
+        <div class="name">{{ f?.pseudo }}</div>
+        <div class="status">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="label">{{ statusLabel(f) }}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <!-- <h4 class="block-title">Invitations</h4>
+  <ul class="invite-list" role="list">
+    <li *ngFor="let inv of invitations" class="invite-card">
+      <span class="name">{{ inv?.pseudo }}</span>
+      <span class="spacer"></span>
+      <button type="button" class="btn-accept" (click)="accept.emit(inv)">Accepter</button>
+      <button type="button" class="btn-decline" (click)="decline.emit(inv)">Refuser</button>
+    </li>
+  </ul> -->
+</aside>

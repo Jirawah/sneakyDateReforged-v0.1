@@ -1,1 +1,87 @@
-<p>app-header works!</p>
+<!-- <header class="app-header">
+  <div class="app-header__grid">
+    
+    <div class="brand">
+      <app-logo [target]="target"></app-logo>
+      <div class="clock-wrap">
+        <app-clock></app-clock>
+      </div>
+    </div>
+
+    
+    <div class="center">
+      <app-nav></app-nav>
+    </div>
+
+    
+    <div class="actions">
+      <button class="dark-toggle" type="button" (click)="toggleTheme()">
+        <span class="moon" aria-hidden="true">◐</span>
+        <span>DARK MODE</span>
+      </button>
+    </div>
+  </div>
+</header> -->
+<!-- shared/ui/app-header/app-header.component.html -->
+
+<!-- <header class="app-header">
+  <div class="app-header__grid">
+    <div class="brand">
+      <app-logo [target]="target"></app-logo>
+      <div class="clock-wrap">
+        <app-clock></app-clock>
+      </div>
+    </div>
+
+    <div class="center">
+      <app-nav></app-nav>
+    </div>
+
+    <div class="actions">
+      <button
+        type="button"
+        class="dark-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-pressed]="isDark"
+      >
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="currentColor"/>
+        </svg>
+        <span class="label">DARK MODE</span>
+      </button>
+    </div>
+  </div>
+</header> -->
+
+<!-- <header class="app-header">
+  <div class="app-header__grid">
+
+    <div class="brand" aria-label="Marque">
+      <app-logo [target]="target"></app-logo>
+    </div>
+
+    <div class="center" aria-label="Navigation principale">
+      <app-nav></app-nav>
+    </div>
+
+    <div class="actions">
+      <button
+        type="button"
+        class="dark-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-pressed]="isDark"
+      >
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="currentColor"/>
+        </svg>
+        <span class="label">DARK MODE</span>
+      </button>
+    </div>
+
+    <div class="clock-slot">
+      <app-clock></app-clock>
+    </div>
+  </div>
+</header> -->
+<!-- Le header n'encapsule plus que la barre de navigation -->
+

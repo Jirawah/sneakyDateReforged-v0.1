@@ -1,0 +1,320 @@
+// // // // :host { display: inline-flex; }
+
+// // // // .app-nav{
+// // // //   --accent: var(--accent, #2CEAC6);
+// // // //   --glow:   var(--accent-glow, rgba(44,234,198,.25));
+// // // //   --ink:    #0b0f10;
+
+// // // //   display: inline-flex;
+// // // //   align-items: center;
+// // // //   gap: 20px;
+
+// // // //   padding: 12px 18px;
+// // // //   border-radius: 999px;
+// // // //   background: #0b0f10;
+// // // //   border: 3px solid var(--accent);
+// // // //   box-shadow: 0 0 0 6px var(--glow), 0 10px 22px rgba(0,0,0,.25);
+// // // // }
+
+// // // // .app-nav__link{
+// // // //   position: relative;
+// // // //   color: #fff;
+// // // //   text-decoration: none;
+// // // //   text-transform: uppercase;
+// // // //   font-weight: 900;
+// // // //   letter-spacing: .06em;
+// // // //   padding: 6px 20px;
+// // // //   border-radius: 999px;
+// // // //   transition: transform .08s ease;
+
+// // // //   &:hover { transform: translateY(-1px); }
+
+// // // //   /* Séparateur pointillé entre items (sauf le 1er) */
+// // // //   & + .app-nav__link::before{
+// // // //     content: "";
+// // // //     position: absolute;
+// // // //     left: -10px; top: 50%;
+// // // //     transform: translateY(-50%);
+// // // //     height: 70%;
+// // // //     border-left: 3px dotted var(--accent);
+// // // //     opacity: .85;
+// // // //   }
+
+// // // //   &.is-active{
+// // // //     outline: 2px solid var(--accent);
+// // // //     outline-offset: 2px;
+// // // //   }
+// // // // }
+
+// // // // /* Nav plus compacte sur petits écrans */
+// // // // @media (max-width: 1100px){
+// // // //   .app-nav{ padding: 10px 14px; gap: 14px; }
+// // // //   .app-nav__link{ padding: 6px 14px; }
+// // // // }
+// // // :host { display: inline-block; }
+
+// // // /* Pilule noire façon "home-switch" */
+// // // .app-nav{
+// // //   --accent: var(--accent, #2CEAC6);
+// // //   --glow:   var(--accent-glow, rgba(44,234,198,.22));
+
+// // //   display: inline-flex;
+// // //   align-items: center;
+// // //   gap: 40px;                      /* espace entre libellés */
+// // //   padding: 6px 50px;              /* même “épaisseur” que le switch public */
+// // //   border: 2px solid var(--accent);
+// // //   border-radius: 999px;
+// // //   background: #0b0f10;
+// // //   box-shadow: 0 0 10px var(--glow);  /* halo doux comme le switch */
+// // // }
+
+// // // /* Liens = mêmes “chips” que les boutons du switch (sans bord) */
+// // // .app-nav__link{
+// // //   position: relative;
+// // //   color: #fff;
+// // //   text-decoration: none;
+// // //   text-transform: uppercase;
+// // //   font-weight: 800;
+// // //   letter-spacing: .15em;          /* idem switch */
+// // //   line-height: 1;
+// // //   padding: 4px 22px;
+// // //   border-radius: 999px;
+// // //   transition: background-color .2s ease, transform .06s ease;
+
+// // //   &:hover{
+// // //     background-color: rgba(255,255,255,.09);
+// // //     transform: translateY(-1px);
+// // //   }
+
+// // //   /* Séparateur vertical en pointillés turquoise – même logique que .switch-divider */
+// // //   & + .app-nav__link::before{
+// // //     content: "";
+// // //     position: absolute;
+// // //     left: -30px;
+// // //     top: 50%;
+// // //     transform: translateY(-50%);
+// // //     width: 1px;
+// // //     height: 22px;
+// // //     opacity: .9;
+// // //     background:
+// // //       repeating-linear-gradient(
+// // //         to bottom,
+// // //         var(--accent) 0 2px,
+// // //         transparent 2px 4px
+// // //       );
+// // //     pointer-events: none;
+// // //   }
+
+// // //   /* État actif = léger fond + trait intérieur (comme les boutons actifs du switch) */
+// // //   &.is-active,
+// // //   &[aria-current="page"]{
+// // //     background-color: rgba(44,234,198,.18);
+// // //     box-shadow: 0 0 0 2px var(--accent) inset;
+// // //   }
+// // // }
+
+// // // /* Version un peu plus compacte en dessous de 1100px (comme ton switch) */
+// // // @media (max-width: 1100px){
+// // //   .app-nav{ gap: 24px; padding: 6px 24px; }
+// // //   .app-nav__link + .app-nav__link::before{ left: -18px; height: 18px; }
+// // // }
+// // :host { display: inline-block; }
+
+// // /* Barre pilule identique au switch public */
+// // .app-nav{
+// //   --accent: var(--accent, #2CEAC6);
+// //   --glow:   var(--accent-glow, rgba(44,234,198,.22));
+
+// //   /* >>> le même gap est réutilisé pour positionner le séparateur */
+// //   --sep-gap: 56px;     /* espace entre items (tu peux ajuster) */
+// //   --sep-h: 22px;       /* hauteur des pointillés */
+// //   --sep-dash: 2px;     /* taille d’un point */
+// //   --sep-space: 4px;    /* espace entre points */
+
+// //   display: inline-flex;
+// //   align-items: center;
+// //   gap: var(--sep-gap);
+
+// //   padding: 6px 50px;
+// //   border: 2px solid var(--accent);
+// //   border-radius: 999px;
+// //   background: #0b0f10;
+// //   box-shadow: 0 0 10px var(--glow);
+// // }
+
+// // /* Liens (chips) */
+// // .app-nav__link{
+// //   position: relative;
+// //   color: #fff;
+// //   text-decoration: none;
+// //   text-transform: uppercase;
+// //   font-weight: 800;
+// //   letter-spacing: .15em;
+// //   line-height: 1;
+// //   padding: 4px 22px;
+// //   border-radius: 999px;
+// //   transition: background-color .2s ease, transform .06s ease;
+
+// //   &:hover{
+// //     background-color: rgba(255,255,255,.09);
+// //     transform: translateY(-1px);
+// //   }
+
+// //   /* Pointillés exactement au milieu du gap */
+// //   & + .app-nav__link::before{
+// //     content: "";
+// //     position: absolute;
+// //     top: 50%;
+// //     left: calc(-1 * var(--sep-gap) / 2);   /* centre du gap */
+// //     transform: translateY(-50%);
+// //     width: 1px;
+// //     height: var(--sep-h);
+// //     opacity: .9;
+// //     background:
+// //       repeating-linear-gradient(
+// //         to bottom,
+// //         var(--accent) 0 var(--sep-dash),
+// //         transparent var(--sep-dash) calc(var(--sep-dash) + var(--sep-space))
+// //       );
+// //     pointer-events: none;
+// //   }
+
+// //   /* État actif : discret comme le switch public */
+// //   &.is-active,
+// //   &[aria-current="page"]{
+// //     background-color: rgba(44,234,198,.18);
+// //     box-shadow: 0 0 0 2px var(--accent) inset;
+// //   }
+// // }
+
+// // /* Compact en dessous de 1100px */
+// // @media (max-width: 1100px){
+// //   .app-nav{ --sep-gap: 32px; padding: 6px 24px; }
+// //   .app-nav__link{ padding: 4px 16px; }
+// //   .app-nav__link + .app-nav__link::before{ height: 18px; }
+// // }
+// :host { display: inline-block; }
+
+// /* Pilule noire dans l’esprit du switch public */
+// .app-nav{
+//   --accent: var(--accent, #2CEAC6);
+//   --glow:   var(--accent-glow, rgba(44,234,198,.22));
+
+//   display: inline-flex;
+//   align-items: center;
+
+//   padding: 6px 50px;
+//   border: 2px solid var(--accent);
+//   border-radius: 999px;
+//   background: #0b0f10;
+//   box-shadow: 0 0 10px var(--glow);
+// }
+
+// /* Liens = mêmes “chips” que les boutons du switch */
+// .app-nav__link{
+//   color: #fff;
+//   text-decoration: none;
+//   text-transform: uppercase;
+//   font-weight: 800;
+//   letter-spacing: .15em;
+//   line-height: 1;
+//   padding: 4px 22px;
+//   border-radius: 999px;
+//   transition: background-color .2s ease, transform .06s ease;
+
+//   &:hover{
+//     background-color: rgba(255,255,255,.09);
+//     transform: translateY(-1px);
+//   }
+
+//   &.is-active,
+//   &[aria-current="page"]{
+//     background-color: rgba(44,234,198,.18);
+//     box-shadow: 0 0 0 2px var(--accent) inset;
+//   }
+// }
+
+// /* Séparateur pointillé (exactement comme .switch-divider) */
+// .app-nav__divider{
+//   flex: 0 0 auto;
+//   width: 1px;
+//   height: 22px;
+//   margin: 0 34px;                 /* espace de part et d'autre */
+//   opacity: .9;
+//   background:
+//     repeating-linear-gradient(
+//       to bottom,
+//       var(--accent) 0 2px,
+//       transparent 2px 4px
+//     );
+// }
+
+// /* Compact en dessous de 1100px */
+// @media (max-width: 1100px){
+//   .app-nav{ padding: 6px 24px; }
+//   .app-nav__link{ padding: 4px 16px; }
+//   .app-nav__divider{ margin: 0 18px; height: 18px; }
+// }
+:host { display: inline-block; }
+
+/* Pilule noire façon switch public */
+.app-nav{
+  /* ⚠️ pas d'auto-référence : on crée des alias locaux */
+  --accent-c: var(--accent, #2CEAC6);
+  --glow-c:   var(--accent-glow, rgba(44,234,198,.22));
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 26px;
+  border: 3px solid var(--accent-c);
+  border-radius: 999px;
+  background: #0b0f10;
+}
+
+/* Liens = mêmes “chips” que le switch public */
+.app-nav__link{
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: .15em;
+  line-height: 1;
+  padding: 4px 26px;
+  border-radius: 999px;
+  transition: background-color .2s ease, transform .06s ease;
+
+  &:hover{
+    background-color: rgba(255,255,255,.09);
+    transform: translateY(-1px);
+  }
+
+  &.is-active,
+  &[aria-current="page"]{
+    background-color: rgba(44,234,198,.18);
+    box-shadow: 0 0 0 2px var(--accent-c) inset;
+  }
+}
+
+/* Séparateur pointillé turquoise (comme .switch-divider) */
+.app-nav__divider{
+  display: block;              /* ← rend la largeur/hauteur effectives */
+  flex: 0 0 auto;
+  width: 1px;
+  height: 26px;
+  margin: 0 18px;
+  opacity: .9;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--accent-c) 0 2px,
+      transparent     2px 4px
+    );
+}
+
+/* Version compacte */
+@media (max-width: 1100px){
+  .app-nav{ padding: 6px 24px; }
+  .app-nav__link{ padding: 4px 16px; }
+  .app-nav__divider{ margin: 0 18px; height: 18px; }
+}

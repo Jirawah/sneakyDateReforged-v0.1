@@ -9,9 +9,7 @@
   </aside>
 
   <!-- Colonne centrale : nav + contenu principal -->
-  <main class="app-home__center">
-    <app-nav></app-nav>
-
+  <!-- <main class="app-home__center">
     <ng-container *ngIf="profile$ | async as profile">
       <section class="main-card">
         <h2 class="main-card__title">Bienvenue, {{ profile.pseudo }}</h2>
@@ -20,6 +18,24 @@
         </p>
       </section>
     </ng-container>
+  </main> -->
+  <main class="app-home__center">
+    <!-- HERO : image fournie telle quelle -->
+    <section class="hero">
+      <figure class="hero-frame">
+        <img class="hero-img" src="/assets/home/app-home-pic.png" alt="No Cheaters" />
+      </figure>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip">
+      <p class="cta-strip__text">
+        Créer tes RDV ou demande à participer aux autres membres
+      </p>
+      <button class="cta-strip__btn" type="button">
+        C’EST PAR ICI !
+      </button>
+    </section>
   </main>
 
   <!-- Colonne droite : listes d'amis & invitations -->

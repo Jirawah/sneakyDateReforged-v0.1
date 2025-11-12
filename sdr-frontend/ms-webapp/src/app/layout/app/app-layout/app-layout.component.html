@@ -1,7 +1,79 @@
-<div class="page-frame">
+<!-- <div class="page-frame">
   <div class="shell">
     <div class="shell-body">
       <router-outlet></router-outlet>
     </div>
   </div>
+</div> -->
+<!-- <div class="page-frame">
+  <div class="shell">
+
+   
+    <header class="layout-topbar" aria-label="En-tête application">
+      <div class="brand">
+        <app-logo target="app"></app-logo>
+        <div class="clock-wrap">
+          <app-clock></app-clock>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button
+          type="button"
+          class="dark-toggle"
+          (click)="toggleTheme()"
+          [attr.aria-pressed]="isDark"
+        >
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="currentColor"/>
+          </svg>
+          <span class="label">DARK MODE</span>
+        </button>
+      </div>
+    </header>
+
+    
+    <div class="shell-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div> -->
+<div class="page-frame">
+  <div class="shell">
+
+    <!-- Topbar “figée” : logo + horloge (gauche), NAV centrée, dark mode (droite) -->
+    <header class="layout-topbar" aria-label="En-tête application">
+      <div class="brand">
+        <app-logo target="app"></app-logo>
+        <div class="clock-wrap">
+          <app-clock></app-clock>
+        </div>
+      </div>
+
+      <!-- NAV centrée dans le bandeau -->
+      <div class="nav">
+        <app-nav></app-nav>
+      </div>
+
+      <div class="actions">
+        <button
+          type="button"
+          class="dark-toggle"
+          (click)="toggleTheme()"
+          [attr.aria-pressed]="isDark"
+        >
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="currentColor"/>
+          </svg>
+          <span class="label">DARK MODE</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Contenu des pages -->
+    <div class="shell-body">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+

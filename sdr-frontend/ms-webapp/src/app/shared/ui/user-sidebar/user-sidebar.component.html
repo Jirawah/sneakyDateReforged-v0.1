@@ -18,18 +18,24 @@
   <!-- Section RDV -->
   <h3 class="section-title">MES RDV</h3>
 
+  <!-- 1) Carte simple -->
   <div class="stat-card">
     <span class="stat-card__label">Nombres de RDV</span>
     <span class="pill">{{ p.rdvCount ?? 0 }}</span>
   </div>
 
-  <div class="stat-card">
-    <span class="stat-card__label">Prochain RDV</span>
-    <span class="pill">{{ fakeNextRdvDate }}</span>
-  </div>
+  <!-- 2) Carte groupée (Prochain RDV + Horaire) -->
+  <div class="stat-group">
+    <div class="stat-line">
+      <span class="stat-card__label">Prochain RDV</span>
+      <span class="pill">{{ fakeNextRdvDate }}</span>
+    </div>
 
-  <div class="stat-card">
-    <span class="stat-card__label">Horaire</span>
-    <span class="pill">{{ fakeNextRdvTime }}</span>
+    <div class="separator"></div>
+
+    <div class="stat-line">
+      <span class="stat-card__label">Horaire</span>
+      <span class="pill">{{ fakeNextRdvTime }}</span>
+    </div>
   </div>
 </aside>
